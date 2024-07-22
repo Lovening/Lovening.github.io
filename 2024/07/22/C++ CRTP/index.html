@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="C++ CRTP 定义CRTP的全程是 Curiously Recurring Template Pattern 中文翻译成 奇异递归模板模式, 常用于实现编译时多态（静态多态），与运行时多态（通过虚函数实现）相对。这种模式通过基类模板和派生类的相互作用实现，允许在编译时进行方法的调用决议，从而提高效率 12345678910111213141516171819202122template &amp;lt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="吴晓宁blog">
+<meta property="og:url" content="https://blog.isroots.com/2024/07/22/C++%20CRTP/index.html">
+<meta property="og:site_name" content="吴晓宁blog">
+<meta property="og:description" content="C++ CRTP 定义CRTP的全程是 Curiously Recurring Template Pattern 中文翻译成 奇异递归模板模式, 常用于实现编译时多态（静态多态），与运行时多态（通过虚函数实现）相对。这种模式通过基类模板和派生类的相互作用实现，允许在编译时进行方法的调用决议，从而提高效率 12345678910111213141516171819202122template &amp;lt">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-22T06:40:30.816Z">
+<meta property="article:modified_time" content="2024-07-22T06:40:30.816Z">
+<meta property="article:author" content="吴晓宁">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.isroots.com/2024/07/22/C++%20CRTP/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 吴晓宁blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">吴晓宁blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">吴晓宁blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/C++%20CRTP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>C++ CRTP</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>CRTP的全程是 <code>Curiously Recurring Template Pattern</code> 中文翻译成 <code>奇异递归模板模式,</code> <strong>常用于实现编译时多态（静态多态），与运行时多态（通过虚函数实现）相对。这种模式通过基类模板和派生类的相互作用实现，允许在编译时进行方法的调用决议，从而提高效率</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123; </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">interface</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 静态地调用派生类的方法</span></span><br><span class="line">        <span class="built_in">static_cast</span>&lt;T*&gt;(<span class="keyword">this</span>)-&gt;<span class="built_in">implementation</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">implementation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 基类的实现，可以被覆盖</span></span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Base implementation&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base1</span>:<span class="keyword">public</span> Base&lt;Base1&gt; &#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">implementation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 派生类的具体实现</span></span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Derived implementation&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="CRTP-优点"><a href="#CRTP-优点" class="headerlink" title="CRTP 优点"></a>CRTP 优点</h2><p>通过 <code>CRTP</code> 我们可以实现不依赖虚函数实现多态，这种方式没有虚函数的调用，解决了虚函数的开销，性能更好，同时，派生类没有实现某个必要的函数，编译器可以直接报错，提高代码安全性。</p>
+<h2 id="CRTP-析构和删除"><a href="#CRTP-析构和删除" class="headerlink" title="CRTP 析构和删除"></a>CRTP 析构和删除</h2><p>在CRTP 中，我们通过将基类析构函数声明为虚函数，通过基类指针删除派生类对象时，会自动调用派生类的析构函数，进而确保派生类对象的资源得到正确释放</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">template&lt;typename T&gt;</span><br><span class="line">class Base &#123;</span><br><span class="line">public:</span><br><span class="line">    virtual ~Base() &#123;  // 将析构函数声明为虚函数</span><br><span class="line">        std::cout &lt;&lt; &quot;Base::~Base()&quot; &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Derived : public Base&lt;Derived&gt; &#123;</span><br><span class="line">public:</span><br><span class="line">    ~Derived() override &#123;</span><br><span class="line">        std::cout &lt;&lt; &quot;Derived::~Derived()&quot; &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    Base&lt;Derived&gt;* b = new Derived; </span><br><span class="line">    delete b; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="CRTP-的实现"><a href="#CRTP-的实现" class="headerlink" title="CRTP 的实现"></a>CRTP 的实现</h2><h3 id="统计派生类数量"><a href="#统计派生类数量" class="headerlink" title="统计派生类数量"></a>统计派生类数量</h3><p>第一个例子是对象的注册管理，对于一个基类，假如我们要统计某个基类所有派生类的对象的数量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">// 基类模板</span><br><span class="line">template &lt;typename Derived&gt;</span><br><span class="line">class Counter &#123;</span><br><span class="line">private:</span><br><span class="line">    static int count;  // 用于统计派生类对象的数量</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    Counter() &#123;</span><br><span class="line">        ++count;  // 在每个派生类对象构造时增加计数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Counter(const Counter&amp;) &#123;</span><br><span class="line">        ++count;  // 拷贝构造时也需要增加计数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    virtual ~Counter() &#123;&#125;  // 虚析构函数，确保派生类的析构函数被调用</span><br><span class="line"></span><br><span class="line">    static int getCount() &#123;</span><br><span class="line">        return count;  // 静态成员函数，返回创建的对象数量</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 初始化静态成员变量</span><br><span class="line">template &lt;typename Derived&gt;</span><br><span class="line">int Counter&lt;Derived&gt;::count = 0;</span><br><span class="line"></span><br><span class="line">// 派生类1</span><br><span class="line">class Cat : public Counter&lt;Cat&gt; &#123;</span><br><span class="line">    // 特定于Cat的成员和函数</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 派生类2</span><br><span class="line">class Dog : public Counter&lt;Dog&gt; &#123;</span><br><span class="line">    // 特定于Dog的成员和函数</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    Cat cat1;</span><br><span class="line">    Cat cat2;</span><br><span class="line">    Dog dog1;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; &quot;Number of Cats created: &quot; &lt;&lt; Cat::getCount() &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; &quot;Number of Dogs created: &quot; &lt;&lt; Dog::getCount() &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分别打印2和1，基类 Counter 被设计为一个模板类，接受一个类型参数 Derived，这个类型参数指定了将要继承这个基类的派生类。在 Counter 类中，有一个静态成员变量 count：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> count;</span><br></pre></td></tr></table></figure>
+
+<p>这个静态成员变量用于跟踪派生类的实例数量。关键点是，每个具体化的模板实例拥有自己的 count 变量。这意味着 Counter<Cat> 和 Counter<Dog> 分别拥有各自独立的 count 静态成员变量。<strong>这是因为模板在C++中的工作机制：每当模板被一个新的具体类型实例化时，其静态成员也会被复制一份，因此每种类型的 Counter 都有其自己的 count</strong></p>
+<h3 id="通过CRTP来实现访问者模式"><a href="#通过CRTP来实现访问者模式" class="headerlink" title="通过CRTP来实现访问者模式"></a>通过CRTP来实现访问者模式</h3><p>CRTP（Curiously Recurring Template Pattern）可以用来在C++中实现访问者模式，特别是当你希望在编译时保持类型安全而不引入运行时的多态开销时。使用CRTP，我们可以让访问者直接调用适当类型的方法，而不是依赖虚函数。</p>
+<p>访问者模式通常用于操作一个复杂对象结构（如复合模式），允许你对这些对象进行操作而无需修改它们的类。以下是如何结合CRTP和访问者模式的一个示例</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 前向声明</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteElementA</span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteElementB</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问者基类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Visitor</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">visit</span><span class="params">(ConcreteElementA* element)</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">visit</span><span class="params">(ConcreteElementB* element)</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">virtual</span> ~<span class="built_in">Visitor</span>() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 元素基类模板</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 接受访问者的方法，由具体元素实现</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">accept</span><span class="params">(Visitor* visitor)</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">virtual</span> ~<span class="built_in">Element</span>() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体元素A</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteElementA</span> : <span class="keyword">public</span> Element&lt;ConcreteElementA&gt; &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">accept</span><span class="params">(Visitor* visitor)</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">        visitor-&gt;<span class="built_in">visit</span>(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">operationA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;ConcreteElementA Operation.\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体元素B</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteElementB</span> : <span class="keyword">public</span> Element&lt;ConcreteElementB&gt; &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">accept</span><span class="params">(Visitor* visitor)</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">        visitor-&gt;<span class="built_in">visit</span>(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">operationB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;ConcreteElementB Operation.\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>最后，我们演示如何使用这些类：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ConcreteElementA elementA;</span><br><span class="line">    ConcreteElementB elementB;</span><br><span class="line">    ConcreteVisitor visitor;</span><br><span class="line"></span><br><span class="line">    elementA.<span class="built_in">accept</span>(&amp;visitor);</span><br><span class="line">    elementB.<span class="built_in">accept</span>(&amp;visitor);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/07/22/C++%20Pimpl/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/07/22/C++%20Poco%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRTP-%E4%BC%98%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">CRTP 优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRTP-%E6%9E%90%E6%9E%84%E5%92%8C%E5%88%A0%E9%99%A4"><span class="nav-number">3.</span> <span class="nav-text">CRTP 析构和删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRTP-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">CRTP 的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%95%B0%E9%87%8F"><span class="nav-number">4.1.</span> <span class="nav-text">统计派生类数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87CRTP%E6%9D%A5%E5%AE%9E%E7%8E%B0%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">通过CRTP来实现访问者模式</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">吴晓宁</p>
+  <div class="site-description" itemprop="description">记录一些自己的见闻</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴晓宁</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

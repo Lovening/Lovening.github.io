@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Scoop 使用 Excerpt「一行命令」搞定软件 Windows 软件安装卸载   前言Scoop 是一个 Windows 包管理工具，类似于 Debian 的 apt、macOS 的 homebrew。它由开源社区驱动，体验可能是是目前所有 Windows 包管理工具中最好的。对开发者来说，包管理器能非常方便的部署开发环境，比如 Python 、Node.js 。而对于像博主这样的普通的计算">
+<meta property="og:type" content="article">
+<meta property="og:title" content="吴晓宁blog">
+<meta property="og:url" content="https://blog.isroots.com/2024/07/22/Scoop%20%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="吴晓宁blog">
+<meta property="og:description" content="Scoop 使用 Excerpt「一行命令」搞定软件 Windows 软件安装卸载   前言Scoop 是一个 Windows 包管理工具，类似于 Debian 的 apt、macOS 的 homebrew。它由开源社区驱动，体验可能是是目前所有 Windows 包管理工具中最好的。对开发者来说，包管理器能非常方便的部署开发环境，比如 Python 、Node.js 。而对于像博主这样的普通的计算">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-22T06:40:30.956Z">
+<meta property="article:modified_time" content="2024-07-22T06:40:30.956Z">
+<meta property="article:author" content="吴晓宁">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.isroots.com/2024/07/22/Scoop%20%E4%BD%BF%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 吴晓宁blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">吴晓宁blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">吴晓宁blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/Scoop%20%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Scoop-使用"><a href="#Scoop-使用" class="headerlink" title="Scoop 使用"></a>Scoop 使用</h1><blockquote>
+<h2 id="Excerpt"><a href="#Excerpt" class="headerlink" title="Excerpt"></a><strong>Excerpt</strong></h2><p>「一行命令」搞定软件 Windows 软件安装卸载</p>
+</blockquote>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p><a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL2x1a2VzYW1wc29uL3Njb29w">Scoop</a> 是一个 Windows 包管理工具，类似于 Debian 的 <code>apt</code>、macOS 的 <code>homebrew</code>。它由开源社区驱动，体验可能是是目前所有 Windows 包管理工具中最好的。对开发者来说，包管理器能非常方便的部署开发环境，比如 Python 、Node.js 。而对于像博主这样的普通的计算机使用者来说，可以方便的安装一些常用软件，尤其是开源软件，免去了手动去官网下载的繁琐步骤，而且后续对软件进行升级只需要输入一行命令，非常便捷。</p>
+<h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a><strong>环境要求</strong></h2><ul>
+<li><p>Windows 7 SP1 + &#x2F; Windows Server 2008+</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9ha2EubXMvd21mNWRvd25sb2Fk">PowerShell 5</a>（或更高版本，包括 <a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9kb2NzLm1pY3Jvc29mdC5jb20vZW4tdXMvcG93ZXJzaGVsbC9zY3JpcHRpbmcvaW5zdGFsbC9pbnN0YWxsaW5nLXBvd2Vyc2hlbGwtY29yZS1vbi13aW5kb3dzP3ZpZXc9cG93ZXJzaGVsbC02">PowerShell Core</a>）和 <a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly93d3cubWljcm9zb2Z0LmNvbS9uZXQvZG93bmxvYWQ">.NET Framework 4.5</a>（或更高版本）</p>
+</li>
+<li><p>Windows 用户名为英文（Windows 用户环境变量中路径值不支持中文字符）</p>
+</li>
+<li><p><strong>正常、快速</strong>的访问 GitHub 并下载资源</p>
+</li>
+</ul>
+<p>Scoop 默认使用普通用户权限，其本体和安装的软件默认会放在 <code>%USERPROFILE%\scoop</code>(即 <code>C:\Users\用户名\scoop</code>)，使用管理员权限进行全局安装 (<code>-g</code>) 的软件在 <code>C:\ProgramData\scoop</code>。如果有自定安装路径的需求，那么要提前设置好环境变量，否则后续再改不是一件容易的事情。</p>
+<ul>
+<li><p>打开 PowerShell</p>
+</li>
+<li><p>设置用户安装路径</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$env:SCOOP=&#x27;D:\Scoop&#x27;</span><br><span class="line">[Environment]::SetEnvironmentVariable(&#x27;SCOOP&#x27;, $env:SCOOP, &#x27;User&#x27;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置全局安装路径（需要管理员权限）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$env:SCOOP_GLOBAL=&#x27;D:\Scoop_Global&#x27;</span><br><span class="line">[Environment]::SetEnvironmentVariable(&#x27;SCOOP_GLOBAL&#x27;, $env:SCOOP_GLOBAL, &#x27;Machine&#x27;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置允许 PowerShell 执行本地脚本</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装 Scoop</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iwr -useb get.scoop.sh | iex</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>没安装过 Git 则需要安装。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install git</span><br></pre></td></tr></table></figure>
+
+<h2 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a><strong>基础使用</strong></h2><p>最基础的使用方法和其它包管理器类似，这里就不做赘述了，直接上命令列表：</p>
+<ul>
+<li><p><code>scoop search &lt;app&gt;</code> - 搜索软件</p>
+</li>
+<li><p><code>scoop install &lt;app&gt;</code> - 安装软件</p>
+</li>
+<li><p><code>scoop info &lt;app&gt;</code> - 查看软件详细信息</p>
+</li>
+<li><p><code>scoop list</code> - 查看已安装软件</p>
+</li>
+<li><p><code>scoop uninstall &lt;app&gt;</code> - 卸载软件，<code>-p</code>删除配置文件。</p>
+</li>
+<li><p><code>scoop update</code> - 更新 scoop 本体和软件列表</p>
+</li>
+<li><p><code>scoop update &lt;app&gt;</code> - 更新指定软件</p>
+</li>
+<li><p><code>scoop update *</code> - 更新所有已安装的软件</p>
+</li>
+<li><p><code>scoop checkup</code> - 检查 scoop 的问题并给出解决问题的建议</p>
+</li>
+<li><p><code>scoop help</code> - 查看命令列表</p>
+</li>
+<li><p><code>scoop help &lt;command&gt;</code> - 查看命令帮助说明</p>
+</li>
+</ul>
+<h2 id="进阶使用"><a href="#进阶使用" class="headerlink" title="进阶使用"></a><strong>进阶使用</strong></h2><h3 id="添加-bucket"><a href="#添加-bucket" class="headerlink" title="添加 bucket"></a><strong>添加 bucket</strong></h3><p>所有的包管理器都会有相应的软件仓库 ，而 bucket 就是 Scoop 中的软件仓库。细心的你可能会发现 <code>scoop</code> 翻译为中文是 “舀”，而 <code>bucket</code> 是 “水桶”，所以安装软件可以理解为从水桶里舀水，似乎很形象的说。</p>
+<p>Scoop 默认软件仓库（main bucket）软件数量是有限的，但是可以进行额外的添加。通过 <code>scoop bucket known</code> 命令可以查看官方认可的 bucket：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ scoop bucket known</span><br><span class="line">main</span><br><span class="line">extras</span><br><span class="line">versions</span><br><span class="line">nightlies</span><br><span class="line">nirsoft</span><br><span class="line">php</span><br><span class="line">nerd-fonts</span><br><span class="line">nonportable</span><br><span class="line">java</span><br><span class="line">games</span><br><span class="line">jetbrains</span><br></pre></td></tr></table></figure>
+
+<p>以上官方认可的 bucket 可以通过下面这个命令直接添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add &lt;bucketname&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL2x1a2VzYW1wc29uL3Njb29wLWV4dHJhcw">extras</a> 涵盖了大部分因为种种原因不能被收录进主仓库的常用软件，这个是强推荐添加的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add extras</span><br></pre></td></tr></table></figure>
+
+<p>比如博主经常会使用到的写盘工具 Rufus 就在 <code>extras</code> 这个仓库中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install rufus</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL21hdHRoZXdqYmVyZ2VyL3Njb29wLW5lcmQtZm9udHM">nerd-fonts</a> 包含了美化终端时会用到的 Powerline 字体</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add nerd-fonts</span><br></pre></td></tr></table></figure>
+
+<p>当添加 <code>nerd-fonts</code> 仓库后可以通过以下命令搜索到所有的字体：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop search &quot;-NF&quot;</span><br></pre></td></tr></table></figure>
+
+<p>安装字体需要使用管理员权限：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo scoop install FiraCode-NF</span><br></pre></td></tr></table></figure>
+
+<h4 id="第三方-bucket"><a href="#第三方-bucket" class="headerlink" title="第三方 bucket"></a>第三方 bucket</h4><p>添加第三方 bucket</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add &lt;bucketname&gt; https://github.com/xxx/xxx</span><br></pre></td></tr></table></figure>
+
+<p>从第三方 bucket 中安装软件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install &lt;bucketname&gt;/&lt;app&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="清理安装包缓存"><a href="#清理安装包缓存" class="headerlink" title="清理安装包缓存"></a><strong>清理安装包缓存</strong></h3><p>Scoop 会保留下载的安装包，对于卸载后又想再安装的情况，不需要重复下载。但长期累积会占用大量的磁盘空间，如果用不到就成了垃圾。这时可以使用 <code>scoop cache</code> 命令来清理。</p>
+<ul>
+<li><p><code>scoop cache show</code> - 显示安装包缓存</p>
+</li>
+<li><p><code>scoop cache rm &lt;app&gt;</code> - 删除指定应用的安装包缓存</p>
+</li>
+<li><p><code>scoop cache rm *</code> - 删除所有的安装包缓存</p>
+</li>
+</ul>
+<p>如果你不希望安装和更新软件时保留安装包缓存，可以加上 <code>-k</code> 或 <code>--no-cache</code> 选项来禁用缓存：</p>
+<ul>
+<li><p><code>scoop install -k &lt;app&gt;</code></p>
+</li>
+<li><p><code>scoop update -k *</code></p>
+</li>
+</ul>
+<h3 id="删除旧版本软件"><a href="#删除旧版本软件" class="headerlink" title="删除旧版本软件"></a><strong>删除旧版本软件</strong></h3><p>当软件被更新后 Scoop 还会保留软件的旧版本，更新软件后可以通过 <code>scoop cleanup</code> 命令进行删除。</p>
+<ul>
+<li><p><code>scoop cleanup &lt;app&gt;</code> - 删除指定软件的旧版本</p>
+</li>
+<li><p><code>scoop cleanup *</code> - 删除所有软件的旧版本</p>
+</li>
+</ul>
+<p>与安装软件一样，删除旧版本软件的同时也可以清理安装包缓存，同样是加上 <code>-k</code> 选项。</p>
+<ul>
+<li><p><code>scoop cleanup -k &lt;app&gt;</code> - 删除指定软件的旧版本并清除安装包缓存</p>
+</li>
+<li><p><code>scoop cleanup -k *</code> - 删除所有软件的旧版本并清除安装包缓存</p>
+</li>
+</ul>
+<h3 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a><strong>全局安装</strong></h3><p>全局安装就是给系统中的所有用户都安装，且环境变量是系统变量，对于需要设置系统变量的一些软件就需要全局安装，比如 Node.js、Python ，否则某些情况会出现无法找到命令的问题。</p>
+<p>使用 <code>scoop install &lt;app&gt;</code> 命令加上 <code>-g</code> 或 <code>--global</code> 选项可对软件进行全局安装，全局安装需要管理员权限，所以需要提前以管理员权限运行的 PowerShell 。更简单的方式是先安装 <code>sudo</code>，然后用 <code>sudo</code> 命令来提权执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop install sudo</span><br><span class="line">sudo scoop install -g &lt;app&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>达成在 Windows 上使用<code>sudo</code>的成就</p>
+</blockquote>
+<p>使用 <code>scoop list</code> 命令查看已装软件时，全局安装的软件末尾会有 <code>*global*</code> 标志。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">➜ scoop list</span><br><span class="line">Installed apps:</span><br><span class="line"></span><br><span class="line">  7zip 19.00</span><br><span class="line">  adb 30.0.0</span><br><span class="line">  aria2 1.35.0-1</span><br><span class="line">  busybox 3466-g53c09d0e1</span><br><span class="line">  CascadiaCode-NF 2.1.0 [nerd-fonts]</span><br><span class="line">  colortool 1904.29002</span><br><span class="line">  dark 3.11.2 *global*</span><br><span class="line">  ffmpeg 4.2.3</span><br><span class="line">  figlet 1.0-go</span><br><span class="line">  FiraCode-NF 2.1.0 [nerd-fonts]</span><br><span class="line">  git 2.26.2.windows.1 *global*</span><br><span class="line">  innounp 0.49</span><br><span class="line">  iperf3 3.1.3</span><br><span class="line">  lessmsi 1.6.91 *global*</span><br><span class="line">  lxrunoffline 3.4.1 [extras]</span><br><span class="line">  nano 4.9-4</span><br><span class="line">  neofetch 7.0.0</span><br><span class="line">  nodejs-lts 12.17.0 *global*</span><br><span class="line">  python 3.8.3 *global*</span><br><span class="line">  rclone 1.52.0</span><br><span class="line">  rufus 3.10 [extras]</span><br><span class="line">  screentogif 2.24.2 [extras]</span><br><span class="line">  sudo 0.2020.01.26</span><br></pre></td></tr></table></figure>
+
+<p>此外对于全局软件的更新和卸载等其它操作，都需要加上 <code>-g</code> 选项：</p>
+<ul>
+<li><p><code>sudo scoop update -g *</code> - 更新所有软件（且包含全局软件）</p>
+</li>
+<li><p><code>sudo scoop uninstall -g &lt;app&gt;</code> - 卸载全局软件</p>
+</li>
+<li><p><code>sudo scoop uninstall -gp &lt;app&gt;</code> - 卸载全局软件（并删除配置文件）</p>
+</li>
+<li><p><code>sudo scoop cleanup -g *</code> - 删除所有全局软件的旧版本</p>
+</li>
+<li><p><code>sudo scoop cleanup -gk *</code> - 删除所有全局软件的旧版本（并清除安装包包缓存）</p>
+</li>
+</ul>
+<h3 id="代理设置"><a href="#代理设置" class="headerlink" title="代理设置"></a><strong>代理设置</strong></h3><p>Scoop 默认使用的是系统代理，如果你想手动指定代理，可以输入下面的命令。需要注意的是只支持 http 协议。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop config proxy localhost:1080</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>设置完可以通过<code>scoop config proxy</code>查看。</p>
+</blockquote>
+<p>如果你想取消代理，那么输入下面的命令，这将会恢复使用系统代理。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop config rm proxy</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启多线程下载"><a href="#开启多线程下载" class="headerlink" title="开启多线程下载"></a><strong>开启多线程下载</strong></h3><p>使用 Scoop 安装 Aria2 后，Scoop 会自动调用 Aria2 进行多线程加速下载。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install aria2</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>scoop config</code> 命令可以对 Aria2 进行设置，比如 <code>scoop config aria2-enabled false</code> 可以禁止调用 Aria2 下载。以下是与 Aria2 有关的设置选项：</p>
+<ul>
+<li><p><code>aria2-enabled</code>: 开启 Aria2 下载，默认<code>true</code></p>
+</li>
+<li><p><code>aria2-retry-wait</code>: 重试等待秒数，默认<code>2</code></p>
+</li>
+<li><p><code>aria2-split</code>: 单任务最大连接数，默认<code>5</code></p>
+</li>
+<li><p><code>aria2-max-connection-per-server</code>: 单服务器最大连接数，默认<code>5</code> ，最大<code>16</code></p>
+</li>
+<li><p><code>aria2-min-split-size</code>: 最小文件分片大小，默认<code>5M</code></p>
+</li>
+</ul>
+<p>博主在这里推荐以下优化设置，单任务最大连接数设置为 <code>32</code>，单服务器最大连接数设置为 <code>16</code>，最小文件分片大小设置为 <code>1M</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scoop config aria2-split 32</span><br><span class="line">scoop config aria2-max-connection-per-server 16</span><br><span class="line">scoop config aria2-min-split-size 1M</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用命令总结"><a href="#常用命令总结" class="headerlink" title="常用命令总结"></a><strong>常用命令总结</strong></h2><p>看到这里一定有很多小伙伴已经懵逼了，最后总结一波 Scoop 在日常使用中的常用命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># 更新 scoop 及软件包列表</span><br><span class="line">scoop update</span><br><span class="line"></span><br><span class="line">## 安装软件 ##</span><br><span class="line"># 非全局安装（并禁止安装包缓存）</span><br><span class="line">scoop install -k &lt;app&gt;</span><br><span class="line"># 全局安装（并禁止安装包缓存）</span><br><span class="line">sudo scoop install -gk &lt;app&gt;</span><br><span class="line"></span><br><span class="line">## 卸载软件 ##</span><br><span class="line"># 卸载非全局软件（并删除配置文件）</span><br><span class="line">scoop uninstall -p &lt;app&gt;</span><br><span class="line"># 卸载全局软件（并删除配置文件）</span><br><span class="line">sudo scoop uninstall -gp &lt;app&gt;</span><br><span class="line"></span><br><span class="line">## 更新软件 ##</span><br><span class="line"># 更新所有非全局软件（并禁止安装包缓存）</span><br><span class="line">scoop update -k *</span><br><span class="line"># 更新所有软件（并禁止安装包缓存）</span><br><span class="line">sudo scoop update -gk *</span><br><span class="line"></span><br><span class="line">## 垃圾清理 ##</span><br><span class="line"># 删除所有旧版本非全局软件（并删除软件包缓存）</span><br><span class="line">scoop cleanup -k *</span><br><span class="line"># 删除所有旧版本软件（并删除软件包缓存）</span><br><span class="line">sudo scoop cleanup -gk *</span><br><span class="line"># 清除软件包缓存</span><br><span class="line">scoop cache rm *</span><br></pre></td></tr></table></figure>
+
+<h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a><strong>尾巴</strong></h2><p>Scoop 的使用方法和功能远不止上面提及的这些，但作为一个普通用户也只会用到一些基本的命令和功能。纵观全网也很少有人把基础功能都说明白，这也是在 0202 年咕鸽随便一搜一大把 Scoop 教程和笔记文章的情况下博主依然写这样一篇更加全面教程的原因。希望这篇教程对你有所帮助。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/07/22/VCPKG%20%E4%BD%BF%E7%94%A8/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/07/22/kindle%20%E8%AF%BB%E4%B9%A6%E6%91%98%E6%8A%84/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Scoop-%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">Scoop 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Excerpt"><span class="nav-number">1.1.</span> <span class="nav-text">Excerpt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82"><span class="nav-number">1.3.</span> <span class="nav-text">环境要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8"><span class="nav-number">1.4.</span> <span class="nav-text">基础使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8"><span class="nav-number">1.5.</span> <span class="nav-text">进阶使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-bucket"><span class="nav-number">1.5.1.</span> <span class="nav-text">添加 bucket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9-bucket"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">第三方 bucket</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E5%AE%89%E8%A3%85%E5%8C%85%E7%BC%93%E5%AD%98"><span class="nav-number">1.5.2.</span> <span class="nav-text">清理安装包缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%97%A7%E7%89%88%E6%9C%AC%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.5.3.</span> <span class="nav-text">删除旧版本软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85"><span class="nav-number">1.5.4.</span> <span class="nav-text">全局安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.5.5.</span> <span class="nav-text">代理设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.5.6.</span> <span class="nav-text">开启多线程下载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93"><span class="nav-number">1.6.</span> <span class="nav-text">常用命令总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%BE%E5%B7%B4"><span class="nav-number">1.7.</span> <span class="nav-text">尾巴</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">吴晓宁</p>
+  <div class="site-description" itemprop="description">记录一些自己的见闻</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴晓宁</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
