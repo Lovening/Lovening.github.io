@@ -321,34 +321,6 @@
   </entry>
   <entry>
     <title></title>
-    <url>/2024/07/22/C++%20google%20protobuf%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h6 id="protobuf-的介绍一大堆，这里就不做详细的介绍了。"><a href="#protobuf-的介绍一大堆，这里就不做详细的介绍了。" class="headerlink" title="protobuf 的介绍一大堆，这里就不做详细的介绍了。"></a>protobuf 的介绍一大堆，这里就不做详细的介绍了。</h6><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>-从<a href="https://developers.google.com/protocol-buffers" title="官网">官网</a>直接下载protobuf 安装到本地<br>– ubuntu 安装方法<br>1. <code>sudo apt-get install autoconf automake libtool curl make g++ unzip</code> centos安装方式和ubuntu一样，下载安装上面的安装包就行<br>2. 编译安装</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/protocolbuffers/protobuf.git</span><br><span class="line">cd protobuf</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line">./autogen.sh</span><br><span class="line">./configure  --prefix=/usr/local/protobuf   ##prefix 是配置编译目录,不配置会安装在默认的目录</span><br><span class="line"> make</span><br><span class="line"> make check</span><br><span class="line"> sudo make install</span><br><span class="line"> sudo ldconfig # 链接动态库.</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>如果配置了安装目录需要设置PATH<br> 在&#x2F;etc&#x2F;profile 文件中增加下列几项</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ vi /etc/profile</span><br><span class="line">export PATH=$PATH:/usr/local/protobuf/bin/</span><br><span class="line">export LIBRARY_PATH=/usr/local/protobuf/lib/:$LIBRARY_PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/protobuf/lib/:$LD_LIBRARY_PATH</span><br><span class="line">export PKG_CONFIG_PATH=/usr/local/protobuf/lib/pkgconfig/</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>配置完PATH 使用source &#x2F;etc&#x2F;profile更新环境变量。有的linux需要重启。如果source &#x2F;etc&#x2F;profile没用就重启下。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ protoc --version</span><br><span class="line">$ libprotoc 3.13.0</span><br></pre></td></tr></table></figure>
-
-<p>如果能正确显示出版本号就没问题。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>这里使用vscode编辑器</p>
-<ul>
-<li><p>定义自己的字段，文件后缀为.protoc<br>  <a href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ciVQeB.png" title=".proto"><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ciVQeB.png" alt=".proto" title=".proto"></a><br>  <strong>具体的文件内容说明请查看</strong><a href="https://developers.google.com/protocol-buffers/docs/overview">文档说明</a></p>
-</li>
-<li><p>使用protoc进行编译<br>  <code>protoc -I=./ --cpp_out=./ ./main.proto</code> main.proto 为刚才的.proto文件名称<br>  编译完成后会在当前目录看见两个后缀为.pb.cc 和.pb.h的文件，编写一个main 文件测试下<br>  <a href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/8hyxdn.png" title=".proto"><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/8hyxdn.png" alt=".proto" title=".proto"></a></p>
-</li>
-<li><p>使用g++ 编译<br>  <code>g++ -g -o main ./mian.cpp ./main.pb.cc -I/usr/local/protobuf/include -L/usr/local/protobuf/lib -lprotobuf -pthread</code></p>
-</li>
-</ul>
-<h4 id="这里记录下自己的cmake-文件"><a href="#这里记录下自己的cmake-文件" class="headerlink" title="这里记录下自己的cmake 文件"></a>这里记录下自己的cmake 文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.6.2)</span><br><span class="line"></span><br><span class="line">add_definitions(-std=c++11)</span><br><span class="line"># 设置头文件目录</span><br><span class="line">set(INC_DIR /usr/local/protobuf/include/)</span><br><span class="line"># 设置protobuf目录</span><br><span class="line">set(LIB_DIR /usr/local/protobuf/lib/)</span><br><span class="line"></span><br><span class="line">project(main)</span><br><span class="line"></span><br><span class="line">include_directories($&#123;INC_DIR&#125;)</span><br><span class="line"></span><br><span class="line">set(SRC_LIST main.cpp main.pb.cc)</span><br><span class="line"></span><br><span class="line">add_executable(main $&#123;SRC_LIST&#125;)</span><br><span class="line"></span><br><span class="line">target_link_libraries(main protobuf pthread)</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title></title>
     <url>/2024/07/22/C++%20Poco%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="Poco-的编译和安装"><a href="#Poco-的编译和安装" class="headerlink" title="Poco 的编译和安装"></a>Poco 的编译和安装</h1><h2 id="ubuntu-下的安装和编译"><a href="#ubuntu-下的安装和编译" class="headerlink" title="ubuntu 下的安装和编译"></a>ubuntu 下的安装和编译</h2><ul>
 <li>完整的安装需要下载MySql和OpenSSL</li>
@@ -376,6 +348,34 @@
 </ul>
 <p>我用的ARM 环境是 AM335x</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2024/07/22/C++%20google%20protobuf%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h6 id="protobuf-的介绍一大堆，这里就不做详细的介绍了。"><a href="#protobuf-的介绍一大堆，这里就不做详细的介绍了。" class="headerlink" title="protobuf 的介绍一大堆，这里就不做详细的介绍了。"></a>protobuf 的介绍一大堆，这里就不做详细的介绍了。</h6><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>-从<a href="https://developers.google.com/protocol-buffers" title="官网">官网</a>直接下载protobuf 安装到本地<br>– ubuntu 安装方法<br>1. <code>sudo apt-get install autoconf automake libtool curl make g++ unzip</code> centos安装方式和ubuntu一样，下载安装上面的安装包就行<br>2. 编译安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/protocolbuffers/protobuf.git</span><br><span class="line">cd protobuf</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line">./autogen.sh</span><br><span class="line">./configure  --prefix=/usr/local/protobuf   ##prefix 是配置编译目录,不配置会安装在默认的目录</span><br><span class="line"> make</span><br><span class="line"> make check</span><br><span class="line"> sudo make install</span><br><span class="line"> sudo ldconfig # 链接动态库.</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>如果配置了安装目录需要设置PATH<br> 在&#x2F;etc&#x2F;profile 文件中增加下列几项</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ vi /etc/profile</span><br><span class="line">export PATH=$PATH:/usr/local/protobuf/bin/</span><br><span class="line">export LIBRARY_PATH=/usr/local/protobuf/lib/:$LIBRARY_PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/protobuf/lib/:$LD_LIBRARY_PATH</span><br><span class="line">export PKG_CONFIG_PATH=/usr/local/protobuf/lib/pkgconfig/</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>配置完PATH 使用source &#x2F;etc&#x2F;profile更新环境变量。有的linux需要重启。如果source &#x2F;etc&#x2F;profile没用就重启下。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ protoc --version</span><br><span class="line">$ libprotoc 3.13.0</span><br></pre></td></tr></table></figure>
+
+<p>如果能正确显示出版本号就没问题。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>这里使用vscode编辑器</p>
+<ul>
+<li><p>定义自己的字段，文件后缀为.protoc<br>  <a href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ciVQeB.png" title=".proto"><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ciVQeB.png" alt=".proto" title=".proto"></a><br>  <strong>具体的文件内容说明请查看</strong><a href="https://developers.google.com/protocol-buffers/docs/overview">文档说明</a></p>
+</li>
+<li><p>使用protoc进行编译<br>  <code>protoc -I=./ --cpp_out=./ ./main.proto</code> main.proto 为刚才的.proto文件名称<br>  编译完成后会在当前目录看见两个后缀为.pb.cc 和.pb.h的文件，编写一个main 文件测试下<br>  <a href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/8hyxdn.png" title=".proto"><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/8hyxdn.png" alt=".proto" title=".proto"></a></p>
+</li>
+<li><p>使用g++ 编译<br>  <code>g++ -g -o main ./mian.cpp ./main.pb.cc -I/usr/local/protobuf/include -L/usr/local/protobuf/lib -lprotobuf -pthread</code></p>
+</li>
+</ul>
+<h4 id="这里记录下自己的cmake-文件"><a href="#这里记录下自己的cmake-文件" class="headerlink" title="这里记录下自己的cmake 文件"></a>这里记录下自己的cmake 文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.6.2)</span><br><span class="line"></span><br><span class="line">add_definitions(-std=c++11)</span><br><span class="line"># 设置头文件目录</span><br><span class="line">set(INC_DIR /usr/local/protobuf/include/)</span><br><span class="line"># 设置protobuf目录</span><br><span class="line">set(LIB_DIR /usr/local/protobuf/lib/)</span><br><span class="line"></span><br><span class="line">project(main)</span><br><span class="line"></span><br><span class="line">include_directories($&#123;INC_DIR&#125;)</span><br><span class="line"></span><br><span class="line">set(SRC_LIST main.cpp main.pb.cc)</span><br><span class="line"></span><br><span class="line">add_executable(main $&#123;SRC_LIST&#125;)</span><br><span class="line"></span><br><span class="line">target_link_libraries(main protobuf pthread)</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title></title>
