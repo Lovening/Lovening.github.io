@@ -160,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/C++%20list%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,705 +174,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/07/22/C++%20list%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><p>遍历并且删除节点  </p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>   </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;list&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;   </span><br><span class="line">	<span class="type">int</span> a[<span class="number">12</span>] = &#123; <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">10</span>&#125;;   </span><br><span class="line">	<span class="function">list&lt;<span class="type">int</span>&gt; <span class="title">li</span><span class="params">(a, a + <span class="number">12</span>)</span></span>;   <span class="comment">//遍历删除值为5的节点   </span></span><br><span class="line">	<span class="keyword">for</span> (list&lt;<span class="type">int</span>&gt;:: iterator it = li.<span class="built_in">begin</span>(); it != li.<span class="built_in">end</span>();) &#123;   </span><br><span class="line">		<span class="keyword">if</span> (*it == <span class="number">5</span>)&#123;   </span><br><span class="line">			li.<span class="built_in">erase</span>(it++); <span class="comment">// 删除节点，并将 it 更新到下一个界面   </span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;   </span><br><span class="line">			++it;   </span><br><span class="line">		&#125;   </span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">for</span> (list&lt;<span class="type">int</span>&gt;:: iterator it = li.<span class="built_in">begin</span>(); it != li.<span class="built_in">end</span>(); ++it) &#123;   </span><br><span class="line">		cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;   </span><br><span class="line">	&#125;   </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/C++%20override/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/22/C++%20override/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>override</strong> 字面意思为覆盖的<br>override 为C++11新增加的关键字，在C++11中 override 的作为为防止虚函数未被正确的调用，下面我们来看两段代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;memory&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">    public:</span><br><span class="line">     virtual void functionA(int arg) const &#123; </span><br><span class="line">     cout &lt;&lt; &quot;This is Base::functionA&quot; &lt;&lt; endl;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br><span class="line">class Derived : public Base</span><br><span class="line">&#123;</span><br><span class="line">    public:</span><br><span class="line">     virtual void functionA(long arg) const  &#123;</span><br><span class="line">    cout &lt;&lt; &quot;This is Derived::functionA&quot; &lt;&lt; endl; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    // Base pointer b points to a Derived class object.</span><br><span class="line">    shared_ptr&lt;Base&gt;b = make_shared&lt;Derived&gt;();</span><br><span class="line">    // Call virtual functionA through Base pointer.</span><br><span class="line">    b-&gt;functionA(99);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在main函数中，我们声明定义了Base类指针 b 指向了Derived,然后通过b指针调用了 functionA函数，按照对虚函数的理解，我们程序执行完以后应该打印<code>This is Derived::functionA&quot;</code>,但实际程序执行完后打印的是<code>This is Base::functionA</code>,这是因为两个函数有不同的形参，<strong>Derived类中的functionA函数只不过是对基类的functionA的函数的重载</strong>，如果想要正确的调用Derived类中的函数，我们需要在函数后面加上<strong>override</strong>关键字，<strong>override 关键字告诉编译器，该函数应覆盖基类中的函数。如果该函数实际上没有覆盖任何函数，则会导致编译器错误。</strong></p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;memory&gt;
-using namespace std;
-
-class Base
-&#123;
-       public:
-           virtual void functionA(int arg) const &#123; 
-           cout &lt;&lt; &quot;This is Base::functionA&quot; &lt;&lt; endl;
-           &#125;
-&#125;;
-class Derived : public Base
-&#123;
-       public:
-       // 注意 这里函数参数如果还是long 类型，编译器在编译的时候会报错
-       virtual void functionA(int arg) const override &#123; 
-       cout &lt;&lt; &quot;This is Derived::functionA&quot; &lt;&lt; endl; 
-       &#125;
-&#125;;
-int main()
-&#123;
-    // Base pointer b points to a Derived class object.
-    shared_ptr&lt;Base&gt;b = make_shared&lt;Derived&gt;();
-    // Call virtual functionA through Base pointer.
-    b-&gt;functionA(99);
-    return 0;
-&#125;
-```override 字面意思为 覆盖的
-override 为C++11新增加的关键字，在C++11中 override 的作为为防止虚函数未被正确的调用，下面我们来看两段代码
-
-#include &lt;iostream&gt;
-#include &lt;memory&gt;
-using namespace std;
-
-class Base
-&#123;
-    public:
-     virtual void functionA(int arg) const &#123; 
-     cout &lt;&lt; &quot;This is Base::functionA&quot; &lt;&lt; endl;
-     &#125;
-&#125;;
-class Derived : public Base
-&#123;
-    public:
-     virtual void functionA(long arg) const  &#123;
-    cout &lt;&lt; &quot;This is Derived::functionA&quot; &lt;&lt; endl; 
-    &#125;
-&#125;;
-int main()
-&#123;
-    // Base pointer b points to a Derived class object.
-    shared_ptr&lt;Base&gt;b = make_shared&lt;Derived&gt;();
-    // Call virtual functionA through Base pointer.
-    b-&gt;functionA(99);
-    return 0;
-&#125;
-在main函数中，我们声明定义了Base类指针 b 指向了Derived,然后通过b指针调用了 functionA函数，按照对虚函数的理解，我们程序执行完以后应该打印This is Derived::functionA&quot;,但实际程序执行完后打印的是This is Base::functionA,这是因为两个函数有不同的形参，Derived类中的functionA函数只不过是对基类的functionA的函数的重载，如果想要正确的调用Derived类中的函数，我们需要在函数后面加上override关键字，override 关键字告诉编译器，该函数应覆盖基类中的函数。如果该函数实际上没有覆盖任何函数，则会导致编译器错误。
-
-#include &lt;iostream&gt;
-#include &lt;memory&gt;
-using namespace std;
-
-class Base
-&#123;
-       public:
-           virtual void functionA(int arg) const &#123; 
-           cout &lt;&lt; &quot;This is Base::functionA&quot; &lt;&lt; endl;
-           &#125;
-&#125;;
-class Derived : public Base
-&#123;
-       public:
-       // 注意 这里函数参数如果还是long 类型，编译器在编译的时候会报错
-       virtual void functionA(int arg) const override &#123; 
-       cout &lt;&lt; &quot;This is Derived::functionA&quot; &lt;&lt; endl; 
-       &#125;
-&#125;;
-int main()
-&#123;
-    // Base pointer b points to a Derived class object.
-    shared_ptr&lt;Base&gt;b = make_shared&lt;Derived&gt;();
-    // Call virtual functionA through Base pointer.
-    b-&gt;functionA(99);
-    return 0;
-&#125;
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/C++%20google%20protobuf%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/22/C++%20google%20protobuf%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h6 id="protobuf-的介绍一大堆，这里就不做详细的介绍了。"><a href="#protobuf-的介绍一大堆，这里就不做详细的介绍了。" class="headerlink" title="protobuf 的介绍一大堆，这里就不做详细的介绍了。"></a>protobuf 的介绍一大堆，这里就不做详细的介绍了。</h6><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>-从<a target="_blank" rel="noopener" href="https://developers.google.com/protocol-buffers" title="官网">官网</a>直接下载protobuf 安装到本地<br>– ubuntu 安装方法<br>1. <code>sudo apt-get install autoconf automake libtool curl make g++ unzip</code> centos安装方式和ubuntu一样，下载安装上面的安装包就行<br>2. 编译安装</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/protocolbuffers/protobuf.git</span><br><span class="line">cd protobuf</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line">./autogen.sh</span><br><span class="line">./configure  --prefix=/usr/local/protobuf   ##prefix 是配置编译目录,不配置会安装在默认的目录</span><br><span class="line"> make</span><br><span class="line"> make check</span><br><span class="line"> sudo make install</span><br><span class="line"> sudo ldconfig # 链接动态库.</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>如果配置了安装目录需要设置PATH<br> 在&#x2F;etc&#x2F;profile 文件中增加下列几项</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ vi /etc/profile</span><br><span class="line">export PATH=$PATH:/usr/local/protobuf/bin/</span><br><span class="line">export LIBRARY_PATH=/usr/local/protobuf/lib/:$LIBRARY_PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/protobuf/lib/:$LD_LIBRARY_PATH</span><br><span class="line">export PKG_CONFIG_PATH=/usr/local/protobuf/lib/pkgconfig/</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>配置完PATH 使用source &#x2F;etc&#x2F;profile更新环境变量。有的linux需要重启。如果source &#x2F;etc&#x2F;profile没用就重启下。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ protoc --version</span><br><span class="line">$ libprotoc 3.13.0</span><br></pre></td></tr></table></figure>
-
-<p>如果能正确显示出版本号就没问题。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>这里使用vscode编辑器</p>
-<ul>
-<li><p>定义自己的字段，文件后缀为.protoc<br>  <a target="_blank" rel="noopener" href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ciVQeB.png" title=".proto"><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ciVQeB.png" alt=".proto" title=".proto"></a><br>  <strong>具体的文件内容说明请查看</strong><a target="_blank" rel="noopener" href="https://developers.google.com/protocol-buffers/docs/overview">文档说明</a></p>
-</li>
-<li><p>使用protoc进行编译<br>  <code>protoc -I=./ --cpp_out=./ ./main.proto</code> main.proto 为刚才的.proto文件名称<br>  编译完成后会在当前目录看见两个后缀为.pb.cc 和.pb.h的文件，编写一个main 文件测试下<br>  <a target="_blank" rel="noopener" href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/8hyxdn.png" title=".proto"><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/8hyxdn.png" alt=".proto" title=".proto"></a></p>
-</li>
-<li><p>使用g++ 编译<br>  <code>g++ -g -o main ./mian.cpp ./main.pb.cc -I/usr/local/protobuf/include -L/usr/local/protobuf/lib -lprotobuf -pthread</code></p>
-</li>
-</ul>
-<h4 id="这里记录下自己的cmake-文件"><a href="#这里记录下自己的cmake-文件" class="headerlink" title="这里记录下自己的cmake 文件"></a>这里记录下自己的cmake 文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.6.2)</span><br><span class="line"></span><br><span class="line">add_definitions(-std=c++11)</span><br><span class="line"># 设置头文件目录</span><br><span class="line">set(INC_DIR /usr/local/protobuf/include/)</span><br><span class="line"># 设置protobuf目录</span><br><span class="line">set(LIB_DIR /usr/local/protobuf/lib/)</span><br><span class="line"></span><br><span class="line">project(main)</span><br><span class="line"></span><br><span class="line">include_directories($&#123;INC_DIR&#125;)</span><br><span class="line"></span><br><span class="line">set(SRC_LIST main.cpp main.pb.cc)</span><br><span class="line"></span><br><span class="line">add_executable(main $&#123;SRC_LIST&#125;)</span><br><span class="line"></span><br><span class="line">target_link_libraries(main protobuf pthread)</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/C++%20Poco%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/22/C++%20Poco%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Poco-的编译和安装"><a href="#Poco-的编译和安装" class="headerlink" title="Poco 的编译和安装"></a>Poco 的编译和安装</h1><h2 id="ubuntu-下的安装和编译"><a href="#ubuntu-下的安装和编译" class="headerlink" title="ubuntu 下的安装和编译"></a>ubuntu 下的安装和编译</h2><ul>
-<li>完整的安装需要下载MySql和OpenSSL</li>
-<li>安装OpenSSL</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.sudo apt-get install openssl;</span><br><span class="line">2.sudo apt-get install libssl-dev;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>安装完这两个才可以，只安装一个编译会报错</li>
-<li>然后执行</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --no-tests --no-samples  --prefix=/usr/local/Poco --static --shared</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>其中 &#x2F;usr&#x2F;local&#x2F;Poco为编译好后头文件和库的安装位置</li>
-<li>然后 <code>make</code> <code>make install</code></li>
-<li>到此 Poco 安装完成<br>  安装完成后可以去&#x2F;usr&#x2F;local&#x2F;Poco 下查看安装的库</li>
-</ul>
-<p>利用QT Creator编译程序时，在.pro文件中加入附加库<br>LIBS +&#x3D; -L &#x2F;usr&#x2F;local&#x2F;lib&#x2F; -lPocoFoundation -lPocoNet -lPocoUtil</p>
-<p>这里自己需要哪个模块链接哪个模块</p>
-<p>.&#x2F;configure –omit&#x3D;Data&#x2F;ODBC,Data&#x2F;MySQL,NetSSL_OpenSSL –prefix&#x3D;&#x2F;usr&#x2F;local 不编译OBDC MySQL 和NetSSL_OpenSSL .h文件和<br>库文件放在&#x2F;usr&#x2F;local 目录下。</p>
-<h2 id="ARM版本的编译和安装"><a href="#ARM版本的编译和安装" class="headerlink" title="ARM版本的编译和安装"></a>ARM版本的编译和安装</h2><ul>
-<li>编译安装Poco<br>  源码下载地址 <a target="_blank" rel="noopener" href="https://pocoproject.org/releases/poco-1.7.8/poco-1.7.8-all.tar.gz" title="poco 下载地址">poco 下载地址</a></li>
-<li>解压 <code>tar -xzvf poco-1.7.8-all.tar.gz</code><br>  <code>cd poco-1.7.8-all</code><br>  <code>./configure --config=ARM-Linux --no-tests --omit=Data,Crypto,NetSSL_OpenSSL --prefix=/home/ning/lib</code><br>  <code>make</code><br>  <code>make install</code><br>  到此Poco就交叉编译安装完成了。</li>
-</ul>
-<p>我用的ARM 环境是 AM335x</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/C++%20CRTP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/22/C++%20CRTP/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>C++ CRTP</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>CRTP的全程是 <code>Curiously Recurring Template Pattern</code> 中文翻译成 <code>奇异递归模板模式,</code> <strong>常用于实现编译时多态（静态多态），与运行时多态（通过虚函数实现）相对。这种模式通过基类模板和派生类的相互作用实现，允许在编译时进行方法的调用决议，从而提高效率</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123; </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">interface</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 静态地调用派生类的方法</span></span><br><span class="line">        <span class="built_in">static_cast</span>&lt;T*&gt;(<span class="keyword">this</span>)-&gt;<span class="built_in">implementation</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">implementation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 基类的实现，可以被覆盖</span></span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Base implementation&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base1</span>:<span class="keyword">public</span> Base&lt;Base1&gt; &#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">implementation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 派生类的具体实现</span></span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Derived implementation&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="CRTP-优点"><a href="#CRTP-优点" class="headerlink" title="CRTP 优点"></a>CRTP 优点</h2><p>通过 <code>CRTP</code> 我们可以实现不依赖虚函数实现多态，这种方式没有虚函数的调用，解决了虚函数的开销，性能更好，同时，派生类没有实现某个必要的函数，编译器可以直接报错，提高代码安全性。</p>
-<h2 id="CRTP-析构和删除"><a href="#CRTP-析构和删除" class="headerlink" title="CRTP 析构和删除"></a>CRTP 析构和删除</h2><p>在CRTP 中，我们通过将基类析构函数声明为虚函数，通过基类指针删除派生类对象时，会自动调用派生类的析构函数，进而确保派生类对象的资源得到正确释放</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">template&lt;typename T&gt;</span><br><span class="line">class Base &#123;</span><br><span class="line">public:</span><br><span class="line">    virtual ~Base() &#123;  // 将析构函数声明为虚函数</span><br><span class="line">        std::cout &lt;&lt; &quot;Base::~Base()&quot; &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Derived : public Base&lt;Derived&gt; &#123;</span><br><span class="line">public:</span><br><span class="line">    ~Derived() override &#123;</span><br><span class="line">        std::cout &lt;&lt; &quot;Derived::~Derived()&quot; &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    Base&lt;Derived&gt;* b = new Derived; </span><br><span class="line">    delete b; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="CRTP-的实现"><a href="#CRTP-的实现" class="headerlink" title="CRTP 的实现"></a>CRTP 的实现</h2><h3 id="统计派生类数量"><a href="#统计派生类数量" class="headerlink" title="统计派生类数量"></a>统计派生类数量</h3><p>第一个例子是对象的注册管理，对于一个基类，假如我们要统计某个基类所有派生类的对象的数量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">// 基类模板</span><br><span class="line">template &lt;typename Derived&gt;</span><br><span class="line">class Counter &#123;</span><br><span class="line">private:</span><br><span class="line">    static int count;  // 用于统计派生类对象的数量</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    Counter() &#123;</span><br><span class="line">        ++count;  // 在每个派生类对象构造时增加计数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Counter(const Counter&amp;) &#123;</span><br><span class="line">        ++count;  // 拷贝构造时也需要增加计数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    virtual ~Counter() &#123;&#125;  // 虚析构函数，确保派生类的析构函数被调用</span><br><span class="line"></span><br><span class="line">    static int getCount() &#123;</span><br><span class="line">        return count;  // 静态成员函数，返回创建的对象数量</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 初始化静态成员变量</span><br><span class="line">template &lt;typename Derived&gt;</span><br><span class="line">int Counter&lt;Derived&gt;::count = 0;</span><br><span class="line"></span><br><span class="line">// 派生类1</span><br><span class="line">class Cat : public Counter&lt;Cat&gt; &#123;</span><br><span class="line">    // 特定于Cat的成员和函数</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 派生类2</span><br><span class="line">class Dog : public Counter&lt;Dog&gt; &#123;</span><br><span class="line">    // 特定于Dog的成员和函数</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    Cat cat1;</span><br><span class="line">    Cat cat2;</span><br><span class="line">    Dog dog1;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; &quot;Number of Cats created: &quot; &lt;&lt; Cat::getCount() &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; &quot;Number of Dogs created: &quot; &lt;&lt; Dog::getCount() &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>分别打印2和1，基类 Counter 被设计为一个模板类，接受一个类型参数 Derived，这个类型参数指定了将要继承这个基类的派生类。在 Counter 类中，有一个静态成员变量 count：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> count;</span><br></pre></td></tr></table></figure>
-
-<p>这个静态成员变量用于跟踪派生类的实例数量。关键点是，每个具体化的模板实例拥有自己的 count 变量。这意味着 Counter<Cat> 和 Counter<Dog> 分别拥有各自独立的 count 静态成员变量。<strong>这是因为模板在C++中的工作机制：每当模板被一个新的具体类型实例化时，其静态成员也会被复制一份，因此每种类型的 Counter 都有其自己的 count</strong></p>
-<h3 id="通过CRTP来实现访问者模式"><a href="#通过CRTP来实现访问者模式" class="headerlink" title="通过CRTP来实现访问者模式"></a>通过CRTP来实现访问者模式</h3><p>CRTP（Curiously Recurring Template Pattern）可以用来在C++中实现访问者模式，特别是当你希望在编译时保持类型安全而不引入运行时的多态开销时。使用CRTP，我们可以让访问者直接调用适当类型的方法，而不是依赖虚函数。</p>
-<p>访问者模式通常用于操作一个复杂对象结构（如复合模式），允许你对这些对象进行操作而无需修改它们的类。以下是如何结合CRTP和访问者模式的一个示例</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 前向声明</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteElementA</span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteElementB</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问者基类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Visitor</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">visit</span><span class="params">(ConcreteElementA* element)</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">visit</span><span class="params">(ConcreteElementB* element)</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">virtual</span> ~<span class="built_in">Visitor</span>() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 元素基类模板</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Derived&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 接受访问者的方法，由具体元素实现</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">accept</span><span class="params">(Visitor* visitor)</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">virtual</span> ~<span class="built_in">Element</span>() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体元素A</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteElementA</span> : <span class="keyword">public</span> Element&lt;ConcreteElementA&gt; &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">accept</span><span class="params">(Visitor* visitor)</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">        visitor-&gt;<span class="built_in">visit</span>(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">operationA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;ConcreteElementA Operation.\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体元素B</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteElementB</span> : <span class="keyword">public</span> Element&lt;ConcreteElementB&gt; &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">accept</span><span class="params">(Visitor* visitor)</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">        visitor-&gt;<span class="built_in">visit</span>(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">operationB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;ConcreteElementB Operation.\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>最后，我们演示如何使用这些类：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ConcreteElementA elementA;</span><br><span class="line">    ConcreteElementB elementB;</span><br><span class="line">    ConcreteVisitor visitor;</span><br><span class="line"></span><br><span class="line">    elementA.<span class="built_in">accept</span>(&amp;visitor);</span><br><span class="line">    elementB.<span class="built_in">accept</span>(&amp;visitor);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/C++%20Pimpl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/22/C++%20Pimpl/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="编译期封装"><a href="#编译期封装" class="headerlink" title="编译期封装"></a>编译期封装</h2><p>如果程序从一个以前版本的库动态链接到新版本的库之后，能够继续正常运行，而不需要重新编译，那么我们就说这个库是二进制兼容的。<br>如果一个程序需要重新编译来运行一个新版本的库，但是不需要对程序的源代码进一步的修改，这个库就是源代码兼容的。<br>如果不确保版本之间的二进制兼容性，人们将被迫提供静态链接的二进制文件。静态二进制文件不好，因为它们浪费资源（尤其是内存），不能让程序从库中错误修正或扩展中受益。要保证二进制兼容性，就得尽量让类不包含私有变量<br>– <code>Pimpl</code>（Pointer to Implementation）意思为具体实现的指针，它通过一个私有的成员指针，将指针所指向的类的内部实现和数据进行隐藏。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>在看Qt源码时，Qt的源码中有大量的使用<code>Pimpl</code>,Qt的风格就保证了这一点，不信可以看QObject的源码，你会惊讶地发现它竟然只有一个成员变量QScopedPointer d_ptr;。QObject的大小是8,除了虚函数表指针需要的4个字节以外,另外的4个字节就是这个d_ptr。QObjectData是包含所有数据的结构体，这个结构体的大小可以随意改变而不会产生副作用，应用程序只使用相关的公有类即QObject，d_ptr就叫做d指针。其中源码中的d 指针和q 指针都是用<code>Pimpl</code>来实现的。其中具体实现的原理可以参考<a target="_blank" rel="noopener" href="https://wiki.qt.io/D-Pointer" title="D指针的实现">D指针的实现</a>，参考Qt中的实现，我们来封装自己的。</p>
-<p>global.h</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="type">static</span> <span class="keyword">inline</span> T*<span class="title">qGetPtrHelper</span><span class="params">(T* ptr)</span></span>&#123;<span class="keyword">return</span> ptr;&#125;</span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Wrapper&gt; <span class="type">static</span> <span class="keyword">inline</span> <span class="keyword">typename</span> Wrapper::pointer <span class="title">qGetPtrHelper</span><span class="params">(<span class="type">const</span> Wrapper&amp; p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p.<span class="built_in">get</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//reinterpret_cast &lt; new_type &gt; ( expression )</span></span><br><span class="line"><span class="comment">// 前置隐藏实现类  </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> C_CLASS_PRIVATE(Class) \     </span></span><br><span class="line">    <span class="keyword">inline</span> Class##<span class="function">Private* <span class="title">d_func</span><span class="params">()</span> <span class="keyword">noexcept</span>\</span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> <span class="built_in">reinterpret_cast</span>&lt;Class##Private*&gt;(<span class="built_in">qGetPtrHelper</span>(d_ptr));&#125; \</span><br><span class="line">    <span class="keyword">inline</span> <span class="type">const</span> Class##<span class="function">Private* <span class="title">d_func</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">noexcept</span> \</span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> <span class="built_in">reinterpret_cast</span>&lt;<span class="type">const</span> Class##Private* &gt;(<span class="built_in">qGetPtrHelper</span>(d_ptr));&#125;\</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">Class</span>##Private;</span><br><span class="line"></span><br><span class="line"><span class="comment">// noexcept  告诉编译器这段代码不会出现异常 不需要特殊优化处理</span></span><br><span class="line"><span class="comment">// 对外接口类</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> C_CLASS_PUBLIC(Class) \    </span></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Class* <span class="title">q_func</span><span class="params">()</span> <span class="keyword">noexcept</span> </span>&#123;<span class="keyword">return</span> <span class="built_in">static_cast</span>&lt;Class*&gt;(q_ptr);&#125; \</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="type">const</span> Class* <span class="title">q_func</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">noexcept</span> </span>&#123;<span class="keyword">return</span> <span class="built_in">static_cast</span>&lt;<span class="type">const</span> Class* &gt;(q_ptr);&#125;\</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">Class</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> C_P(Class) Class##Private* const d = d_func()</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> C_Q(Class) Class* const q = q_func()</span></span><br></pre></td></tr></table></figure>
-
-<p>product.h</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#pragma once</span><br><span class="line"></span><br><span class="line">#include &quot;global.h&quot;</span><br><span class="line">#include &lt;memory&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class ProductPrivate;</span><br><span class="line"></span><br><span class="line">class Product</span><br><span class="line">&#123;</span><br><span class="line">    C_CLASS_PRIVATE(Product);</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    explicit Product(int num = 1);</span><br><span class="line">    ~Product();</span><br><span class="line">    string getName() const;</span><br><span class="line">    void setName(const string &amp;name);</span><br><span class="line">    float getPrice() const;</span><br><span class="line">    void setPrice(float price);</span><br><span class="line">    //int getNum()&#123; return num;&#125;;</span><br><span class="line"></span><br><span class="line">protected:</span><br><span class="line">    //int num = 5;</span><br><span class="line"></span><br><span class="line">protected:</span><br><span class="line">    // 定义实现类指针</span><br><span class="line">    std::unique_ptr&lt;ProductPrivate&gt; d_ptr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>product.cpp</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;product.h&quot;</span><br><span class="line"></span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;memory&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class ProductPrivate</span><br><span class="line">&#123;</span><br><span class="line">    C_CLASS_PUBLIC(Product)</span><br><span class="line">public:</span><br><span class="line">    ProductPrivate()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~ProductPrivate()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    string getName() const &#123; </span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    bool setName(const string&amp; names)&#123;</span><br><span class="line">        this-&gt;name = names;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void printNum()&#123;</span><br><span class="line">        C_Q(Product);</span><br><span class="line">        //std::cout&lt;&lt;&quot;&quot;&lt;&lt;q-&gt;num;</span><br><span class="line">    &#125;</span><br><span class="line">    string name;</span><br><span class="line">    Product* q_ptr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Product::Product(int num)</span><br><span class="line">&#123;</span><br><span class="line">    d_ptr = make_unique&lt;ProductPrivate&gt;();</span><br><span class="line">    // 这里为了让对方可以使用自己的变量，将对方类中的q_ptr来指向自己</span><br><span class="line">    d_ptr-&gt;q_ptr = this; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">string Product::getName() const</span><br><span class="line">&#123;</span><br><span class="line">    C_P(const Product);</span><br><span class="line">    return d-&gt;getName();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Product::setName(const string &amp;name)</span><br><span class="line">&#123;</span><br><span class="line">    C_P(Product);</span><br><span class="line">    d-&gt;printNum();</span><br><span class="line">    d-&gt;setName(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">float Product::getPrice() const</span><br><span class="line">&#123;</span><br><span class="line">    // Q_D(const Product);</span><br><span class="line">    // return d-&gt;price;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void Product::setPrice(float price)</span><br><span class="line">&#123;</span><br><span class="line">    // Q_D(Product);</span><br><span class="line">    // d-&gt;price = price;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其中，参考Qt中的实现，实现了<code>C_P</code>和<code>C_Q</code> ,下面是测试文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &quot;product.h&quot;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    Product * p = new Product();</span><br><span class="line">    p-&gt;setName(&quot;hello &quot;);</span><br><span class="line"></span><br><span class="line">    std::cout&lt;&lt;&quot; &quot;&lt;&lt;p-&gt;getName()&lt;&lt;std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>以后在使用的时候，我们可以直接将global.h文件引入到我们自己的工程里面，然后使用<code>Pimpl</code>。<br>d指针的优点：  </p>
-<ol>
-<li>隐藏实现细节  </li>
-<li>头文件中没有任何实现细节，可以作为API使用。  </li>
-<li>由于原本在头文件的实现部分转移到了源文件，所以编译速度有所提高。  </li>
-<li>实现二进制兼容性，避免重新编译</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/Boost%E5%BA%93%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/22/Boost%E5%BA%93%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>[[Boost 库编译指南]]</p>
-<p>Boost 库是为 C++语言标准库提供扩展的一些 C++程序库的总称，由 Boost 社区组织开发、维护。Boost 库可以与 C++标准库完美共同工作，并且为其提供扩展功能。</p>
-<h3 id="下载boost库"><a href="#下载boost库" class="headerlink" title="下载boost库"></a>下载boost库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.下载</span><br><span class="line">wget https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.gz</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">tar zxvf boost_1_64_0.tar.gz</span><br><span class="line">cd boost_1_64_0.tar.gz</span><br><span class="line"></span><br><span class="line">3.配置</span><br><span class="line">./bootstrap.sh --with-libraries=all --with-toolset=gcc</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>–with-libraries指定编译哪些boost库，all的话就是全部编译，只想编译部分库的话就把库的命称写上，之间用 , 号分隔即可，可指定的库下面介绍。–with-toolset指定编译时使用哪种编译器，Linux下使用gcc即可，如果系统中安装了多个版本的gcc，在这里可以指定gcc的版本，比如–with-toolset&#x3D;gcc-4.4</li>
-<li>boost中的常用的库有</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>库名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>atomic</td>
-<td>保证多线程的访问不会导致数据竞争</td>
-</tr>
-<tr>
-<td>chrono</td>
-<td>时间库</td>
-</tr>
-<tr>
-<td>context</td>
-<td></td>
-</tr>
-<tr>
-<td>coroutine</td>
-<td></td>
-</tr>
-<tr>
-<td>time</td>
-<td>时间库</td>
-</tr>
-<tr>
-<td>exception</td>
-<td></td>
-</tr>
-<tr>
-<td>filesystem</td>
-<td>可移植文件系统库</td>
-</tr>
-<tr>
-<td>graph</td>
-<td></td>
-</tr>
-<tr>
-<td>iostreams</td>
-<td></td>
-</tr>
-<tr>
-<td>locale</td>
-<td></td>
-</tr>
-<tr>
-<td>log</td>
-<td></td>
-</tr>
-<tr>
-<td>math</td>
-<td></td>
-</tr>
-<tr>
-<td>mpi</td>
-<td></td>
-</tr>
-<tr>
-<td>program_options</td>
-<td></td>
-</tr>
-<tr>
-<td>python</td>
-<td></td>
-</tr>
-<tr>
-<td>random</td>
-<td>随机数生成</td>
-</tr>
-<tr>
-<td>regex</td>
-<td>正则表达式库</td>
-</tr>
-<tr>
-<td>serialization</td>
-<td>序列化库</td>
-</tr>
-<tr>
-<td>signals</td>
-<td></td>
-</tr>
-<tr>
-<td>system</td>
-<td></td>
-</tr>
-<tr>
-<td>test</td>
-<td></td>
-</tr>
-<tr>
-<td>thread</td>
-<td>可移植C++线程库</td>
-</tr>
-<tr>
-<td>wave</td>
-<td></td>
-</tr>
-</tbody></table>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">./b2</span><br><span class="line"></span><br><span class="line">To adjust configuration, edit &#x27;project-config.jam&#x27;.</span><br><span class="line">Further information:</span><br><span class="line"></span><br><span class="line">   - Command line help:</span><br><span class="line">     ./b2 --help</span><br><span class="line"></span><br><span class="line">   - Getting started guide: </span><br><span class="line">     http://www.boost.org/more/getting_started/unix-variants.html</span><br><span class="line"></span><br><span class="line">   - Boost.Build documentation:</span><br><span class="line">     http://www.boost.org/build/doc/html/index.html</span><br><span class="line"></span><br><span class="line">     //看到如上所示即成功</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 开始编译</span><br><span class="line">./b2 toolset=gcc </span><br><span class="line"></span><br><span class="line">sudo ./b2 install --prefix=/usr ##--prefix=/usr用来指定boost的安装目录，</span><br><span class="line">不加此参数的话默认的头文件在/usr/local/include/boost目录下，</span><br><span class="line">库文件在/usr/local/lib/目录下。</span><br><span class="line">这里把安装目录指定为--prefix=/usr</span><br><span class="line">则boost会直接安装到系统头文件目录和库文件目录下，可以省略配置环境变量。</span><br><span class="line">我这里把boost安装在/usr/local/boost目录下</span><br></pre></td></tr></table></figure>
-
-<p>编译完成后需要配置下环境变量。否则在使用的时候会找到不头文件和库文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br><span class="line"></span><br><span class="line">添加以下几句</span><br><span class="line">export CPLUS_INCLUDE_PATH=/usr/local/boost/include/:$CPLUS_INCLUDE_PATH</span><br><span class="line">export LIBRARY_PATH=/usr/local/boost/lib/:$LIBRARY_PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/boost/lib/:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
-
-<p>然后执行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">sudo ldconfig </span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/about/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/07/22/about/" class="post-title-link" itemprop="url">about</a>
+            <a href="/2024/07/22/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">工厂方法</a>
         </h2>
 
         <div class="post-meta">
@@ -883,7 +185,24 @@ int main()
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-07-22 13:24:05 / 修改时间：14:16:18" itemprop="dateCreated datePublished" datetime="2024-07-22T13:24:05+08:00">2024-07-22</time>
+              <time title="创建时间：2024-07-22 00:00:00 / 修改时间：17:43:11" itemprop="dateCreated datePublished" datetime="2024-07-22T00:00:00+08:00">2024-07-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
             </span>
 
           
@@ -897,20 +216,34 @@ int main()
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a><strong>关于我</strong></h2><p>欢迎来到我的博客！ 我是一名多领域的开发工程师，擅长使用 C++、Python 和 Rust 进行软件开发。</p>
-<p>我对编程和技术充满热情，并致力于不断学习和探索新的技术领域。 我拥有广泛的编程经验和技术知识。我在计算机科学领域取得了学士学位，并在多个项目中担任开发工程师的角色。</p>
-<p>我在 C++、Python 和 Rust 方面有着深入的理解和实践经验，能够灵活地应用它们来解决各种编程问题。 我创建这个博客的目的是与大家分享我的编程经验、技术见解和最佳实践。我希望通过博客能够帮助读者解决实际的编程挑战，提供有价值的技术教程和指南。</p>
-<p>在我的博客中，您将找到关于 C++、Python 和 Rust 的深入文章、教程和示例代码。我会分享我在这些领域的经验和见解，包括最新的开发技术、工具和框架。 我相信编程应该是一种有趣和创造性的体验，因此我会尽力使我的博客内容易于理解和实践。</p>
-<p>如果您对任何文章或主题有疑问或建议，欢迎在评论区留言，我会尽快回复。 感谢您访问我的博客，希望您在这里找到有益的信息和灵感。让我们一起探索编程的奇妙世界！</p>
-<p>如有任何疑问或合作机会，请通过以下方式与我联系：</p>
-<ul>
-<li><p><a href="mailto:电子邮件：your-email@example.com">电子邮件：wuxiaoning523@163.com</a></p>
+          <h1 id="工厂方法-Factory"><a href="#工厂方法-Factory" class="headerlink" title="工厂方法(Factory)"></a>工厂方法(Factory)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
+<li><p><a href="#%E5%AE%9A%E4%B9%89">定义</a></p>
 </li>
-<li><p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/Lovening">https://github.com/Lovening</a></p>
+<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F">工厂方法调用顺序</a></p>
+</li>
+<li><p><a href="#%E8%A7%A3%E6%9E%84%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">解构工厂方法模式</a></p>
+</li>
+<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84%E5%9B%BE">工厂方法结构图</a></p>
+</li>
+<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0">工厂方法的实现</a></p>
+</li>
+<li><p><a href="#%E8%B0%81%E6%9D%A5%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">谁来使用工厂方法创建对象</a></p>
+</li>
+<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">工厂方法模式的优缺点</a></p>
+</li>
+<li><p><a href="#%E4%BD%95%E6%97%B6%E9%80%89%E7%94%A8%E5%B7%A5%E7%A8%8B%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">何时选用工程方法模式</a></p>
+</li>
+<li><p><a href="#code">code</a></p>
 </li>
 </ul>
-<p>谢谢！</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/22/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -929,7 +262,7 @@ int main()
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/30%20%E6%9D%A1%E6%9C%89%E6%95%88%E4%BD%BF%E7%94%A8%20STL%20%E7%9A%84%E7%BB%8F%E9%AA%8C/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -943,7 +276,7 @@ int main()
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/07/22/30%20%E6%9D%A1%E6%9C%89%E6%95%88%E4%BD%BF%E7%94%A8%20STL%20%E7%9A%84%E7%BB%8F%E9%AA%8C/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2024/07/22/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" class="post-title-link" itemprop="url">抽象工厂</a>
         </h2>
 
         <div class="post-meta">
@@ -954,7 +287,24 @@ int main()
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-07-22 11:57:31 / 修改时间：14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T11:57:31+08:00">2024-07-22</time>
+              <time title="创建时间：2024-07-22 00:00:00 / 修改时间：17:43:31" itemprop="dateCreated datePublished" datetime="2024-07-22T00:00:00+08:00">2024-07-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
             </span>
 
           
@@ -968,149 +318,325 @@ int main()
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Effective-STL，-30-条有效使用-STL-的经验"><a href="#Effective-STL，-30-条有效使用-STL-的经验" class="headerlink" title="Effective STL， 30 条有效使用 STL 的经验"></a>Effective STL， 30 条有效使用 STL 的经验</h1><p>最近看了一本书《Effective STL》，这本书内容比较老，但里面很多内容还是值得我们学习的。书里一共有 50 条有效使用 STL 的经验，这里整理出了 30 条自认为有用的条目分享给大家，希望对大家有所帮助，想了解具体内容的的朋友可以直接去看书哈。</p>
-<p>以下是干货：</p>
-<h3 id="1-慎重选择-STL-容器类型"><a href="#1-慎重选择-STL-容器类型" class="headerlink" title="1 慎重选择 STL 容器类型"></a><strong>1 慎重选择 STL 容器类型</strong></h3><p>a) 确保自己了解每个容器的使用场景，特定的场景选择合适的容器类型</p>
-<p>b) 连续内存，支持下标访问，可考虑选择 vector</p>
-<p>c) 频繁的在中间做插入或者删除操作，可考虑选择 list</p>
-<p>d) 两者都有，可考虑使用 deque</p>
-<h3 id="2-不要试图编写独立于容器类型的代码"><a href="#2-不要试图编写独立于容器类型的代码" class="headerlink" title="2 不要试图编写独立于容器类型的代码"></a><strong>2 不要试图编写独立于容器类型的代码</strong></h3><p>a) 不同容器有不同的成员函数，想独立于容器类型，只能取它们的交集</p>
-<p>b) 然而，取交集意义不大</p>
-<h3 id="3-确保容器中的对象拷贝正确而高效"><a href="#3-确保容器中的对象拷贝正确而高效" class="headerlink" title="3 确保容器中的对象拷贝正确而高效"></a><strong>3 确保容器中的对象拷贝正确而高效</strong></h3><p>a) 大家应该都知道，容器中存放的都是对象的拷贝，想要拷贝正确那就实现拷贝构造函数和拷贝赋值运算符</p>
-<p>b) 想要更高效，可以使容器包含指针而不是对象，也可考虑智能指针</p>
-<h3 id="4-调用-empty-而不是检查-size-是否为-0"><a href="#4-调用-empty-而不是检查-size-是否为-0" class="headerlink" title="4 调用 empty 而不是检查 size() 是否为 0"></a><strong>4 调用 empty 而不是检查 size() 是否为 0</strong></h3><p>a)empty 对所有的标准容器都是常数时间操作，而对一些 list 实现，size 耗费线性时间</p>
-<h3 id="5-区间成员函数优先于与之对应的单元素成员函数"><a href="#5-区间成员函数优先于与之对应的单元素成员函数" class="headerlink" title="5 区间成员函数优先于与之对应的单元素成员函数"></a><strong>5 区间成员函数优先于与之对应的单元素成员函数</strong></h3><p>a) 写起来更方便，代码更少</p>
-<p>b) 更能清晰的表达意图</p>
-<p>c) 有些情况下可能更高效</p>
-<h3 id="6-如果容器中包含了通过-new-操作创建的指针，切记在容器对象析构前将指针-delete-掉"><a href="#6-如果容器中包含了通过-new-操作创建的指针，切记在容器对象析构前将指针-delete-掉" class="headerlink" title="6 如果容器中包含了通过 new 操作创建的指针，切记在容器对象析构前将指针 delete 掉"></a><strong>6 如果容器中包含了通过 new 操作创建的指针，切记在容器对象析构前将指针 delete 掉</strong></h3><p>a) 其实就是为了避免资源泄漏</p>
-<p>b) 可以考虑在容器中存储 shared_ptr</p>
-<h3 id="6-慎重选择删除元素的方法"><a href="#6-慎重选择删除元素的方法" class="headerlink" title="6 慎重选择删除元素的方法"></a><strong>6 慎重选择删除元素的方法</strong></h3><p><strong>a) 要删除容器中有特定值的所有对象</strong></p>
-<p>i. 如果容器是 vector、string 或 deque，则使用 erase-remove 习惯用法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::vector&lt;int&gt; v;</span><br><span class="line">v.erase(std::remove(v.begin(), v.end(), 5), v.end());</span><br></pre></td></tr></table></figure>
+          <h1 id="抽象工厂方法-Abstract-Factory"><a href="#抽象工厂方法-Abstract-Factory" class="headerlink" title="抽象工厂方法(Abstract Factory)"></a>抽象工厂方法(Abstract Factory)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
+<li><p><a href="#%E5%AE%9A%E4%B9%89">定义</a></p>
+</li>
+<li><p><a href="#%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F">抽象工厂方法调用顺序</a></p>
+</li>
+<li><p><a href="#%E8%A7%A3%E6%9E%84%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">解构抽象工厂方法模式</a></p>
+</li>
+<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84%E5%9B%BE">工厂方法结构图</a></p>
+</li>
+<li><p><a href="#%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0">抽象工厂方法的实现</a></p>
+</li>
+<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">工厂方法模式的优缺点</a></p>
+</li>
+<li><p><a href="#%E4%BD%95%E6%97%B6%E9%80%89%E7%94%A8%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">何时选用抽象工厂方法模式</a></p>
+</li>
+</ul>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类</p>
+<p>本质</p>
+<p>抽象工厂的本质：选择产品簇的实现</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/22/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
-<p>ii. 如果容器是 list，则使用 list::remove</p>
-<p>iii. 如果容器是一个标准关联容器，则使用它的 erase 成员函数</p>
-<p><strong>b) 要删除容器中满足特定条件的所有对象</strong></p>
-<p>i. 如果容器是 vector、string 或 deque，则使用 erase-remove_if 习惯用法</p>
-<p>ii. 如果容器是 list，则使用 list::remove_if</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.remove_if(c.begin(),c.end(),badValue);</span><br></pre></td></tr></table></figure>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-<p>iii. 如果容器是一个标准关联容器，则使用 remove_copy_if 和 swap，或者写一个循环来遍历容器中的元素，记住当把迭代器传给 erase 时，要对它进行后缀递增</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">map&lt;string, int&gt; m;</span><br><span class="line">m.insert(pair&lt;string, int&gt;(&quot;aa&quot;, 1));</span><br><span class="line">m[&quot;a&quot;] = 1;</span><br><span class="line">m[&quot;b&quot;] = 2;</span><br><span class="line">m[&quot;c&quot;] = 3;</span><br><span class="line">m[&quot;d&quot;] = 4;</span><br><span class="line">​</span><br><span class="line">map&lt;string, int&gt; tmp_map;</span><br><span class="line">​</span><br><span class="line">cout &lt;&lt; m.size() &lt;&lt; endl; // 打印5</span><br><span class="line">// (a,1) (aa,1) (b,2) (c,3) (d,4)</span><br><span class="line">for_each(m.begin(), m.end(), [](const pair&lt;string, int&gt;&amp; pr) &#123; </span><br><span class="line">          cout &lt;&lt; &quot;(&quot; &lt;&lt; pr.first &lt;&lt; &quot;,&quot; &lt;&lt; pr.second &lt;&lt; &quot;) &quot;; &#125;);</span><br><span class="line">​</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line">​</span><br><span class="line">int sz = 3;</span><br><span class="line">remove_copy_if(m.begin(), m.end(), inserter(tmp_map, tmp_map.end()),</span><br><span class="line">                  /*判断条件*/[sz](const pair&lt;string, int&gt;&amp; s) &#123;</span><br><span class="line">                                return s.second &gt;= sz;&#125; );</span><br><span class="line">m.swap(tmp_map);</span><br></pre></td></tr></table></figure>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%91%84%E5%83%8F%E5%A4%B4/">
 
-<p><strong>c) 要在循环内部做某些操作</strong></p>
-<p>i. 如果容器是一个标准序列容器，则写一个循环来遍历容器中的元素，记住每次调用 erase 时，要用它的返回值更新迭代器</p>
-<p>ii. 如果容器是一个标准关联容器，则写一个循环来遍历容器中的元素，记住当把迭代器传给 erase 时，要对迭代器做后缀递增。</p>
-<p><strong>d) 返回值更新迭代器示例</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (auto i = c.begin(); i != c.end();) &#123; </span><br><span class="line">  if (xxx) &#123; </span><br><span class="line">    i = c.erase(i);</span><br><span class="line">  &#125; else ++i;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
 
-<p><strong>e) 迭代器后缀递增示例</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (auto i = c.begin(); i != c.end();) &#123;    </span><br><span class="line">  if (xxx) &#123;        </span><br><span class="line">    c.erase(i++);</span><br><span class="line">  &#125;else ++i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/22/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%91%84%E5%83%8F%E5%A4%B4/" class="post-title-link" itemprop="url">适配器模式</a>
+        </h2>
 
-<p><strong>f)（!!!）现在可以统一使用返回值更新迭代器方式</strong></p>
-<p>经过测试，如果是关联容器，也可以使用返回值更新迭代的方式删除特定元素</p>
-<h3 id="8-切勿对-STL-容器的线程安全性有不切实际的依赖"><a href="#8-切勿对-STL-容器的线程安全性有不切实际的依赖" class="headerlink" title="8 切勿对 STL 容器的线程安全性有不切实际的依赖"></a><strong>8 切勿对 STL 容器的线程安全性有不切实际的依赖</strong></h3><p>a) 书中原话是：当涉及 STL 容器和线程安全性时，你可以指望一个 STL 库允许多个线程同时读一个容器，以及多个线程对不同的容器做写入操作。你不能指望 STL 库会把你从手工同步控制中解脱出来，而且你不能依赖于任何线程支持。</p>
-<p>b) 原文磨磨唧唧的，我就可以理解为 STL 不支持线程安全，想要线程安全，那自己加锁就完事儿了。</p>
-<h3 id="9-vector-等容器考虑使用-reserve-来避免不必要的重新分配"><a href="#9-vector-等容器考虑使用-reserve-来避免不必要的重新分配" class="headerlink" title="9 vector 等容器考虑使用 reserve 来避免不必要的重新分配"></a><strong>9 vector 等容器考虑使用 reserve 来避免不必要的重新分配</strong></h3><p><strong>a) 这种动态扩容的容器每次扩容都会大体经历 4 步：</strong></p>
-<p>i. 分配一块大小为当前容量的某个倍数的新内存。大多数实现中，vector 和 string 的容器每次以 2 的倍数增长</p>
-<p>ii. 把容器的所有元素从旧的内存移动或者拷贝到新的内存中</p>
-<p>iii. 如果有拷贝，析构掉旧内存中的对象</p>
-<p>iv. 如果有拷贝，释放旧内存</p>
-<p><strong>b) 明确 size()、capacity()、resize()、reserve() 四个成员函数的具体含义</strong></p>
-<p><strong>c)reserve 能使重新分配的次数减少到最低限度，避免重新分配和迭代器失效带来的开销，两种方式：</strong></p>
-<p>i. 若能明确知道或预计容器最终有多少元素，可使用 reverse，预留适当大小的空间</p>
-<p>ii. 先预留足够大的空间，然后，当把所有数据都加入以后，再去除多余的空间。</p>
-<h3 id="10-使用-swap-技巧除去多余的容量"><a href="#10-使用-swap-技巧除去多余的容量" class="headerlink" title="10 使用 swap 技巧除去多余的容量"></a><strong>10 使用 swap 技巧除去多余的容量</strong></h3><p>**a) vector&lt;** type&gt;(a).swap(a) vector<int>().swap(a);</p>
-<p><strong>b) a.clear()</strong></p>
-<p><strong>c) 以上两种都是清空容器的方法，swap 相对于 clear 一般更合适一些</strong></p>
-<h3 id="11-避免使用-vector-存储-bool"><a href="#11-避免使用-vector-存储-bool" class="headerlink" title="11 避免使用 vector 存储 bool"></a><strong>11 避免使用 vector 存储 bool</strong></h3><p><strong>a) 有两点：</strong></p>
-<p>i. 它不是一个 STL 容器，不能取元素的地址</p>
-<p>ii. 它不存储 bool</p>
-<p>b) 可以用 deque 和 bitset 来替代</p>
-<h3 id="12-理解相等和等价的区别"><a href="#12-理解相等和等价的区别" class="headerlink" title="12 理解相等和等价的区别"></a><strong>12 理解相等和等价的区别</strong></h3><p><strong>a) 相等的概念基于 operator&#x3D;&#x3D;，即 a&#x3D;&#x3D;b，则为相等</strong></p>
-<p><strong>b) 如果!(a &lt; b) &amp;&amp; !(b &lt; a)，则为等价</strong></p>
-<h3 id="13-为包含指针的关联容器指定比较类型"><a href="#13-为包含指针的关联容器指定比较类型" class="headerlink" title="13 为包含指针的关联容器指定比较类型"></a><strong>13 为包含指针的关联容器指定比较类型</strong></h3><p><strong>a) 容器里面存储的都是指针，但是由于是关联容器，需要进行比较，但默认的比较（比较指针）一般不是我们想要的行为</strong></p>
-<p><strong>b) 所以需要指定比较类型，自定义比较行为</strong></p>
-<h3 id="14-总是让比较函数在等值情况下返回-false"><a href="#14-总是让比较函数在等值情况下返回-false" class="headerlink" title="14 总是让比较函数在等值情况下返回 false"></a><strong>14 总是让比较函数在等值情况下返回 false</strong></h3><p>a)<strong>直接看这个文章吧</strong><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzkyODE5NjU2Mw==%5C&mid=2247491602%5C&idx=1%5C&sn=a9e4dd25cc35baf10b2508485b6dc550%5C&chksm=c21ed2aef5695bb869e6302ccbf2b2cbbf25f28e04c107408c7d60a9d611097ef8c588f4cde2%5C&scene=21#wechat_redirect">【线上问题】P1级公司故障，年终奖不保 (qq.com)</a></p>
-<h3 id="15-切勿直接修改-set-或-multiset-中的键"><a href="#15-切勿直接修改-set-或-multiset-中的键" class="headerlink" title="15 切勿直接修改 set 或 multiset 中的键"></a><strong>15 切勿直接修改 set 或 multiset 中的键</strong></h3><p><strong>a) 如果改变了键，那么可能破坏该容器（顺序），再使用该容器可能导致不确定的结果</strong></p>
-<p><strong>b) 为什么标题是切勿修改 set，而不是切勿修改 map 中的键呢？</strong></p>
-<p>i. 因为 map 中的键是 const K，本来就不允许修改</p>
-<h3 id="16-考虑用排序的-vector-替代关联容器"><a href="#16-考虑用排序的-vector-替代关联容器" class="headerlink" title="16 考虑用排序的 vector 替代关联容器"></a><strong>16 考虑用排序的 vector 替代关联容器</strong></h3><p>a) 在排序的 vector 中存储数据可能比在标准关联容器中存储同样的数据要耗费更少的内存。</p>
-<p>b) 由于 Page Fault，通过二分搜索来查找一个排序的 vector 可能比查找一个标准关联容器要更快一些</p>
-<p>c) 对于排序的 vector，最不利的地方在于它必须保持有序，这对 vector 来说，代价是很高的。所以，在查找操作几乎从不跟插入删除操作混在一起时，使用排序的 vector 才更合适。</p>
-<h3 id="17当效率至关重要时，请在-map-operator-与-map-insert-之间谨慎做出选择"><a href="#17当效率至关重要时，请在-map-operator-与-map-insert-之间谨慎做出选择" class="headerlink" title="17当效率至关重要时，请在 map::operator[]与 map::insert 之间谨慎做出选择"></a><strong>17当效率至关重要时，请在 map::operator[]与 map::insert 之间谨慎做出选择</strong></h3><p>a) 当向 map 中添加元素时，优先选用 insert 而不是 operator[]</p>
-<p>b) 当更新 map 中的值时，优先选用 operator[]</p>
-<h3 id="18-iterator-优先于-const-iterator、reverse-iterator、const-reverse-iterator"><a href="#18-iterator-优先于-const-iterator、reverse-iterator、const-reverse-iterator" class="headerlink" title="18 iterator 优先于 const_iterator、reverse_iterator、const_reverse_iterator"></a><strong>18 iterator 优先于 const_iterator、reverse_iterator、const_reverse_iterator</strong></h3><p>a) 尽量用 iterator 来代替 const 或 reverse 型的迭代器</p>
-<p>b)iterator 相对于其它更加实用</p>
-<p>c) 很多参数都是 iterator，很少有其它</p>
-<h3 id="19使用-distance-和-advance-将容器的-const-iterator-转换成-iterator"><a href="#19使用-distance-和-advance-将容器的-const-iterator-转换成-iterator" class="headerlink" title="19使用 distance 和 advance 将容器的 const_iterator 转换成 iterator"></a><strong>19使用 distance 和 advance 将容器的 const_iterator 转换成 iterator</strong></h3><p>Container d;ConstIter ci;Iter i(d.begin());advance(i, distance(i, ci));</p>
-<h3 id="20对于逐个字符的输入-请考虑使用-istreambuf-iterator"><a href="#20对于逐个字符的输入-请考虑使用-istreambuf-iterator" class="headerlink" title="20对于逐个字符的输入, 请考虑使用 istreambuf_iterator"></a><strong>20对于逐个字符的输入, 请考虑使用 istreambuf_iterator</strong></h3><p>a)istreambuf_iterator 性能一般优于 istream_iterator</p>
-<p>b)istreambuf_iterator 不会跳过任何字符</p>
-<p>istream inputFile(“xxx.txt”);</p>
-<p>string str(istreambuf_iterator<char>(inputFile), istreambuf_iterator<char>());</p>
-<h3 id="21容器的插入-要确保目标空间足够大"><a href="#21容器的插入-要确保目标空间足够大" class="headerlink" title="21容器的插入, 要确保目标空间足够大"></a><strong>21容器的插入, 要确保目标空间足够大</strong></h3><p>a) 灵活使用 reverse 和 back_inserter、front_inserter 和 inserter 返回的迭代器。</p>
-<h3 id="22-了解各种与排序有关的选择"><a href="#22-了解各种与排序有关的选择" class="headerlink" title="22 了解各种与排序有关的选择"></a><strong>22 了解各种与排序有关的选择</strong></h3><p><strong>a) 重点关注以下几项：</strong></p>
-<p>i.partial_sort</p>
-<p>ii.nth_element</p>
-<p>iii.stable_sort</p>
-<p>iv.sort</p>
-<p>v.partition</p>
-<p>vi.stable_partition</p>
-<p><strong>b) 对排序算法的选择应该更多地基于所需要完成的功能，而不是算法的性能</strong></p>
-<p><strong>c) 总结：</strong></p>
-<p>i. 如果需要对 vector、string、deque 或者数组中的元素执行一次完全排序，那可以使用 sort 或者 stable_sort</p>
-<p>ii. 如果有一个 vector、string、deque 或者数组，并且只需要对等价性最前面的 n 个元素进行排序，那可以使用 partial_sort</p>
-<p>iii. 如果有一个 vector、string、deque 或者数组，并且需要找到第 n 个位置上的元素，或者，需要找到等价性最前面的 n 个元素但又不必对这 n 个元素进行排序，那么，nth_element 正是所需要的函数</p>
-<p>iv. 如果需要将一个标准序列容器中的元素按照是否满足某个特定的条件区分开来，那么，partition 和 stable_partition 可能正是你所需要的</p>
-<p>v. 如果你的数组在一个 list 中，那么你仍然可以调用 partition 和 stable_partition 算法，可以用 list::sort 来替代 sort 和 stable_sort 算法。</p>
-<h3 id="23如果确实需要删除元素，则需要在-remove-这一类算法之后调用-erase"><a href="#23如果确实需要删除元素，则需要在-remove-这一类算法之后调用-erase" class="headerlink" title="23如果确实需要删除元素，则需要在 remove 这一类算法之后调用 erase"></a><strong>23如果确实需要删除元素，则需要在 remove 这一类算法之后调用 erase</strong></h3><p>a)erase-remove 这块应该大家都知道</p>
-<p>b)list 是个例外，list 的 remove 就是 erase</p>
-<p>c)remove 指针时注意释放掉对应的内存，防止内存泄漏</p>
-<h3 id="24-了解哪些算法使用排序的区间作为参数"><a href="#24-了解哪些算法使用排序的区间作为参数" class="headerlink" title="24 了解哪些算法使用排序的区间作为参数"></a><strong>24 了解哪些算法使用排序的区间作为参数</strong></h3><p><strong>a) 某些算法为了性能考虑，需要使用排序的区间作为参数</strong></p>
-<p><strong>b) 如果传递了没有排序的区间进去，会导致错误的结果</strong></p>
-<p><strong>c) 要求排序区间的 STL 算法：</strong></p>
-<p>i.binary_search</p>
-<p>ii.lower_bound</p>
-<p>iii.upper_bound</p>
-<p>iv.equal_range</p>
-<p>v.set_union</p>
-<p>vi.set_intersection</p>
-<p>vii.set_difference</p>
-<p>viii.set_symmetric_difference</p>
-<p>ix.merge</p>
-<p>x.inplace_merge</p>
-<p>xi.includes</p>
-<p>d) 下面的算法不一定要求排序区间，但通常和排序区间一起使用</p>
-<p>i.unique</p>
-<p>ii.unique_copy</p>
-<h3 id="25-通过-mismatch-或-lexicographical-compare-实现简单的忽略大小写的字符串比较"><a href="#25-通过-mismatch-或-lexicographical-compare-实现简单的忽略大小写的字符串比较" class="headerlink" title="25. 通过 mismatch 或 lexicographical_compare 实现简单的忽略大小写的字符串比较"></a><strong>25. 通过 mismatch 或 lexicographical_compare 实现简单的忽略大小写的字符串比较</strong></h3><p>a)mismatch 或 lexicographical_compare 更通用</p>
-<p>b) 但 strcmp 在处理长字符串时可能更高效</p>
-<h3 id="26-使用-accumulate-或者-for-each-进行区间统计"><a href="#26-使用-accumulate-或者-for-each-进行区间统计" class="headerlink" title="26 使用 accumulate 或者 for_each 进行区间统计"></a><strong>26 使用 accumulate 或者 for_each 进行区间统计</strong></h3><p>a)accumulate 会计算出一个区间的统计信息</p>
-<p>b)for_each 是对一个区间的每个元素做一个操作</p>
-<h3 id="27算法调用优先于手写的循环"><a href="#27算法调用优先于手写的循环" class="headerlink" title="27算法调用优先于手写的循环"></a><strong>27算法调用优先于手写的循环</strong></h3><p><strong>a) 大多数情况下，标准的 STL 肯定比我们自己手写的好一些，包括正确性以及性能和可维护性方面</strong></p>
-<p><strong>b) 比如：</strong></p>
-<p>i.min_element</p>
-<p>ii.accumulate</p>
-<p>iii.partition</p>
-<p>iv.find</p>
-<p>v.find_if</p>
-<p>vi.for_each</p>
-<p>vii.erase-remove</p>
-<p>viii.transform</p>
-<h3 id="28容器的成员函数优先于同名的算法"><a href="#28容器的成员函数优先于同名的算法" class="headerlink" title="28容器的成员函数优先于同名的算法"></a><strong>28容器的成员函数优先于同名的算法</strong></h3><p><strong>a) 关联容器提供了 count、find、lower_bound、upper_bound、equal_range</strong></p>
-<p><strong>b)list 提供了 remove、remove_if、unique、sort、merge、reverse</strong></p>
-<p><strong>c) 有两个原因：</strong></p>
-<p>i. 成员函数通常与容器（特别是关联容器）结合得更加紧密</p>
-<p>ii. 成员函数往往速度更快</p>
-<h3 id="29正确区分-count、find、binary-search、lower-bound、upper-bound、equal-range"><a href="#29正确区分-count、find、binary-search、lower-bound、upper-bound、equal-range" class="headerlink" title="29正确区分 count、find、binary_search、lower_bound、upper_bound、equal_range"></a><strong>29正确区分 count、find、binary_search、lower_bound、upper_bound、equal_range</strong></h3><p><img src="https://mmbiz.qpic.cn/mmbiz_png/JeibBY5FJRBGd59vrcic9askGRPZFdnoy72pG5oTCZUqAZoibnpGj4E4iaqPxCBfcTRA2PGz3vxuhXfrAypicSN1pkA/640?wx_fmt=png"></p>
-<h3 id="30考虑使用函数对象而不是函数作为-STL-算法的参数"><a href="#30考虑使用函数对象而不是函数作为-STL-算法的参数" class="headerlink" title="30考虑使用函数对象而不是函数作为 STL 算法的参数"></a><strong>30考虑使用函数对象而不是函数作为 STL 算法的参数</strong></h3><p>a) 现在一般都是使用 lambda 表达式作为 STL 算法参数</p>
-<p>- EOF -</p>
-<p>推荐阅读  点击标题可跳转</p>
-<p>1、<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzAxNDI5NzEzNg==%5C&mid=2651165473%5C&idx=1%5C&sn=e63fd504c3c362dc75abea90bda3faa8%5C&chksm=8064427eb713cb68d5c5f3bfd41c6c590b43184e2809322a73d96f84898da58cdeac558861ec%5C&scene=21#wechat_redirect">C++ STL 容器如何解决线程安全的问题？</a></p>
-<p>2、<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzAxNDI5NzEzNg==%5C&mid=2651162763%5C&idx=1%5C&sn=daa0252ac07f43edbf5110aa0d23d68a%5C&chksm=806459d4b713d0c21632a071be211689d4b65bb90bd07dc4aaa1b82124bc3dc059ece9feef26%5C&scene=21#wechat_redirect">为何某些公司不允许使用 C++ STL？</a></p>
-<p>3、<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzAxNDI5NzEzNg==%5C&mid=2651166504%5C&idx=1%5C&sn=75293ce7ba3f37a319a86f23e3a9dd9b%5C&chksm=80644677b713cf61a7aec4b415a8108fcc2b1cbda7a52ddd62b2dc2a2b6bbe6fb73cc5031fef%5C&scene=21#wechat_redirect">STL 中有哪些副作用或稍不注意会产生性能开销的地方？</a></p>
-<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/zGenVqpJ2L7jV7C-8ObYXQ">https://mp.weixin.qq.com/s/zGenVqpJ2L7jV7C-8ObYXQ</a></p>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
+              <time title="创建时间：2024-07-22 00:00:00 / 修改时间：17:43:39" itemprop="dateCreated datePublished" datetime="2024-07-22T00:00:00+08:00">2024-07-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="树莓派官方摄像头模块-V3-的配置及-libcamera-的使用教程"><a href="#树莓派官方摄像头模块-V3-的配置及-libcamera-的使用教程" class="headerlink" title="树莓派官方摄像头模块 V3 的配置及 libcamera 的使用教程"></a>树莓派官方摄像头模块 V3 的配置及 libcamera 的使用教程</h1><p>树莓派官方<a target="_blank" rel="noopener" href="https://shumeipai.nxez.com/2023/01/18/raspberry-pi-camera-modules-v3-released.html">摄像头模块 Camera Module 3</a> 发布之后，有些朋友使用 libcamera 软件库来拍摄会发现报错：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/22/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%91%84%E5%83%8F%E5%A4%B4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/22/%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">生成器模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-07-22 00:00:00 / 修改时间：17:43:46" itemprop="dateCreated datePublished" datetime="2024-07-22T00:00:00+08:00">2024-07-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="生成器模式-Builder"><a href="#生成器模式-Builder" class="headerlink" title="生成器模式(Builder)"></a>生成器模式(Builder)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
+<li><p><a href="#%E5%AE%9A%E4%B9%89">定义</a></p>
+</li>
+<li><p><a href="#%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F%E5%8A%9F%E8%83%BD">生成器模式功能</a></p>
+</li>
+<li><p><a href="#%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F">生成器模式调用顺序</a></p>
+</li>
+<li><p><a href="#%E8%A7%A3%E6%9E%84%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F">解构生成器模式</a></p>
+</li>
+<li><p><a href="#%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F%E9%87%8D%E8%A6%81%E7%9A%84%E6%9E%84%E6%88%90">生成器模式重要的构成</a></p>
+</li>
+<li><p><a href="#%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE">生成器模式结构图</a></p>
+</li>
+<li><p><a href="#%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0">生成器模式的实现</a></p>
+</li>
+<li><p><a href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">示例代码</a></p>
+</li>
+<li><p><a href="#%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">生成器模式的优缺点</a></p>
+</li>
+<li><p><a href="#%E4%BD%95%E6%97%B6%E9%80%89%E7%94%A8%E5%B7%A5%E7%A8%8B%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">何时选用工程方法模式</a></p>
+</li>
+<li><p><a href="#%E5%85%B7%E4%BD%93%E7%9A%84%E5%AE%9E%E7%8E%B0">具体的实现</a></p>
+</li>
+</ul>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/22/%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/22/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">适配器模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-07-22 00:00:00 / 修改时间：17:43:51" itemprop="dateCreated datePublished" datetime="2024-07-22T00:00:00+08:00">2024-07-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="适配器模式-adapter"><a href="#适配器模式-adapter" class="headerlink" title="适配器模式(adapter)"></a>适配器模式(adapter)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
+<li><p><a href="#%E5%AE%9A%E4%B9%89">定义</a></p>
+<ul>
+<li><p><a href="#%E9%80%82%E9%85%8D%E5%99%A8%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F">适配器调用顺序</a></p>
+</li>
+<li><p><a href="#%E8%A7%A3%E6%9E%84%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F">解构适配器模式</a></p>
+</li>
+</ul>
+</li>
+<li><p><a href="#%E9%80%82%E9%85%8D%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0">适配器的实现</a></p>
+</li>
+<li><p><a href="#%E7%B1%BB%E9%80%82%E9%85%8D%E5%99%A8">类适配器</a></p>
+</li>
+<li><p><a href="#%E5%AF%B9%E8%B1%A1%E9%80%82%E9%85%8D%E5%99%A8">对象适配器</a></p>
+</li>
+<li><p><a href="#%E4%BD%95%E6%97%B6%E9%80%89%E7%94%A8%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F">何时选用适配器模式</a></p>
+</li>
+</ul>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>将一个类的接口转化成客户希望的另一个接口，适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作</p>
+<p>适配器模式的主要功能是进行转化匹配，目的是复用已有的功能，而不是来实现新的接口。也就是说客户端需要的功能是已经实现的，不需要适配器来实现，适配器模式的主要功能是把不兼容的接口转化成客户端期望的样子就可以了，适配器中也可以实现功能，称这种适配器为智能适配器模式</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/22/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1194,9 +720,13 @@ int main()
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
       </div>
   </nav>
 </div>

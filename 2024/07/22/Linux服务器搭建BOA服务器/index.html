@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="BOA 服务器介绍BOA 是一个单任务的小型HTTP服务器，源代码开放，支持认证，CGI等功能，性能优越，适合在嵌入式系统中。 BOA服务器搭建源码源码链接：BOA源码 源码安装下载完成后在linux下直接解压tar -xvf boa-0.94.13.tar.gz 环境搭建首先需要安装两个解析工具sudo apt-get install bisonsudo apt-get install flex">
+  <meta name="description" content="BOA 服务器介绍BOA 是一个单任务的小型HTTP服务器，源代码开放，支持认证，CGI等功能，性能优越，适合在嵌入式系统中。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="吴晓宁blog">
+<meta property="og:title" content="C++ Boa服务器使用">
 <meta property="og:url" content="https://blog.isroots.com/2024/07/22/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BABOA%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="吴晓宁blog">
-<meta property="og:description" content="BOA 服务器介绍BOA 是一个单任务的小型HTTP服务器，源代码开放，支持认证，CGI等功能，性能优越，适合在嵌入式系统中。 BOA服务器搭建源码源码链接：BOA源码 源码安装下载完成后在linux下直接解压tar -xvf boa-0.94.13.tar.gz 环境搭建首先需要安装两个解析工具sudo apt-get install bisonsudo apt-get install flex">
+<meta property="og:description" content="BOA 服务器介绍BOA 是一个单任务的小型HTTP服务器，源代码开放，支持认证，CGI等功能，性能优越，适合在嵌入式系统中。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://isroot.cn/wp-content/uploads/2019/11/boa%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6.png">
-<meta property="article:published_time" content="2024-07-22T06:40:30.896Z">
-<meta property="article:modified_time" content="2024-07-22T06:40:30.896Z">
+<meta property="article:published_time" content="2024-07-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-22T09:41:40.529Z">
 <meta property="article:author" content="吴晓宁">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title> | 吴晓宁blog</title>
+  <title>C++ Boa服务器使用 | 吴晓宁blog</title>
   
 
 
@@ -178,7 +178,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          C++ Boa服务器使用
         </h1>
 
         <div class="post-meta">
@@ -187,8 +187,26 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
+              <time title="创建时间：2024-07-22 00:00:00 / 修改时间：17:41:40" itemprop="dateCreated datePublished" datetime="2024-07-22T00:00:00+08:00">2024-07-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">网络编程</span></a>
+                </span>
             </span>
 
           
@@ -203,6 +221,7 @@
 
       
         <h2 id="BOA-服务器介绍"><a href="#BOA-服务器介绍" class="headerlink" title="BOA 服务器介绍"></a>BOA 服务器介绍</h2><p>BOA 是一个单任务的小型HTTP服务器，源代码开放，支持认证，CGI等功能，性能优越，适合在嵌入式系统中。</p>
+<span id="more"></span>  
 <h2 id="BOA服务器搭建"><a href="#BOA服务器搭建" class="headerlink" title="BOA服务器搭建"></a>BOA服务器搭建</h2><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>源码链接：<a target="_blank" rel="noopener" href="http://www.boa.org/" title="BOA源码">BOA源码</a></p>
 <h3 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h3><p>下载完成后在linux下直接解压<br><code>tar -xvf boa-0.94.13.tar.gz</code></p>
 <h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>首先需要安装两个解析工具<br><code>sudo apt-get install bison</code><br><code>sudo apt-get install flex</code></p>
@@ -238,12 +257,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/22/C++%E5%AE%8F%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3/" rel="prev" title="">
-      <i class="fa fa-chevron-left"></i> 
+    <a href="/2024/07/22/NFS%20%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="nfs 使用总结">
+      <i class="fa fa-chevron-left"></i> nfs 使用总结
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/07/22/Nodejs%20%E5%AE%89%E8%A3%85/" rel="next" title="">
-       <i class="fa fa-chevron-right"></i>
+    <a href="/2024/07/22/C++%E5%AE%8F%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3/" rel="next" title="C++ 宏定义">
+      C++ 宏定义 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -317,9 +336,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
       </div>
   </nav>
 </div>

@@ -22,13 +22,13 @@
 
   <meta name="description" content="以前工作中用到的 Qt 比较多，对一些常用的 API 也比较熟悉，对比 std 来说，QString 比 std:: string 好用太多了。在做一个后台程序的时候，想着能不能把 Qt 的库搬过来用，但 Qt 库相对来说比较臃肿，想着怎么精简下，就有了这次的折腾记录。 Qt在github上有个qtBase里面只包含了Qt的基础东西,包含 QtCore,QWidget,gui,network等库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="吴晓宁blog">
+<meta property="og:title" content="QtBase库安装和使用">
 <meta property="og:url" content="https://blog.isroots.com/2024/07/22/QtBase%20%E5%BA%93%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="吴晓宁blog">
 <meta property="og:description" content="以前工作中用到的 Qt 比较多，对一些常用的 API 也比较熟悉，对比 std 来说，QString 比 std:: string 好用太多了。在做一个后台程序的时候，想着能不能把 Qt 的库搬过来用，但 Qt 库相对来说比较臃肿，想着怎么精简下，就有了这次的折腾记录。 Qt在github上有个qtBase里面只包含了Qt的基础东西,包含 QtCore,QWidget,gui,network等库">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-22T06:40:30.936Z">
-<meta property="article:modified_time" content="2024-07-22T06:40:30.936Z">
+<meta property="article:published_time" content="2024-07-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-22T09:42:28.080Z">
 <meta property="article:author" content="吴晓宁">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title> | 吴晓宁blog</title>
+  <title>QtBase库安装和使用 | 吴晓宁blog</title>
   
 
 
@@ -176,7 +176,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          QtBase库安装和使用
         </h1>
 
         <div class="post-meta">
@@ -185,8 +185,26 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
+              <time title="创建时间：2024-07-22 00:00:00 / 修改时间：17:42:28" itemprop="dateCreated datePublished" datetime="2024-07-22T00:00:00+08:00">2024-07-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
             </span>
 
           
@@ -204,7 +222,8 @@
 <li>以前工作中用到的 Qt 比较多，对一些常用的 API 也比较熟悉，对比 std 来说，QString 比 std:: string 好用太多了。在做一个后台程序的时候，想着能不能把 Qt 的库搬过来用，但 Qt 库相对来说比较臃肿，想着怎么精简下，就有了这次的折腾记录。</li>
 <li>Qt在github上有个<a target="_blank" rel="noopener" href="https://github.com/qt/qtbase" title="qtBase">qtBase</a>里面只包含了Qt的基础东西,包含 QtCore,QWidget,gui,network等库。所以就把这个库clone 下来进行了编译和使用 。</li>
 </ul>
-<h3 id="下载和编译"><a href="#下载和编译" class="headerlink" title="下载和编译"></a>下载和编译</h3><ul>
+<h3 id="下载和编译"><a href="#下载和编译" class="headerlink" title="下载和编译"></a>下载和编译</h3><span id="more"></span>  
+<ul>
 <li>下载<br>  <code>https://github.com/qt/qtbase.git</code><br>  我当时用的是5.12版本的 ，下载完成后记得切换成 5.12版本 <code>get checkout 5.12</code>,然后对比着<code>configure_help.tex</code> 文件把一些不太需要的库去掉了，写了个配置文件，这个配置只针对5.12版本，这个配置文件应该是有问题的，当时只想着精简，只留下个core，把所有能去掉的都去了，到后面使用出现了问题。配置文件如下，后续还需要更改再试,如果需要交叉编译，则需要配置platform等，<code>configure_help</code>里面有说明。这里我编译成静态库来使用。</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">make clean</span></span><br><span class="line">echo &quot;------------- start-----------&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置编译目录</span></span><br><span class="line">./configure -prefix /usr/local/qt/ \</span><br><span class="line">-release \</span><br><span class="line">-static \</span><br><span class="line">-opensource \</span><br><span class="line">-confirm-license \</span><br><span class="line">-c++std 11 \</span><br><span class="line">-sqlite \</span><br><span class="line">-no-accessibility \</span><br><span class="line">-nomake tests \</span><br><span class="line">-no-gui \</span><br><span class="line">-no-widgets \</span><br><span class="line">-no-openssl \</span><br><span class="line">-no-journald \</span><br><span class="line">-no-syslog \</span><br><span class="line">-no-gif \</span><br><span class="line">-no-libpng \</span><br><span class="line">-no-libjpeg \</span><br><span class="line">-no-openssl \</span><br><span class="line">-no-libproxy \</span><br><span class="line">-eventfd \</span><br><span class="line">-inotify \</span><br><span class="line">-no-slog2 \</span><br><span class="line">-no-pps \</span><br><span class="line">-pkg-config \</span><br><span class="line">-nomake examples \</span><br><span class="line">-no-ico \</span><br><span class="line"></span><br><span class="line">echo &quot;---------make--------&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">gmake -j4 &amp;&amp; <span class="built_in">sudo</span> gmake install</span></span><br></pre></td></tr></table></figure>
@@ -235,12 +254,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/22/Posix%E7%BA%BF%E7%A8%8B/" rel="prev" title="">
-      <i class="fa fa-chevron-left"></i> 
+    <a href="/2024/07/22/Qt%E8%8E%B7%E5%8F%96windows%20%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E7%9A%84%E6%96%B9%E6%B3%95/" rel="prev" title="Qt常见问题总结">
+      <i class="fa fa-chevron-left"></i> Qt常见问题总结
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/07/22/Qt%E8%8E%B7%E5%8F%96windows%20%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E7%9A%84%E6%96%B9%E6%B3%95/" rel="next" title="">
-       <i class="fa fa-chevron-right"></i>
+    <a href="/2024/07/22/Posix%E7%BA%BF%E7%A8%8B/" rel="next" title="Posix线程">
+      Posix线程 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -314,9 +333,13 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
       </div>
   </nav>
 </div>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title>Effective STL， 30 条有效使用 STL 的经验</title>
     <url>/2024/07/22/30%20%E6%9D%A1%E6%9C%89%E6%95%88%E4%BD%BF%E7%94%A8%20STL%20%E7%9A%84%E7%BB%8F%E9%AA%8C/</url>
     <content><![CDATA[<h1 id="Effective-STL，-30-条有效使用-STL-的经验"><a href="#Effective-STL，-30-条有效使用-STL-的经验" class="headerlink" title="Effective STL， 30 条有效使用 STL 的经验"></a>Effective STL， 30 条有效使用 STL 的经验</h1><p>最近看了一本书《Effective STL》，这本书内容比较老，但里面很多内容还是值得我们学习的。书里一共有 50 条有效使用 STL 的经验，这里整理出了 30 条自认为有用的条目分享给大家，希望对大家有所帮助，想了解具体内容的的朋友可以直接去看书哈。</p>
+<span id="more"></span>
+
 <p>以下是干货：</p>
 <h3 id="1-慎重选择-STL-容器类型"><a href="#1-慎重选择-STL-容器类型" class="headerlink" title="1 慎重选择 STL 容器类型"></a><strong>1 慎重选择 STL 容器类型</strong></h3><p>a) 确保自己了解每个容器的使用场景，特定的场景选择合适的容器类型</p>
 <p>b) 连续内存，支持下标访问，可考虑选择 vector</p>
@@ -146,12 +148,17 @@
 <p>3、<a href="http://mp.weixin.qq.com/s?__biz=MzAxNDI5NzEzNg==%5C&mid=2651166504%5C&idx=1%5C&sn=75293ce7ba3f37a319a86f23e3a9dd9b%5C&chksm=80644677b713cf61a7aec4b415a8108fcc2b1cbda7a52ddd62b2dc2a2b6bbe6fb73cc5031fef%5C&scene=21#wechat_redirect">STL 中有哪些副作用或稍不注意会产生性能开销的地方？</a></p>
 <p><a href="https://mp.weixin.qq.com/s/zGenVqpJ2L7jV7C-8ObYXQ">https://mp.weixin.qq.com/s/zGenVqpJ2L7jV7C-8ObYXQ</a></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>boost</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Boost 库编译指南</title>
     <url>/2024/07/22/Boost%E5%BA%93%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>[[Boost 库编译指南]]</p>
-<p>Boost 库是为 C++语言标准库提供扩展的一些 C++程序库的总称，由 Boost 社区组织开发、维护。Boost 库可以与 C++标准库完美共同工作，并且为其提供扩展功能。</p>
+    <content><![CDATA[<p>Boost 库是为 C++语言标准库提供扩展的一些 C++程序库的总称，由 Boost 社区组织开发、维护。Boost 库可以与 C++标准库完美共同工作，并且为其提供扩展功能。</p>
+<span id="more"></span>
 <h3 id="下载boost库"><a href="#下载boost库" class="headerlink" title="下载boost库"></a>下载boost库</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.下载</span><br><span class="line">wget https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.gz</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">tar zxvf boost_1_64_0.tar.gz</span><br><span class="line">cd boost_1_64_0.tar.gz</span><br><span class="line"></span><br><span class="line">3.配置</span><br><span class="line">./bootstrap.sh --with-libraries=all --with-toolset=gcc</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -267,12 +274,19 @@
 
 <p>然后执行</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">sudo ldconfig </span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>boost</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++ CRTP</title>
     <url>/2024/07/22/C++%20CRTP/</url>
     <content><![CDATA[<p>C++ CRTP</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>CRTP的全程是 <code>Curiously Recurring Template Pattern</code> 中文翻译成 <code>奇异递归模板模式,</code> <strong>常用于实现编译时多态（静态多态），与运行时多态（通过虚函数实现）相对。这种模式通过基类模板和派生类的相互作用实现，允许在编译时进行方法的调用决议，从而提高效率</strong></p>
+<span id="more"></span>
+
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>&#123; </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">interface</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 静态地调用派生类的方法</span></span><br><span class="line">        <span class="built_in">static_cast</span>&lt;T*&gt;(<span class="keyword">this</span>)-&gt;<span class="built_in">implementation</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">implementation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 基类的实现，可以被覆盖</span></span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Base implementation&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base1</span>:<span class="keyword">public</span> Base&lt;Base1&gt; &#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">implementation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 派生类的具体实现</span></span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Derived implementation&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="CRTP-优点"><a href="#CRTP-优点" class="headerlink" title="CRTP 优点"></a>CRTP 优点</h2><p>通过 <code>CRTP</code> 我们可以实现不依赖虚函数实现多态，这种方式没有虚函数的调用，解决了虚函数的开销，性能更好，同时，派生类没有实现某个必要的函数，编译器可以直接报错，提高代码安全性。</p>
@@ -292,11 +306,19 @@
 
 <p>最后，我们演示如何使用这些类：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ConcreteElementA elementA;</span><br><span class="line">    ConcreteElementB elementB;</span><br><span class="line">    ConcreteVisitor visitor;</span><br><span class="line"></span><br><span class="line">    elementA.<span class="built_in">accept</span>(&amp;visitor);</span><br><span class="line">    elementB.<span class="built_in">accept</span>(&amp;visitor);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++ Pimpl</title>
     <url>/2024/07/22/C++%20Pimpl/</url>
     <content><![CDATA[<h2 id="编译期封装"><a href="#编译期封装" class="headerlink" title="编译期封装"></a>编译期封装</h2><p>如果程序从一个以前版本的库动态链接到新版本的库之后，能够继续正常运行，而不需要重新编译，那么我们就说这个库是二进制兼容的。<br>如果一个程序需要重新编译来运行一个新版本的库，但是不需要对程序的源代码进一步的修改，这个库就是源代码兼容的。<br>如果不确保版本之间的二进制兼容性，人们将被迫提供静态链接的二进制文件。静态二进制文件不好，因为它们浪费资源（尤其是内存），不能让程序从库中错误修正或扩展中受益。要保证二进制兼容性，就得尽量让类不包含私有变量<br>– <code>Pimpl</code>（Pointer to Implementation）意思为具体实现的指针，它通过一个私有的成员指针，将指针所指向的类的内部实现和数据进行隐藏。</p>
+<span id="more"></span>  
+
+
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>在看Qt源码时，Qt的源码中有大量的使用<code>Pimpl</code>,Qt的风格就保证了这一点，不信可以看QObject的源码，你会惊讶地发现它竟然只有一个成员变量QScopedPointer d_ptr;。QObject的大小是8,除了虚函数表指针需要的4个字节以外,另外的4个字节就是这个d_ptr。QObjectData是包含所有数据的结构体，这个结构体的大小可以随意改变而不会产生副作用，应用程序只使用相关的公有类即QObject，d_ptr就叫做d指针。其中源码中的d 指针和q 指针都是用<code>Pimpl</code>来实现的。其中具体实现的原理可以参考<a href="https://wiki.qt.io/D-Pointer" title="D指针的实现">D指针的实现</a>，参考Qt中的实现，我们来封装自己的。</p>
 <p>global.h</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="type">static</span> <span class="keyword">inline</span> T*<span class="title">qGetPtrHelper</span><span class="params">(T* ptr)</span></span>&#123;<span class="keyword">return</span> ptr;&#125;</span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Wrapper&gt; <span class="type">static</span> <span class="keyword">inline</span> <span class="keyword">typename</span> Wrapper::pointer <span class="title">qGetPtrHelper</span><span class="params">(<span class="type">const</span> Wrapper&amp; p)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> p.<span class="built_in">get</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//reinterpret_cast &lt; new_type &gt; ( expression )</span></span><br><span class="line"><span class="comment">// 前置隐藏实现类  </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> C_CLASS_PRIVATE(Class) \     </span></span><br><span class="line">    <span class="keyword">inline</span> Class##<span class="function">Private* <span class="title">d_func</span><span class="params">()</span> <span class="keyword">noexcept</span>\</span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> <span class="built_in">reinterpret_cast</span>&lt;Class##Private*&gt;(<span class="built_in">qGetPtrHelper</span>(d_ptr));&#125; \</span><br><span class="line">    <span class="keyword">inline</span> <span class="type">const</span> Class##<span class="function">Private* <span class="title">d_func</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">noexcept</span> \</span></span><br><span class="line"><span class="function">    </span>&#123;<span class="keyword">return</span> <span class="built_in">reinterpret_cast</span>&lt;<span class="type">const</span> Class##Private* &gt;(<span class="built_in">qGetPtrHelper</span>(d_ptr));&#125;\</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">Class</span>##Private;</span><br><span class="line"></span><br><span class="line"><span class="comment">// noexcept  告诉编译器这段代码不会出现异常 不需要特殊优化处理</span></span><br><span class="line"><span class="comment">// 对外接口类</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> C_CLASS_PUBLIC(Class) \    </span></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> Class* <span class="title">q_func</span><span class="params">()</span> <span class="keyword">noexcept</span> </span>&#123;<span class="keyword">return</span> <span class="built_in">static_cast</span>&lt;Class*&gt;(q_ptr);&#125; \</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="type">const</span> Class* <span class="title">q_func</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">noexcept</span> </span>&#123;<span class="keyword">return</span> <span class="built_in">static_cast</span>&lt;<span class="type">const</span> Class* &gt;(q_ptr);&#125;\</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">Class</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> C_P(Class) Class##Private* const d = d_func()</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> C_Q(Class) Class* const q = q_func()</span></span><br></pre></td></tr></table></figure>
@@ -318,14 +340,22 @@
 <li>实现二进制兼容性，避免重新编译</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++ Poco库使用</title>
     <url>/2024/07/22/C++%20Poco%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="Poco-的编译和安装"><a href="#Poco-的编译和安装" class="headerlink" title="Poco 的编译和安装"></a>Poco 的编译和安装</h1><h2 id="ubuntu-下的安装和编译"><a href="#ubuntu-下的安装和编译" class="headerlink" title="ubuntu 下的安装和编译"></a>ubuntu 下的安装和编译</h2><ul>
 <li>完整的安装需要下载MySql和OpenSSL</li>
 <li>安装OpenSSL</li>
 </ul>
+<span id="more"></span>
+
+
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1.sudo apt-get install openssl;</span><br><span class="line">2.sudo apt-get install libssl-dev;</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -348,11 +378,19 @@
 </ul>
 <p>我用的ARM 环境是 AM335x</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Poco</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++ protobuf</title>
     <url>/2024/07/22/C++%20google%20protobuf%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h6 id="protobuf-的介绍一大堆，这里就不做详细的介绍了。"><a href="#protobuf-的介绍一大堆，这里就不做详细的介绍了。" class="headerlink" title="protobuf 的介绍一大堆，这里就不做详细的介绍了。"></a>protobuf 的介绍一大堆，这里就不做详细的介绍了。</h6><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>-从<a href="https://developers.google.com/protocol-buffers" title="官网">官网</a>直接下载protobuf 安装到本地<br>– ubuntu 安装方法<br>1. <code>sudo apt-get install autoconf automake libtool curl make g++ unzip</code> centos安装方式和ubuntu一样，下载安装上面的安装包就行<br>2. 编译安装</p>
+    <content><![CDATA[<h6 id="protobuf-的介绍一大堆，这里就不做详细的介绍了。"><a href="#protobuf-的介绍一大堆，这里就不做详细的介绍了。" class="headerlink" title="protobuf 的介绍一大堆，这里就不做详细的介绍了。"></a>protobuf 的介绍一大堆，这里就不做详细的介绍了。</h6><span id="more"></span>
+
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>-从<a href="https://developers.google.com/protocol-buffers" title="官网">官网</a>直接下载protobuf 安装到本地<br>– ubuntu 安装方法<br>1. <code>sudo apt-get install autoconf automake libtool curl make g++ unzip</code> centos安装方式和ubuntu一样，下载安装上面的安装包就行<br>2. 编译安装</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/protocolbuffers/protobuf.git</span><br><span class="line">cd protobuf</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line">./autogen.sh</span><br><span class="line">./configure  --prefix=/usr/local/protobuf   ##prefix 是配置编译目录,不配置会安装在默认的目录</span><br><span class="line"> make</span><br><span class="line"> make check</span><br><span class="line"> sudo make install</span><br><span class="line"> sudo ldconfig # 链接动态库.</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
@@ -376,20 +414,34 @@
 </li>
 </ul>
 <h4 id="这里记录下自己的cmake-文件"><a href="#这里记录下自己的cmake-文件" class="headerlink" title="这里记录下自己的cmake 文件"></a>这里记录下自己的cmake 文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.6.2)</span><br><span class="line"></span><br><span class="line">add_definitions(-std=c++11)</span><br><span class="line"># 设置头文件目录</span><br><span class="line">set(INC_DIR /usr/local/protobuf/include/)</span><br><span class="line"># 设置protobuf目录</span><br><span class="line">set(LIB_DIR /usr/local/protobuf/lib/)</span><br><span class="line"></span><br><span class="line">project(main)</span><br><span class="line"></span><br><span class="line">include_directories($&#123;INC_DIR&#125;)</span><br><span class="line"></span><br><span class="line">set(SRC_LIST main.cpp main.pb.cc)</span><br><span class="line"></span><br><span class="line">add_executable(main $&#123;SRC_LIST&#125;)</span><br><span class="line"></span><br><span class="line">target_link_libraries(main protobuf pthread)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>protobuf</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++ List</title>
     <url>/2024/07/22/C++%20list%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<ul>
-<li><p>遍历并且删除节点  </p>
+<li>遍历并且删除节点  <span id="more"></span>   
+
+
   <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>   </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;list&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;   </span><br><span class="line">	<span class="type">int</span> a[<span class="number">12</span>] = &#123; <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">10</span>&#125;;   </span><br><span class="line">	<span class="function">list&lt;<span class="type">int</span>&gt; <span class="title">li</span><span class="params">(a, a + <span class="number">12</span>)</span></span>;   <span class="comment">//遍历删除值为5的节点   </span></span><br><span class="line">	<span class="keyword">for</span> (list&lt;<span class="type">int</span>&gt;:: iterator it = li.<span class="built_in">begin</span>(); it != li.<span class="built_in">end</span>();) &#123;   </span><br><span class="line">		<span class="keyword">if</span> (*it == <span class="number">5</span>)&#123;   </span><br><span class="line">			li.<span class="built_in">erase</span>(it++); <span class="comment">// 删除节点，并将 it 更新到下一个界面   </span></span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;   </span><br><span class="line">			++it;   </span><br><span class="line">		&#125;   </span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">for</span> (list&lt;<span class="type">int</span>&gt;:: iterator it = li.<span class="built_in">begin</span>(); it != li.<span class="built_in">end</span>(); ++it) &#123;   </span><br><span class="line">		cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;   </span><br><span class="line">	&#125;   </span><br><span class="line"><span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>STL</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++ override 关键字</title>
     <url>/2024/07/22/C++%20override/</url>
     <content><![CDATA[<p><strong>override</strong> 字面意思为覆盖的<br>override 为C++11新增加的关键字，在C++11中 override 的作为为防止虚函数未被正确的调用，下面我们来看两段代码</p>
+<span id="more"></span>  
+
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;memory&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class Base</span><br><span class="line">&#123;</span><br><span class="line">    public:</span><br><span class="line">     virtual void functionA(int arg) const &#123; </span><br><span class="line">     cout &lt;&lt; &quot;This is Base::functionA&quot; &lt;&lt; endl;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;;</span><br><span class="line">class Derived : public Base</span><br><span class="line">&#123;</span><br><span class="line">    public:</span><br><span class="line">     virtual void functionA(long arg) const  &#123;</span><br><span class="line">    cout &lt;&lt; &quot;This is Derived::functionA&quot; &lt;&lt; endl; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    // Base pointer b points to a Derived class object.</span><br><span class="line">    shared_ptr&lt;Base&gt;b = make_shared&lt;Derived&gt;();</span><br><span class="line">    // Call virtual functionA through Base pointer.</span><br><span class="line">    b-&gt;functionA(99);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在main函数中，我们声明定义了Base类指针 b 指向了Derived,然后通过b指针调用了 functionA函数，按照对虚函数的理解，我们程序执行完以后应该打印<code>This is Derived::functionA&quot;</code>,但实际程序执行完后打印的是<code>This is Base::functionA</code>,这是因为两个函数有不同的形参，<strong>Derived类中的functionA函数只不过是对基类的functionA的函数的重载</strong>，如果想要正确的调用Derived类中的函数，我们需要在函数后面加上<strong>override</strong>关键字，<strong>override 关键字告诉编译器，该函数应覆盖基类中的函数。如果该函数实际上没有覆盖任何函数，则会导致编译器错误。</strong></p>
@@ -480,21 +532,36 @@ int main()
 &#125;
 </code></pre>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>c++</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++ Openssl</title>
     <url>/2024/07/22/C++%20%E4%BD%BF%E7%94%A8openssl%E8%BF%9B%E8%A1%8C%E5%8A%A0%E5%AF%86%E5%92%8Cbase64%E7%BC%96%E7%A0%81/</url>
-    <content><![CDATA[<h1 id="C-使用openssl-实现加密和base64编码"><a href="#C-使用openssl-实现加密和base64编码" class="headerlink" title="C++ 使用openssl 实现加密和base64编码"></a>C++ 使用openssl 实现加密和base64编码</h1><h2 id="加密函数"><a href="#加密函数" class="headerlink" title="加密函数"></a>加密函数</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 加密函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">encrypt</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> *plaintext, <span class="type">int</span> plaintext_len, <span class="type">unsigned</span> <span class="type">char</span> *key,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="type">unsigned</span> <span class="type">char</span> *iv, <span class="type">unsigned</span> <span class="type">char</span> **ciphertext)</span> </span>&#123;</span><br><span class="line">    EVP_CIPHER_CTX *ctx;</span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">int</span> ciphertext_len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 分配内存给密文</span></span><br><span class="line">    *ciphertext = (<span class="type">unsigned</span> <span class="type">char</span> *)<span class="built_in">malloc</span>(plaintext_len + AES_BLOCK_SIZE);</span><br><span class="line">    <span class="keyword">if</span> (*ciphertext == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建和初始化加密上下文</span></span><br><span class="line">    <span class="keyword">if</span>(!(ctx = <span class="built_in">EVP_CIPHER_CTX_new</span>())) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 如果数据不够16的倍数  是否进行填充</span></span><br><span class="line">    <span class="comment">// EVP_CIPHER_CTX_set_padding(ctx, 0);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化加密操作</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_EncryptInit_ex</span>(ctx, <span class="built_in">EVP_aes_256_cbc</span>(), <span class="literal">NULL</span>, key, iv)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提供明文进行加密</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_EncryptUpdate</span>(ctx, *ciphertext, &amp;len, plaintext, plaintext_len)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ciphertext_len = len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 结束加密</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_EncryptFinal_ex</span>(ctx, *ciphertext + len, &amp;len)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ciphertext_len += len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清理</span></span><br><span class="line">    <span class="built_in">EVP_CIPHER_CTX_free</span>(ctx);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ciphertext_len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解密函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">decrypt</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> *ciphertext, <span class="type">int</span> ciphertext_len, <span class="type">unsigned</span> <span class="type">char</span> *key,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="type">unsigned</span> <span class="type">char</span> *iv, <span class="type">unsigned</span> <span class="type">char</span> **plaintext)</span> </span>&#123;</span><br><span class="line">    EVP_CIPHER_CTX *ctx;</span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">int</span> plaintext_len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 分配内存给明文</span></span><br><span class="line">    *plaintext = (<span class="type">unsigned</span> <span class="type">char</span> *)<span class="built_in">malloc</span>(ciphertext_len);</span><br><span class="line">    <span class="keyword">if</span> (*plaintext == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建和初始化解密上下文</span></span><br><span class="line">    <span class="keyword">if</span>(!(ctx = <span class="built_in">EVP_CIPHER_CTX_new</span>())) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 如果数据不够16的倍数  是否进行填充</span></span><br><span class="line">    <span class="comment">// EVP_CIPHER_CTX_set_padding(ctx, 0);</span></span><br><span class="line">    <span class="comment">// 初始化解密操作</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_DecryptInit_ex</span>(ctx, <span class="built_in">EVP_aes_256_cbc</span>(), <span class="literal">NULL</span>, key, iv)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提供密文进行解密</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_DecryptUpdate</span>(ctx, *plaintext, &amp;len, ciphertext, ciphertext_len)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    plaintext_len = len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 结束解密</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_DecryptFinal_ex</span>(ctx, *plaintext + len, &amp;len)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    plaintext_len += len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清理</span></span><br><span class="line">    <span class="built_in">EVP_CIPHER_CTX_free</span>(ctx);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> plaintext_len;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="C-使用openssl-实现加密和base64编码"><a href="#C-使用openssl-实现加密和base64编码" class="headerlink" title="C++ 使用openssl 实现加密和base64编码"></a>C++ 使用openssl 实现加密和base64编码</h1><span id="more"></span>  
+
+
+<h2 id="加密函数"><a href="#加密函数" class="headerlink" title="加密函数"></a>加密函数</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 加密函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">encrypt</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> *plaintext, <span class="type">int</span> plaintext_len, <span class="type">unsigned</span> <span class="type">char</span> *key,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="type">unsigned</span> <span class="type">char</span> *iv, <span class="type">unsigned</span> <span class="type">char</span> **ciphertext)</span> </span>&#123;</span><br><span class="line">    EVP_CIPHER_CTX *ctx;</span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">int</span> ciphertext_len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 分配内存给密文</span></span><br><span class="line">    *ciphertext = (<span class="type">unsigned</span> <span class="type">char</span> *)<span class="built_in">malloc</span>(plaintext_len + AES_BLOCK_SIZE);</span><br><span class="line">    <span class="keyword">if</span> (*ciphertext == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建和初始化加密上下文</span></span><br><span class="line">    <span class="keyword">if</span>(!(ctx = <span class="built_in">EVP_CIPHER_CTX_new</span>())) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 如果数据不够16的倍数  是否进行填充</span></span><br><span class="line">    <span class="comment">// EVP_CIPHER_CTX_set_padding(ctx, 0);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化加密操作</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_EncryptInit_ex</span>(ctx, <span class="built_in">EVP_aes_256_cbc</span>(), <span class="literal">NULL</span>, key, iv)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提供明文进行加密</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_EncryptUpdate</span>(ctx, *ciphertext, &amp;len, plaintext, plaintext_len)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ciphertext_len = len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 结束加密</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_EncryptFinal_ex</span>(ctx, *ciphertext + len, &amp;len)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ciphertext_len += len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清理</span></span><br><span class="line">    <span class="built_in">EVP_CIPHER_CTX_free</span>(ctx);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ciphertext_len;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解密函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">decrypt</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> *ciphertext, <span class="type">int</span> ciphertext_len, <span class="type">unsigned</span> <span class="type">char</span> *key,</span></span></span><br><span class="line"><span class="params"><span class="function">            <span class="type">unsigned</span> <span class="type">char</span> *iv, <span class="type">unsigned</span> <span class="type">char</span> **plaintext)</span> </span>&#123;</span><br><span class="line">    EVP_CIPHER_CTX *ctx;</span><br><span class="line">    <span class="type">int</span> len;</span><br><span class="line">    <span class="type">int</span> plaintext_len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 分配内存给明文</span></span><br><span class="line">    *plaintext = (<span class="type">unsigned</span> <span class="type">char</span> *)<span class="built_in">malloc</span>(ciphertext_len);</span><br><span class="line">    <span class="keyword">if</span> (*plaintext == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建和初始化解密上下文</span></span><br><span class="line">    <span class="keyword">if</span>(!(ctx = <span class="built_in">EVP_CIPHER_CTX_new</span>())) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">// 如果数据不够16的倍数  是否进行填充</span></span><br><span class="line">    <span class="comment">// EVP_CIPHER_CTX_set_padding(ctx, 0);</span></span><br><span class="line">    <span class="comment">// 初始化解密操作</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_DecryptInit_ex</span>(ctx, <span class="built_in">EVP_aes_256_cbc</span>(), <span class="literal">NULL</span>, key, iv)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提供密文进行解密</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_DecryptUpdate</span>(ctx, *plaintext, &amp;len, ciphertext, ciphertext_len)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    plaintext_len = len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 结束解密</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="number">1</span> != <span class="built_in">EVP_DecryptFinal_ex</span>(ctx, *plaintext + len, &amp;len)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    plaintext_len += len;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清理</span></span><br><span class="line">    <span class="built_in">EVP_CIPHER_CTX_free</span>(ctx);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> plaintext_len;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="base64-编码和解码"><a href="#base64-编码和解码" class="headerlink" title="base64 编码和解码"></a>base64 编码和解码</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Base64编码</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">base64_encode</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> *input, <span class="type">int</span> length, <span class="type">char</span> **encoded)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 计算编码后的长度</span></span><br><span class="line">	<span class="comment">//在Base64编码中，每3个字节的二进制数据会被编码为4个Base64字符。</span></span><br><span class="line">	<span class="comment">//Base64编码的工作原理是将二进制数据分割成每组3个字节（也就是24位），然后这24位被分割成4组，每组6位。每组6位的数据对应一个Base64字符。</span></span><br><span class="line">	<span class="comment">//因此，如果你有n个字节的数据，那么你需要4 * ((n + 2) / 3)个字符来表示这些数据。+2是为了处理n不是3的倍数的情况，这样可以确保结果总是向上取整。</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 例如，如果你有10个字节的数据，那么你需要4 * ((10 + 2) / 3) = 16个Base64字符来表示这些数据。</span></span><br><span class="line">    <span class="type">int</span> encoded_length = <span class="number">4</span> * ((length + <span class="number">2</span>) / <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    *encoded = (<span class="type">char</span> *)<span class="built_in">malloc</span>(encoded_length + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (*encoded == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">EVP_EncodeBlock</span>((<span class="type">unsigned</span> <span class="type">char</span> *)*encoded, input, length);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> encoded_length; <span class="comment">// 返回编码后的长度</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Base64解码</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">base64_decode</span><span class="params">(<span class="type">char</span> *input, <span class="type">unsigned</span> <span class="type">char</span> **decoded, <span class="type">int</span> *decoded_length)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> length = <span class="built_in">strlen</span>(input);</span><br><span class="line">    *decoded = (<span class="type">unsigned</span> <span class="type">char</span> *)<span class="built_in">malloc</span>(length);</span><br><span class="line">    <span class="keyword">if</span> (*decoded == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    *decoded_length = <span class="built_in">EVP_DecodeBlock</span>(*decoded, (<span class="type">const</span> <span class="type">unsigned</span> <span class="type">char</span> *)input, length);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 减去填充字符的数量</span></span><br><span class="line">    <span class="keyword">if</span> (input[length - <span class="number">1</span>] == <span class="string">&#x27;=&#x27;</span>) (*decoded_length)--;</span><br><span class="line">    <span class="keyword">if</span> (input[length - <span class="number">2</span>] == <span class="string">&#x27;=&#x27;</span>) (*decoded_length)--;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 成功</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="测试程序"><a href="#测试程序" class="headerlink" title="测试程序"></a>测试程序</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">    // 原始字符串</span><br><span class="line">    unsigned char *original_string = (unsigned char *)&quot;中文例子&quot;;</span><br><span class="line">    unsigned char *ciphertext;</span><br><span class="line">    unsigned char *decryptedtext;</span><br><span class="line">    char *encoded;</span><br><span class="line">    unsigned char *decoded;</span><br><span class="line">    int decryptedtext_len, ciphertext_len, encoded_len, decoded_len;</span><br><span class="line"></span><br><span class="line">    // 密钥和初始化向量</span><br><span class="line">    // 这些通常是随机生成的，这里为了示例使用了固定值</span><br><span class="line">    unsigned char key[] = &quot;0123456789abcdef0123456789abcdef&quot;;</span><br><span class="line">    unsigned char iv[] = &quot;abcdef9876543210&quot;;</span><br><span class="line"></span><br><span class="line">    // 加密</span><br><span class="line">    ciphertext_len = encrypt(original_string, strlen((char *)original_string), key, iv, &amp;ciphertext);</span><br><span class="line"></span><br><span class="line">    // Base64编码</span><br><span class="line">    encoded_len = base64_encode(ciphertext, ciphertext_len, &amp;encoded);</span><br><span class="line"></span><br><span class="line">    // 将编码后的数据写入文件</span><br><span class="line">    FILE *file = fopen(&quot;encoded.txt&quot;, &quot;w&quot;);</span><br><span class="line">    if (file != NULL) &#123;</span><br><span class="line">        fwrite(encoded, sizeof(char), encoded_len, file);</span><br><span class="line">        fclose(file);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // // 从文件中读取编码后的数据</span><br><span class="line">    file = fopen(&quot;encoded.txt&quot;, &quot;r&quot;);</span><br><span class="line">    char read_encoded[1024];</span><br><span class="line">    if (file != NULL) &#123;</span><br><span class="line">        fread(read_encoded, sizeof(char), 1024, file);</span><br><span class="line">        fclose(file);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Base64解码</span><br><span class="line">    base64_decode(read_encoded, &amp;decoded, &amp;decoded_len);</span><br><span class="line"></span><br><span class="line">    // 解密</span><br><span class="line">    decryptedtext_len = decrypt(decoded, decoded_len, key, iv, &amp;decryptedtext);</span><br><span class="line"></span><br><span class="line">    // 输出原始字符串和解码后的字符串进行比较</span><br><span class="line">    printf(&quot;Original: %s\n&quot;, original_string);</span><br><span class="line">    printf(&quot;Decoded: %s\n&quot;, decryptedtext);</span><br><span class="line"></span><br><span class="line">    // 检查原始字符串和解码后的字符串是否相同</span><br><span class="line">    if (strncmp((char *)original_string, (char *)decryptedtext, decryptedtext_len) == 0) &#123;</span><br><span class="line">        printf(&quot;Success: Decrypted text is the same as the original text.\n&quot;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        printf(&quot;Failure: Decrypted text is not the same as the original text.\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 清理</span><br><span class="line">    free(ciphertext);</span><br><span class="line">    free(decryptedtext);</span><br><span class="line">    free(encoded);</span><br><span class="line">    free(decoded);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Openssl</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++多线程详解</title>
     <url>/2024/07/22/C++%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="C-多线程详解"><a href="#C-多线程详解" class="headerlink" title="C++多线程详解"></a>C++多线程详解</h1><p>1、多线程</p>
 <p>传统的C++（C++11标准之前）中并没有引入线程这个概念，在C++11出来之前，如果我们想要在C++中实现多线程，需要借助操作系统平台提供的API，比如Linux的&lt;pthread.h&gt;，或者windows下的&lt;windows.h&gt; 。</p>
+<span id="more"></span>  
+
 <p>C++11提供了语言层面上的多线程，包含在头文件<thread>中。它解决了跨平台的问题，提供了管理线程、保护共享数据、线程间同步操作、原子操作等类。C++11 新标准中引入了5个头文件来支持多线程编程，如下图所示：</p>
 <p><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/202310131729028.png" alt="image-20231013172916961"></p>
 <h2 id="1-1、多进程与多线程"><a href="#1-1、多进程与多线程" class="headerlink" title="1.1、多进程与多线程"></a><strong>1.1、多进程与多线程</strong></h2><ul>
@@ -831,11 +898,17 @@ int main()
 </ul>
 <p>测试代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &quot;mythread.h&quot;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">class Task</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    void process()</span><br><span class="line">&#123;</span><br><span class="line">        //cout &lt;&lt; &quot;run.........&quot; &lt;&lt; endl;//测试任务数量</span><br><span class="line">        long i=1000000;</span><br><span class="line">        while(i!=0)</span><br><span class="line">        &#123;</span><br><span class="line">            int j = sqrt(i);</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">int main(void)&#123;</span><br><span class="line">    threadPool&lt;Task&gt; pool(6);//6个线程，vector</span><br><span class="line">    std::string str;</span><br><span class="line">    while (1)</span><br><span class="line">    &#123;</span><br><span class="line">        Task *tt = new Task();//使用智能指针</span><br><span class="line">        pool.append(tt);//不停的添加任务，任务是队列queue，因为只有固定的线程数</span><br><span class="line">        cout&lt;&lt;&quot;添加的任务数量：&quot;&lt;&lt;pool.tasks_queue.size()&lt;&lt;endl;</span><br><span class="line">        delete tt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Thread</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++多线程创建</title>
     <url>/2024/07/22/C++%20%E7%BA%BF%E7%A8%8B%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<h3 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```C++  </span><br><span class="line">#inclue &lt;iostream&gt;  </span><br><span class="line">#include &lt;thread&gt;</span><br><span class="line"></span><br><span class="line">void hello()&#123;  </span><br><span class="line">std::cout&lt;&lt;&quot;hello thread&quot;&lt;&lt;std::endl;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;  </span><br><span class="line">std::thread t&#123;hello()&#125;;  </span><br><span class="line">t.join();  </span><br><span class="line">&#125;  </span><br><span class="line">// 为了避免解析错误 C++推荐使用多组括号或者统一初始化语法或者lambda表达式  </span><br><span class="line">1. std::thread t((hello()));  </span><br><span class="line">2. std::thread t&#123;hello()&#125;;  </span><br><span class="line">3. std::thread t(&#123;  </span><br><span class="line">	hello();  </span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h3 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h3><span id="more"></span>  
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```C++  </span><br><span class="line">#inclue &lt;iostream&gt;  </span><br><span class="line">#include &lt;thread&gt;</span><br><span class="line"></span><br><span class="line">void hello()&#123;  </span><br><span class="line">std::cout&lt;&lt;&quot;hello thread&quot;&lt;&lt;std::endl;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;  </span><br><span class="line">std::thread t&#123;hello()&#125;;  </span><br><span class="line">t.join();  </span><br><span class="line">&#125;  </span><br><span class="line">// 为了避免解析错误 C++推荐使用多组括号或者统一初始化语法或者lambda表达式  </span><br><span class="line">1. std::thread t((hello()));  </span><br><span class="line">2. std::thread t&#123;hello()&#125;;  </span><br><span class="line">3. std::thread t(&#123;  </span><br><span class="line">	hello();  </span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
 
 <pre><code>C++  
 class background_task&#123;  
@@ -865,22 +938,35 @@ t.join();
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">### 线程管理的基础</span><br><span class="line"></span><br><span class="line">每个程序至少有一个线程,为执行` main() ` 函数的线程，其余的线程有各自的入口函数。</span><br><span class="line"></span><br><span class="line">  #### 构造线程的对象</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">void do_some_work();</span><br><span class="line">std::thread my_thread(); </span><br><span class="line">&lt;/code&gt;&lt;/pre&gt;</span><br><span class="line"></span><br><span class="line">#### 启动线程对象</span><br><span class="line"></span><br><span class="line">&lt;pre&gt;&lt;code&gt;当把函数对象传入到线程构造函数的时候，需要避免语法解析上的错误。推荐做法如下：</span><br><span class="line">&lt;/code&gt;&lt;/pre&gt;</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">std::thread my_thread(background_task())</span><br><span class="line">// 上面的语法在C++语法解析的时候，编译器会将其解析成为函数的声明，而不是启动类型对象的定义</span><br><span class="line">// 因此建议使用多组括号，或者使用新的统一的初始化语法，或者使用lambda表达式</span><br><span class="line">std::thread my_thread((background_task()));</span><br><span class="line">std::thread my_thread&#123;background_task()&#125;;</span><br><span class="line">std::thread my_thread([]&#123;</span><br><span class="line">do_something();</span><br><span class="line">do_something_else();&#125;);</span><br><span class="line"></span><br><span class="line">  #### 线程对象停止时的动作</span><br><span class="line"></span><br><span class="line">    当线程自动停止的时候，会调用`std::terminate()`</span><br><span class="line"></span><br><span class="line">  ### 线程管理</span><br><span class="line"></span><br><span class="line">     使用 `join()` 等待线程结束。使用`detach()`将线程分离。</span><br><span class="line">&gt; 使用一个能够访问局部变量的函数去创建一个线程是非常糟糕的设计，因为如果线程中访问了一个创建者的局部变量，没有使用join()等待线程结束，有可能创建者运行结束后线程还在运行中，此时线程中使用的局部变量就会变成悬空变量。如以下的例子    使用一个能够访问局部变量的函数去创建一个线程是非常糟糕的设计，因为如果线程中访问了一个创建者的局部变量，没有使用join()等待线程结束，有可能创建者运行结束后线程还在运行中，此时线程中使用的局部变量就会变成悬空变量。如以下的例子：</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">struct func</span><br><span class="line">&#123;</span><br><span class="line">  int&amp; i;</span><br><span class="line">  func(int&amp; i_) : i(i_) &#123;&#125;</span><br><span class="line">  void operator() ()&#123;</span><br><span class="line">    for (unsigned j=0 ; j&lt;1000000 ; ++j)&#123;</span><br><span class="line">      do_something(i); // 1 潜在访问隐患：悬空引用</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;;</span><br><span class="line">void oops()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  int some_local_state=0;</span><br><span class="line">  func my_func(some_local_state);</span><br><span class="line">  std::thread my_thread(my_func);</span><br><span class="line">  my_thread.detach(); // 2 不等待线程结束</span><br><span class="line">&#125; </span><br><span class="line">// 3 新线程可能还在运行</span><br><span class="line">&lt;/code&gt;&lt;/pre&gt;</span><br><span class="line"></span><br><span class="line">### 使用RAII等待线程结束</span><br><span class="line"></span><br><span class="line">```C++</span><br><span class="line">class thread_guard&#123;</span><br><span class="line">  std::thread &amp;t;</span><br><span class="line">  public:</span><br><span class="line">  explicit thread_guard(std::thread&amp; t_):</span><br><span class="line">  t(t_)&#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">~thread_guard()&#123;</span><br><span class="line">    if(t.joinable())&#123;</span><br><span class="line">      t.join();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">thread_guard(thread_guard const&amp;)=delete;</span><br><span class="line">  thread_guard&amp; operator=(thread_guard const&amp;)=delete;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">struct func</span><br><span class="line">&#123;</span><br><span class="line">  int&amp; i;</span><br><span class="line">  func(int&amp; i_) : i(i_) &#123;&#125;</span><br><span class="line">  void operator() () &#123;</span><br><span class="line">    for (unsigned j=0 ; j&lt;1000000 ; ++j) &#123;</span><br><span class="line">    do_something(i); // 1 潜在访问隐患：悬空引用</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">struct func;</span><br><span class="line">void f()</span><br><span class="line">&#123;</span><br><span class="line">  int some_local_state=0;</span><br><span class="line">  func my_func(some_local_state);</span><br><span class="line">  std::thread t(my_func);</span><br><span class="line">  thread_guard g(t);</span><br><span class="line">  do_something_in_current_thread();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">### 线程标识</span><br><span class="line"></span><br><span class="line">线程标识类型为`std::thread::id` ，可以通过调用`std::thread` 对象成员函数 `get_id()`来调用，或者在当前线程中使用`std::this_thread::get_id()`来调用。</span><br><span class="line"></span><br><span class="line">### 向线程函数中传递参数</span><br><span class="line"></span><br><span class="line">``` cpp</span><br><span class="line">void f(int i, std::string const&amp; s);</span><br><span class="line">std::thread t(f, 3,&quot;hello&quot;);</span><br><span class="line">// 当传递一个非常量的引用的时候，std::thread的构造函数会无视函数期待的参数类型，并盲目的拷贝</span><br><span class="line">// 已提供的变量. 因此在传递引用的时候，最好使用std::ref()</span><br><span class="line">std::thread t(update_data_for_widget,w,std::ref(data));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </code></pre>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Thread</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++ 表驱动设计模式</title>
     <url>/2024/07/22/C++%20%E8%A1%A8%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B/</url>
     <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>用表驱动替代冗长的逻辑语句，遵循元编程思想。</p>
 <p>表驱动法(Table driven method)，是一种设计模式，可以用来代替复杂的if&#x2F;else或switch-case逻辑判断。</p>
+<span id="more"></span>  
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>在C++ 中使用map配合std::function 来实现。以下为具体实现代码<br>.h 文件</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> SETBIT(x,y) x|=(1&lt;&lt;y) <span class="comment">//将X的第Y位置1</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> CLRBIT(x,y) x&amp;=~(1&lt;&lt;y) <span class="comment">//将X的第Y位清0 </span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SETVALUE(x1,x2,x3) x1 &gt; 0? SETBIT(x2,x3):CLRBIT(x2,x3)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="comment">// 在头文件中定义函数指针</span></span><br><span class="line"><span class="keyword">typedef</span>  std::function&lt;<span class="type">void</span>(<span class="type">int</span> ,StatusValueS&amp; )&gt; paseFun;</span><br><span class="line"><span class="comment">// 定义存储key值和函数指针的map</span></span><br><span class="line">std::QMap&lt;QPair&lt;QString,QPair&lt;<span class="type">int</span>,MOXATYPE&gt; &gt;,paseFun&gt; drive_map_; <span class="comment">// 这里的key值如果需要判断的数值比较多可以不使用pair类型，使用结构体来定义</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>.cpp</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在cpp函数中初始化定义的drive_map_;</span></span><br><span class="line">drive_map_.<span class="built_in">insert</span>(QPair&lt;QString,QPair&lt;<span class="type">int</span>,MOXATYPE&gt; &gt;(moxa1,<span class="built_in">QPair</span>&lt;<span class="type">int</span>,MOXATYPE&gt;(<span class="number">0</span>,MOXATYPE::MOXA_DI)),[&amp;](<span class="type">int</span> flag,StatusValueS&amp; value)&#123; <span class="built_in">SETVALUE</span>(flag,value.carLine1,<span class="number">3</span>);&#125;);</span><br><span class="line"><span class="comment">// 我这里需要判断三个值是否同时满足，最开始的写成pair类型，其实写成结构体更加简单和清晰，后续函数里面只是做个位处理，所以写成lambda，并且使用宏定义。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 后续的判断 根据vector中存储的结构体中的值去调用对应的value值，即函数指针。</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> s: v)&#123;</span><br><span class="line">        QMap&lt;QPair&lt;QString,QPair&lt;<span class="type">int</span>,MOXATYPE&gt; &gt;,paseFun&gt;::iterator iter = drive_map_.<span class="built_in">begin</span>();</span><br><span class="line">        <span class="keyword">while</span> (iter != drive_map_.<span class="built_in">end</span>()) &#123;</span><br><span class="line"><span class="comment">//            qDebug()&lt;&lt;&quot;iter.key().first ==&quot;&lt;&lt;iter.key().first;</span></span><br><span class="line"><span class="comment">//            qDebug()&lt;&lt;&quot;s.ip  ==&quot;&lt;&lt;s.ip;</span></span><br><span class="line"><span class="comment">//            qDebug()&lt;&lt;&quot;iter.key().second  ==&quot;&lt;&lt;iter.key().second;</span></span><br><span class="line"><span class="comment">//            qDebug()&lt;&lt;&quot;s.io_num  ==&quot;&lt;&lt;s.io_num;</span></span><br><span class="line">            <span class="keyword">if</span>(iter.<span class="built_in">key</span>().first == s.ip &amp;&amp; iter.<span class="built_in">key</span>().second.first  == s.io_num &amp;&amp; iter.<span class="built_in">key</span>().second.second == <span class="built_in">static_cast</span>&lt;MOXATYPE&gt;(s.sigtype))&#123;</span><br><span class="line">                 iter.<span class="built_in">value</span>()(s.value,statusvalue);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            ++iter;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++ 宏定义</title>
     <url>/2024/07/22/C++%E5%AE%8F%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="define-的基本用法"><a href="#define-的基本用法" class="headerlink" title="#define 的基本用法"></a>#define 的基本用法</h2><p><code>#define</code>是C语言中提供的宏定义命令，其主要目的是为程序员在编程时提供一定的方便，并能在一定程度上提高程序的运行效率，但学生在学习时往往不能 理解该命令的本质，总是在此处产生一些困惑，在编程时误用该命令，使得程序的运行与预期的目的不一致，或者在读别人写的程序时，把运行结果理解错误，这对 C语言的学习很不利。</p>
+<span id="more"></span>  
+
 <h3 id="define-命令剖析"><a href="#define-命令剖析" class="headerlink" title="# define 命令剖析"></a># define 命令剖析</h3><ul>
 <li><p><code>#define</code>的概念<br>  <code>#define</code>命令是C语言中的一个宏定义命令，它用来将一个标识符定义为一个字符串，该标识符被称为宏名，被定义的字符串称为替换文本。<br>  该命令有两种格式：一种是简单的宏定义，另一种是带参数的宏定义。</p>
 </li>
@@ -935,11 +1021,16 @@ t.join();
 <li>使用一些宏跟踪调试<br>  ANSI标准说明了五个预定义的宏名。它们是:</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">__LINE__  行号</span><br><span class="line">__FILE__  </span><br><span class="line">__DATE__</span><br><span class="line">__TIME__</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>C++ Boa服务器使用</title>
     <url>/2024/07/22/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BABOA%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
     <content><![CDATA[<h2 id="BOA-服务器介绍"><a href="#BOA-服务器介绍" class="headerlink" title="BOA 服务器介绍"></a>BOA 服务器介绍</h2><p>BOA 是一个单任务的小型HTTP服务器，源代码开放，支持认证，CGI等功能，性能优越，适合在嵌入式系统中。</p>
+<span id="more"></span>  
 <h2 id="BOA服务器搭建"><a href="#BOA服务器搭建" class="headerlink" title="BOA服务器搭建"></a>BOA服务器搭建</h2><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>源码链接：<a href="http://www.boa.org/" title="BOA源码">BOA源码</a></p>
 <h3 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h3><p>下载完成后在linux下直接解压<br><code>tar -xvf boa-0.94.13.tar.gz</code></p>
 <h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>首先需要安装两个解析工具<br><code>sudo apt-get install bison</code><br><code>sudo apt-get install flex</code></p>
@@ -961,14 +1052,22 @@ t.join();
 <p>现在可以运行我们的程序了<br>如果make时未指定目录则在boa-0.94.13&#x2F;src目录下执行<code>sudo ./boa</code>。如果指定了目录则去指定的目录下执行<br>这时我们的boa服务器已经运行</p>
 <h3 id="查看运行的服务器"><a href="#查看运行的服务器" class="headerlink" title="查看运行的服务器"></a>查看运行的服务器</h3><p>我们在&#x2F;var&#x2F;www目录下写个index.html文件</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;/&gt;</span><br><span class="line">&lt;title&gt;BOA服务器&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h2&gt;this is my boa server&lt;/h2&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>网络编程</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>nfs 使用总结</title>
     <url>/2024/07/22/NFS%20%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="将文件从ubuntu拷贝到linux开发板"><a href="#将文件从ubuntu拷贝到linux开发板" class="headerlink" title="将文件从ubuntu拷贝到linux开发板"></a>将文件从ubuntu拷贝到linux开发板</h1><blockquote>
 <p>要把文件拷贝到 linux开发板上（以海思开发板为例），通过网络传输，比如使用nfs，这个方法需要配置好网络。</p>
 </blockquote>
 <h2 id="使用nfs拷贝"><a href="#使用nfs拷贝" class="headerlink" title="使用nfs拷贝"></a><strong>使用nfs拷贝</strong></h2><p>要使用nfs服务，需要配置好nfs和ssh 使用这个命令安装nfs： <code>sudo apt-get install nfs-kernel-server rpcbind</code> nfs安装完成后创建一个nfs文件夹，后续需要通过nfs传输的文件都放在这个文件夹里。 接下来配置nfs，打开 &#x2F;etc&#x2F;exports 以后在后面添加如下所示内容：</p>
+<span id="more"></span>  
+
+
 <blockquote>
 <p>nfs文件夹绝对地址 *(rw,sync,no_root_squash)</p>
 </blockquote>
@@ -988,9 +1087,14 @@ t.join();
 <p>拷贝完成后，一样是使用umount卸载</p>
 <p><code>umount /mnt</code></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>linux</category>
+        <category>shell</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>nodejs安装</title>
     <url>/2024/07/22/Nodejs%20%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><ul>
 <li>在腾讯云服务器上安装node.js，使用源码安装的方式<br>  <code>wget https://nodejs.org/dist/v12.18.4/node-v12.18.4.tar.gz</code></li>
@@ -998,6 +1102,8 @@ t.join();
 <h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><ul>
 <li>将下载的源码包解压到当先文件下<br>  <code>tar -xvf node-v12.18.4.tar.gz</code></li>
 </ul>
+<span id="more"></span>  
+
 <h4 id="配置和编译"><a href="#配置和编译" class="headerlink" title="配置和编译"></a>配置和编译</h4><ul>
 <li>进入目录<br>  <code>cd node-v12.8.4</code></li>
 <li>配置安装目录<br>  <code>./configure --prefix=/usr/local/node</code><br>  configure 完成后提示gcc 版本过低，在centos 上升级gcc编译器,如果没有提示gcc版本则不用升级</li>
@@ -1015,48 +1121,13 @@ t.join();
 <p>重启设备</p>
 <h4 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h4><p><a href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ndDnRI.png" title="查看node版本"><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ndDnRI.png" alt="查看node版本" title="查看node版本"></a></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>nodejs</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2024/07/22/Poco%20%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1 id="Poco-的编译和安装"><a href="#Poco-的编译和安装" class="headerlink" title="Poco 的编译和安装"></a>Poco 的编译和安装</h1><h2 id="ubuntu-下的安装和编译"><a href="#ubuntu-下的安装和编译" class="headerlink" title="ubuntu 下的安装和编译"></a><strong>ubuntu 下的安装和编译</strong></h2><ul>
-<li><p>完整的安装需要下载MySql和OpenSSL</p>
-</li>
-<li><p>安装OpenSSL</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1.sudo apt-get install openssl;</span><br><span class="line">2.sudo apt-get install libssl-dev;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>安装完这两个才可以，只安装一个编译会报错</p>
-</li>
-<li><p>然后执行</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./configure --no-tests --no-samples  --prefix=/usr/local/Poco --static --shared</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>其中 &#x2F;usr&#x2F;local&#x2F;Poco为编译好后头文件和库的安装位置</p>
-</li>
-<li><p>然后 <code>make</code> <code>make install</code></p>
-</li>
-<li><p>到此 Poco 安装完成 安装完成后可以去&#x2F;usr&#x2F;local&#x2F;Poco 下查看安装的库</p>
-</li>
-</ul>
-<p>利用QT Creator编译程序时，在.pro文件中加入附加库 LIBS +&#x3D; -L &#x2F;usr&#x2F;local&#x2F;lib&#x2F; -lPocoFoundation -lPocoNet -lPocoUtil</p>
-<p>这里自己需要哪个模块链接哪个模块</p>
-<p>.&#x2F;configure –omit&#x3D;Data&#x2F;ODBC,Data&#x2F;MySQL,NetSSL_OpenSSL –prefix&#x3D;&#x2F;usr&#x2F;local 不编译OBDC MySQL 和NetSSL_OpenSSL .h文件和 库文件放在&#x2F;usr&#x2F;local 目录下。</p>
-<h2 id="ARM版本的编译和安装"><a href="#ARM版本的编译和安装" class="headerlink" title="ARM版本的编译和安装"></a><strong>ARM版本的编译和安装</strong></h2><ul>
-<li><p>编译安装Poco 源码下载地址 <a href="https://pocoproject.org/releases/poco-1.7.8/poco-1.7.8-all.tar.gz">poco 下载地址</a></p>
-</li>
-<li><p>解压 <code>tar -xzvf poco-1.7.8-all.tar.gz</code> <code>cd poco-1.7.8-all</code> <code>./configure --config=ARM-Linux --no-tests --omit=Data,Crypto,NetSSL_OpenSSL --prefix=/home/ning/lib</code> <code>make</code> <code>make install</code> 到此Poco就交叉编译安装完成了。</p>
-</li>
-</ul>
-<p>我用的ARM 环境是 AM335x</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
+    <title>Posix线程</title>
     <url>/2024/07/22/Posix%E7%BA%BF%E7%A8%8B/</url>
     <content><![CDATA[<h1 id="Posix线程"><a href="#Posix线程" class="headerlink" title="Posix线程"></a>Posix线程</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
 <li><p><a href="#Pthread-API">Pthread API</a></p>
@@ -1073,6 +1144,8 @@ t.join();
 <li><p><a href="#%E8%BF%9E%E6%8E%A5joining%E5%B7%B2%E7%BB%88%E6%AD%A2%E7%9A%84%E7%BA%BF%E7%A8%8B">连接(joining)已终止的线程</a></p>
 </li>
 </ul>
+<span id="more"></span>  
+
 <h3 id="Pthread-API"><a href="#Pthread-API" class="headerlink" title="Pthread API"></a><strong>Pthread API</strong></h3><h4 id="Pthread-数据类型"><a href="#Pthread-数据类型" class="headerlink" title="Pthread 数据类型"></a>Pthread 数据类型</h4><table>
 <thead>
 <tr>
@@ -1146,25 +1219,21 @@ t.join();
 
 <h3 id="连接-joining-已终止的线程"><a href="#连接-joining-已终止的线程" class="headerlink" title="连接(joining)已终止的线程"></a><strong>连接(joining)已终止的线程</strong></h3><p>函数<code>pthread_join()</code>等待由thread标识的线程终止，</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>thread</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2024/07/22/QWidget%20%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD/</url>
-    <content><![CDATA[<p>[[QT(qt)常见问题]]</p>
-<ul>
-<li>最近在使用 Qt 5.14的时候，QWidget 的背景图片无法加载出来，原因是主窗口使用 QWidget 的类。以前从没碰到过这种错误，在此做下记录</li>
-</ul>
-<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>在QWidget窗口中重构paintEvent事件</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void communication::paintEvent(QPaintEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">   QStyleOption opt;</span><br><span class="line">   opt.init(this);</span><br><span class="line">   QPainter p(this);</span><br><span class="line">   style()-&gt;drawPrimitive(QStyle::PE_Widget, &amp;opt, &amp;p, this);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title></title>
+    <title>QtBase库安装和使用</title>
     <url>/2024/07/22/QtBase%20%E5%BA%93%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<ul>
 <li>以前工作中用到的 Qt 比较多，对一些常用的 API 也比较熟悉，对比 std 来说，QString 比 std:: string 好用太多了。在做一个后台程序的时候，想着能不能把 Qt 的库搬过来用，但 Qt 库相对来说比较臃肿，想着怎么精简下，就有了这次的折腾记录。</li>
 <li>Qt在github上有个<a href="https://github.com/qt/qtbase" title="qtBase">qtBase</a>里面只包含了Qt的基础东西,包含 QtCore,QWidget,gui,network等库。所以就把这个库clone 下来进行了编译和使用 。</li>
 </ul>
-<h3 id="下载和编译"><a href="#下载和编译" class="headerlink" title="下载和编译"></a>下载和编译</h3><ul>
+<h3 id="下载和编译"><a href="#下载和编译" class="headerlink" title="下载和编译"></a>下载和编译</h3><span id="more"></span>  
+<ul>
 <li>下载<br>  <code>https://github.com/qt/qtbase.git</code><br>  我当时用的是5.12版本的 ，下载完成后记得切换成 5.12版本 <code>get checkout 5.12</code>,然后对比着<code>configure_help.tex</code> 文件把一些不太需要的库去掉了，写了个配置文件，这个配置只针对5.12版本，这个配置文件应该是有问题的，当时只想着精简，只留下个core，把所有能去掉的都去了，到后面使用出现了问题。配置文件如下，后续还需要更改再试,如果需要交叉编译，则需要配置platform等，<code>configure_help</code>里面有说明。这里我编译成静态库来使用。</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">make clean</span></span><br><span class="line">echo &quot;------------- start-----------&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置编译目录</span></span><br><span class="line">./configure -prefix /usr/local/qt/ \</span><br><span class="line">-release \</span><br><span class="line">-static \</span><br><span class="line">-opensource \</span><br><span class="line">-confirm-license \</span><br><span class="line">-c++std 11 \</span><br><span class="line">-sqlite \</span><br><span class="line">-no-accessibility \</span><br><span class="line">-nomake tests \</span><br><span class="line">-no-gui \</span><br><span class="line">-no-widgets \</span><br><span class="line">-no-openssl \</span><br><span class="line">-no-journald \</span><br><span class="line">-no-syslog \</span><br><span class="line">-no-gif \</span><br><span class="line">-no-libpng \</span><br><span class="line">-no-libjpeg \</span><br><span class="line">-no-openssl \</span><br><span class="line">-no-libproxy \</span><br><span class="line">-eventfd \</span><br><span class="line">-inotify \</span><br><span class="line">-no-slog2 \</span><br><span class="line">-no-pps \</span><br><span class="line">-pkg-config \</span><br><span class="line">-nomake examples \</span><br><span class="line">-no-ico \</span><br><span class="line"></span><br><span class="line">echo &quot;---------make--------&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">gmake -j4 &amp;&amp; <span class="built_in">sudo</span> gmake install</span></span><br></pre></td></tr></table></figure>
@@ -1181,14 +1250,20 @@ t.join();
 
 <p><code>main.cpp</code> 中注释的代码是编译不过的代码，经过几天的测试和研究发现，应该是qt的库还引用了别的库，在写cmake的时候需要把别的库也引用上才可以，因为在cmake中如果不链接<code>zlib</code>库则QString 也没法使用。  </p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Qt</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Qt常见问题总结</title>
     <url>/2024/07/22/Qt%E8%8E%B7%E5%8F%96windows%20%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<p>[[QT(qt)常见问题]]</p>
 <h2 id="关注这个问题的原因"><a href="#关注这个问题的原因" class="headerlink" title="关注这个问题的原因"></a>关注这个问题的原因</h2><ul>
 <li>在最新做的项目中，程序自动生成的日志文件在自己的电脑上可以生成，但到了我一同事的机器上就无法生成，查看打印发现是提示权限不够。</li>
 </ul>
+<span id="more"></span>  
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><ul>
 <li><p>如果你的qtCreator配置的MSVC的编译器，直接在.por文件中添加 <code>QMAKE_LFLAGS += /MANIFESTUAC:\&quot;level=\&#39;requireAdministrator\&#39; uiAccess=\&#39;false\&#39;\&quot;</code><br>  重新编译，在需要获取的权限的系统中你的软件右下角会有个类似小盾牌一样的图片</p>
 </li>
@@ -1199,16 +1274,26 @@ t.join();
 
 <p>将新建的这个文件和你的应用程序放在一起，打开VS自带的“开发人员命令提示”工具，切换到你的这个文件目录下，输入下面的命令<br><code>mt.exe -manifest &quot;uac.manifest&quot; -outputresource:&quot;example.exe&quot;;#1</code></p>
 <p>mt.exe为vs自带的工具，如果不知道在哪，用Everything 搜索一下就可以了。”example.exe” 为应用程序的名称</p>
-]]></content>
+<ul>
+<li>最近在使用 Qt 5.14的时候，QWidget 的背景图片无法加载出来，原因是主窗口使用 QWidget 的类。以前从没碰到过这种错误，在此做下记录</li>
+</ul>
+<h4 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h4><p>在QWidget窗口中重构paintEvent事件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void communication::paintEvent(QPaintEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">   QStyleOption opt;</span><br><span class="line">   opt.init(this);</span><br><span class="line">   QPainter p(this);</span><br><span class="line">   style()-&gt;drawPrimitive(QStyle::PE_Widget, &amp;opt, &amp;p, this);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Qt</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Scoop 使用</title>
     <url>/2024/07/22/Scoop%20%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="Scoop-使用"><a href="#Scoop-使用" class="headerlink" title="Scoop 使用"></a>Scoop 使用</h1><blockquote>
 <h2 id="Excerpt"><a href="#Excerpt" class="headerlink" title="Excerpt"></a><strong>Excerpt</strong></h2><p>「一行命令」搞定软件 Windows 软件安装卸载</p>
 </blockquote>
 <hr>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h2><p><a href="https://p3terx.com/go/aHR0cHM6Ly9naXRodWIuY29tL2x1a2VzYW1wc29uL3Njb29w">Scoop</a> 是一个 Windows 包管理工具，类似于 Debian 的 <code>apt</code>、macOS 的 <code>homebrew</code>。它由开源社区驱动，体验可能是是目前所有 Windows 包管理工具中最好的。对开发者来说，包管理器能非常方便的部署开发环境，比如 Python 、Node.js 。而对于像博主这样的普通的计算机使用者来说，可以方便的安装一些常用软件，尤其是开源软件，免去了手动去官网下载的繁琐步骤，而且后续对软件进行升级只需要输入一行命令，非常便捷。</p>
+<span id="more"></span>  
 <h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a><strong>环境要求</strong></h2><ul>
 <li><p>Windows 7 SP1 + &#x2F; Windows Server 2008+</p>
 </li>
@@ -1387,11 +1472,15 @@ t.join();
 
 <h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a><strong>尾巴</strong></h2><p>Scoop 的使用方法和功能远不止上面提及的这些，但作为一个普通用户也只会用到一些基本的命令和功能。纵观全网也很少有人把基础功能都说明白，这也是在 0202 年咕鸽随便一搜一大把 Scoop 教程和笔记文章的情况下博主依然写这样一篇更加全面教程的原因。希望这篇教程对你有所帮助。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Scoop 使用</title>
     <url>/2024/07/22/VCPKG%20%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="vcpkg使用"><a href="#vcpkg使用" class="headerlink" title="vcpkg使用"></a>vcpkg使用</h1><p>C++开源库 - 包管理工具Vcpkg安装使用教程</p>
+<span id="more"></span>  
 <p><strong>目录</strong></p>
 <ul>
 <li><p><a href="#_label0">一、编译开源库的传统方法</a></p>
@@ -1673,30 +1762,18 @@ t.join();
 </ul>
 <h2 id="七、小结"><a href="#七、小结" class="headerlink" title="七、小结"></a><strong>七、小结</strong></h2><p>Vcpkg 目前还在不断的完善中，但不可否认，它已经极大的减少了我们在项目启动时，准备第三方库的时间。提高了工作效率。按照时髦的话来说，就是避免了重复造轮子。目前 Vcpkg 已经集成了上百个常用的开源库，而且数量还在不停增长。毕竟是微软旗下的开源项目，质量还是可以得到保障的，完全可以在工业级项目中得以使用。源代码托管在 github上，github 社区很活跃，有兴趣的朋友也可以参与进来。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
   </entry>
   <entry>
-    <title>about</title>
-    <url>/2024/07/22/about/</url>
-    <content><![CDATA[<h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a><strong>关于我</strong></h2><p>欢迎来到我的博客！ 我是一名多领域的开发工程师，擅长使用 C++、Python 和 Rust 进行软件开发。</p>
-<p>我对编程和技术充满热情，并致力于不断学习和探索新的技术领域。 我拥有广泛的编程经验和技术知识。我在计算机科学领域取得了学士学位，并在多个项目中担任开发工程师的角色。</p>
-<p>我在 C++、Python 和 Rust 方面有着深入的理解和实践经验，能够灵活地应用它们来解决各种编程问题。 我创建这个博客的目的是与大家分享我的编程经验、技术见解和最佳实践。我希望通过博客能够帮助读者解决实际的编程挑战，提供有价值的技术教程和指南。</p>
-<p>在我的博客中，您将找到关于 C++、Python 和 Rust 的深入文章、教程和示例代码。我会分享我在这些领域的经验和见解，包括最新的开发技术、工具和框架。 我相信编程应该是一种有趣和创造性的体验，因此我会尽力使我的博客内容易于理解和实践。</p>
-<p>如果您对任何文章或主题有疑问或建议，欢迎在评论区留言，我会尽快回复。 感谢您访问我的博客，希望您在这里找到有益的信息和灵感。让我们一起探索编程的奇妙世界！</p>
-<p>如有任何疑问或合作机会，请通过以下方式与我联系：</p>
-<ul>
-<li><p><a href="mailto:电子邮件：your-email@example.com">电子邮件：wuxiaoning523@163.com</a></p>
-</li>
-<li><p>GitHub：<a href="https://github.com/Lovening">https://github.com/Lovening</a></p>
-</li>
-</ul>
-<p>谢谢！</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
+    <title>读书摘抄</title>
     <url>/2024/07/22/kindle%20%E8%AF%BB%E4%B9%A6%E6%91%98%E6%8A%84/</url>
     <content><![CDATA[<p>《对于为何要学习某种东西抱有疑问，本是理所当然。唯有疑问解除了，才会产生求知的欲望，才能走上理解数学本质之路。》(摘自由东野圭吾(Higashino Keigo), 刘子倩撰写的《嫌疑人 X 的献身》)</p>
 <p>《自以为是永远都是大敌，本可看到的东西也会因此视而不见。”》(摘自由 东野圭吾(Higashino Keigo), 刘子倩 撰写的《嫌疑人X的献身》)</p>
+<span id="more"></span>  
+
+
 <p>《他提到的创造性思维技巧中的一个叫作“假面具”。按照这个方法，如果你想解决一个问题，可以从它的对立面着手思考，看会有什么创意迸发出来。举个简单的例子：如果想盖一座摩天大楼，就反过来想如果造一座深入地下的建筑会怎样。这样做可以强迫大脑拓宽思路，看到更多的可能性，进而激发更多创意。》(摘自由 斯蒂芬·盖斯, 桂君 撰写的《微习惯（1天1个俯卧撑、1天读1页书……每天只做一点点的无负担习惯策略，简单到不可能失败的自我管理法则！）》)</p>
 <p>《数学归纳法依赖于这样一个事实：任意一个自然数r都有一个后继的自然数r＋1，而且我们所求的自然数n可以从1开始经过这样的有限步骤而达到．》(摘自由 R·柯朗H·罗宾, I·斯图尔特, 左平, 张饴慈 撰写的《什么是数学：对思想和方法的基本研究(中文版第三版)》)</p>
 <p>《大多数人如果能给更多事情一个机会的话，他们的问题都能解决。》(摘自由 加·泽文, 孙仲旭, 李玉瑶 撰写的《岛上书店（每个人的生命中，都有无比艰难的那一年，将人生变得美好而辽阔。现象级全球畅销书！） (读客全球顶级畅销小说文库 137)》)</p>
@@ -1732,11 +1809,17 @@ t.join();
 <p>《你可以问自己下面的问题： ■今天哪些时候我的思维是最差的？ ■今天哪些时候我的思维是最好的？ ■我今天实际上在思考什么？ ■我解决了哪些问题？ ■我是否无谓地为一些消极的思维而感到沮丧？ ■如果我重新过这一天，我应该做出哪些改变？为什么？ ■我今天做了哪些对自己长期目标有益的事情？ ■我所做的事与自己的价值观相一致吗？ ■如果我以今天的方式生活10年，》(摘自由 理查德·保罗, 琳达·埃尔德 撰写的《批判性思维工具(原书第3版)》)</p>
 <p>《每天通过回答下面的问题观察自己的自我中心：当我反思自己一天的行为时，我是否被细小的事情惹怒了？我是否说了一些失去理性的话来坚持自己的意见？我是否将自己的意愿强加给他人？当我对某种事物有强烈的情感的时候，我是否没能表达自己的意愿，以致后来愤恨自己？》(摘自由 理查德·保罗, 琳达·埃尔德 撰写的《批判性思维工具(原书第3版)》)</p>
 ]]></content>
+      <categories>
+        <category>随笔</category>
+        <category>读书笔记</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Linux I/O模型</title>
     <url>/2024/07/22/linux%E7%BD%91%E7%BB%9CIO%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="I-O模型"><a href="#I-O模型" class="headerlink" title="I&#x2F;O模型"></a>I&#x2F;O模型</h1><h3 id="两种高效的事件处理模式"><a href="#两种高效的事件处理模式" class="headerlink" title="两种高效的事件处理模式"></a><strong>两种高效的事件处理模式</strong></h3><ul>
+    <content><![CDATA[<h1 id="I-O模型"><a href="#I-O模型" class="headerlink" title="I&#x2F;O模型"></a>I&#x2F;O模型</h1><h3 id="两种高效的事件处理模式"><a href="#两种高效的事件处理模式" class="headerlink" title="两种高效的事件处理模式"></a><strong>两种高效的事件处理模式</strong></h3><span id="more"></span>  
+
+<ul>
 <li><p><strong>Reactor 模式</strong></p>
 <p>  Reactor 模式要求**<em>主线程</em>**(I&#x2F;O处理单元)只负责监听文件描述上是否有事件发生，有的话就立即将该事件通知工作线程，除此之外，主线程不负责其他任何实质性的工作。以<code>epoll_wait</code>为例实现的<code>Reactor</code>模式的工作流程</p>
 <p>  NaN. 主线程往<code>epoll</code>内核事件表中注册<code>socket</code>上的读就绪事件</p>
@@ -1766,11 +1849,18 @@ t.join();
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>网络编程</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Log4Qt for Qt5使用</title>
     <url>/2024/07/22/log4qt%20for%20Qt5%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="下载-log4qt"><a href="#下载-log4qt" class="headerlink" title="下载 log4qt"></a>下载 log4qt</h2><p>从github 上下载log4qt的最新源码，在下载的时候需要注意自己使用的Qt版本，如果Qt是低于5.3版本的，请下载这个 <a href="https://github.com/MEONMedical/Log4Qt/tree/master" title="qt低于5.3版本">qt低于5.3版本</a>如果高于5.3版本的请直接下载<a href="https://github.com/MEONMedical/Log4Qt/tree/1.4" title="地址">地址</a></p>
+<span id="more"></span>  
+
 <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>编译非常方便，我是直接使用qtCreator打开目录下Log4Qt&#x2F;log4qt.pro 进行编译的，如果编译过程中有版本判定的错误之类的，修改判断即可</p>
 <p>使用qtCreator编译会将.lib和.dll的直接编译出来，我QtCreator配置的编译器msvc2013.生成的目录在Log4Qt&#x2F;bin 目录下</p>
 <ul>
@@ -1793,9 +1883,14 @@ t.join();
 <p>在别的模块中使用的时候包含<code>loggerFile.h</code> 头文件，然后直接调用即可<code>loggerFile::getLoggerFile()-&gt;loggerError(QString(&quot;error&quot;));</code></p>
 <p>在main函数中调用<code>loggerFile::getLoggerFile()-&gt;loggerExit();</code></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">main.cpp</span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    QApplication app(argc, argv);</span><br><span class="line"></span><br><span class="line">    int ret=app.exec();</span><br><span class="line">    loggerFile::getLoggerFile()-&gt;loggerExit();</span><br><span class="line">    return ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Qt</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>macos编译Boost库错误</title>
     <url>/2024/07/22/macos%20%E7%BC%96%E8%AF%91Boost%20%E9%94%99%E8%AF%AF/</url>
     <content><![CDATA[<h2 id="相关版本"><a href="#相关版本" class="headerlink" title="相关版本"></a>相关版本</h2><ul>
 <li>macos 10.15.7</li>
@@ -1803,6 +1898,8 @@ t.join();
 <li>Homebrew 3.2.9<br>  boost 库是使用brew 安装的最新版本</li>
 </ul>
 <h2 id="编译时问题"><a href="#编译时问题" class="headerlink" title="编译时问题"></a>编译时问题</h2><p>在使用cmake 编译工程的时候，使用的是静态库链接，然后<code>regex</code>库无法进行链接，动态库是可以的。cmake文件如下</p>
+<span id="more"></span>  
+
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.0)</span><br><span class="line">set(Boost_USE_STATIC_LIBS        ON)  # only find static libs</span><br><span class="line"></span><br><span class="line">project(test )</span><br><span class="line"></span><br><span class="line">set(BOOST_COMPONENTS date_time chrono  filesystem  regex system )</span><br><span class="line">find_package(Boost REQUIRED COMPONENTS $&#123;BOOST_COMPONENTS&#125;)</span><br><span class="line">if(Boost_FOUND )</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_INCLUDE_DIRS = $&#123;Boost_INCLUDE_DIRS&#125;&quot;)</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_LIBRARIES = $&#123;Boost_LIBRARIES&#125;&quot;)</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_LIB_VERSION = $&#123;Boost_LIB_VERSION&#125;&quot;)</span><br><span class="line">    include_directories($&#123;Boost_INCLUDE_DIRS&#125;)</span><br><span class="line">endif()</span><br><span class="line">add_executable(test main.cpp)</span><br><span class="line">target_link_libraries(test $&#123;Boost_LIBRARIES&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>在<code>make</code>编译的时候，一直报一个链接错误。<br><a href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ajScFH.png" title="编译错误"><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ajScFH.png" alt="编译错误" title="编译错误"></a></p>
@@ -1810,11 +1907,17 @@ t.join();
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在cmake 文件中添加<code>set(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; -L/usr/local/opt/icu4c/lib -I/usr/local/opt/icu4c/include&quot;)</code></p>
 <p>重新编译，可以正常编译过。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Boost</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>netstatus命令使用</title>
     <url>/2024/07/22/netstatus%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="netstatus命令使用"><a href="#netstatus命令使用" class="headerlink" title="netstatus命令使用"></a>netstatus命令使用</h1><h2 id="netstatus-命令总结"><a href="#netstatus-命令总结" class="headerlink" title="netstatus 命令总结"></a>netstatus 命令总结</h2><p>netstatus 命令是一个用于查看网络连接状态的命令，主要用于诊断网络问题。以下是 netstatus 命令的一些常用选项和用法：</p>
+<span id="more"></span>  
 <p>NaN. netstat -a：显示所有连接和监听端口的状态。</p>
 <p>NaN. netstat -n：以数字形式显示地址和端口号。</p>
 <p>NaN. netstat -p：显示与每个连接关联的进程 ID 和名称。</p>
@@ -1854,11 +1957,17 @@ t.join();
 <p>NaN. 安装完成后，可以在终端中输入 <code>netstat -h</code> 命令来查看 <code>netstat</code> 命令的帮助文档，以确认安装是否成功。</p>
 <p>注意，在一些新的 Linux 发行版中，<code>netstat</code> 命令已经被废弃，建议使用更现代化的 <code>ss</code> 命令来代替。<code>ss</code> 命令的用法与 <code>netstat</code> 类似，但是更加高效和准确。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>linux</category>
+        <category>shell</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>Scoop 使用</title>
     <url>/2024/07/22/%E4%BD%BF%E7%94%A8boost%E5%BA%93%E6%93%8D%E4%BD%9CC++%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<h6 id="字符串的查找与替换一直是-C-的弱势，运用-Boost-这个准标准库，将可以很好的弥补-C-的不足，使针对字符串的操作更加容易。"><a href="#字符串的查找与替换一直是-C-的弱势，运用-Boost-这个准标准库，将可以很好的弥补-C-的不足，使针对字符串的操作更加容易。" class="headerlink" title="字符串的查找与替换一直是 C++的弱势，运用 Boost 这个准标准库，将可以很好的弥补 C++的不足，使针对字符串的操作更加容易。"></a>字符串的查找与替换一直是 C++的弱势，运用 Boost 这个准标准库，将可以很好的弥补 C++的不足，使针对字符串的操作更加容易。</h6><h4 id="字符串格式转换"><a href="#字符串格式转换" class="headerlink" title="字符串格式转换:"></a>字符串格式转换:</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;boost\lexical_cast.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> boost;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string str[<span class="number">3</span>] = &#123; <span class="string">&quot;100&quot;</span>, <span class="string">&quot;102&quot;</span>, <span class="string">&quot;3.14159&quot;</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 字符串转换为数值类型</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;字符串转为整数: &quot;</span> &lt;&lt; <span class="built_in">lexical_cast</span>&lt;<span class="type">int</span>&gt;(str[<span class="number">0</span>]) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;字符串转为长整数: &quot;</span> &lt;&lt; <span class="built_in">lexical_cast</span>&lt;<span class="type">long</span>&gt;(str[<span class="number">1</span>]) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;字符串转为浮点数: &quot;</span> &lt;&lt; <span class="built_in">lexical_cast</span>&lt;<span class="type">float</span>&gt;(str[<span class="number">2</span>]) &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 数值类型转化为字符串</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;数值转为字符串: &quot;</span> &lt;&lt; <span class="built_in">lexical_cast</span>&lt;string&gt;(<span class="number">100</span>) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;十六进制转为十进制: &quot;</span> &lt;&lt; <span class="built_in">lexical_cast</span>&lt;string&gt;(<span class="number">0x10</span>) &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h6 id="字符串的查找与替换一直是-C-的弱势，运用-Boost-这个准标准库，将可以很好的弥补-C-的不足，使针对字符串的操作更加容易。"><a href="#字符串的查找与替换一直是-C-的弱势，运用-Boost-这个准标准库，将可以很好的弥补-C-的不足，使针对字符串的操作更加容易。" class="headerlink" title="字符串的查找与替换一直是 C++的弱势，运用 Boost 这个准标准库，将可以很好的弥补 C++的不足，使针对字符串的操作更加容易。"></a>字符串的查找与替换一直是 C++的弱势，运用 Boost 这个准标准库，将可以很好的弥补 C++的不足，使针对字符串的操作更加容易。</h6><span id="more"></span>  
+<h4 id="字符串格式转换"><a href="#字符串格式转换" class="headerlink" title="字符串格式转换:"></a>字符串格式转换:</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;boost\lexical_cast.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> boost;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string str[<span class="number">3</span>] = &#123; <span class="string">&quot;100&quot;</span>, <span class="string">&quot;102&quot;</span>, <span class="string">&quot;3.14159&quot;</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 字符串转换为数值类型</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;字符串转为整数: &quot;</span> &lt;&lt; <span class="built_in">lexical_cast</span>&lt;<span class="type">int</span>&gt;(str[<span class="number">0</span>]) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;字符串转为长整数: &quot;</span> &lt;&lt; <span class="built_in">lexical_cast</span>&lt;<span class="type">long</span>&gt;(str[<span class="number">1</span>]) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;字符串转为浮点数: &quot;</span> &lt;&lt; <span class="built_in">lexical_cast</span>&lt;<span class="type">float</span>&gt;(str[<span class="number">2</span>]) &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 数值类型转化为字符串</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;数值转为字符串: &quot;</span> &lt;&lt; <span class="built_in">lexical_cast</span>&lt;string&gt;(<span class="number">100</span>) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;十六进制转为十进制: &quot;</span> &lt;&lt; <span class="built_in">lexical_cast</span>&lt;string&gt;(<span class="number">0x10</span>) &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="format格式化："><a href="#format格式化：" class="headerlink" title="format格式化："></a>format格式化：</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;boost\format.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> boost;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> * argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 第一种输出方式: 直接填充字符串</span></span><br><span class="line">    <span class="function">boost::format <span class="title">fmtA</span><span class="params">(<span class="string">&quot;姓名: %s -&gt; 年龄: %d -&gt; 性别: %s&quot;</span>)</span></span>;</span><br><span class="line">    fmtA %<span class="string">&quot;lyshark&quot;</span>;</span><br><span class="line">    fmtA % <span class="number">22</span>;</span><br><span class="line">    fmtA %<span class="string">&quot;男&quot;</span>;</span><br><span class="line"></span><br><span class="line">    std::string str = fmtA.<span class="built_in">str</span>();</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;格式化后: &quot;</span> &lt;&lt; str &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第二种方式: 拷贝的使用</span></span><br><span class="line">    <span class="function">boost::format <span class="title">fmtB</span><span class="params">(<span class="string">&quot;姓名: %s -&gt; 年龄: %d -&gt; 性别: %s&quot;</span>)</span></span>;</span><br><span class="line">    cout &lt;&lt; format(fmtB) % <span class="string">&quot;lyshark&quot;</span> % <span class="number">23</span> % <span class="string">&quot;男&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1893,27 +2002,14 @@ t.join();
 <li>分词器使用:</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;boost/tokenizer.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> boost;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> <span class="type">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    std::string strTag = <span class="string">&quot;explorer.exe,1024&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义分割符号为逗号与空格 定义分词器</span></span><br><span class="line">    <span class="function">boost::char_separator&lt;<span class="type">char</span>&gt; <span class="title">sep</span><span class="params">(<span class="string">&quot;, &quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">typedef</span> boost::tokenizer&lt;boost::char_separator&lt;<span class="type">char</span>&gt;&gt; CustonTokenizer;</span><br><span class="line">    <span class="function">CustonTokenizer <span class="title">tok</span><span class="params">(strTag, sep)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将分词结果放入vector链表</span></span><br><span class="line">    std::vector&lt;std::string&gt; vecSegTag;</span><br><span class="line">    <span class="keyword">for</span> (CustonTokenizer::iterator beg = tok.<span class="built_in">begin</span>(); beg != tok.<span class="built_in">end</span>(); ++beg)</span><br><span class="line">    &#123;</span><br><span class="line">        vecSegTag.<span class="built_in">push_back</span>(*beg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// const_case 将string转换为char 8</span></span><br><span class="line">    std::string ref_string = <span class="built_in">const_cast</span>&lt;<span class="type">char</span> *&gt;(vecSegTag[<span class="number">0</span>].<span class="built_in">c_str</span>());</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt;<span class="string">&quot;进程名: &quot;</span> &lt;&lt; ref_string &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;分词数: &quot;</span> &lt;&lt; vecSegTag.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>boost</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2024/07/22/%E5%85%B3%E4%BA%8E%E6%88%91/</url>
-    <content><![CDATA[<h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a><strong>关于我</strong></h2><p>欢迎来到我的博客！ 我是一名多领域的开发工程师，擅长使用 C++、Python 和 Rust 进行软件开发。</p>
-<p>我对编程和技术充满热情，并致力于不断学习和探索新的技术领域。 我拥有广泛的编程经验和技术知识。我在计算机科学领域取得了学士学位，并在多个项目中担任开发工程师的角色。</p>
-<p>我在 C++、Python 和 Rust 方面有着深入的理解和实践经验，能够灵活地应用它们来解决各种编程问题。 我创建这个博客的目的是与大家分享我的编程经验、技术见解和最佳实践。我希望通过博客能够帮助读者解决实际的编程挑战，提供有价值的技术教程和指南。</p>
-<p>在我的博客中，您将找到关于 C++、Python 和 Rust 的深入文章、教程和示例代码。我会分享我在这些领域的经验和见解，包括最新的开发技术、工具和框架。 我相信编程应该是一种有趣和创造性的体验，因此我会尽力使我的博客内容易于理解和实践。</p>
-<p>如果您对任何文章或主题有疑问或建议，欢迎在评论区留言，我会尽快回复。 感谢您访问我的博客，希望您在这里找到有益的信息和灵感。让我们一起探索编程的奇妙世界！</p>
-<p>如有任何疑问或合作机会，请通过以下方式与我联系：</p>
-<ul>
-<li><p><a href="mailto:电子邮件：your-email@example.com">电子邮件：wuxiaoning523@163.com</a></p>
-</li>
-<li><p>GitHub：<a href="https://github.com/Lovening">https://github.com/Lovening</a></p>
-</li>
-</ul>
-<p>谢谢！</p>
-]]></content>
-  </entry>
-  <entry>
-    <title></title>
+    <title>单例模式</title>
     <url>/2024/07/22/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式(Singleton)"></a>单例模式(Singleton)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
 <li><p><a href="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89">单例模式的定义</a></p>
@@ -1923,6 +2019,8 @@ t.join();
 </ul>
 <h3 id="单例模式的定义"><a href="#单例模式的定义" class="headerlink" title="单例模式的定义"></a><strong>单例模式的定义</strong></h3><p>单例模式保证一个类仅有一个实例，并且提供一个访问它的全局访问点,</p>
 <p>单例模式分为饿汉模式和懒汉模式，从字面来理解，饿汉模式为一开始就创建好对象的实例，懒汉模式为使用的时候再去创建对象的实例</p>
+<span id="more"></span>  
+
 <h3 id="懒汉和饿汉模式的区别"><a href="#懒汉和饿汉模式的区别" class="headerlink" title="懒汉和饿汉模式的区别"></a><strong>懒汉和饿汉模式的区别</strong></h3><p>NaN. 时间和空间</p>
 <pre><code>懒汉式是典型的时间换空间，也就是每次获取实例都会进行判断，看是否需要创建实例，浪费判断的时间
 
@@ -1932,9 +2030,14 @@ t.join();
 <pre><code>从线程安全性上讲，不同步加载的懒汉模式是线程不安全的。
 </code></pre>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>原型模式</title>
     <url>/2024/07/22/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="原型模式-Prototype"><a href="#原型模式-Prototype" class="headerlink" title="原型模式(Prototype)"></a>原型模式(Prototype)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
 <li><p><a href="#%E5%AE%9A%E4%B9%89">定义</a></p>
@@ -1945,6 +2048,7 @@ t.join();
 </li>
 </ul>
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>用原型示例指定创建对象的种类。并通过拷贝这些原型创建新的对象，即重新创建一个拷贝对象的副本，而无需去执行拷贝对象的构造函数</p>
+<span id="more"></span>  
 <h3 id="结构和说明"><a href="#结构和说明" class="headerlink" title="结构和说明"></a><strong>结构和说明</strong></h3><p><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/202309121953363.png" alt="image.png"></p>
 <ul>
 <li><p>Prototype : 声明一个克隆自身的接口，用来约束想要克隆自己的类，要求它们都要实现这里定义的克隆方法</p>
@@ -1956,65 +2060,14 @@ t.join();
 </ul>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a><strong>注意</strong></h3><h4 id="原型实例和克隆的实例"><a href="#原型实例和克隆的实例" class="headerlink" title="原型实例和克隆的实例"></a>原型实例和克隆的实例</h4><p><strong>原型实例和克隆出来的实例，本质上是不同的实例，克隆完成后，他们之间是没有关联的，如果克隆出来的实例属性值发生了改变，是不会影响到原型实例的</strong></p>
 <h4 id="深度克隆和浅度克隆"><a href="#深度克隆和浅度克隆" class="headerlink" title="深度克隆和浅度克隆"></a>深度克隆和浅度克隆</h4><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><strong>代码实现</strong></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using std::string;</span><br><span class="line">// 原型的类型</span><br><span class="line">enum Type &#123;</span><br><span class="line">  PROTOTYPE_1 = 0,</span><br><span class="line">  PROTOTYPE_2</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line">// 原型接口类</span><br><span class="line">class Prototype &#123;</span><br><span class="line"> protected:</span><br><span class="line">  string prototype_name_;</span><br><span class="line">  float prototype_field_;</span><br><span class="line">​</span><br><span class="line"> public:</span><br><span class="line">  Prototype() &#123;&#125;</span><br><span class="line">  Prototype(string prototype_name)</span><br><span class="line">      : prototype_name_(prototype_name) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  virtual ~Prototype() &#123;&#125;</span><br><span class="line">  virtual Prototype *Clone() const = 0;</span><br><span class="line">  virtual void Method(float prototype_field) &#123;</span><br><span class="line">    this-&gt;prototype_field_ = prototype_field;</span><br><span class="line">    std::cout &lt;&lt; &quot;Call Method from &quot; &lt;&lt; prototype_name_ &lt;&lt; &quot; with field : &quot; &lt;&lt; prototype_field &lt;&lt; std::endl;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line"># 具体的原型类</span><br><span class="line">class ConcretePrototype1 : public Prototype &#123;</span><br><span class="line"> private:</span><br><span class="line">  float concrete_prototype_field1_;</span><br><span class="line">​</span><br><span class="line"> public:</span><br><span class="line">  ConcretePrototype1(string prototype_name, float concrete_prototype_field)</span><br><span class="line">      : Prototype(prototype_name), concrete_prototype_field1_(concrete_prototype_field) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  # 实现自我复制  这里使用的浅拷贝</span><br><span class="line">  Prototype *Clone() const override &#123;</span><br><span class="line">    return new ConcretePrototype1(*this);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line">class ConcretePrototype2 : public Prototype &#123;</span><br><span class="line"> private:</span><br><span class="line">  float concrete_prototype_field2_;</span><br><span class="line">​</span><br><span class="line"> public:</span><br><span class="line">  ConcretePrototype2(string prototype_name, float concrete_prototype_field)</span><br><span class="line">      : Prototype(prototype_name), concrete_prototype_field2_(concrete_prototype_field) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  Prototype *Clone() const override &#123;</span><br><span class="line">    return new ConcretePrototype2(*this);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line">​</span><br><span class="line">class PrototypeFactory &#123;</span><br><span class="line"> private:</span><br><span class="line">  std::unordered_map&lt;Type, Prototype *, std::hash&lt;int&gt;&gt; prototypes_;</span><br><span class="line">​</span><br><span class="line"> public:</span><br><span class="line">  PrototypeFactory() &#123;</span><br><span class="line">    prototypes_[Type::PROTOTYPE_1] = new ConcretePrototype1(&quot;PROTOTYPE_1 &quot;, 50.f);</span><br><span class="line">    prototypes_[Type::PROTOTYPE_2] = new ConcretePrototype2(&quot;PROTOTYPE_2 &quot;, 60.f);</span><br><span class="line">  &#125;</span><br><span class="line">​</span><br><span class="line">  ~PrototypeFactory() &#123;</span><br><span class="line">    delete prototypes_[Type::PROTOTYPE_1];</span><br><span class="line">    delete prototypes_[Type::PROTOTYPE_2];</span><br><span class="line">  &#125;</span><br><span class="line">​</span><br><span class="line">  Prototype *CreatePrototype(Type type) &#123;</span><br><span class="line">    return prototypes_[type]-&gt;Clone();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line">void Client(PrototypeFactory &amp;prototype_factory) &#123;</span><br><span class="line">  std::cout &lt;&lt; &quot;Let&#x27;s create a Prototype 1\n&quot;;</span><br><span class="line">  # 这里通过原型创建复制的w类</span><br><span class="line">  Prototype *prototype = prototype_factory.CreatePrototype(Type::PROTOTYPE_1);</span><br><span class="line">  prototype-&gt;Method(90);</span><br><span class="line">  delete prototype;</span><br><span class="line">​</span><br><span class="line">  std::cout &lt;&lt; &quot;\n&quot;;</span><br><span class="line">​</span><br><span class="line">  std::cout &lt;&lt; &quot;Let&#x27;s create a Prototype 2 \n&quot;;</span><br><span class="line">​</span><br><span class="line">  prototype = prototype_factory.CreatePrototype(Type::PROTOTYPE_2);</span><br><span class="line">  prototype-&gt;Method(10);</span><br><span class="line">​</span><br><span class="line">  delete prototype;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line">int main() &#123;</span><br><span class="line">  PrototypeFactory *prototype_factory = new PrototypeFactory();</span><br><span class="line">  Client(*prototype_factory);</span><br><span class="line">  delete prototype_factory;</span><br><span class="line">​</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
-    <url>/2024/07/22/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="工厂方法-Factory"><a href="#工厂方法-Factory" class="headerlink" title="工厂方法(Factory)"></a>工厂方法(Factory)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
-<li><p><a href="#%E5%AE%9A%E4%B9%89">定义</a></p>
-</li>
-<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F">工厂方法调用顺序</a></p>
-</li>
-<li><p><a href="#%E8%A7%A3%E6%9E%84%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">解构工厂方法模式</a></p>
-</li>
-<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84%E5%9B%BE">工厂方法结构图</a></p>
-</li>
-<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0">工厂方法的实现</a></p>
-</li>
-<li><p><a href="#%E8%B0%81%E6%9D%A5%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">谁来使用工厂方法创建对象</a></p>
-</li>
-<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">工厂方法模式的优缺点</a></p>
-</li>
-<li><p><a href="#%E4%BD%95%E6%97%B6%E9%80%89%E7%94%A8%E5%B7%A5%E7%A8%8B%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">何时选用工程方法模式</a></p>
-</li>
-<li><p><a href="#code">code</a></p>
-</li>
-</ul>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>定义一个用于创建对象的接口，让子类决定实例化哪一个类，Factiry Methos 使一个类的实例化延迟到其子类</p>
-<h3 id="工厂方法调用顺序"><a href="#工厂方法调用顺序" class="headerlink" title="工厂方法调用顺序"></a><strong>工厂方法调用顺序</strong></h3><p><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_os9Z3Pj932.png"></p>
-<h3 id="解构工厂方法模式"><a href="#解构工厂方法模式" class="headerlink" title="解构工厂方法模式"></a><strong>解构工厂方法模式</strong></h3><p>工厂方法模式的本质是延迟到子类来选择实现。工厂方法模式很好的提现了”依赖倒置原则”，依赖倒置原则告诉我们，<strong>要依赖抽象，不要依赖于具体的类</strong>，简单点说就是不能让高层组件依赖于底层组件，而且不管高层组件还是底层组件，都应该依赖于抽象。</p>
-<h3 id="工厂方法结构图"><a href="#工厂方法结构图" class="headerlink" title="工厂方法结构图"></a><strong>工厂方法结构图</strong></h3><p><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_iOs06-LoSA.png"></p>
-<h3 id="工厂方法的实现"><a href="#工厂方法的实现" class="headerlink" title="工厂方法的实现"></a><strong>工厂方法的实现</strong></h3><p>在工厂方法模式里面，客户端要么使用Creator对象，要么使用Creator创建的对象，一般客户端不直接使用工厂方法。</p>
-<ul>
-<li><p>让所有产品都遵循同一接口，该接口必须声明对所有产品有意义的方法</p>
-</li>
-<li><p>在创建类中添加一个空的工厂方法，该方法的返回类型必须遵循通用的产品接口</p>
-</li>
-<li><p>在创建者代码中找到对于产品构造函数的所有引用，将他们依次替换为对于工厂方法的调用，同时将创建产品的代码移入到工厂方法。</p>
-</li>
-<li><p>为工厂中的每种产品编写一个创建者子类，然后再子类中重写工厂方法，并将基本方法中的相关创建代码移动到工厂方法中。</p>
-</li>
-<li><p>如果应用中产品类型太多，那么为每个产品创建子类并无太大的必要，这时你也可以在子类中复用基类中的控制参数</p>
-<p>  例如， 设想你有以下一些层次结构的类。 基类 <code>邮件</code>及其子类 <code>航空邮件</code>和 <code>陆路邮件</code> ； ​ <code>运输</code>及其子类 <code>飞机</code>, <code>卡车</code>和 <code>火车</code> 。 ​ <code>航空邮件</code>仅使用 <code>飞机</code>对象， 而 <code>陆路邮件</code>则会同时使用 <code>卡车</code>和 <code>火车</code>对象。 你可以编写一个新的子类 （例如 <code>火车邮件</code> ） 来处理这两种情况， 但是还有其他可选的方案。 客户端代码可以给 <code>陆路邮件</code>类传递一个参数， 用于控制其希望获得的产品。</p>
-</li>
-<li><p>如果代码经过上述移动后，基础工厂中已经没有任何代码，你可以将其转变为抽象类。</p>
-</li>
-</ul>
-<h3 id="谁来使用工厂方法创建对象"><a href="#谁来使用工厂方法创建对象" class="headerlink" title="谁来使用工厂方法创建对象"></a><strong>谁来使用工厂方法创建对象</strong></h3><p>在工厂方法模式里面，应该是Creator中的其他方法在使用工厂方法创建的对象，虽然也可以把工厂方法创建的对象直接提供给Creator外部使用，但工厂方法模式的本意是有Creator对象内部的方法来使用工厂方法创建的对象，也就是说，工厂方法一般不提供给Creator外部使用</p>
-<p>客户端应该使用Creator对象，或者使用由Creator创建出来的对象，对于客户端使用Creator对象，这个时候工厂方法创建的对象，是由Creator中的某些方法使用，对于使用那些由Creator创建出来的对象，这个时候工厂方法创建的对象，是构成客户端需要的对象一部分。</p>
-<h3 id="工厂方法模式的优缺点"><a href="#工厂方法模式的优缺点" class="headerlink" title="工厂方法模式的优缺点"></a><strong>工厂方法模式的优缺点</strong></h3><ul>
-<li><p>可以在不知具体实现的情况下编程</p>
-<p>  工厂方法模式可以让你在实现功能的时候，如果需要某个产品对象，只需要使用产品接口即可。而无需关心具体的实现，具体实现的任务延迟到子类去完成。</p>
-</li>
-<li><p>方便新的功能接口扩展</p>
-</li>
-</ul>
-<h3 id="何时选用工程方法模式"><a href="#何时选用工程方法模式" class="headerlink" title="何时选用工程方法模式"></a><strong>何时选用工程方法模式</strong></h3><p>如果一类需要创建某个接口的对象，但是又不知道具体的实现，这种情况可以选用工厂方法模式，把创建对象的工作延迟到子类中去实现</p>
-<p>如果一个类本身就希望由它的子类来创建所需的对象时候，应该使用工厂方法模式</p>
-<h3 id="code"><a href="#code" class="headerlink" title="code"></a><strong>code</strong></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * The Product interface declares the operations that all concrete products must</span><br><span class="line"> * implement. product 接口声明了所有具体产品必须实现的接口</span><br><span class="line"> */</span><br><span class="line"> class Product&#123;</span><br><span class="line">   public:</span><br><span class="line">   // 可以定义product的属性和方法</span><br><span class="line">    virtual ~Product()&#123;&#125;;</span><br><span class="line">    virtual std::string Operator() const = 0;</span><br><span class="line"> &#125;</span><br><span class="line">/**</span><br><span class="line"> * Concrete Products provide various implementations of the Product interface.</span><br><span class="line"> 具体的产品提供了多样实现产品的接口</span><br><span class="line"> */ </span><br><span class="line"> class ConcreteProduct1:public Product&#123;</span><br><span class="line">   // 具体的procduct</span><br><span class="line">   public:</span><br><span class="line">    std::string Operation() const override&#123;</span><br><span class="line">      return &quot;&#123;Result of the ConcreteProduct1&#125;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> class ConcreteProduct2:public Product&#123;</span><br><span class="line">   public:</span><br><span class="line">    std::string Operation() const override&#123;</span><br><span class="line">      return &quot;&#123;Result of the ConcreteProduct2&#125;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> /**</span><br><span class="line"> * The Creator class declares the factory method that is supposed to return an</span><br><span class="line"> * object of a Product class. The Creator&#x27;s subclasses usually provide the</span><br><span class="line"> * implementation of this method.</span><br><span class="line"> */</span><br><span class="line"> class Creator&#123;</span><br><span class="line">   /**</span><br><span class="line">   * Note that the Creator may also provide some default implementation of the</span><br><span class="line">   * factory method.</span><br><span class="line">   */</span><br><span class="line">   // 创建器，声明工厂方法</span><br><span class="line">   public:</span><br><span class="line">     virtual ~Creator()&#123;&#125;;</span><br><span class="line">     // 创建创建生产者的接口</span><br><span class="line">     virtual Product* productFactor() const = 0;</span><br><span class="line">   /**</span><br><span class="line">   * Also note that, despite its name, the Creator&#x27;s primary responsibility is</span><br><span class="line">   * not creating products. Usually, it contains some core business logic that</span><br><span class="line">   * relies on Product objects, returned by the factory method. Subclasses can</span><br><span class="line">   * indirectly change that business logic by overriding the factory method and</span><br><span class="line">   * returning a different type of product from it.</span><br><span class="line">   */</span><br><span class="line">   // 示意方法，实现某些具体的功能</span><br><span class="line">   std::string SomeOperation() const &#123;</span><br><span class="line">      Product* product = this-&gt;productFactor();</span><br><span class="line">      std::string result = &quot;Creator: The same creator&#x27;s code has just worked with &quot; + product-&gt;Operation();</span><br><span class="line">   &#125;</span><br><span class="line">      delete product;</span><br><span class="line">      return result;</span><br><span class="line">     </span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> // 具体的创建器的实现</span><br><span class="line"> class concreteCreator1:public Creator&#123;</span><br><span class="line">   public:</span><br><span class="line">     Product* productFactory() &#123;</span><br><span class="line">       return new ConcreteProduct1()</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> class concreteCreator2:public Creator&#123;</span><br><span class="line">   public:</span><br><span class="line">    Product* productFactory()&#123;</span><br><span class="line">      return new ConcreteProduct2()</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> void ClientCode(const Creator&amp; creator) &#123;</span><br><span class="line">  // ...</span><br><span class="line">  std::cout &lt;&lt; &quot;Client: I&#x27;m not aware of the creator&#x27;s class, but it still works.\n&quot;</span><br><span class="line">            &lt;&lt; creator.SomeOperation() &lt;&lt; std::endl;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> int main()&#123;</span><br><span class="line">   std::cout &lt;&lt; &quot;App: Launched with the ConcreteCreator1.\n&quot;;</span><br><span class="line">   Creator* creator1 = new ConcreteCreator1()</span><br><span class="line">   clientCode(creator1)</span><br><span class="line">   std::cout &lt;&lt; std::endl;</span><br><span class="line">   std::cout &lt;&lt; &quot;App: Launched with the ConcreteCreator2.\n&quot;;</span><br><span class="line">   Creator* creator2 = new ConcreteCreator2();</span><br><span class="line">   ClientCode(*creator2);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title></title>
+    <title>外观模式</title>
     <url>/2024/07/22/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="外观模式-Facade"><a href="#外观模式-Facade" class="headerlink" title="外观模式(Facade)"></a>外观模式(Facade)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
 <li><p><a href="#%E8%A7%A3%E6%9E%84%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F">解构外观模式</a></p>
@@ -2033,6 +2086,7 @@ t.join();
 <p><strong>外观模式本质是封装交互。简化调用</strong></p>
 <p>在设计模式中界面指从一个组件外部来看这个组件，public部分的内容就是这个组件的界面，即所谓的外观</p>
 <p>外观模式通过引入一个外观类，在这个类里面定义客户端想要的简单方法，然后在这些方法的 实现里面，由外观类再去分别调用内部的多个模块来实现功能，从而让客户端变得简单。这样一来，客户端只需要和外观类交互就可以了。</p>
+<span id="more"></span>  
 <ul>
 <li><p>外观模式结构图</p>
 <p>  <img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_Uo8GqZbLg-.png"></p>
@@ -2076,9 +2130,77 @@ t.join();
 </li>
 </ul>
 <h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a><strong>具体实现</strong></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * The Subsystem can accept requests either from the facade or client directly.</span><br><span class="line"> * In any case, to the Subsystem, the Facade is yet another client, and it&#x27;s not</span><br><span class="line"> * a part of the Subsystem.</span><br><span class="line"> */</span><br><span class="line">class Subsystem1 &#123;</span><br><span class="line"> public:</span><br><span class="line">  std::string Operation1() const &#123;</span><br><span class="line">    return &quot;Subsystem1: Ready!\n&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  // ...</span><br><span class="line">  std::string OperationN() const &#123;</span><br><span class="line">    return &quot;Subsystem1: Go!\n&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">/**</span><br><span class="line"> * Some facades can work with multiple subsystems at the same time.</span><br><span class="line"> */</span><br><span class="line">class Subsystem2 &#123;</span><br><span class="line"> public:</span><br><span class="line">  std::string Operation1() const &#123;</span><br><span class="line">    return &quot;Subsystem2: Get ready!\n&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  // ...</span><br><span class="line">  std::string OperationZ() const &#123;</span><br><span class="line">    return &quot;Subsystem2: Fire!\n&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line">/**</span><br><span class="line"> * The Facade class provides a simple interface to the complex logic of one or</span><br><span class="line"> * several subsystems. The Facade delegates the client requests to the</span><br><span class="line"> * appropriate objects within the subsystem. The Facade is also responsible for</span><br><span class="line"> * managing their lifecycle. All of this shields the client from the undesired</span><br><span class="line"> * complexity of the subsystem.</span><br><span class="line"> */</span><br><span class="line">class Facade &#123;</span><br><span class="line"> protected:</span><br><span class="line">  Subsystem1 *subsystem1_;</span><br><span class="line">  Subsystem2 *subsystem2_;</span><br><span class="line">  /**</span><br><span class="line">   * Depending on your application&#x27;s needs, you can provide the Facade with</span><br><span class="line">   * existing subsystem objects or force the Facade to create them on its own.</span><br><span class="line">   */</span><br><span class="line"> public:</span><br><span class="line">  /**</span><br><span class="line">   * In this case we will delegate the memory ownership to Facade Class</span><br><span class="line">   */</span><br><span class="line">  Facade(</span><br><span class="line">      Subsystem1 *subsystem1 = nullptr,</span><br><span class="line">      Subsystem2 *subsystem2 = nullptr) &#123;</span><br><span class="line">    this-&gt;subsystem1_ = subsystem1 ?: new Subsystem1;</span><br><span class="line">    this-&gt;subsystem2_ = subsystem2 ?: new Subsystem2;</span><br><span class="line">  &#125;</span><br><span class="line">  ~Facade() &#123;</span><br><span class="line">    delete subsystem1_;</span><br><span class="line">    delete subsystem2_;</span><br><span class="line">  &#125;</span><br><span class="line">  /**</span><br><span class="line">   * The Facade&#x27;s methods are convenient shortcuts to the sophisticated</span><br><span class="line">   * functionality of the subsystems. However, clients get only to a fraction of</span><br><span class="line">   * a subsystem&#x27;s capabilities.</span><br><span class="line">   */</span><br><span class="line">  std::string Operation() &#123;</span><br><span class="line">    std::string result = &quot;Facade initializes subsystems:\n&quot;;</span><br><span class="line">    result += this-&gt;subsystem1_-&gt;Operation1();</span><br><span class="line">    result += this-&gt;subsystem2_-&gt;Operation1();</span><br><span class="line">    result += &quot;Facade orders subsystems to perform the action:\n&quot;;</span><br><span class="line">    result += this-&gt;subsystem1_-&gt;OperationN();</span><br><span class="line">    result += this-&gt;subsystem2_-&gt;OperationZ();</span><br><span class="line">    return result;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line">/**</span><br><span class="line"> * The client code works with complex subsystems through a simple interface</span><br><span class="line"> * provided by the Facade. When a facade manages the lifecycle of the subsystem,</span><br><span class="line"> * the client might not even know about the existence of the subsystem. This</span><br><span class="line"> * approach lets you keep the complexity under control.</span><br><span class="line"> */</span><br><span class="line">void ClientCode(Facade *facade) &#123;</span><br><span class="line">  // ...</span><br><span class="line">  std::cout &lt;&lt; facade-&gt;Operation();</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * The client code may have some of the subsystem&#x27;s objects already created. In</span><br><span class="line"> * this case, it might be worthwhile to initialize the Facade with these objects</span><br><span class="line"> * instead of letting the Facade create new instances.</span><br><span class="line"> */</span><br><span class="line">​</span><br><span class="line">int main() &#123;</span><br><span class="line">  Subsystem1 *subsystem1 = new Subsystem1;</span><br><span class="line">  Subsystem2 *subsystem2 = new Subsystem2;</span><br><span class="line">  Facade *facade = new Facade(subsystem1, subsystem2);</span><br><span class="line">  ClientCode(facade);</span><br><span class="line">​</span><br><span class="line">  delete facade;</span><br><span class="line">​</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>工厂方法</title>
+    <url>/2024/07/22/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="工厂方法-Factory"><a href="#工厂方法-Factory" class="headerlink" title="工厂方法(Factory)"></a>工厂方法(Factory)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
+<li><p><a href="#%E5%AE%9A%E4%B9%89">定义</a></p>
+</li>
+<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F">工厂方法调用顺序</a></p>
+</li>
+<li><p><a href="#%E8%A7%A3%E6%9E%84%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">解构工厂方法模式</a></p>
+</li>
+<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84%E5%9B%BE">工厂方法结构图</a></p>
+</li>
+<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0">工厂方法的实现</a></p>
+</li>
+<li><p><a href="#%E8%B0%81%E6%9D%A5%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">谁来使用工厂方法创建对象</a></p>
+</li>
+<li><p><a href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">工厂方法模式的优缺点</a></p>
+</li>
+<li><p><a href="#%E4%BD%95%E6%97%B6%E9%80%89%E7%94%A8%E5%B7%A5%E7%A8%8B%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F">何时选用工程方法模式</a></p>
+</li>
+<li><p><a href="#code">code</a></p>
+</li>
+</ul>
+<span id="more"></span>  
+
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>定义一个用于创建对象的接口，让子类决定实例化哪一个类，Factiry Methos 使一个类的实例化延迟到其子类</p>
+<h3 id="工厂方法调用顺序"><a href="#工厂方法调用顺序" class="headerlink" title="工厂方法调用顺序"></a><strong>工厂方法调用顺序</strong></h3><p><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_os9Z3Pj932.png"></p>
+<h3 id="解构工厂方法模式"><a href="#解构工厂方法模式" class="headerlink" title="解构工厂方法模式"></a><strong>解构工厂方法模式</strong></h3><p>工厂方法模式的本质是延迟到子类来选择实现。工厂方法模式很好的提现了”依赖倒置原则”，依赖倒置原则告诉我们，<strong>要依赖抽象，不要依赖于具体的类</strong>，简单点说就是不能让高层组件依赖于底层组件，而且不管高层组件还是底层组件，都应该依赖于抽象。</p>
+<h3 id="工厂方法结构图"><a href="#工厂方法结构图" class="headerlink" title="工厂方法结构图"></a><strong>工厂方法结构图</strong></h3><p><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_iOs06-LoSA.png"></p>
+<h3 id="工厂方法的实现"><a href="#工厂方法的实现" class="headerlink" title="工厂方法的实现"></a><strong>工厂方法的实现</strong></h3><p>在工厂方法模式里面，客户端要么使用Creator对象，要么使用Creator创建的对象，一般客户端不直接使用工厂方法。</p>
+<ul>
+<li><p>让所有产品都遵循同一接口，该接口必须声明对所有产品有意义的方法</p>
+</li>
+<li><p>在创建类中添加一个空的工厂方法，该方法的返回类型必须遵循通用的产品接口</p>
+</li>
+<li><p>在创建者代码中找到对于产品构造函数的所有引用，将他们依次替换为对于工厂方法的调用，同时将创建产品的代码移入到工厂方法。</p>
+</li>
+<li><p>为工厂中的每种产品编写一个创建者子类，然后再子类中重写工厂方法，并将基本方法中的相关创建代码移动到工厂方法中。</p>
+</li>
+<li><p>如果应用中产品类型太多，那么为每个产品创建子类并无太大的必要，这时你也可以在子类中复用基类中的控制参数</p>
+<p>  例如， 设想你有以下一些层次结构的类。 基类 <code>邮件</code>及其子类 <code>航空邮件</code>和 <code>陆路邮件</code> ； ​ <code>运输</code>及其子类 <code>飞机</code>, <code>卡车</code>和 <code>火车</code> 。 ​ <code>航空邮件</code>仅使用 <code>飞机</code>对象， 而 <code>陆路邮件</code>则会同时使用 <code>卡车</code>和 <code>火车</code>对象。 你可以编写一个新的子类 （例如 <code>火车邮件</code> ） 来处理这两种情况， 但是还有其他可选的方案。 客户端代码可以给 <code>陆路邮件</code>类传递一个参数， 用于控制其希望获得的产品。</p>
+</li>
+<li><p>如果代码经过上述移动后，基础工厂中已经没有任何代码，你可以将其转变为抽象类。</p>
+</li>
+</ul>
+<h3 id="谁来使用工厂方法创建对象"><a href="#谁来使用工厂方法创建对象" class="headerlink" title="谁来使用工厂方法创建对象"></a><strong>谁来使用工厂方法创建对象</strong></h3><p>在工厂方法模式里面，应该是Creator中的其他方法在使用工厂方法创建的对象，虽然也可以把工厂方法创建的对象直接提供给Creator外部使用，但工厂方法模式的本意是有Creator对象内部的方法来使用工厂方法创建的对象，也就是说，工厂方法一般不提供给Creator外部使用</p>
+<p>客户端应该使用Creator对象，或者使用由Creator创建出来的对象，对于客户端使用Creator对象，这个时候工厂方法创建的对象，是由Creator中的某些方法使用，对于使用那些由Creator创建出来的对象，这个时候工厂方法创建的对象，是构成客户端需要的对象一部分。</p>
+<h3 id="工厂方法模式的优缺点"><a href="#工厂方法模式的优缺点" class="headerlink" title="工厂方法模式的优缺点"></a><strong>工厂方法模式的优缺点</strong></h3><ul>
+<li><p>可以在不知具体实现的情况下编程</p>
+<p>  工厂方法模式可以让你在实现功能的时候，如果需要某个产品对象，只需要使用产品接口即可。而无需关心具体的实现，具体实现的任务延迟到子类去完成。</p>
+</li>
+<li><p>方便新的功能接口扩展</p>
+</li>
+</ul>
+<h3 id="何时选用工程方法模式"><a href="#何时选用工程方法模式" class="headerlink" title="何时选用工程方法模式"></a><strong>何时选用工程方法模式</strong></h3><p>如果一类需要创建某个接口的对象，但是又不知道具体的实现，这种情况可以选用工厂方法模式，把创建对象的工作延迟到子类中去实现</p>
+<p>如果一个类本身就希望由它的子类来创建所需的对象时候，应该使用工厂方法模式</p>
+<h3 id="code"><a href="#code" class="headerlink" title="code"></a><strong>code</strong></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * The Product interface declares the operations that all concrete products must</span><br><span class="line"> * implement. product 接口声明了所有具体产品必须实现的接口</span><br><span class="line"> */</span><br><span class="line"> class Product&#123;</span><br><span class="line">   public:</span><br><span class="line">   // 可以定义product的属性和方法</span><br><span class="line">    virtual ~Product()&#123;&#125;;</span><br><span class="line">    virtual std::string Operator() const = 0;</span><br><span class="line"> &#125;</span><br><span class="line">/**</span><br><span class="line"> * Concrete Products provide various implementations of the Product interface.</span><br><span class="line"> 具体的产品提供了多样实现产品的接口</span><br><span class="line"> */ </span><br><span class="line"> class ConcreteProduct1:public Product&#123;</span><br><span class="line">   // 具体的procduct</span><br><span class="line">   public:</span><br><span class="line">    std::string Operation() const override&#123;</span><br><span class="line">      return &quot;&#123;Result of the ConcreteProduct1&#125;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> class ConcreteProduct2:public Product&#123;</span><br><span class="line">   public:</span><br><span class="line">    std::string Operation() const override&#123;</span><br><span class="line">      return &quot;&#123;Result of the ConcreteProduct2&#125;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> /**</span><br><span class="line"> * The Creator class declares the factory method that is supposed to return an</span><br><span class="line"> * object of a Product class. The Creator&#x27;s subclasses usually provide the</span><br><span class="line"> * implementation of this method.</span><br><span class="line"> */</span><br><span class="line"> class Creator&#123;</span><br><span class="line">   /**</span><br><span class="line">   * Note that the Creator may also provide some default implementation of the</span><br><span class="line">   * factory method.</span><br><span class="line">   */</span><br><span class="line">   // 创建器，声明工厂方法</span><br><span class="line">   public:</span><br><span class="line">     virtual ~Creator()&#123;&#125;;</span><br><span class="line">     // 创建创建生产者的接口</span><br><span class="line">     virtual Product* productFactor() const = 0;</span><br><span class="line">   /**</span><br><span class="line">   * Also note that, despite its name, the Creator&#x27;s primary responsibility is</span><br><span class="line">   * not creating products. Usually, it contains some core business logic that</span><br><span class="line">   * relies on Product objects, returned by the factory method. Subclasses can</span><br><span class="line">   * indirectly change that business logic by overriding the factory method and</span><br><span class="line">   * returning a different type of product from it.</span><br><span class="line">   */</span><br><span class="line">   // 示意方法，实现某些具体的功能</span><br><span class="line">   std::string SomeOperation() const &#123;</span><br><span class="line">      Product* product = this-&gt;productFactor();</span><br><span class="line">      std::string result = &quot;Creator: The same creator&#x27;s code has just worked with &quot; + product-&gt;Operation();</span><br><span class="line">   &#125;</span><br><span class="line">      delete product;</span><br><span class="line">      return result;</span><br><span class="line">     </span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> // 具体的创建器的实现</span><br><span class="line"> class concreteCreator1:public Creator&#123;</span><br><span class="line">   public:</span><br><span class="line">     Product* productFactory() &#123;</span><br><span class="line">       return new ConcreteProduct1()</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> class concreteCreator2:public Creator&#123;</span><br><span class="line">   public:</span><br><span class="line">    Product* productFactory()&#123;</span><br><span class="line">      return new ConcreteProduct2()</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> void ClientCode(const Creator&amp; creator) &#123;</span><br><span class="line">  // ...</span><br><span class="line">  std::cout &lt;&lt; &quot;Client: I&#x27;m not aware of the creator&#x27;s class, but it still works.\n&quot;</span><br><span class="line">            &lt;&lt; creator.SomeOperation() &lt;&lt; std::endl;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> int main()&#123;</span><br><span class="line">   std::cout &lt;&lt; &quot;App: Launched with the ConcreteCreator1.\n&quot;;</span><br><span class="line">   Creator* creator1 = new ConcreteCreator1()</span><br><span class="line">   clientCode(creator1)</span><br><span class="line">   std::cout &lt;&lt; std::endl;</span><br><span class="line">   std::cout &lt;&lt; &quot;App: Launched with the ConcreteCreator2.\n&quot;;</span><br><span class="line">   Creator* creator2 = new ConcreteCreator2();</span><br><span class="line">   ClientCode(*creator2);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>抽象工厂</title>
     <url>/2024/07/22/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/</url>
     <content><![CDATA[<h1 id="抽象工厂方法-Abstract-Factory"><a href="#抽象工厂方法-Abstract-Factory" class="headerlink" title="抽象工厂方法(Abstract Factory)"></a>抽象工厂方法(Abstract Factory)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
 <li><p><a href="#%E5%AE%9A%E4%B9%89">定义</a></p>
@@ -2099,6 +2221,7 @@ t.join();
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类</p>
 <p>本质</p>
 <p>抽象工厂的本质：选择产品簇的实现</p>
+<span id="more"></span>  
 <h3 id="抽象工厂方法调用顺序"><a href="#抽象工厂方法调用顺序" class="headerlink" title="抽象工厂方法调用顺序"></a><strong>抽象工厂方法调用顺序</strong></h3><p><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_b424Se6z9T.png"></p>
 <h3 id="解构抽象工厂方法模式"><a href="#解构抽象工厂方法模式" class="headerlink" title="解构抽象工厂方法模式"></a><strong>解构抽象工厂方法模式</strong></h3><p>工厂方法模式的本质定义一系列产品族的接口，工厂方法选择单个产品的实现，虽然一个类里面可以有多个工厂方法，但是这些方法之间一般是没有联系的。</p>
 <p>但是抽象工厂着重的就是为一个产品族选择实现，定义在抽象工厂里面的方法通常是有联系的。</p>
@@ -2142,11 +2265,18 @@ t.join();
 <p>如果一个系统要由多个产品系列中的一个来配置的时候，换句话说，就是可以动态的切换产品族的时候</p>
 <p>如果要强调一系列相关产品的接口，以便联合使用他们的时候</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>适配器模式</title>
     <url>/2024/07/22/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%91%84%E5%83%8F%E5%A4%B4/</url>
     <content><![CDATA[<h1 id="树莓派官方摄像头模块-V3-的配置及-libcamera-的使用教程"><a href="#树莓派官方摄像头模块-V3-的配置及-libcamera-的使用教程" class="headerlink" title="树莓派官方摄像头模块 V3 的配置及 libcamera 的使用教程"></a>树莓派官方摄像头模块 V3 的配置及 libcamera 的使用教程</h1><p>树莓派官方<a href="https://shumeipai.nxez.com/2023/01/18/raspberry-pi-camera-modules-v3-released.html">摄像头模块 Camera Module 3</a> 发布之后，有些朋友使用 libcamera 软件库来拍摄会发现报错：</p>
+<span id="more"></span>  
+
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[0:11:48.500378214] [2153]  INFO Camera camera_manager.cpp:299 libcamera v0.0.4+22-923f5d70</span><br><span class="line">ERROR: *** no cameras available ***</span><br></pre></td></tr></table></figure>
 
 <p>假设你已经在断电状态下正确连接好了摄像头和树莓派主板的 CSI 接口。下面我们介绍在树莓派官方系统 Raspberry Pi OS 下使用 V3 版摄像头（IMX708 传感器）的正确方法。</p>
@@ -2212,9 +2342,14 @@ t.join();
 
 <p>有关 libcamera 的更多使用方法可以参考<a href="https://www.raspberrypi.com/documentation/computers/camera_software.html#libcamera-and-libcamera-apps">官方文档</a>。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>linux</category>
+        <category>树莓派</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>生成器模式</title>
     <url>/2024/07/22/%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="生成器模式-Builder"><a href="#生成器模式-Builder" class="headerlink" title="生成器模式(Builder)"></a>生成器模式(Builder)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
 <li><p><a href="#%E5%AE%9A%E4%B9%89">定义</a></p>
@@ -2241,6 +2376,7 @@ t.join();
 </li>
 </ul>
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
+<span id="more"></span>  
 <h3 id="生成器模式功能"><a href="#生成器模式功能" class="headerlink" title="生成器模式功能"></a><strong>生成器模式功能</strong></h3><p>生成器模式的主要功能是构建复杂的产品，而且是细化的，分步骤的构建产品。也就是生成器模式重在一步一步解决构造复杂对象的问题。更为重要的是，这个构建的过程是统一的，固定不变得，变化的部分放到生成器部分了，只要配置不同的生成器，那么同样的构建过程，就能构建出不同的产品来。</p>
 <p>生成器模式的重心在于分离建构算法和具体的构造实现，从而使得构建算法可以重用。</p>
 <h3 id="生成器模式调用顺序"><a href="#生成器模式调用顺序" class="headerlink" title="生成器模式调用顺序"></a><strong>生成器模式调用顺序</strong></h3><p><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_D4bbQgGmFw.png"></p>
@@ -2291,9 +2427,14 @@ t.join();
 </li>
 </ul>
 <h3 id="具体的实现"><a href="#具体的实现" class="headerlink" title="具体的实现"></a><strong>具体的实现</strong></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * It makes sense to use the Builder pattern only when your products are quite</span><br><span class="line"> * complex and require extensive configuration.</span><br><span class="line"> *</span><br><span class="line"> * Unlike in other creational patterns, different concrete builders can produce</span><br><span class="line"> * unrelated products. In other words, results of various builders may not</span><br><span class="line"> * always follow the same interface.</span><br><span class="line"> */</span><br><span class="line">​</span><br><span class="line">class Product1&#123;</span><br><span class="line">    public:</span><br><span class="line">    std::vector&lt;std::string&gt; parts_;</span><br><span class="line">    void ListParts()const&#123;</span><br><span class="line">        std::cout &lt;&lt; &quot;Product parts: &quot;;</span><br><span class="line">        for (size_t i=0;i&lt;parts_.size();i++)&#123;</span><br><span class="line">            if(parts_[i]== parts_.back())&#123;</span><br><span class="line">                std::cout &lt;&lt; parts_[i];</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                std::cout &lt;&lt; parts_[i] &lt;&lt; &quot;, &quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        std::cout &lt;&lt; &quot;\n\n&quot;; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line">​</span><br><span class="line">/**</span><br><span class="line"> * The Builder interface specifies methods for creating the different parts of</span><br><span class="line"> * the Product objects.</span><br><span class="line"> * 创建者接口 指定了为不同的对象创建不同的部件的方法</span><br><span class="line"> */</span><br><span class="line">class Builder&#123;</span><br><span class="line">    public:</span><br><span class="line">    virtual ~Builder()&#123;&#125;</span><br><span class="line">    virtual void ProducePartA() const =0;</span><br><span class="line">    virtual void ProducePartB() const =0;</span><br><span class="line">    virtual void ProducePartC() const =0;</span><br><span class="line">&#125;;</span><br><span class="line">/**</span><br><span class="line"> * The Concrete Builder classes follow the Builder interface and provide</span><br><span class="line"> * specific implementations of the building steps. Your program may have several</span><br><span class="line"> * variations of Builders, implemented differently.</span><br><span class="line"> */</span><br><span class="line">class ConcreteBuilder1 : public Builder&#123;</span><br><span class="line">    private:</span><br><span class="line">​</span><br><span class="line">    Product1* product;</span><br><span class="line">​</span><br><span class="line">    /**</span><br><span class="line">     * A fresh builder instance should contain a blank product object, which is</span><br><span class="line">     * used in further assembly.</span><br><span class="line">     */</span><br><span class="line">    public:</span><br><span class="line">​</span><br><span class="line">    ConcreteBuilder1()&#123;</span><br><span class="line">        this-&gt;Reset();</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    ~ConcreteBuilder1()&#123;</span><br><span class="line">        delete product;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    void Reset()&#123;</span><br><span class="line">        this-&gt;product= new Product1();</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * All production steps work with the same product instance.</span><br><span class="line">     */</span><br><span class="line">​</span><br><span class="line">    void ProducePartA()const override&#123;</span><br><span class="line">        this-&gt;product-&gt;parts_.push_back(&quot;PartA1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    void ProducePartB()const override&#123;</span><br><span class="line">        this-&gt;product-&gt;parts_.push_back(&quot;PartB1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    void ProducePartC()const override&#123;</span><br><span class="line">        this-&gt;product-&gt;parts_.push_back(&quot;PartC1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    Product1* GetProduct() &#123;</span><br><span class="line">        Product1* result= this-&gt;product;</span><br><span class="line">        this-&gt;Reset();</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line">/**</span><br><span class="line"> * The Director is only responsible for executing the building steps in a</span><br><span class="line"> * particular sequence. It is helpful when producing products according to a</span><br><span class="line"> * specific order or configuration. Strictly speaking, the Director class is</span><br><span class="line"> * optional, since the client can control builders directly.</span><br><span class="line"> */</span><br><span class="line">class Director&#123;</span><br><span class="line">    /**</span><br><span class="line">     * @var Builder</span><br><span class="line">     */</span><br><span class="line">    private:</span><br><span class="line">    Builder* builder;</span><br><span class="line">    /**</span><br><span class="line">     * The Director works with any builder instance that the client code passes</span><br><span class="line">     * to it. This way, the client code may alter the final type of the newly</span><br><span class="line">     * assembled product.</span><br><span class="line">     */</span><br><span class="line">​</span><br><span class="line">    public:</span><br><span class="line">​</span><br><span class="line">    void set_builder(Builder* builder)&#123;</span><br><span class="line">        this-&gt;builder=builder;</span><br><span class="line">    &#125;</span><br><span class="line">​</span><br><span class="line">    /**</span><br><span class="line">     * The Director can construct several product variations using the same</span><br><span class="line">     * building steps.</span><br><span class="line">     */</span><br><span class="line">​</span><br><span class="line">    void BuildMinimalViableProduct()&#123;</span><br><span class="line">        this-&gt;builder-&gt;ProducePartA();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void BuildFullFeaturedProduct()&#123;</span><br><span class="line">        this-&gt;builder-&gt;ProducePartA();</span><br><span class="line">        this-&gt;builder-&gt;ProducePartB();</span><br><span class="line">        this-&gt;builder-&gt;ProducePartC();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">/**</span><br><span class="line"> * The client code creates a builder object, passes it to the director and then</span><br><span class="line"> * initiates the construction process. The end result is retrieved from the</span><br><span class="line"> * builder object.</span><br><span class="line"> */</span><br><span class="line">/**</span><br><span class="line"> * I used raw pointers for simplicity however you may prefer to use smart</span><br><span class="line"> * pointers here</span><br><span class="line"> */</span><br><span class="line">void ClientCode(Director&amp; director)</span><br><span class="line">&#123;</span><br><span class="line">    ConcreteBuilder1* builder = new ConcreteBuilder1();</span><br><span class="line">    director.set_builder(builder);</span><br><span class="line">    std::cout &lt;&lt; &quot;Standard basic product:\n&quot;; </span><br><span class="line">    director.BuildMinimalViableProduct();</span><br><span class="line">    </span><br><span class="line">    Product1* p= builder-&gt;GetProduct();</span><br><span class="line">    p-&gt;ListParts();</span><br><span class="line">    delete p;</span><br><span class="line">​</span><br><span class="line">    std::cout &lt;&lt; &quot;Standard full featured product:\n&quot;; </span><br><span class="line">    director.BuildFullFeaturedProduct();</span><br><span class="line">​</span><br><span class="line">    p= builder-&gt;GetProduct();</span><br><span class="line">    p-&gt;ListParts();</span><br><span class="line">    delete p;</span><br><span class="line">​</span><br><span class="line">    // Remember, the Builder pattern can be used without a Director class.</span><br><span class="line">    std::cout &lt;&lt; &quot;Custom product:\n&quot;;</span><br><span class="line">    builder-&gt;ProducePartA();</span><br><span class="line">    builder-&gt;ProducePartC();</span><br><span class="line">    p=builder-&gt;GetProduct();</span><br><span class="line">    p-&gt;ListParts();</span><br><span class="line">    delete p;</span><br><span class="line">​</span><br><span class="line">    delete builder;</span><br><span class="line">&#125;</span><br><span class="line">​</span><br><span class="line">int main()&#123;</span><br><span class="line">    Director* director= new Director();</span><br><span class="line">    ClientCode(*director);</span><br><span class="line">    delete director;</span><br><span class="line">    return 0;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
   <entry>
-    <title></title>
+    <title>适配器模式</title>
     <url>/2024/07/22/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="适配器模式-adapter"><a href="#适配器模式-adapter" class="headerlink" title="适配器模式(adapter)"></a>适配器模式(adapter)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
 <li><p><a href="#%E5%AE%9A%E4%B9%89">定义</a></p>
@@ -2315,6 +2456,7 @@ t.join();
 </ul>
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>将一个类的接口转化成客户希望的另一个接口，适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作</p>
 <p>适配器模式的主要功能是进行转化匹配，目的是复用已有的功能，而不是来实现新的接口。也就是说客户端需要的功能是已经实现的，不需要适配器来实现，适配器模式的主要功能是把不兼容的接口转化成客户端期望的样子就可以了，适配器中也可以实现功能，称这种适配器为智能适配器模式</p>
+<span id="more"></span>  
 <h4 id="适配器调用顺序"><a href="#适配器调用顺序" class="headerlink" title="适配器调用顺序"></a>适配器调用顺序</h4><p><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_xPhwP28EC4.png"></p>
 <h4 id="解构适配器模式"><a href="#解构适配器模式" class="headerlink" title="解构适配器模式"></a>解构适配器模式</h4><p>适配器的的主要功能是进行转化匹配，目的是复用已有的功能。而不是来实现新的接口。适配器模式的本质是：转化匹配，复用功能</p>
 <h3 id="适配器的实现"><a href="#适配器的实现" class="headerlink" title="适配器的实现"></a><strong>适配器的实现</strong></h3><p>在实现适配器的时候，适配器通常是一个类，一般会让适配器类去实现Target接口，然后在适配器的具体实现里面调用Adaptee，适配器通常是一个Target类型。</p>
@@ -2338,5 +2480,10 @@ t.join();
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
 </search>
