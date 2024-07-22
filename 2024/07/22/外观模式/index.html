@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="外观模式(Facade)目录 解构外观模式  外观类的实现  外观模式优缺点  何时选用外观模式  相关模式  具体实现   外观模式本质是封装交互。简化调用 在设计模式中界面指从一个组件外部来看这个组件，public部分的内容就是这个组件的界面，即所谓的外观 外观模式通过引入一个外观类，在这个类里面定义客户端想要的简单方法，然后在这些方法的 实现里面，由外观类再去分别调用内部的多个模块来实现功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="吴晓宁blog">
+<meta property="og:url" content="https://blog.isroots.com/2024/07/22/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="吴晓宁blog">
+<meta property="og:description" content="外观模式(Facade)目录 解构外观模式  外观类的实现  外观模式优缺点  何时选用外观模式  相关模式  具体实现   外观模式本质是封装交互。简化调用 在设计模式中界面指从一个组件外部来看这个组件，public部分的内容就是这个组件的界面，即所谓的外观 外观模式通过引入一个外观类，在这个类里面定义客户端想要的简单方法，然后在这些方法的 实现里面，由外观类再去分别调用内部的多个模块来实现功能">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_Uo8GqZbLg-.png">
+<meta property="og:image" content="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_npQKyuBeJ6.png">
+<meta property="og:image" content="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_XZDXBKU8kk.png">
+<meta property="article:published_time" content="2024-07-22T06:40:31.026Z">
+<meta property="article:modified_time" content="2024-07-22T06:40:31.026Z">
+<meta property="article:author" content="吴晓宁">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_Uo8GqZbLg-.png">
+
+<link rel="canonical" href="https://blog.isroots.com/2024/07/22/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | 吴晓宁blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">吴晓宁blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">吴晓宁blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-07-22 14:40:31" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:31+08:00">2024-07-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="外观模式-Facade"><a href="#外观模式-Facade" class="headerlink" title="外观模式(Facade)"></a>外观模式(Facade)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
+<li><p><a href="#%E8%A7%A3%E6%9E%84%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F">解构外观模式</a></p>
+</li>
+<li><p><a href="#%E5%A4%96%E8%A7%82%E7%B1%BB%E7%9A%84%E5%AE%9E%E7%8E%B0">外观类的实现</a></p>
+</li>
+<li><p><a href="#%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9">外观模式优缺点</a></p>
+</li>
+<li><p><a href="#%E4%BD%95%E6%97%B6%E9%80%89%E7%94%A8%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F">何时选用外观模式</a></p>
+</li>
+<li><p><a href="#%E7%9B%B8%E5%85%B3%E6%A8%A1%E5%BC%8F">相关模式</a></p>
+</li>
+<li><p><a href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0">具体实现</a></p>
+</li>
+</ul>
+<p><strong>外观模式本质是封装交互。简化调用</strong></p>
+<p>在设计模式中界面指从一个组件外部来看这个组件，public部分的内容就是这个组件的界面，即所谓的外观</p>
+<p>外观模式通过引入一个外观类，在这个类里面定义客户端想要的简单方法，然后在这些方法的 实现里面，由外观类再去分别调用内部的多个模块来实现功能，从而让客户端变得简单。这样一来，客户端只需要和外观类交互就可以了。</p>
+<ul>
+<li><p>外观模式结构图</p>
+<p>  <img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_Uo8GqZbLg-.png"></p>
+</li>
+<li><p>外观模式整体示意结构图</p>
+<p>  <img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_npQKyuBeJ6.png"></p>
+</li>
+<li><p>外观模式调用顺序示意图</p>
+<p>  <img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_XZDXBKU8kk.png"></p>
+</li>
+</ul>
+<h4 id="解构外观模式"><a href="#解构外观模式" class="headerlink" title="解构外观模式"></a>解构外观模式</h4><p>外观模式不是为了给子系统增加新的功能接口，而是为了让外部减少与子系统内多个模块交互。松散耦合。从而让外部能够更加简单的使用子系统，外观是当作子系统对外接口出现的。外观类中应该包装已经有的功能，它主要负责组合已有的功能来实现客户端的需要，不要去添加新的功能。</p>
+<p>**<em>外观模式的本质</em>**：封装交互，简化调用</p>
+<h4 id="外观类的实现"><a href="#外观类的实现" class="headerlink" title="外观类的实现"></a>外观类的实现</h4><p>对于一个子系统来说，外观类不需要很多，通常可以实现成为一个单例，也可以直接把外观中的方法实现成为静态的方法。</p>
+<h4 id="外观模式优缺点"><a href="#外观模式优缺点" class="headerlink" title="外观模式优缺点"></a>外观模式优缺点</h4><ul>
+<li><p>松散耦合</p>
+<p>  外观模式松散了客户端与子系统的耦合关系，让子系统内部的模块能够更容易扩展和维护</p>
+</li>
+<li><p>简单易用</p>
+<p>  外观模式让子系统更加易用，客户端不再需要了解子系统内部的实现，也不需要跟众多子系统内部的模块进行交互，只需要跟外观交互就可以了</p>
+</li>
+<li><p>更好的划分访问层次</p>
+<p>  通过合理的使用Facade，可以帮助我们更好的划分访问的层次</p>
+</li>
+</ul>
+<p>外观模式有如下缺点</p>
+<p>过多的或者不太合理的Facade容易让人迷惑。</p>
+<h4 id="何时选用外观模式"><a href="#何时选用外观模式" class="headerlink" title="何时选用外观模式"></a>何时选用外观模式</h4><ul>
+<li><p>为复杂的子程序提供简单的访问接口。</p>
+</li>
+<li><p>让客户程序和抽象类的实现部分松散耦合</p>
+</li>
+<li><p>构建多层结构的系统</p>
+</li>
+</ul>
+<h4 id="相关模式"><a href="#相关模式" class="headerlink" title="相关模式"></a>相关模式</h4><ul>
+<li><p><strong>外观和中介模式</strong></p>
+<p>  中介模式主要用来封装多个对象之间的相互交互。多用在系统内部的多个模块之间，外观模式封装的是单向交互，是从客户端到访问系统的调用</p>
+<p>  在中介模式的实现里面，是需要实现具体的交互功能的；而外观模式的实现里面，一般是组合调用或者转调内部实现的功能。</p>
+<p>  中介模式的目的主要是松散多个模块之间的耦合，把这些耦合关系全部放到中介者中去实现，而外观模式是简化客户端的调用。</p>
+</li>
+</ul>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a><strong>具体实现</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * The Subsystem can accept requests either from the facade or client directly.</span><br><span class="line"> * In any case, to the Subsystem, the Facade is yet another client, and it&#x27;s not</span><br><span class="line"> * a part of the Subsystem.</span><br><span class="line"> */</span><br><span class="line">class Subsystem1 &#123;</span><br><span class="line"> public:</span><br><span class="line">  std::string Operation1() const &#123;</span><br><span class="line">    return &quot;Subsystem1: Ready!\n&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  // ...</span><br><span class="line">  std::string OperationN() const &#123;</span><br><span class="line">    return &quot;Subsystem1: Go!\n&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">/**</span><br><span class="line"> * Some facades can work with multiple subsystems at the same time.</span><br><span class="line"> */</span><br><span class="line">class Subsystem2 &#123;</span><br><span class="line"> public:</span><br><span class="line">  std::string Operation1() const &#123;</span><br><span class="line">    return &quot;Subsystem2: Get ready!\n&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  // ...</span><br><span class="line">  std::string OperationZ() const &#123;</span><br><span class="line">    return &quot;Subsystem2: Fire!\n&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line">/**</span><br><span class="line"> * The Facade class provides a simple interface to the complex logic of one or</span><br><span class="line"> * several subsystems. The Facade delegates the client requests to the</span><br><span class="line"> * appropriate objects within the subsystem. The Facade is also responsible for</span><br><span class="line"> * managing their lifecycle. All of this shields the client from the undesired</span><br><span class="line"> * complexity of the subsystem.</span><br><span class="line"> */</span><br><span class="line">class Facade &#123;</span><br><span class="line"> protected:</span><br><span class="line">  Subsystem1 *subsystem1_;</span><br><span class="line">  Subsystem2 *subsystem2_;</span><br><span class="line">  /**</span><br><span class="line">   * Depending on your application&#x27;s needs, you can provide the Facade with</span><br><span class="line">   * existing subsystem objects or force the Facade to create them on its own.</span><br><span class="line">   */</span><br><span class="line"> public:</span><br><span class="line">  /**</span><br><span class="line">   * In this case we will delegate the memory ownership to Facade Class</span><br><span class="line">   */</span><br><span class="line">  Facade(</span><br><span class="line">      Subsystem1 *subsystem1 = nullptr,</span><br><span class="line">      Subsystem2 *subsystem2 = nullptr) &#123;</span><br><span class="line">    this-&gt;subsystem1_ = subsystem1 ?: new Subsystem1;</span><br><span class="line">    this-&gt;subsystem2_ = subsystem2 ?: new Subsystem2;</span><br><span class="line">  &#125;</span><br><span class="line">  ~Facade() &#123;</span><br><span class="line">    delete subsystem1_;</span><br><span class="line">    delete subsystem2_;</span><br><span class="line">  &#125;</span><br><span class="line">  /**</span><br><span class="line">   * The Facade&#x27;s methods are convenient shortcuts to the sophisticated</span><br><span class="line">   * functionality of the subsystems. However, clients get only to a fraction of</span><br><span class="line">   * a subsystem&#x27;s capabilities.</span><br><span class="line">   */</span><br><span class="line">  std::string Operation() &#123;</span><br><span class="line">    std::string result = &quot;Facade initializes subsystems:\n&quot;;</span><br><span class="line">    result += this-&gt;subsystem1_-&gt;Operation1();</span><br><span class="line">    result += this-&gt;subsystem2_-&gt;Operation1();</span><br><span class="line">    result += &quot;Facade orders subsystems to perform the action:\n&quot;;</span><br><span class="line">    result += this-&gt;subsystem1_-&gt;OperationN();</span><br><span class="line">    result += this-&gt;subsystem2_-&gt;OperationZ();</span><br><span class="line">    return result;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">​</span><br><span class="line">/**</span><br><span class="line"> * The client code works with complex subsystems through a simple interface</span><br><span class="line"> * provided by the Facade. When a facade manages the lifecycle of the subsystem,</span><br><span class="line"> * the client might not even know about the existence of the subsystem. This</span><br><span class="line"> * approach lets you keep the complexity under control.</span><br><span class="line"> */</span><br><span class="line">void ClientCode(Facade *facade) &#123;</span><br><span class="line">  // ...</span><br><span class="line">  std::cout &lt;&lt; facade-&gt;Operation();</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * The client code may have some of the subsystem&#x27;s objects already created. In</span><br><span class="line"> * this case, it might be worthwhile to initialize the Facade with these objects</span><br><span class="line"> * instead of letting the Facade create new instances.</span><br><span class="line"> */</span><br><span class="line">​</span><br><span class="line">int main() &#123;</span><br><span class="line">  Subsystem1 *subsystem1 = new Subsystem1;</span><br><span class="line">  Subsystem2 *subsystem2 = new Subsystem2;</span><br><span class="line">  Facade *facade = new Facade(subsystem1, subsystem2);</span><br><span class="line">  ClientCode(facade);</span><br><span class="line">​</span><br><span class="line">  delete facade;</span><br><span class="line">​</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/07/22/%E5%85%B3%E4%BA%8E%E6%88%91/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/07/22/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F-Facade"><span class="nav-number">1.</span> <span class="nav-text">外观模式(Facade)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E6%9E%84%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">解构外观模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%96%E8%A7%82%E7%B1%BB%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">外观类的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">外观模式优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%95%E6%97%B6%E9%80%89%E7%94%A8%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">何时选用外观模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">相关模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">具体实现</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">吴晓宁</p>
+  <div class="site-description" itemprop="description">记录一些自己的见闻</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴晓宁</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

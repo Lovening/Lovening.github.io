@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="关于我欢迎来到我的博客！ 我是一名多领域的开发工程师，擅长使用 C++、Python 和 Rust 进行软件开发。 我对编程和技术充满热情，并致力于不断学习和探索新的技术领域。 我拥有广泛的编程经验和技术知识。我在计算机科学领域取得了学士学位，并在多个项目中担任开发工程师的角色。 我在 C++、Python 和 Rust 方面有着深入的理解和实践经验，能够灵活地应用它们来解决各种编程问题。 我创建">
+  <meta name="description" content="[[Boost 库编译指南]] Boost 库是为 C++语言标准库提供扩展的一些 C++程序库的总称，由 Boost 社区组织开发、维护。Boost 库可以与 C++标准库完美共同工作，并且为其提供扩展功能。 下载boost库1234567891.下载wget https:&#x2F;&#x2F;dl.bintray.com&#x2F;boostorg&#x2F;release&#x2F;1.64.0&#x2F;source&#x2F;boost_1_64_0.t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://blog.isroots.com/2024/07/22/about/index.html">
+<meta property="og:title" content="吴晓宁blog">
+<meta property="og:url" content="https://blog.isroots.com/2024/07/22/Boost%E5%BA%93%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="吴晓宁blog">
-<meta property="og:description" content="关于我欢迎来到我的博客！ 我是一名多领域的开发工程师，擅长使用 C++、Python 和 Rust 进行软件开发。 我对编程和技术充满热情，并致力于不断学习和探索新的技术领域。 我拥有广泛的编程经验和技术知识。我在计算机科学领域取得了学士学位，并在多个项目中担任开发工程师的角色。 我在 C++、Python 和 Rust 方面有着深入的理解和实践经验，能够灵活地应用它们来解决各种编程问题。 我创建">
+<meta property="og:description" content="[[Boost 库编译指南]] Boost 库是为 C++语言标准库提供扩展的一些 C++程序库的总称，由 Boost 社区组织开发、维护。Boost 库可以与 C++标准库完美共同工作，并且为其提供扩展功能。 下载boost库1234567891.下载wget https:&#x2F;&#x2F;dl.bintray.com&#x2F;boostorg&#x2F;release&#x2F;1.64.0&#x2F;source&#x2F;boost_1_64_0.t">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-22T05:24:05.000Z">
-<meta property="article:modified_time" content="2024-07-22T06:16:18.906Z">
+<meta property="article:published_time" content="2024-07-22T06:40:30.806Z">
+<meta property="article:modified_time" content="2024-07-22T06:40:30.806Z">
 <meta property="article:author" content="吴晓宁">
 <meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.isroots.com/2024/07/22/about/">
+<link rel="canonical" href="https://blog.isroots.com/2024/07/22/Boost%E5%BA%93%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>about | 吴晓宁blog</title>
+  <title> | 吴晓宁blog</title>
   
 
 
@@ -158,7 +158,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/about/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/22/Boost%E5%BA%93%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -171,7 +171,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          about
+          
         </h1>
 
         <div class="post-meta">
@@ -180,9 +180,8 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-07-22 13:24:05 / 修改时间：14:16:18" itemprop="dateCreated datePublished" datetime="2024-07-22T13:24:05+08:00">2024-07-22</time>
+              <time title="创建时间：2024-07-22 14:40:30" itemprop="dateCreated datePublished" datetime="2024-07-22T14:40:30+08:00">2024-07-22</time>
             </span>
 
           
@@ -196,20 +195,123 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a><strong>关于我</strong></h2><p>欢迎来到我的博客！ 我是一名多领域的开发工程师，擅长使用 C++、Python 和 Rust 进行软件开发。</p>
-<p>我对编程和技术充满热情，并致力于不断学习和探索新的技术领域。 我拥有广泛的编程经验和技术知识。我在计算机科学领域取得了学士学位，并在多个项目中担任开发工程师的角色。</p>
-<p>我在 C++、Python 和 Rust 方面有着深入的理解和实践经验，能够灵活地应用它们来解决各种编程问题。 我创建这个博客的目的是与大家分享我的编程经验、技术见解和最佳实践。我希望通过博客能够帮助读者解决实际的编程挑战，提供有价值的技术教程和指南。</p>
-<p>在我的博客中，您将找到关于 C++、Python 和 Rust 的深入文章、教程和示例代码。我会分享我在这些领域的经验和见解，包括最新的开发技术、工具和框架。 我相信编程应该是一种有趣和创造性的体验，因此我会尽力使我的博客内容易于理解和实践。</p>
-<p>如果您对任何文章或主题有疑问或建议，欢迎在评论区留言，我会尽快回复。 感谢您访问我的博客，希望您在这里找到有益的信息和灵感。让我们一起探索编程的奇妙世界！</p>
-<p>如有任何疑问或合作机会，请通过以下方式与我联系：</p>
-<ul>
-<li><p><a href="mailto:电子邮件：your-email@example.com">电子邮件：wuxiaoning523@163.com</a></p>
-</li>
-<li><p>GitHub：<a target="_blank" rel="noopener" href="https://github.com/Lovening">https://github.com/Lovening</a></p>
-</li>
-</ul>
-<p>谢谢！</p>
+        <p>[[Boost 库编译指南]]</p>
+<p>Boost 库是为 C++语言标准库提供扩展的一些 C++程序库的总称，由 Boost 社区组织开发、维护。Boost 库可以与 C++标准库完美共同工作，并且为其提供扩展功能。</p>
+<h3 id="下载boost库"><a href="#下载boost库" class="headerlink" title="下载boost库"></a>下载boost库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.下载</span><br><span class="line">wget https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.gz</span><br><span class="line"></span><br><span class="line">2.解压</span><br><span class="line">tar zxvf boost_1_64_0.tar.gz</span><br><span class="line">cd boost_1_64_0.tar.gz</span><br><span class="line"></span><br><span class="line">3.配置</span><br><span class="line">./bootstrap.sh --with-libraries=all --with-toolset=gcc</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>–with-libraries指定编译哪些boost库，all的话就是全部编译，只想编译部分库的话就把库的命称写上，之间用 , 号分隔即可，可指定的库下面介绍。–with-toolset指定编译时使用哪种编译器，Linux下使用gcc即可，如果系统中安装了多个版本的gcc，在这里可以指定gcc的版本，比如–with-toolset&#x3D;gcc-4.4</li>
+<li>boost中的常用的库有</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>库名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>atomic</td>
+<td>保证多线程的访问不会导致数据竞争</td>
+</tr>
+<tr>
+<td>chrono</td>
+<td>时间库</td>
+</tr>
+<tr>
+<td>context</td>
+<td></td>
+</tr>
+<tr>
+<td>coroutine</td>
+<td></td>
+</tr>
+<tr>
+<td>time</td>
+<td>时间库</td>
+</tr>
+<tr>
+<td>exception</td>
+<td></td>
+</tr>
+<tr>
+<td>filesystem</td>
+<td>可移植文件系统库</td>
+</tr>
+<tr>
+<td>graph</td>
+<td></td>
+</tr>
+<tr>
+<td>iostreams</td>
+<td></td>
+</tr>
+<tr>
+<td>locale</td>
+<td></td>
+</tr>
+<tr>
+<td>log</td>
+<td></td>
+</tr>
+<tr>
+<td>math</td>
+<td></td>
+</tr>
+<tr>
+<td>mpi</td>
+<td></td>
+</tr>
+<tr>
+<td>program_options</td>
+<td></td>
+</tr>
+<tr>
+<td>python</td>
+<td></td>
+</tr>
+<tr>
+<td>random</td>
+<td>随机数生成</td>
+</tr>
+<tr>
+<td>regex</td>
+<td>正则表达式库</td>
+</tr>
+<tr>
+<td>serialization</td>
+<td>序列化库</td>
+</tr>
+<tr>
+<td>signals</td>
+<td></td>
+</tr>
+<tr>
+<td>system</td>
+<td></td>
+</tr>
+<tr>
+<td>test</td>
+<td></td>
+</tr>
+<tr>
+<td>thread</td>
+<td>可移植C++线程库</td>
+</tr>
+<tr>
+<td>wave</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">./b2</span><br><span class="line"></span><br><span class="line">To adjust configuration, edit &#x27;project-config.jam&#x27;.</span><br><span class="line">Further information:</span><br><span class="line"></span><br><span class="line">   - Command line help:</span><br><span class="line">     ./b2 --help</span><br><span class="line"></span><br><span class="line">   - Getting started guide: </span><br><span class="line">     http://www.boost.org/more/getting_started/unix-variants.html</span><br><span class="line"></span><br><span class="line">   - Boost.Build documentation:</span><br><span class="line">     http://www.boost.org/build/doc/html/index.html</span><br><span class="line"></span><br><span class="line">     //看到如上所示即成功</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 开始编译</span><br><span class="line">./b2 toolset=gcc </span><br><span class="line"></span><br><span class="line">sudo ./b2 install --prefix=/usr ##--prefix=/usr用来指定boost的安装目录，</span><br><span class="line">不加此参数的话默认的头文件在/usr/local/include/boost目录下，</span><br><span class="line">库文件在/usr/local/lib/目录下。</span><br><span class="line">这里把安装目录指定为--prefix=/usr</span><br><span class="line">则boost会直接安装到系统头文件目录和库文件目录下，可以省略配置环境变量。</span><br><span class="line">我这里把boost安装在/usr/local/boost目录下</span><br></pre></td></tr></table></figure>
+
+<p>编译完成后需要配置下环境变量。否则在使用的时候会找到不头文件和库文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br><span class="line"></span><br><span class="line">添加以下几句</span><br><span class="line">export CPLUS_INCLUDE_PATH=/usr/local/boost/include/:$CPLUS_INCLUDE_PATH</span><br><span class="line">export LIBRARY_PATH=/usr/local/boost/lib/:$LIBRARY_PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/boost/lib/:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure>
+
+<p>然后执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br><span class="line">sudo ldconfig </span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -224,11 +326,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/22/30%20%E6%9D%A1%E6%9C%89%E6%95%88%E4%BD%BF%E7%94%A8%20STL%20%E7%9A%84%E7%BB%8F%E9%AA%8C/" rel="prev" title="">
-      <i class="fa fa-chevron-left"></i> 
+    <a href="/2024/07/22/about/" rel="prev" title="about">
+      <i class="fa fa-chevron-left"></i> about
     </a></div>
       <div class="post-nav-item">
-    <a href="/2024/07/22/Boost%E5%BA%93%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" rel="next" title="">
+    <a href="/2024/07/22/C++%20Pimpl/" rel="next" title="">
        <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -289,7 +391,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91"><span class="nav-number">1.</span> <span class="nav-text">关于我</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDboost%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">下载boost库</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
