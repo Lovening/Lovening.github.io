@@ -4037,67 +4037,6 @@ display_rotate = 3
       </categories>
   </entry>
   <entry>
-    <title>编译树莓派自定义内核</title>
-    <url>/2024/09/03/%E7%BC%96%E8%AF%91%E6%A0%91%E8%8E%93%E6%B4%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%86%85%E6%A0%B8/</url>
-    <content><![CDATA[<ul>
-<li>新的项目属于国外引进项目。运行在树莓派上面。需要更换开机界面放上自己的 logo 什么的。在开机的时候屏幕上会有一个光标一直在闪。想把那个光标给去掉，查阅资料发现需要重新编译树莓派的内核。在此做下记录。</li>
-</ul>
-<p>本文介绍如何在树莓派上编译自定义内核，包括工具下载、内核配置和编译过程。</p>
-<span id="more"></span>
-
-<h1 id="1-工具下载"><a href="#1-工具下载" class="headerlink" title="1. 工具下载"></a>1. 工具下载</h1><p><code>sudo apt-get install -y bc build-essential libncurses5-dev libssl-dev</code><br>从 github 上下载 raspberry Linux 内核源码<br><code>git clone --depth=1 -b rpi-4.8.y https://github.com/raspberrypi/linux.git</code></p>
-<h1 id="2-配置内核"><a href="#2-配置内核" class="headerlink" title="2. 配置内核"></a>2. 配置内核</h1><p>因为我们是在树莓派上编译，直接使用当前树莓派自带的编译器就可以，可以使用<br><code>arm-linux-</code> 加 Tab 键进行查看，我的树莓派上的交叉编译器为 <code>arm-linux-gnueabihf-</code></p>
-<ul>
-<li><ol>
-<li>切换到你下载的内核目录下 <code>cd ./linux-rpi-4.19.y</code><br>在配置内核的时候，需要先配置 config。这里多说一句网上需要博客里面记载的配置 config 的命令是<br><code>make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcmrpi3_defconfig</code> 这个是配置 64 位的并且指定编译器。我们在树莓派上编译的，查看当前系统 <code>getconf LONG_BIT</code>, 如果返回结果是 32 则系统是 32 位的，如果返回的是 64 则系统是 64 位的。系统里面自带的就是交叉编译器。所以只要找到配置文件就可以，使用 <code>find ./ -name &quot;*bcm*defconfig*&quot; 查找下对应的默认配置，只保留arm下的结果</code> pi 1 使用的事 bcmrpi_defconfig pi 2 3 使用的是 bcm 2709_defconfig，<code>make bcm2709_defcongfig</code>。</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>因为我需要配置树莓派开机界面进行配置，所以 <code>make menuconfig</code>。会出现内核配置界面<br><img src="http://isroot.cn/wp-content/uploads/2019/03/1111111.png"><br>我把终端输出给去掉了。具体修改为 <code>Device Drivers-&gt;Character Devices-&gt;[]support for console on virtual terminal</code></li>
-</ol>
-</li>
-</ul>
-<h1 id="3-创建新的内核"><a href="#3-创建新的内核" class="headerlink" title="3 创建新的内核"></a>3 创建新的内核</h1><p>在目录下直接 <code>make -j4</code> 开始编译内核，晚上下班后我开始编译的，然后树莓派一直开着就没关，具体多长时间没统计。<br>编译完成后去.&#x2F;linux-rpi-4.14. y&#x2F;arch&#x2F;arm&#x2F;boot 下找到自己编译完成的内核<br><img src="http://isroots.cn/wp-content/uploads/2019/03/22222.png"><br>内核编译完成后在往内存卡上拷贝上发现内存卡上内存不足。无法进行拷贝。后移植到 ubuntu 下进行编译</p>
-<h1 id="4-在-ubuntu-下编译"><a href="#4-在-ubuntu-下编译" class="headerlink" title="4 在 ubuntu 下编译"></a>4 在 ubuntu 下编译</h1><p>在 ubuntu 下编译需要需要下载树莓派官方工具。<a href="https://github.com/raspberrypi/tools" title="树莓派官方工具">树莓派官方工具</a><br>下载官方工具因为我们要使用官方提供的 arm-linux-gcc 工具</p>
-<ul>
-<li><ol>
-<li>将下载好的树莓派内核拷贝到 ubuntu 下，个人建议新建一个文件夹。我创建的是 raspberryKernel。我们后续操作都是在这个目录下。</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>修改工具链。网上大部分的办法都是配置环境变量。因为我 ubuntu 有一个交叉编译工具。不想重新配置了。所以直接去修改 Makefile 文件 <code>vim Makefile</code>, 找到 ARCH 第一次出现的地方。添加交叉工具链<br><img src="http://isroot.cn/wp-content/uploads/2019/03/333333333333.png"><br>这种方式以后我们在 make 的时候不需要每次都去指定编译器。</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>剩下的步骤和在树莓派上一样。这里不在具体说明。</li>
-</ol>
-</li>
-</ul>
-<h1 id="5-移植自己的内核"><a href="#5-移植自己的内核" class="headerlink" title="5 移植自己的内核"></a>5 移植自己的内核</h1><ul>
-<li><ol>
-<li>在树莓派官网下载. img 镜像。拷贝到 ubuntu 上面。然后将这个镜像挂载到自己的 ubuntu 上。具体方法如下<br> <code>fdisk -l xxxxxx.img</code> xxx 是你自己下载的镜像。<br> <img src="http://isroot.cn/wp-content/uploads/2019/03/444444.png"><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">挂载系统到/mnt：sudo mount -o loop,offset=50331648 2018-10-09-raspbian-stretch-lite.img /mnt</span><br><span class="line">计算方式：offset = 50331648 = 98304 * 512</span><br><span class="line">挂载启动分区到/mnt/boot：sudo mount -o loop,offset=4194304,sizelimit=45920768 2018-10-09-raspbian-stretch-lite.img /mnt/boot</span><br><span class="line">offset = 4194304 = 512 * 8192</span><br><span class="line">sizelimit = 45920768 =512 * 89689</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><ol start="2">
-<li>配置内核模块<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo make  INSTALL_MOD_PATH=/mnt modules_install</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><ol start="3">
-<li>替换自己的内核<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo cp arch/arm/boot/dts/*.dtb /boot/</span><br><span class="line">sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/</span><br><span class="line">sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/</span><br><span class="line">sudo cp arch/arm/boot/zImage /boot/$KERNEL.img</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><ol start="4">
-<li>卸载挂载的内核<br><code>umount /mnt/boot </code><br><code>umount /mnt</code><br>将自己编译的内核替换原先的内核。然后将 xxxxxxxx. img 你自己下载的镜像重新烧写到内存卡中就可以了。</li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>树莓派</category>
-      </categories>
-  </entry>
-  <entry>
     <title>生成器模式</title>
     <url>/2024/07/22/%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="生成器模式-Builder"><a href="#生成器模式-Builder" class="headerlink" title="生成器模式(Builder)"></a>生成器模式(Builder)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
@@ -4184,6 +4123,67 @@ display_rotate = 3
         <category>技术</category>
         <category>c++</category>
         <category>设计模式</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>编译树莓派自定义内核</title>
+    <url>/2024/09/03/%E7%BC%96%E8%AF%91%E6%A0%91%E8%8E%93%E6%B4%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%86%85%E6%A0%B8/</url>
+    <content><![CDATA[<ul>
+<li>新的项目属于国外引进项目。运行在树莓派上面。需要更换开机界面放上自己的 logo 什么的。在开机的时候屏幕上会有一个光标一直在闪。想把那个光标给去掉，查阅资料发现需要重新编译树莓派的内核。在此做下记录。</li>
+</ul>
+<p>本文介绍如何在树莓派上编译自定义内核，包括工具下载、内核配置和编译过程。</p>
+<span id="more"></span>
+
+<h1 id="1-工具下载"><a href="#1-工具下载" class="headerlink" title="1. 工具下载"></a>1. 工具下载</h1><p><code>sudo apt-get install -y bc build-essential libncurses5-dev libssl-dev</code><br>从 github 上下载 raspberry Linux 内核源码<br><code>git clone --depth=1 -b rpi-4.8.y https://github.com/raspberrypi/linux.git</code></p>
+<h1 id="2-配置内核"><a href="#2-配置内核" class="headerlink" title="2. 配置内核"></a>2. 配置内核</h1><p>因为我们是在树莓派上编译，直接使用当前树莓派自带的编译器就可以，可以使用<br><code>arm-linux-</code> 加 Tab 键进行查看，我的树莓派上的交叉编译器为 <code>arm-linux-gnueabihf-</code></p>
+<ul>
+<li><ol>
+<li>切换到你下载的内核目录下 <code>cd ./linux-rpi-4.19.y</code><br>在配置内核的时候，需要先配置 config。这里多说一句网上需要博客里面记载的配置 config 的命令是<br><code>make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcmrpi3_defconfig</code> 这个是配置 64 位的并且指定编译器。我们在树莓派上编译的，查看当前系统 <code>getconf LONG_BIT</code>, 如果返回结果是 32 则系统是 32 位的，如果返回的是 64 则系统是 64 位的。系统里面自带的就是交叉编译器。所以只要找到配置文件就可以，使用 <code>find ./ -name &quot;*bcm*defconfig*&quot; 查找下对应的默认配置，只保留arm下的结果</code> pi 1 使用的事 bcmrpi_defconfig pi 2 3 使用的是 bcm 2709_defconfig，<code>make bcm2709_defcongfig</code>。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>因为我需要配置树莓派开机界面进行配置，所以 <code>make menuconfig</code>。会出现内核配置界面<br><img src="http://isroot.cn/wp-content/uploads/2019/03/1111111.png"><br>我把终端输出给去掉了。具体修改为 <code>Device Drivers-&gt;Character Devices-&gt;[]support for console on virtual terminal</code></li>
+</ol>
+</li>
+</ul>
+<h1 id="3-创建新的内核"><a href="#3-创建新的内核" class="headerlink" title="3 创建新的内核"></a>3 创建新的内核</h1><p>在目录下直接 <code>make -j4</code> 开始编译内核，晚上下班后我开始编译的，然后树莓派一直开着就没关，具体多长时间没统计。<br>编译完成后去.&#x2F;linux-rpi-4.14. y&#x2F;arch&#x2F;arm&#x2F;boot 下找到自己编译完成的内核<br><img src="http://isroots.cn/wp-content/uploads/2019/03/22222.png"><br>内核编译完成后在往内存卡上拷贝上发现内存卡上内存不足。无法进行拷贝。后移植到 ubuntu 下进行编译</p>
+<h1 id="4-在-ubuntu-下编译"><a href="#4-在-ubuntu-下编译" class="headerlink" title="4 在 ubuntu 下编译"></a>4 在 ubuntu 下编译</h1><p>在 ubuntu 下编译需要需要下载树莓派官方工具。<a href="https://github.com/raspberrypi/tools" title="树莓派官方工具">树莓派官方工具</a><br>下载官方工具因为我们要使用官方提供的 arm-linux-gcc 工具</p>
+<ul>
+<li><ol>
+<li>将下载好的树莓派内核拷贝到 ubuntu 下，个人建议新建一个文件夹。我创建的是 raspberryKernel。我们后续操作都是在这个目录下。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>修改工具链。网上大部分的办法都是配置环境变量。因为我 ubuntu 有一个交叉编译工具。不想重新配置了。所以直接去修改 Makefile 文件 <code>vim Makefile</code>, 找到 ARCH 第一次出现的地方。添加交叉工具链<br><img src="http://isroot.cn/wp-content/uploads/2019/03/333333333333.png"><br>这种方式以后我们在 make 的时候不需要每次都去指定编译器。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>剩下的步骤和在树莓派上一样。这里不在具体说明。</li>
+</ol>
+</li>
+</ul>
+<h1 id="5-移植自己的内核"><a href="#5-移植自己的内核" class="headerlink" title="5 移植自己的内核"></a>5 移植自己的内核</h1><ul>
+<li><ol>
+<li>在树莓派官网下载. img 镜像。拷贝到 ubuntu 上面。然后将这个镜像挂载到自己的 ubuntu 上。具体方法如下<br> <code>fdisk -l xxxxxx.img</code> xxx 是你自己下载的镜像。<br> <img src="http://isroot.cn/wp-content/uploads/2019/03/444444.png"><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">挂载系统到/mnt：sudo mount -o loop,offset=50331648 2018-10-09-raspbian-stretch-lite.img /mnt</span><br><span class="line">计算方式：offset = 50331648 = 98304 * 512</span><br><span class="line">挂载启动分区到/mnt/boot：sudo mount -o loop,offset=4194304,sizelimit=45920768 2018-10-09-raspbian-stretch-lite.img /mnt/boot</span><br><span class="line">offset = 4194304 = 512 * 8192</span><br><span class="line">sizelimit = 45920768 =512 * 89689</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="2">
+<li>配置内核模块<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo make  INSTALL_MOD_PATH=/mnt modules_install</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="3">
+<li>替换自己的内核<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo cp arch/arm/boot/dts/*.dtb /boot/</span><br><span class="line">sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/</span><br><span class="line">sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/</span><br><span class="line">sudo cp arch/arm/boot/zImage /boot/$KERNEL.img</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="4">
+<li>卸载挂载的内核<br><code>umount /mnt/boot </code><br><code>umount /mnt</code><br>将自己编译的内核替换原先的内核。然后将 xxxxxxxx. img 你自己下载的镜像重新烧写到内存卡中就可以了。</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>树莓派</category>
       </categories>
   </entry>
   <entry>
