@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="记录一些自己的见闻">
@@ -103,7 +103,6 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -133,38 +132,11 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
   </ul>
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
 
 </div>
     </header>
@@ -307,7 +279,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:37:27" itemprop="dateModified" datetime="2025-12-09T19:37:27+08:00">2025-12-09</time>
               </span>
 
           
@@ -322,20 +294,14 @@
 
       
           <h1 id="数据传输转化"><a href="#数据传输转化" class="headerlink" title="数据传输转化"></a>数据传输转化</h1><p>在数据传输过程中，经常要将 int 型数据转化成 char 型数据, 我经常使用的是 union 和结构体，具体定义如下:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">union</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">struct</span>&#123;</span><br><span class="line">		<span class="type">unsigned</span> <span class="type">char</span> low;</span><br><span class="line">		<span class="type">unsigned</span> <span class="type">char</span> secLow;</span><br><span class="line">		<span class="type">unsigned</span> <span class="type">char</span> hight;</span><br><span class="line">		<span class="type">unsigned</span> <span class="type">char</span> secHight;</span><br><span class="line">	&#125;intBit;</span><br><span class="line">	<span class="type">int</span> value;</span><br><span class="line">&#125;intCoverChar;</span><br></pre></td></tr></table></figure>
-<p>使用的时候 int 转化 char 型数组小端模式 </p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> data[<span class="number">4</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">intCoverChar mData;</span><br><span class="line">mData.value =<span class="number">100</span>;<span class="comment">//00 00 00 64</span></span><br><span class="line">data[<span class="number">0</span>] = mData.intBit.low;</span><br><span class="line">data[<span class="number">1</span>] = mData.intBit.secLow;</span><br><span class="line">data[<span class="number">2</span>] = mData.intBit.hight;</span><br><span class="line">data[<span class="number">3</span>] = mData.intBit.secHight;</span><br></pre></td></tr></table></figure>
-<p>使用 printf 打印</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%p\n&quot;</span>,data);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%p\n&quot;</span>,data<span class="number">+1</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%p\n&quot;</span>,data<span class="number">+2</span>);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%p\n&quot;</span>,data<span class="number">+3</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%x\n&quot;</span>,*data);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%x\n&quot;</span>,*(data<span class="number">+1</span>));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%x\n&quot;</span>,*(data<span class="number">+2</span>));</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%x\n&quot;</span>,*(data<span class="number">+3</span>));</span><br></pre></td></tr></table></figure>
-<p>打印出的地址和数据为<br><img src="http://isroot.cn/wp-content/uploads/2019/02/%E8%AF%B4%E8%AF%B4-300x122.png"></p>
-<p>如果本机是小端模式在内存中结构体的存放数据的地址是从地位到高位比如上面结构体 low 的地址为 0 xbfad 1708 seclow 即为 0 xbfad 1709 hight 的地址为 0 xbfad 170 a secHight 的地址为 0 xbfad 170 b。数组在内存中的是一块连续的递增的地址，所以如果按照大端的方式往数组里面放为</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> data[<span class="number">4</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">intCoverChar mData;</span><br><span class="line">mData.value =<span class="number">100</span>;<span class="comment">//00 00 00 64</span></span><br><span class="line">data[<span class="number">0</span>] = mData.intBit.hight;</span><br><span class="line">data[<span class="number">1</span>] = mData.intBit.secHight;</span><br><span class="line">data[<span class="number">2</span>] = mData.intBit.low;</span><br><span class="line">data[<span class="number">3</span>] = mData.intBit.secLow;</span><br></pre></td></tr></table></figure>
-<p>即将高位放在数组地位，地位放在数组高位</p>
-<p>如果将 value 值改成 500 按照小端模式的放入在打印的时候会出现如下的情况</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fffffff4</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<p>这是因为一个 char 能表示的最大的数为 128-1  最高位为符号位，所有要进行扩位在前面补位补 1. 解决这种问题的办法为将数组声明为 unsigned char</p>
-<p>一个字节是 8 个二进制位<br>能表示的最大的无符号数为：2^8-1&#x3D;256-1&#x3D;255<br>能表示的最大的有符号数为：2^7-1&#x3D;128-1&#x3D;127 </p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%20%E8%BD%ACchar%20%E5%92%8C%E5%A4%A7%E5%B0%8F%E7%AB%AF%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1184,10 +1150,6 @@
   
 
 
-
-
-  
-<script src="/js/local-search.js"></script>
 
 
 
