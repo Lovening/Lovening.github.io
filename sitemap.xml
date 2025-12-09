@@ -2,6 +2,510 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.isroots.com/2025/12/09/%E7%BC%96%E8%AF%91%E6%A0%91%E8%8E%93%E6%B4%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%86%85%E6%A0%B8/</loc>
+    
+    <lastmod>2025-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/Poco%20%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%BC%96%E8%AF%91/</loc>
+    
+    <lastmod>2025-01-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/2025/01/07/Bash%20Scripting%20Basics/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/C++%20%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/Linux%E4%B8%8A%E6%90%AD%E5%BB%BABOA%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/MarkDown%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/QDilalog%20%E9%87%8D%E6%96%B0%E5%AE%9E%E7%8E%B0exec()/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/Qt%E5%9C%A8%E7%A7%BB%E6%A4%8D%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/Ubuntu%20%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96SD%E5%8D%A1/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/google%20protobuf%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/jQuery%20%E8%AE%BE%E7%BD%AE%20radio%20%E8%A2%AB%E9%80%89%E4%B8%AD/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/javascript%20%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%20%E8%BD%ACchar%20%E5%92%8C%E5%A4%A7%E5%B0%8F%E7%AB%AF%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85openCV/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/%E5%9F%BA%E4%BA%8EAM33X%E6%A0%B8%E5%BF%83%E6%9D%BF%E5%AF%B9EMMC%E7%9A%84%E6%93%8D%E4%BD%9C/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9B%B4%E6%8D%A2%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%92%8C%E8%87%AA%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97Buff%20%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/11/12/%E8%AE%B0%E5%BD%95macOS%E5%9C%A8%E4%BD%BF%E7%94%A8boost%E5%BA%93%E6%97%B6%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF/</loc>
+    
+    <lastmod>2024-11-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/C++%20%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%84%E5%90%88/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/Ubuntu%E4%B8%8BQt+OpenCV%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/Poco%20C++%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/linux%20%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%8A%A8%E4%BD%9C%E4%BB%A5%E5%8F%8A%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E8%84%9A%E6%9C%AC%E5%92%8C%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/C++%20%E5%A4%9A%E6%80%81%E5%92%8C%20%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/Template%20Method%20%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/Strategy%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/Poco%20Sharelibrary/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/Observer%20%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/2025/01/07/Decorator%20%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/QT%20%E4%B8%8D%E5%90%8C%E6%96%B9%E5%BC%8F%E5%8A%A0%E8%BD%BD%E6%A0%B7%E5%BC%8F%E8%A1%A8%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/bridge%20%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/C++%20%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/10/14/Qt%20%E9%94%AE%E7%9B%98%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2024-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/03/Makefile%20%E4%BC%AA%E7%9B%AE%E6%A0%87/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/2024/09/04/%E6%A0%B9%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E8%8E%B7%E5%8F%96%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/03/C++%20%E7%BB%A7%E6%89%BF%E6%8E%A2%E7%B4%A2/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/03/%E8%AE%B0%E4%B8%80Qt%E6%AC%A1%E7%BC%96%E8%AF%91Bug%EF%BC%9AERROR%20LINK2019%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/03/QToolButton%20%E4%BD%BF%E7%94%A8%E6%A0%B7%E5%BC%8F%E8%A1%A8%E5%8E%BB%E6%8E%89%E5%8F%B3%E8%BE%B9%E4%B8%8B%E8%A7%92%E7%AE%AD%E5%A4%B4/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/2024/07/22/QtBase%20%E5%BA%93%E5%AE%89%E8%A3%85/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/03/Qt%20%E4%BA%8B%E4%BB%B6%E4%B8%AD%E7%9A%84%20installEventFilter/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/2024/07/22/log4qt%20for%20Qt5%E4%BD%BF%E7%94%A8/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/03/Qt%20%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/03/%E5%9C%A8github%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E5%92%8C%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/03/QFile%20%E4%B8%8D%E8%83%BD%E4%BB%A5%20WriteOlny,ReadWrite%20%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/03/QDomNode%20setNodeValue%20%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2024-09-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/02/%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%E8%BD%ACchar%20%E5%A4%A7%E5%B0%8F%E7%AB%AF%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2024-09-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/02/C++%20%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2024-09-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/02/Qt%E4%B8%AD%E7%9A%84%20pro%20%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D/</loc>
+    
+    <lastmod>2024-09-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/</loc>
+    
+    <lastmod>2024-09-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/08/21/linux%20%E9%85%8D%E7%BD%AE%E5%8A%A8%E6%80%81%E5%BA%93/</loc>
+    
+    <lastmod>2024-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/242024/07/23/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BD%BF%E7%94%A8Cloudflare%E5%81%9A%E7%BD%91%E7%AB%99/</loc>
+    
+    <lastmod>2024-07-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/2024/07/22/%E5%B8%B8%E7%94%A8%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</loc>
+    
+    <lastmod>2024-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/2024/07/22/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</loc>
+    
+    <lastmod>2024-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.isroots.com/2024/07/22/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2024-07-22</lastmod>
@@ -110,15 +614,6 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/2024/07/22/QtBase%20%E5%BA%93%E5%AE%89%E8%A3%85/</loc>
-    
-    <lastmod>2024-07-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.isroots.com/2024/07/22/Posix%E7%BA%BF%E7%A8%8B/</loc>
     
     <lastmod>2024-07-22</lastmod>
@@ -156,15 +651,6 @@
   
   <url>
     <loc>https://blog.isroots.com/2024/07/22/macos%20%E7%BC%96%E8%AF%91Boost%20%E9%94%99%E8%AF%AF/</loc>
-    
-    <lastmod>2024-07-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.isroots.com/2024/07/22/log4qt%20for%20Qt5%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2024-07-22</lastmod>
     
@@ -328,150 +814,199 @@
 
   <url>
     <loc>https://blog.isroots.com/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
+  <url>
+    <loc>https://blog.isroots.com/tags/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/tags/QT/</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/tags/%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/tags/%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/Thread/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Thread/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/boost/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/boost/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/Poco/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Poco/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/linux/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/nodejs/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/protobuf/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/protobuf/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/thread/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/thread/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/Qt/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Qt/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/STL/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/STL/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.isroots.com/categories/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/c/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/c-plus-plus/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/Boost/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Boost/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c/Openssl/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Openssl/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/linux/shell/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.isroots.com/categories/%E9%9A%8F%E7%AC%94/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/linux/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
-    <lastmod>2024-07-22</lastmod>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

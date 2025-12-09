@@ -27,11 +27,17 @@
 <meta property="og:site_name" content="吴晓宁blog">
 <meta property="og:description" content="Poco 的编译和安装ubuntu 下的安装和编译 完整的安装需要下载MySql和OpenSSL 安装OpenSSL">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif">
+<meta property="og:image" content="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif">
+<meta property="og:image" content="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif">
+<meta property="og:image" content="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif">
+<meta property="og:image" content="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif">
 <meta property="article:published_time" content="2024-07-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-22T09:41:01.311Z">
+<meta property="article:modified_time" content="2024-07-22T09:41:01.000Z">
 <meta property="article:author" content="吴晓宁">
-<meta property="article:tag" content="blog">
+<meta property="article:tag" content="blog,编程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif">
 
 <link rel="canonical" href="https://blog.isroots.com/2024/07/22/C++%20Poco%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85/">
 
@@ -199,11 +205,11 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/c/Poco/" itemprop="url" rel="index"><span itemprop="name">Poco</span></a>
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Poco/" itemprop="url" rel="index"><span itemprop="name">Poco</span></a>
                 </span>
             </span>
 
@@ -246,6 +252,17 @@
 <li>解压 <code>tar -xzvf poco-1.7.8-all.tar.gz</code><br>  <code>cd poco-1.7.8-all</code><br>  <code>./configure --config=ARM-Linux --no-tests --omit=Data,Crypto,NetSSL_OpenSSL --prefix=/home/ning/lib</code><br>  <code>make</code><br>  <code>make install</code><br>  到此Poco就交叉编译安装完成了。</li>
 </ul>
 <p>我用的ARM 环境是 AM335x</p>
+<h2 id="编译安装时的问题"><a href="#编译安装时的问题" class="headerlink" title="编译安装时的问题"></a>编译安装时的问题</h2><h3 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h3><p>在编译poco ARM版本时遇到一个链接错误 hidden symbol &#96;__sync_fetch_and_sub_4’，经过上网查询发现是arm-linux-gcc 版本的问题。<br>从arm-linux-gcc 官网上下载 下载4.7版本的进行安装 网址 <a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-14735472-id-5593327.html" title="ARM编译器">ARM编译器</a></p>
+<p>因为需要配合qt 使用，使用的系统为飞凌自带的嵌入式系统。需要重新配置arm-linux-gcc 。修改环境变量 <code>sudo vim /etc/profile</code>;</p>
+<p>飞凌的配置文件为 注释掉的文件，使用中的文件为自己配置的文件，需要注意的是编译器名称的改变，原先为 arm-linux-gcc,<br>需要修改为 arm-linux-gnueabihf, PATH 路径为更新后gcc 4.7的路径。然后重新编译poco。</p>
+<p>如果在检测编译器的时候出现arm-none-linux-gnueabi-gcc -v 出现: No such file or directory<br>有可能是你的编译器是32位的但你的系统是64位系统，使用 sudo apt-get install ia32-libs命令就可以解决</p>
+<h3 id="问题二-环境变量配置"><a href="#问题二-环境变量配置" class="headerlink" title="问题二  环境变量配置"></a>问题二  环境变量配置</h3><p><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"></p>
+<p>在重新编译poco 时提示 找不到arm-linux-g++。 因为和arm-linux-gnueabihf-g++ 名称不一样，怀疑是不是编译器找错了，去重新修改 bulid&#x2F;config&#x2F;ARM-Linux文件，将TOOL &#x3D; 修改成为 arm-linux-gnueabihf。<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"></p>
+<p>然后重新编译poco 没问题。</p>
+<p>编译完成后修改qtCreator.</p>
+<p>将 GCCE 修改成为gcc 4.7中的g++,如下图<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"></p>
+<p>然后进行编译提示找不到arm-linux-g++ 。 从网上找资料说去修改qws文件中qmake.conf。但是因为直接使用的飞凌自带的系统，我也不知道qt的qws 具体是在哪里。 但是想到了qmake 最后生成makefile文件，所以去看makefile文件<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"></p>
+<p>在makefile中找到了linux-arm-g++的文件 ，去修改linxu-arm-g++文件<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"><br>修改后的文件，然后重新编译所有的库文件。没问题，通过</p>
 
     </div>
 
@@ -326,7 +343,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Poco-%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">Poco 的编译和安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%BC%96%E8%AF%91"><span class="nav-number">1.1.</span> <span class="nav-text">ubuntu 下的安装和编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARM%E7%89%88%E6%9C%AC%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">ARM版本的编译和安装</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Poco-%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">Poco 的编译和安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-%E4%B8%8B%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%BC%96%E8%AF%91"><span class="nav-number">1.1.</span> <span class="nav-text">ubuntu 下的安装和编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARM%E7%89%88%E6%9C%AC%E7%9A%84%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">ARM版本的编译和安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">编译安装时的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E4%B8%80"><span class="nav-number">1.3.1.</span> <span class="nav-text">问题一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E4%BA%8C-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.2.</span> <span class="nav-text">问题二  环境变量配置</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -340,13 +357,17 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-count">89</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
         <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span>
       </div>
   </nav>
 </div>
@@ -372,7 +393,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
