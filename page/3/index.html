@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="记录一些自己的见闻">
@@ -103,6 +103,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -132,11 +133,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -160,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/Poco%20C++%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/C++%20%E5%A4%9A%E6%80%81%E5%92%8C%20%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +202,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/Poco%20C++%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Poco C++使用</a>
+            <a href="/2024/10/14/C++%20%E5%A4%9A%E6%80%81%E5%92%8C%20%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">C++ 多态和 虚函数的理解</a>
         </h2>
 
         <div class="post-meta">
@@ -184,163 +212,28 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 18:45:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:45:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 18:40:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:40:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 18:12:22" itemprop="dateModified" datetime="2025-12-09T18:12:22+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>POCO c++ 使用例子</p>
-<p>本文档介绍了 Poco C++ 库的一些基本使用示例，包括定时器、管道等常用功能。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/242024/10/14/Poco%20C++%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/linux%20%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%8A%A8%E4%BD%9C%E4%BB%A5%E5%8F%8A%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E8%84%9A%E6%9C%AC%E5%92%8C%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/10/14/linux%20%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%8A%A8%E4%BD%9C%E4%BB%A5%E5%8F%8A%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E8%84%9A%E6%9C%AC%E5%92%8C%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">linux 系统启动时执行的动作以及启动时执行自己的脚本和设置环境变量</a>
-        </h2>
-
-        <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
+                <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-10-14 18:43:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:43:00+08:00">242024-10-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-14 18:44:38" itemprop="dateModified" datetime="2024-10-14T18:44:38+08:00">2024-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-系统启动"><a href="#1-系统启动" class="headerlink" title="1.系统启动"></a>1.系统启动</h2><p>在linux 系统文件中，&#x2F;etc&#x2F;init.d 里面放的是&#x2F;etc&#x2F;rc.d&#x2F;init.d的软链接的脚本。都是放的服务脚本，当linux启动时，系统会寻找这些目录的脚本服务，并且根据脚本不同的run level确定不同的启动级别</p>
-<h2 id="2-系统启动过程"><a href="#2-系统启动过程" class="headerlink" title="2.系统启动过程"></a>2.系统启动过程</h2><ul>
-<li>1）BIOS自检，BIOS的功能由两部分组成，分别是POST和Runtime服务，POST阶段完成后它将从存储器中被清楚，而Runtime服务会一直保留，用于目标操作系统的启动，BIOS两个阶段所做的详细工作如下：<br>  步骤1 上电自检POST（power-on self test）,主要负责检测外围设备，如（CPU，内存，显卡，I&#x2F;O，键盘鼠标等）是否正常，例如，最常见的内存松动，BIOS自检阶段会报错，系统就无法启动起来。<br>  步骤2 步骤1成功会，便会执行一段小程序来枚举本地设备并对其初始化，这一步主要是根据我们在BIOS中设置的系统启动顺序来搜索用于启动系统的驱动器，如硬盘，光盘，U盘和网络等。硬盘为例子，此时BIOS去读取硬盘驱动器的第一个扇区（MBR，512字节），然后执行里面的代码，实际上BIOS并不关系启动设备的第一个扇区是什么内容，只负责读取并执行。<br>  至此，BIOS的任务就完成了，此后将系统启动控制权移交到MBR部分的代码。</li>
-<li>2）系统引导，通常情况下，诸如lilo,grub这些常见的引导程序就直接装在MBR中。</li>
-<li>3）启动内核，它首先会去解析grup的配置文件，&#x2F;boot&#x2F;grup&#x2F;grup.conf,然后加载内核镜像到内存中，并将控制权转交给内核，而内核会立即初始化系统中各设备并做相关的配置工作。<br>  linux 设备驱动程序的加载，有一部分驱动程序直接被编译进内核镜像中，另一部分驱动程序则以模块形式放在initrd(ramdisk)中。<br>  linux 内核需要适应多种不同的硬件架构，linux内核镜像仅是包含了基本的硬件驱动，在系统启动过程中会检测系统硬件信息，根据安装信息和系统硬件信息将一部分设备驱动写入initrd,这样在以后启动系统时，一部分设备驱动就放在initrd中来加载.<br>  initrd 的英文含义是 bootloader initialized RAM disk，就是由 boot loader 初始化的内存盘。在 linu2.6内核启动前，boot loader 会将存储介质中的 initrd 文件加载到内存，内核启动时会在访问真正的根文件系统前先访问该内存中的 initrd 文件系统。在 boot loader 配置了 initrd 的情况下，内核启动被分成了两个阶段，第一阶段先执行 initrd 文件系统中的init，完成加载驱动模块等任务，第二阶段才会执行真正的根文件系统中的 &#x2F;sbin&#x2F;init 进程。</li>
-</ul>
-<h2 id="3-init进程"><a href="#3-init进程" class="headerlink" title="3.init进程"></a>3.init进程</h2><p>&#x2F;sbin&#x2F;init进程是系统其他所有进程的父进程，当它接管了系统的控制权先之后，它首先会去读取&#x2F;etc&#x2F;inittab文件来执行相应的脚本进行系统初始化，如设置键盘、字体，装载模块，设置网络等。主要包括以下工作：<br>– 1)、执行系统初始化脚本(&#x2F;etc&#x2F;rc.d&#x2F;rc.sysinit)，对系统进行基本的配置，以读写方式挂载根文件系统及其它文件系统，到此系统算是基本运行起来了，后面需要进行运行级别的确定及相应服务的启动。<br>– 2）当&#x2F;etc&#x2F;rc.d&#x2F;rc.sysinit执行完后，系统就可以顺利工作了，只是还需要启动系统所需要的各种服务，这样主机才可以提供相关的网络和主机功能，因此便会执行下面的脚本。<br>执行&#x2F;etc&#x2F;rc.d&#x2F;rc脚本。该文件定义了服务启动的顺序是先K后S，而具体的每个运行级别的服务状态是放在&#x2F;etc&#x2F;rc.d&#x2F;rc_.d（_&#x3D;0~6）目录下，所有的文件均是指向&#x2F;etc&#x2F;init.d下相应文件的符号链接。rc.sysinit通过分析&#x2F;etc&#x2F;inittab文件来确定系统的启动级别，然后才去执行&#x2F;etc&#x2F;rc.d&#x2F;rc_.d下的文件。<br>– 3）&#x2F;etc目录下的init.d、rc、rc_.d、rc.local和rc.sysinit均是指向&#x2F;etc&#x2F;rc.d目录下相应文件和文件夹的符号链接。我们以启动级别3为例来简要说明一下。<br>&#x2F;etc&#x2F;rc.d&#x2F;rc3.d目录，该目录下的内容全部都是以 S 或 K 开头的链接文件，都链接到”&#x2F;etc&#x2F;rc.d&#x2F;init.d”目录下的各种shell脚本。S表示的是启动时需要start的服务内容，K表示关机时需要关闭的服务内容。&#x2F;etc&#x2F;rc.d&#x2F;rc_.d中的系统服务会在系统后台启动，如果要对某个运行级别中的服务进行更具体的定制，通过chkconfig命令来操作，或者通过setup、ntsys、system-config-services来进行定制。如果我们需要自己增加启动的内容，可以在init.d目录中增加相关的shell脚本，然后在rc_.d目录中建立链接文件指向该shell脚本。这些shell脚本的启动或结束顺序是由S或K字母后面的数字决定，数字越小的脚本越先执行。例如，&#x2F;etc&#x2F;rc.d&#x2F;rc3.d &#x2F;S01sysstat就比&#x2F;etc&#x2F;rc.d&#x2F;rc3.d &#x2F;S99local先执行。<br>执行用户自定义引导程序&#x2F;etc&#x2F;rc.d&#x2F;rc.local。其实当执行&#x2F;etc&#x2F;rc.d&#x2F;rc3.d&#x2F;S99local时，它就是在执行&#x2F;etc&#x2F;rc.d&#x2F;rc.local。S99local是指向rc.local的符号链接。就是一般来说，自定义的程序不需要执行上面所说的繁琐的建立shell增加链接文件的步骤，只需要将命令放在rc.local里面就可以了，这个shell脚本就是保留给用户自定义启动内容的。</p>
-<h2 id="4-定制自己的项目"><a href="#4-定制自己的项目" class="headerlink" title="4.定制自己的项目"></a>4.定制自己的项目</h2><p>在使用飞凌开发板做项目的时候，因为开机想启动自己的脚本，所以想采用软链接的方式将自己的脚本文件放在&#x2F;etc&#x2F;init.d的目录下 在目录下创建文件 ip.sh 加可执行权限<br>在使用软链接的时候因为不确定什么启动合适 所以选择S100 并且链接的是rc5.d<br>ln -s &#x2F;etc&#x2F;init.d&#x2F;ip.sh &#x2F;etc&#x2F;rc5.d&#x2F;S100ip 这个是建立软链接方式</p>
-<p>ln -s &#x2F;etc&#x2F;init.d&#x2F;start.sh &#x2F;etc&#x2F;rc5.d&#x2F;S99start.sh</p>
-<p>设置环境变量 在 &#x2F;etc&#x2F;profile.d&#x2F;下创建.sh文件。在shell文件中写入自己的环境变量<br>例子：在&#x2F;etc&#x2F;profile.d&#x2F;创建path.sh文件<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"><br>除了在&#x2F;etc&#x2F;profile.d&#x2F;目录下创建shell 文件外，还可以使用软链接的方式，将文件创建在别的目录下 软链接方式 ln -s path.sh &#x2F;etc&#x2F;profile.d&#x2F;path.sh #创建此文件的软链接<br>开机运行命令<br>也可写一些其他需要开机运行的shell命令。如笔者在&#x2F;etc&#x2F;profile.d&#x2F;startup.sh文件中定义了启动mysql的别名，这样在想开启时只需输入别名就可以了。当然也可以将一些需要开机启动的程序启动命令写入这个shell文件中(注意要在这些启动程序命令后面加 ＆ 符号使该程序在后台运行，否则启动的程序会阻塞登录bash）</p>
-<p>在这里记录下自己的start.h 脚本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"></span><br><span class="line">export TSLIB_TSDEVICE=/dev/input/touchscreen0</span><br><span class="line">export TSLIB_CONFFILE=/etc/ts.conf</span><br><span class="line">export TSLIB_PLUGINDIR=/usr/lib/ts</span><br><span class="line">export POINTERCAL_FILE=/etc/pointercal</span><br><span class="line">export TSLIB_CALIBFILE=/etc/pointercal</span><br><span class="line">export TSLIB_CONSOLEDEVICE=none</span><br><span class="line">export TSLIB_FBDEVICE=/dev/fb0</span><br><span class="line">export QTDIR=/forlinx/qt</span><br><span class="line">export LD_LIBRARY_PATH=$QTDIR/lib:/home/SDL/CodProject/lib/arm:$LD_LIBRARY_PATH</span><br><span class="line">export QT_QWS_FONTDIR=$QTDIR/lib/fonts</span><br><span class="line">export HOME=/forlinx/qt</span><br><span class="line">export MULTIGAS=/home/SDL/CodProject</span><br><span class="line">export QWS_DISPLAY=linuxFb:/dev/fb0</span><br><span class="line">export QWS_MOUSE_PROTO=&quot;Tslib MouseMan:/dev/input/mice&quot;</span><br><span class="line"></span><br><span class="line">cd /home/SDL/CodProject/bin/execute</span><br><span class="line">./MultiGas -qws -fn unifont 2&gt;/dev/null &amp;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/C++%20%E5%A4%9A%E6%80%81%E5%92%8C%20%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/10/14/C++%20%E5%A4%9A%E6%80%81%E5%92%8C%20%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">C++ 多态和 虚函数的理解</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-10-14 18:40:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:40:00+08:00">242024-10-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 18:19:46" itemprop="dateModified" datetime="2025-12-09T18:19:46+08:00">2025-12-09</time>
-              </span>
+            </span>
 
           
 
@@ -356,7 +249,7 @@
           <p>本文深入探讨了C++中的多态性概念和虚函数的实现原理。多态是面向对象编程的核心特性之一，通过虚函数表（V-Table）机制实现运行时多态。文章详细解释了静态类型与动态类型的区别，虚函数表在不同继承情况下的结构变化，并通过代码示例展示了如何访问虚函数表。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/242024/10/14/C++%20%E5%A4%9A%E6%80%81%E5%92%8C%20%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/#more" rel="contents">
+              <a class="btn" href="/2024/10/14/C++%20%E5%A4%9A%E6%80%81%E5%92%8C%20%E8%99%9A%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -380,7 +273,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/Template%20Method%20%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/Template%20Method%20%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -394,7 +287,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/Template%20Method%20%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Template Method 模板模式</a>
+            <a href="/2024/10/14/Template%20Method%20%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Template Method 模板模式</a>
         </h2>
 
         <div class="post-meta">
@@ -404,14 +297,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 18:39:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:39:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 18:39:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:39:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 18:20:52" itemprop="dateModified" datetime="2025-12-09T18:20:52+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -428,7 +321,7 @@
           <p>模板方法模式是一种行为型设计模式，它在一个方法中定义了一个算法的骨架，而将一些步骤延迟到子类中实现。本文通过程序库开发的具体实例，展示了模板方法模式如何稳定算法的整体结构，同时允许子类灵活地改变特定步骤。文章详细解释了”不要调用我，让我来调用你”的反向控制结构。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/242024/10/14/Template%20Method%20%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+              <a class="btn" href="/2024/10/14/Template%20Method%20%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -452,7 +345,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/Strategy%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/Strategy%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -466,7 +359,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/Strategy%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Strategy 策略模式</a>
+            <a href="/2024/10/14/Strategy%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Strategy 策略模式</a>
         </h2>
 
         <div class="post-meta">
@@ -476,14 +369,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 18:37:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:37:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 18:37:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:37:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 18:20:38" itemprop="dateModified" datetime="2025-12-09T18:20:38+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -500,7 +393,7 @@
           <p>策略模式是一种行为型设计模式，它定义了一系列算法，将每个算法封装起来，并使它们可以互相替换。本文通过税率计算的实例，对比了使用条件语句的传统方式和策略模式的实现，详细讲解了策略模式如何解决算法变化的问题，让算法独立于使用它的客户端而变化。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/242024/10/14/Strategy%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+              <a class="btn" href="/2024/10/14/Strategy%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -524,7 +417,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -538,7 +431,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">函数指针和指针函数</a>
+            <a href="/2024/10/14/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E5%92%8C%E6%8C%87%E9%92%88%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">函数指针和指针函数</a>
         </h2>
 
         <div class="post-meta">
@@ -548,14 +441,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 18:18:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:18:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 18:18:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:18:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-14 18:19:21" itemprop="dateModified" datetime="2024-10-14T18:19:21+08:00">2024-10-14</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -617,7 +510,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/Poco%20Sharelibrary/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/Poco%20Sharelibrary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -631,7 +524,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/Poco%20Sharelibrary/" class="post-title-link" itemprop="url">Poco Sharelibrary</a>
+            <a href="/2024/10/14/Poco%20Sharelibrary/" class="post-title-link" itemprop="url">Poco Sharelibrary</a>
         </h2>
 
         <div class="post-meta">
@@ -641,15 +534,32 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 18:10:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:10:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 18:10:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:10:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-14 18:10:57" itemprop="dateModified" datetime="2024-10-14T18:10:57+08:00">2024-10-14</time>
+                <time title="修改时间：2025-12-09 19:19:14" itemprop="dateModified" datetime="2025-12-09T19:19:14+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Poco/" itemprop="url" rel="index"><span itemprop="name">Poco</span></a>
+                </span>
+            </span>
 
           
 
@@ -663,236 +573,9 @@
 
       
           <h3 id="Loading-shared-libraries-and-classes-dynamically-at-runtime"><a href="#Loading-shared-libraries-and-classes-dynamically-at-runtime" class="headerlink" title="Loading shared libraries and classes dynamically at runtime."></a><strong><em>Loading shared libraries and classes dynamically at runtime.</em></strong></h3><p>Poco sharelibrary提供了在运行时加载动态库的方式<br>概述:<br>-&gt;<strong>Shared Lirbrary</strong><br>-&gt;<strong>The Class Loader</strong></p>
-<h1 id="shared-library"><a href="#shared-library" class="headerlink" title="shared library"></a>shared library</h1><ul>
-<li><p>-&gt;<strong>Most modern platforms provide facilities to load program modules in the form of shared libraries (dynamic link libraries) at runtime.</strong><br>  大多数现代平台都提供了在运行时以共享库（动态链接库）的形式加载程序模块的工具。</p>
-</li>
-<li><p>-&gt;<strong>Windows provides a LoadLibrary() function, most Unix platforms have dlopen().</strong><br>  windows 平台提供了 loadlibrary（）函数，大多数unix平台提供了dlopen（）函数</p>
-</li>
-<li><p>-&gt;<strong>To use a dynamically loaded shared library, an entry point (address of a function) into the library must be found. The address can then be casted to an appropriate function pointer,and the function can be called.</strong><br>  使用动态的加载动态库，必须找到库的一个入口点（函数地址）,然后可以将地址转化成为适当的函数指针，并且可以调用该函数</p>
-</li>
-</ul>
-<h1 id="The-SharedLibrary-Class"><a href="#The-SharedLibrary-Class" class="headerlink" title="The SharedLibrary Class"></a>The SharedLibrary Class</h1><ul>
-<li><p>-&gt; <strong>Poco::SharedLibrary is POCO’s interface to the operating system’s dynamic linker&#x2F;loader.</strong><br>  Poco :: SharedLibrary是POCO与操作系统动态链接器&#x2F;加载器的接口。</p>
-</li>
-<li><p>-&gt; <strong>#include “Poco&#x2F;SharedLibrary.h”</strong><br>  包含头文件</p>
-</li>
-<li><p>-&gt; <strong>Poco::SharedLibrary provides low-level functions for loading a shared library, for looking up the address of a symbol, and for unloading a shared library.</strong><br>  Poco :: SharedLibrary提供了用于加载共享库，查找符号地址和卸载共享库的低级函数。</p>
-</li>
-</ul>
-<h1 id="SharedLibrary-Functions"><a href="#SharedLibrary-Functions" class="headerlink" title="SharedLibrary Functions"></a>SharedLibrary Functions</h1><ul>
-<li><p>-&gt; <strong>void load(const std::string&amp; path)</strong><br>  从给定路径加载共享库</p>
-</li>
-<li><p>-&gt;<strong>void unload()</strong><br>  卸载动态库</p>
-</li>
-<li><p>-&gt;<strong>bool hasSymbol(const std::string&amp; name)</strong><br>  如果库包含具有给定名称的链接符号，则返回true</p>
-</li>
-<li><p>-&gt;<em><em>void</em> getSymbol(const std::string&amp; name)</em>*<br>  返回具有给定名称的符号的地址。 对于函数，这是函数的入口点。 要调用该函数，强制转换为函数指针并通过它调用。</p>
-</li>
-</ul>
-<p>使用例子</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#if defined(_WIN32)</span><br><span class="line">#define LIBRARY_API __declspec(dllexport)</span><br><span class="line">#else</span><br><span class="line">#define LIBRARY_API</span><br><span class="line">#endif</span><br><span class="line">extern &quot;C&quot; void LIBRARY_API hello();</span><br><span class="line">void hello()</span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; &quot;Hello, world!&quot; &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line">// LibraryLoaderTest.cpp</span><br><span class="line">#include &quot;Poco/SharedLibrary.h&quot;</span><br><span class="line">using Poco::SharedLibrary;</span><br><span class="line">typedef void (*HelloFunc)(); // function pointer type</span><br><span class="line">int main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">    std::string path(&quot;TestLibrary&quot;);</span><br><span class="line">    path.append(SharedLibrary::suffix()); // adds &quot;.dll&quot; or &quot;.so&quot;</span><br><span class="line">    SharedLibrary library(path); // will also load the library</span><br><span class="line">    HelloFunc func = (HelloFunc) library.getSymbol(&quot;hello&quot;);</span><br><span class="line">    func();</span><br><span class="line">    library.unload();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="The-Class-Loader"><a href="#The-Class-Loader" class="headerlink" title="The Class Loader"></a>The Class Loader</h1><ul>
-<li><p>-&gt;<strong>Poco::ClassLoader is POCO’s high level interface for loading classes from shared libraries. It is well suited for implementing typical plug-in architectures.</strong><br>  Poco :: ClassLoader是POCO的高级接口，用于从共享库加载类。 它非常适合实现典型的插件架构。</p>
-</li>
-<li><p>-&gt;<strong>#include “Poco&#x2F;ClassLoader.h”</strong></p>
-</li>
-<li><p>-&gt;<strong>All classes loaded with a specific class loader must be subclasses of a common base class. Poco::ClassLoader is a class template that must be instantiated for the base class.</strong><br>  所有加载了特定类加载器的类都必须是公共基类的子类。 Poco :: ClassLoader是一个必须为基类实例化的类模板。</p>
-</li>
-<li><p>-&gt;<strong>A base class is necessary because the application loading a plugin needs an interface to access it.</strong><br>  基类是必需的，因为加载插件的应用程序需要一个接口来访问它。</p>
-</li>
-</ul>
-<h1 id="The-Class-Loader-cont’d"><a href="#The-Class-Loader-cont’d" class="headerlink" title="The Class Loader (cont’d)"></a>The Class Loader (cont’d)</h1><ul>
-<li><p>-&gt;<strong>A shared library that is used with the class loader can only export classes that have a common base class.</strong><br>  与类加载器一起使用的共享库只能导出具有公共基类的类。</p>
-</li>
-<li><p>-&gt;<strong>However, this is not really a restriction, because the exported class can be a factory for objects of arbitrary classes.</strong><br>  但是，这并不是一个限制，因为导出的类可以是任意类对象的工厂。</p>
-</li>
-<li><p>-&gt;<strong>A shared library used with the class loader exports a Manifest describing all classes exported by the library.</strong><br>  与类加载器一起使用的共享库导出一个Manifest，用于描述库导出的所有类。</p>
-</li>
-<li><p>-&gt;<strong>Furthermore, the shared library must export specific functions that are used by the class loader.</strong><br>  此外，动态库必须导出特殊的的函数在用类加载的时候</p>
-</li>
-<li><p>-&gt;<strong>POCO provides macros that automate the implementation of these functions.</strong><br>  POCO提供自动执行这些功能的宏。</p>
-</li>
-</ul>
-<h1 id="Manifest-and-MetaObject"><a href="#Manifest-and-MetaObject" class="headerlink" title="Manifest and MetaObject"></a>Manifest and MetaObject</h1><ul>
-<li><p>-&gt;<strong>A library’s Manifest maintains a list of all classes contained in a dynamically loadable class library.</strong><br>  库的Manifest维护一个动态可加载类库中包含的所有类的列表。</p>
-</li>
-<li><p>-&gt;<strong>It manages that information as a collection of meta objects</strong><br>  它将该信息作为元对象的集合进行管理</p>
-</li>
-<li><p>-&gt;<strong>A MetaObject manages the lifetime of objects of a given class. It is used to create instances of a class, and to delete them.</strong><br>  MetaObject管理给定类的对象的生命周期。 它用于创建类的实例，并删除它们。</p>
-</li>
-<li><p>-&gt;<strong>As a special feature, class libraries can export singletons.</strong><br>  作为一个特殊功能，类库可以导出单例。</p>
-</li>
-</ul>
-<h1 id="The-MetaObject-Class"><a href="#The-MetaObject-Class" class="headerlink" title="The MetaObject Class"></a>The MetaObject Class</h1><ul>
-<li><p>-&gt;<strong>MetaObject&lt;Class, Base&gt; is a class template, instantiated with the class it maintains, and its lowest base class.</strong><br>  MetaObject &lt;Class，Base&gt;是一个类模板，使用它维护的类进行实例化，以及它的最低基类。</p>
-</li>
-<li><p>-&gt;<strong>MetaObject&lt;Class, Base&gt; is derived from AbstractMetaObject.</strong><br>  MetaObject&lt;Class, Base&gt; 是继承自 AbstractMetaObject</p>
-</li>
-<li><p>-&gt;<strong>A MetaObject can be used to create new instances of a class (unless the class is exported as a singleton)</strong><br>  MetaObject可用于创建类的新实例（除非将类导出为单例)</p>
-</li>
-<li><p>-&gt;<strong>Like a AutoReleasePool, a MetaObject can take care of no longer needed objects.</strong><br>  与AutoReleasePool一样，MetaObject可以处理不再需要的对象。</p>
-</li>
-<li><p>-&gt;<strong>A MetaObject can manage singletons</strong><br>  MetaObject可以管理单例</p>
-</li>
-</ul>
-<h1 id="The-MetaObject-Class-cont’d"><a href="#The-MetaObject-Class-cont’d" class="headerlink" title="The MetaObject Class (cont’d)"></a>The MetaObject Class (cont’d)</h1><ul>
-<li><p>-&gt;<em><em>const char</em> name()</em>*<br>  返回类的名字</p>
-</li>
-<li><p>-&gt; <em><em>Base</em> create() const</em>*<br>  创建一个新的Class实例，除非它是一个单例。</p>
-</li>
-<li><p>-&gt; <strong>Base&amp; instance() const</strong><br>  返回对单例的唯一实例的引用。</p>
-</li>
-<li><p>-&gt; <strong>bool canCreate() const</strong><br>  如果可以创建新实例，则返回true;如果类是单例，则返回false。</p>
-</li>
-<li><p>-&gt; <em><em>Base</em> autoDelete(Base</em> pObject)**<br>  将对象的所有权赋予MetaObject。 MetaObject将删除它在销毁时拥有的所有对象。</p>
-</li>
-<li><p>-&gt;<em><em>bool isAutoDelete(Base</em> pObject)</em>*<br>  如果MetaObject拥有pObject，则返回true，否则返回false。</p>
-</li>
-<li><p>-&gt;<em><em>void destroy(Base</em> pObject)</em>*<br>  如果MetaObject拥有pObject，它将立即被删除</p>
-</li>
-</ul>
-<h1 id="The-MetaSingletonClass"><a href="#The-MetaSingletonClass" class="headerlink" title="The MetaSingletonClass"></a>The MetaSingletonClass</h1><ul>
-<li><p>-&gt;<strong>This is a sister class of MetaObject used for managing singletons.</strong><br>  这是用于管理单例的MetaObject的相关类。</p>
-</li>
-<li><p>-&gt;<strong>It has the same interface as MetaObject.</strong><br>  它与MetaObject具有相同的接口。</p>
-</li>
-</ul>
-<h1 id="The-Manifest-Class"><a href="#The-Manifest-Class" class="headerlink" title="The Manifest Class"></a>The Manifest Class</h1><ul>
-<li><p>-&gt;<strong>Poco::Manifest basically is a collection of meta objects.</strong><br>  Poco :: Manifest基本上是元对象的集合。</p>
-</li>
-<li><p>-&gt;<strong>#include “Poco&#x2F;Manifest.h”</strong></p>
-</li>
-<li><p>-&gt;<strong>Poco::Manifest::Iterator is used to iterate over its meta objects.</strong><br>  Poco :: Manifest :: Iterator用于迭代其元对象。</p>
-</li>
-<li><p>-&gt;<strong>Manifest::Iterator find(const std::string&amp; className)</strong><br>  返回指向给定类的元对象的迭代器，如果找不到类，则返回结束迭代器。</p>
-</li>
-<li><p>-&gt;<strong>Manifest::Iterator begin() const</strong></p>
-</li>
-<li><p><strong>Manifest::Iterator end() const</strong><br>  分别返回begin和end迭代器。</p>
-</li>
-</ul>
-<h1 id="Writing-a-Class-Library"><a href="#Writing-a-Class-Library" class="headerlink" title="Writing a Class Library"></a>Writing a Class Library</h1><ul>
-<li><p>-&gt;<strong>For a class library to work with the class loader, it must export a manifest.</strong><br>  对于使用类加载器的类库，它必须导出清单。</p>
-</li>
-<li><p>-&gt;<em><em>The class library must provide a function<br>  bool pocoBuildManifest(ManifestBase</em> pManifest)<br>  that builds a manifest for the library</em>*<br>  类库必须提供一个函数,为库构建清单。</p>
-</li>
-<li><p>-&gt;<strong>The Poco&#x2F;ClassLibrary.h header file provides macros to automatically implement this function for a class library</strong><br>  Poco &#x2F; ClassLibrary.h头文件提供了自动为类库实现此功能的宏</p>
-</li>
-<li><p>-&gt;<strong>Optionally, a class library can export an initialization and a clean up function.</strong><br>  或者，一个类库可以导出初始化和清理功能。</p>
-</li>
-</ul>
-<h1 id="Writing-a-Class-Library-cont’d"><a href="#Writing-a-Class-Library-cont’d" class="headerlink" title="Writing a Class Library (cont’d)"></a>Writing a Class Library (cont’d)</h1><ul>
-<li><p>-&gt; <strong>These macros are used as follows:<br>  POCO_BEGIN_MANIFEST(MyBaseClass)<br>  POCO_EXPORT_CLASS(MyFirstClass)<br>  POCO_EXPORT_CLASS(MySecondClass)<br>  POCO_EXPORT_SINGLETON(MySingleton)<br>  POCO_END_MANIFEST</strong></p>
-</li>
-<li><p>-&gt; <strong>A class library can export a setup and a cleanup function:<br>  void pocoInitializeLibrary()<br>  void pocoUninitializeLibrary()<br>  which will be called by the class loader, if present.</strong></p>
-</li>
-</ul>
-<h1 id="The-Class-Loader-again"><a href="#The-Class-Loader-again" class="headerlink" title="The Class Loader (again)"></a>The Class Loader (again)</h1><ul>
-<li><p>-&gt; <strong>A ClassLoader maintains a collection of class libraries, as well as their manifests.</strong><br>  ClassLoader维护一个类库集合及其清单。</p>
-</li>
-<li><p>-&gt;<strong>void loadLibrary(const std::string&amp; path)</strong><br>  将类库添加到内存中并运行设置功能（如果存在）。</p>
-</li>
-<li><p>-&gt;<strong>void unloadLibrary(const std::string&amp; path)</strong><br>  卸载类库。</p>
-</li>
-<li><p>-&gt;<strong>!!Never unload a class library if there are still objects from this library around in memory.</strong><br>  如果内存中仍有来自此库的对象，则永远不要卸载类库。</p>
-</li>
-</ul>
-<h1 id="The-Class-Loader-again-cont’d"><a href="#The-Class-Loader-again-cont’d" class="headerlink" title="The Class Loader (again, cont’d)"></a>The Class Loader (again, cont’d)</h1><ul>
-<li><p>-&gt;<em><em>const Meta</em> findClass(const std::string&amp; className) const</em>*<br>  在所有已加载的库中查找给定类的元对象。如果找到则返回指向元对象的指针，否则返回null。</p>
-</li>
-<li><p>-&gt;<strong>const Meta&amp; classFor(const std::string&amp; className)</strong><br>  类似于findClass（），但如果该类未知，则抛出NotFoundException。</p>
-</li>
-<li><p>-&gt;<em><em>Base</em> create(const std::string&amp; className)</em>*<br>  如果类未知，则创建类的新实例或抛出NotFoundException。</p>
-</li>
-<li><p>-&gt;<strong>Base&amp; instance(const std::string&amp; className)</strong><br>  如果类未知，则返回对单例类的唯一实例的引用或抛出NotFoundException。</p>
-</li>
-<li><p>-&gt; <strong>Iterator begin() const<br>  Iterator end() const</strong><br>  返回一个开始&#x2F;结束迭代器，用于迭代所有已加载库的清单。 取消引用迭代器将返回一个指向std :: pair的指针，该对包含类库的路径和指向其清单的指针。</p>
-</li>
-</ul>
-<p>示例代码:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">// AbstractPlugin.h</span><br><span class="line">//</span><br><span class="line">// This is used both by the class library and by the application.</span><br><span class="line">#ifndef AbstractPlugin_INCLUDED</span><br><span class="line">#define AbstractPlugin_INCLUDED</span><br><span class="line">class AbstractPlugin</span><br><span class="line">&#123;</span><br><span class="line">    public:</span><br><span class="line">    AbstractPlugin();</span><br><span class="line">    virtual ~AbstractPlugin();</span><br><span class="line">    virtual std::string name() const = 0;</span><br><span class="line">&#125;;</span><br><span class="line">#endif // AbstractPlugin.h</span><br><span class="line">// AbstractPlugin.cpp</span><br><span class="line">//</span><br><span class="line">// This is used both by the class library and by the application.</span><br><span class="line">#include &quot;AbstractPlugin.h&quot;</span><br><span class="line">AbstractPlugin::AbstractPlugin()</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line">AbstractPlugin::~AbstractPlugin()</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line">// PluginLibrary.cpp</span><br><span class="line">#include &quot;AbstractPlugin.h&quot;</span><br><span class="line">#include &quot;Poco/ClassLibrary.h&quot;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">class PluginA: public AbstractPlugin</span><br><span class="line">&#123;</span><br><span class="line">    public:</span><br><span class="line">    std::string name() const</span><br><span class="line">    &#123;</span><br><span class="line">    return &quot;PluginA&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">class PluginB: public AbstractPlugin</span><br><span class="line">&#123;</span><br><span class="line">    public:</span><br><span class="line">    std::string name() const</span><br><span class="line">    &#123;</span><br><span class="line">    return &quot;PluginB&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">POCO_BEGIN_MANIFEST(AbstractPlugin)</span><br><span class="line">POCO_EXPORT_CLASS(PluginA)</span><br><span class="line">POCO_EXPORT_CLASS(PluginB)</span><br><span class="line">POCO_END_MANIFEST</span><br><span class="line">// optional set up and clean up functions</span><br><span class="line">void pocoInitializeLibrary()</span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; &quot;PluginLibrary initializing&quot; &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line">void pocoUninitializeLibrary()</span><br><span class="line">&#123;</span><br><span class="line">    std::cout &lt;&lt; &quot;PluginLibrary uninitializing&quot; &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line">// main.cpp</span><br><span class="line">#include &quot;Poco/ClassLoader.h&quot;</span><br><span class="line">#include &quot;Poco/Manifest.h&quot;</span><br><span class="line">#include &quot;AbstractPlugin.h&quot;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">typedef Poco::ClassLoader&lt;AbstractPlugin&gt; PluginLoader;</span><br><span class="line">typedef Poco::Manifest&lt;AbstractPlugin&gt; PluginManifest;</span><br><span class="line">int main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">    PluginLoader loader;</span><br><span class="line">    std::string libName(&quot;PluginLibrary&quot;);</span><br><span class="line">    libName += Poco::SharedLibrary::suffix(); // append .dll or .so</span><br><span class="line">    loader.loadLibrary(libName);</span><br><span class="line">    PluginLoader::Iterator it(loader.begin());</span><br><span class="line">    PluginLoader::Iterator end(loader.end());</span><br><span class="line">    for (; it != end; ++it)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; &quot;lib path: &quot; &lt;&lt; it-&gt;first &lt;&lt; std::endl;</span><br><span class="line">        PluginManifest::Iterator itMan(it-&gt;second-&gt;begin());</span><br><span class="line">        PluginManifest::Iterator endMan(it-&gt;second-&gt;end());</span><br><span class="line">        for (; itMan != endMan; ++itMan)</span><br><span class="line">            std::cout &lt;&lt; itMan-&gt;name() &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    AbstractPlugin* pPluginA = loader.create(&quot;PluginA&quot;);</span><br><span class="line">    AbstractPlugin* pPluginB = loader.create(&quot;PluginB&quot;);</span><br><span class="line">    std::cout &lt;&lt; pPluginA-&gt;name() &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; pPluginB-&gt;name() &lt;&lt; std::endl;</span><br><span class="line">    loader.classFor(&quot;PluginA&quot;).autoDelete(pPluginA);</span><br><span class="line">    delete pPluginB;</span><br><span class="line">    loader.unloadLibrary(libName);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>具体使用思路：<br>我们在程序进行模块化开发过程中,可以使用poco的sharelibrary来实现。下面有个简单的例子,使用Qt开发。</p>
-<p>这里相当于我们动态库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">shareFunction.h</span><br><span class="line">#ifndef SHAREDFUNCTION_H</span><br><span class="line">#define SHAREDFUNCTION_H</span><br><span class="line"></span><br><span class="line">#include &quot;sharedFunction_global.h&quot;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line"></span><br><span class="line">extern &quot;C&quot; void SHAREDFUNCTIONSHARED_EXPORT hello(const std::string &amp;name );</span><br><span class="line"></span><br><span class="line">class SHAREDFUNCTIONSHARED_EXPORT SharedFunction &#123;</span><br><span class="line">public:</span><br><span class="line">    SharedFunction();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif // SHAREDFUNCTION_H</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">shareFunction.cpp</span><br><span class="line">#include &quot;sharedfunction.h&quot;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;QDebug&gt;</span><br><span class="line">void hello(const std::string &amp;name )</span><br><span class="line">&#123;</span><br><span class="line">    if(name == &quot;function&quot;)</span><br><span class="line">    &#123;</span><br><span class="line">        SharedFunction* func = new SharedFunction();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SharedFunction::SharedFunction()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">qDebug ()&lt;&lt;&quot;this is shardFunciton&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">shareFunction_global</span><br><span class="line">#ifndef SHAREDFUNCTION_GLOBAL_H</span><br><span class="line">#define SHAREDFUNCTION_GLOBAL_H</span><br><span class="line"></span><br><span class="line">#include &lt;QtCore/qglobal.h&gt;</span><br><span class="line"></span><br><span class="line">#if defined(SHAREDFUNCTION_LIBRARY)</span><br><span class="line">#  define SHAREDFUNCTIONSHARED_EXPORT Q_DECL_EXPORT</span><br><span class="line">#else</span><br><span class="line">#  define SHAREDFUNCTIONSHARED_EXPORT Q_DECL_IMPORT</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">#endif // SHAREDFUNCTION_GLOBAL_H</span><br></pre></td></tr></table></figure>
-
-<p>这里为我们的客户端</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">main.cpp</span><br><span class="line">#include &lt;QtCore/QCoreApplication&gt;</span><br><span class="line">#include &quot;Poco/SharedLibrary.h&quot;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;QDebug&gt;</span><br><span class="line"></span><br><span class="line">#include &quot;Poco/ClassLoader.h&quot;</span><br><span class="line">#include &quot;Poco/Manifest.h&quot;</span><br><span class="line">#include &quot;shareClass/shareclass.h&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/***   导出函数  *****/</span><br><span class="line">using  Poco::SharedLibrary;</span><br><span class="line"></span><br><span class="line">typedef void (*helloFunc)(const std::string&amp;name);</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    QCoreApplication a(argc, argv);</span><br><span class="line">    std::string path(&quot;/home/ning/test/shareLibrary/sharedFunction/libsharedFunction&quot;);//库存放的目录</span><br><span class="line">    //std::string pathA(&quot;/home/ning/test/shareLibrary/sharedFunctionA/libsharedFunctionA&quot;);</span><br><span class="line"></span><br><span class="line">    path.append (SharedLibrary::suffix());//根据平台返回类库名称</span><br><span class="line">    //pathA.append (SharedLibrary::suffix());</span><br><span class="line">    Poco::SharedLibrary library(path);</span><br><span class="line">    //Poco::SharedLibrary libraryA(pathA);</span><br><span class="line"></span><br><span class="line">    //根据函数名称返回函数地址</span><br><span class="line">    helloFunc func = (helloFunc)library.getSymbol (&quot;hello&quot;);</span><br><span class="line">    //func = (helloFunc)libraryA.getSymbol (&quot;hello&quot;);</span><br><span class="line"></span><br><span class="line">    //去实例化我们库</span><br><span class="line">    func(&quot;function&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    library.unload ();</span><br><span class="line"></span><br><span class="line">    return a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>以上只是个简单的应用，在实际应用中，我们要写好类库的管理的代码，将每个实例化的库放到一个容器里面去保存，方便后续的继续调用。这里只是记录下思路，不做具体的代码.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/Observer%20%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/10/14/Observer%20%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Observer 观察者模式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-10-14 18:08:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:08:00+08:00">242024-10-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 18:21:01" itemprop="dateModified" datetime="2025-12-09T18:21:01+08:00">2025-12-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>观察者模式是一种行为型设计模式，它定义了对象之间的一对多依赖关系，让多个观察者对象同时监听某一个主题对象。本文通过文件分割进度通知的实例，详细讲解了观察者模式如何解耦主题和观察者，实现松耦合的通知机制。文章还解释了依赖倒置原则在观察者模式中的应用。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/242024/10/14/Observer%20%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+              <a class="btn" href="/2024/10/14/Poco%20Sharelibrary/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -916,7 +599,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/QT%20%E4%B8%8D%E5%90%8C%E6%96%B9%E5%BC%8F%E5%8A%A0%E8%BD%BD%E6%A0%B7%E5%BC%8F%E8%A1%A8%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/Observer%20%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -930,7 +613,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/QT%20%E4%B8%8D%E5%90%8C%E6%96%B9%E5%BC%8F%E5%8A%A0%E8%BD%BD%E6%A0%B7%E5%BC%8F%E8%A1%A8%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Qt 样式表文件“Could not parse stylesheet of widget 0x9d92218”</a>
+            <a href="/2024/10/14/Observer%20%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Observer 观察者模式</a>
         </h2>
 
         <div class="post-meta">
@@ -940,14 +623,103 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 13:40:00" itemprop="dateCreated datePublished" datetime="242024-10-14T13:40:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 18:08:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:08:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 17:31:49" itemprop="dateModified" datetime="2025-12-09T17:31:49+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:18:33" itemprop="dateModified" datetime="2025-12-09T19:18:33+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>观察者模式是一种行为型设计模式，它定义了对象之间的一对多依赖关系，让多个观察者对象同时监听某一个主题对象。本文通过文件分割进度通知的实例，详细讲解了观察者模式如何解耦主题和观察者，实现松耦合的通知机制。文章还解释了依赖倒置原则在观察者模式中的应用。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/14/Observer%20%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/QT%20%E4%B8%8D%E5%90%8C%E6%96%B9%E5%BC%8F%E5%8A%A0%E8%BD%BD%E6%A0%B7%E5%BC%8F%E8%A1%A8%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/14/QT%20%E4%B8%8D%E5%90%8C%E6%96%B9%E5%BC%8F%E5%8A%A0%E8%BD%BD%E6%A0%B7%E5%BC%8F%E8%A1%A8%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Qt 样式表文件“Could not parse stylesheet of widget 0x9d92218”</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-10-14 13:40:00" itemprop="dateCreated datePublished" datetime="2024-10-14T13:40:00+08:00">2024-10-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -988,7 +760,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/bridge%20%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/Decorator%20%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1002,7 +774,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/bridge%20%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">bridge 桥接模式</a>
+            <a href="/2024/10/14/Decorator%20%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Decorator 装饰模式</a>
         </h2>
 
         <div class="post-meta">
@@ -1012,15 +784,126 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 13:38:00" itemprop="dateCreated datePublished" datetime="242024-10-14T13:38:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 13:38:00" itemprop="dateCreated datePublished" datetime="2024-10-14T13:38:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 18:21:11" itemprop="dateModified" datetime="2025-12-09T18:21:11+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><ul>
+<li>在某些情况下我们可能会”过度的使用继承来扩展对象功能”，由于继承为类型引入的<strong>静态</strong>特质，使得这种拓展方式缺乏<strong>灵活性</strong>，并且随着<strong>子类</strong>的增多（扩展功能的增多），各种子类的组合（扩展功能的组合）会导致更多子类的膨胀.</li>
+<li>如何使”对象功能的扩展”能够根据需求动态的来实现？同时避免”扩展功能的增多”带来子类膨胀问题？从而使得任何”功能扩展变化”所导致的影响将为最低？</li>
+</ul>
+<h1 id="模式定义"><a href="#模式定义" class="headerlink" title="模式定义"></a>模式定义</h1><p>动态（组合）地给一个对象增加一些额外的职责。就增加功能而言，Decorator模式比生成子类（继承）更为灵活（消除重复代码 &amp; 减少子类个数）。 ——《设计模式》GoF</p>
+<p>Decorator属于”单一职责”模式：在软件组织的设计中，如果责任划分得不清晰，使用继承得到的结果往往是随着需求变化的，子类急剧膨胀，同时充斥着重复代码，这时候的关键是划清责任。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/14/Decorator%20%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/bridge%20%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/14/bridge%20%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">bridge 桥接模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-10-14 13:38:00" itemprop="dateCreated datePublished" datetime="2024-10-14T13:38:00+08:00">2024-10-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:27:41" itemprop="dateModified" datetime="2025-12-09T19:27:41+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+                </span>
+            </span>
 
           
 
@@ -1036,7 +919,92 @@
           <p>桥接模式是一种结构型设计模式，它将抽象部分与实现部分分离，使它们都可以独立地变化。本文通过消息发送器（Messager）的设计实例，展示了如何使用桥接模式解决多维变化的问题。文章对比了传统继承方案和桥接模式实现，说明了桥接模式如何通过组合替代继承，减少代码重复并提高系统的灵活性。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/242024/10/14/bridge%20%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+              <a class="btn" href="/2024/10/14/bridge%20%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/C++%20%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/14/C++%20%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">C++ 回调函数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-10-14 13:31:00" itemprop="dateCreated datePublished" datetime="2024-10-14T13:31:00+08:00">2024-10-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-回调函数的理解"><a href="#1-回调函数的理解" class="headerlink" title="1.回调函数的理解"></a>1.回调函数的理解</h1><p>回调函数是通过函数指针的方式调用函数（<a target="_blank" rel="noopener" href="http://isroot.cn/c/hanshuzhizhenhezhizhenhanshu/" title="关于函数指针的理解">关于函数指针的理解</a>）:把函数的指针(地址)作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数的时，这个函数就被称为是回调函数。回调函数不是由函数的实现方直接调用，而是在特定的时间或者条件发生是由另外一方调用的，用于对该事件或条件进行相应。<br>我们可以简单理解为当一个函数的参数是另一个函数的**<em>指针</em>**时，这个函数我们成为回调函数</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/14/C++%20%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1125,16 +1093,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1204,6 +1172,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 

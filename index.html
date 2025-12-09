@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="记录一些自己的见闻">
@@ -103,6 +103,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -132,11 +133,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -160,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +202,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/" class="post-title-link" itemprop="url">树莓派远程桌面和触摸屏翻转</a>
+            <a href="/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/" class="post-title-link" itemprop="url">树莓派远程桌面和触摸屏翻转</a>
         </h2>
 
         <div class="post-meta">
@@ -184,14 +212,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 19:43:00" itemprop="dateCreated datePublished" datetime="242024-11-12T19:43:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 19:43:00" itemprop="dateCreated datePublished" datetime="2024-11-12T19:43:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 19:29:14" itemprop="dateModified" datetime="2025-12-09T19:29:14+08:00">2025-12-09</time>
               </span>
 
           
@@ -209,94 +237,9 @@
 <ul>
 <li>远程桌面<br>只需要在 raspbian 下面安装一个服务 xdrp 即可。输入如下命令安装：<br><code>sudo apt-get install xrdp</code><br>然后就 Ok 了</li>
 </ul>
-<p>安装完成后使用 windows 远程桌面连接会出现报错 error – problem connecting，问题根源在于 tightvnc，出现问题的版本跟 X 字体有冲突，导致连接 Xserver 出错。<br><code>sudo apt-get purge tightvnc xrdp</code><br><code>sudo apt-get install tightvncserver xrdp</code></p>
-<p>最后启动 xrdp 服务，sudo &#x2F;etc&#x2F;init. d&#x2F;xrdp restart，此时会启用相应端口，配置方面默认即可。<br>通过命令：netstat -tnl<br>查看 3350 3389 5910 这三个端口处于 LISTEN，一般就没问题了。<br>dpkg -L + 软件包的名字，可以知道这个软件包包含了哪些文件。</p>
-<h1 id="翻转屏幕"><a href="#翻转屏幕" class="headerlink" title="翻转屏幕"></a>翻转屏幕</h1><p>1、切换为 root</p>
-<pre><code>su root
-</code></pre>
-<p>2、编辑&#x2F;boot&#x2F;config. txt，根据想旋转的角度<br>对于触摸屏添加如下内容：</p>
-<pre><code>lcd_rotate = 0 //不旋转
-lcd_rotate = 1 //旋转90度
-lcd_rotate = 2 //旋转180
-lcd_rotate = 3 //旋转270
-</code></pre>
-<p>对于 HDMI 显示输出，添加：</p>
-<p>如果是只是想旋转 HDMI 输出显示的角度（不用触摸屏）<br>则可以添加：</p>
-<pre><code>display_rotate = 0
-display_rotate = 1
-display_rotate = 2
-display_rotate = 3
-</code></pre>
-<p>3、reboot</p>
-<p>重启后，触摸屏驱动和显示都会旋转。。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/C++%20%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/11/12/C++%20%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">C++ 常用基础知识点总结</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-11-12 19:41:00" itemprop="dateCreated datePublished" datetime="242024-11-12T19:41:00+08:00">242024-11-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 18:20:17" itemprop="dateModified" datetime="2025-12-09T18:20:17+08:00">2025-12-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文总结了C++编程中的一些核心基础知识点，包括面向对象的三大特性（封装、继承、多态），内存管理中的堆与栈的区别，malloc&#x2F;new的差异，以及程序加载时的内存区域划分。这些是C++开发者必须掌握的基础概念，对于理解C++的内存管理和面向对象编程至关重要。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/242024/11/12/C++%20%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/#more" rel="contents">
+              <a class="btn" href="/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -320,7 +263,7 @@ display_rotate = 3
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9B%B4%E6%8D%A2%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%92%8C%E8%87%AA%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/C++%20%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -334,7 +277,7 @@ display_rotate = 3
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9B%B4%E6%8D%A2%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%92%8C%E8%87%AA%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">树莓派更换开机界面和自启动程序</a>
+            <a href="/2024/11/12/C++%20%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">C++ 常用基础知识点总结</a>
         </h2>
 
         <div class="post-meta">
@@ -344,15 +287,28 @@ display_rotate = 3
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 19:41:00" itemprop="dateCreated datePublished" datetime="242024-11-12T19:41:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 19:41:00" itemprop="dateCreated datePublished" datetime="2024-11-12T19:41:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
 
           
 
@@ -365,48 +321,15 @@ display_rotate = 3
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-默认开启-ssh"><a href="#1-默认开启-ssh" class="headerlink" title="1. 默认开启 ssh"></a>1. 默认开启 ssh</h1><p>树莓派最新系统是默认关闭 ssh 的。树莓派刷机后我们需要远程操作。要默认开启 ssh。将树莓派系统盘插在电脑上。在 boot 盘目录下新建个名称为 ssh 的空文件就可以</p>
-<h1 id="2-利用-ssh-远程登录树莓派"><a href="#2-利用-ssh-远程登录树莓派" class="headerlink" title="2. 利用 ssh 远程登录树莓派"></a>2. 利用 ssh 远程登录树莓派</h1><p>可以使用 putty 工具利用 ssh 远程登录树莓派。默认账号和密码为默认账号为 pi，默认密码是 raspberry.<br>安装远程桌面工具<br><code>sudo apt-get install xrdp</code><br>等待完成<br>在 windows 系统中找到远程桌面程序使用远程桌面登录树莓派。<br>登录树莓派后更新系统<br><code>sudo apt-get update</code></p>
-<p><code>sudo apt-get upgrade</code></p>
-<p><code>sudo apt-get dist-upgrade</code></p>
-<p><code>sudo rpi-update</code></p>
-<h1 id="3-更换树莓派开机界面"><a href="#3-更换树莓派开机界面" class="headerlink" title="3. 更换树莓派开机界面"></a>3. 更换树莓派开机界面</h1><ul>
-<li><ol>
-<li>禁用开机彩红屏以及开机代码扫描<br><code>sudo nano /boot/config.txt</code><br>找到 #disable_overcan &#x3D;1, 将前面的 #号去掉</li>
-</ol>
-</li>
-</ul>
-<p>在 config. txt 最后另起一行添加 disable_splash&#x3D;1<br>ctrl+x 保存退出</p>
-<ul>
-<li><ol start="2">
-<li>禁用树莓派左上角标志以及启动流程的代码流<br><code>sudo nano /boot/cmdline.txt</code><br>最开始的 console&#x3D;tty 1，改成 console&#x3D;tty 3，在第一行后面添加 logo. nologo loglevel&#x3D;3<br>ctrl+x 保存退出。<br>在树莓派最新的系统上经过本人验证以下步骤没用：</li>
-</ol>
-</li>
-</ul>
-<p>首先安装 fbi<br><code>sudo apt-get install fbi</code><br>界面图片准备<br>就开机界面的图片的分辨率不要超过屏幕分辨率，格式为. png，重命名为 splash. png，然后复制到&#x2F;etc&#x2F;目录下。</p>
-<p>开机脚本<br>在&#x2F;etc&#x2F;init. d&#x2F;目录下新建文件 asplashscreen<br><code>sudo nano /etc/init.d/asplashscreen</code></p>
-<p>在文件中输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">! /bin/sh</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Provides:          asplashscreen</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Required-Start:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Required-Stop:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Should-Start:</span>      </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Default-Start:     S</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Default-Stop:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Short-Description: Show custom splashscreen</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Description:       Show custom splashscreen</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">do_start () &#123;</span><br><span class="line"> </span><br><span class="line">    /usr/bin/fbi -T 1 -noverbose -a /etc/splash.png    </span><br><span class="line">    exit 0</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">  start|&quot;&quot;)</span><br><span class="line">    do_start</span><br><span class="line">    ;;</span><br><span class="line">  restart|reload|force-reload)</span><br><span class="line">    echo &quot;Error: argument &#x27;$1&#x27; not supported&quot; &gt;&amp;2</span><br><span class="line">    exit 3</span><br><span class="line">    ;;</span><br><span class="line">  stop)</span><br><span class="line">    # No-op</span><br><span class="line">    ;;</span><br><span class="line">  status)</span><br><span class="line">    exit 0</span><br><span class="line">    ;;</span><br><span class="line">  *)</span><br><span class="line">    echo &quot;Usage: asplashscreen [start|stop]&quot; &gt;&amp;2</span><br><span class="line">    exit 3</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line"> </span><br><span class="line">:</span><br></pre></td></tr></table></figure>
-<p>然后使这个文件可执行，开机自动运行：<br>sudo chmod a+x &#x2F;etc&#x2F;init. d&#x2F;asplashscreen<br>sudo insserv &#x2F;etc&#x2F;init. d&#x2F;asplashscreen<br>reboot</p>
-<p>我采用的方法直接替换 &#x2F;usr&#x2F;share&#x2F;plymouth&#x2F;themes&#x2F;pix&#x2F;splash. png 下的文件<br>将自己的图片替换 splash. png 文件重新开机显示的为自己的图片 sss</p>
-<h1 id="4-设置自己的启动程序"><a href="#4-设置自己的启动程序" class="headerlink" title="4. 设置自己的启动程序"></a>4. 设置自己的启动程序</h1><ul>
-<li><ol>
-<li>添加自启动方法一：向 rc. local 文件添加启动代码修改 rc. local 文件，在终端输入并回车：<br><code>pi@raspberry:~ $ sudo nano /etc/rc.local</code><br>在打开的文本中找到 exit 0，在此之前添加的代码在启动时都会被执行，在 exit 0 之前添加一行代码：<br><code>su pi -c &quot;exec /home/pi/testboot.sh&quot;</code><br>ctrl+o 保存，ctrl+x 退出，然后在终端输入：<br><code>sudo reboot </code><br>重启系统测试。<br>su 命令是指定在 pi 用户下执行这条命令，-c 表示执行完这条命令之后恢复原来的用户。<br>注意：系统启动时在执行这段代码时是使用 root 用户权限的，如果不指定 pi 用户，可能会因为权限问题导致脚本执行失败。</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>方法二：将程序作为服务启动在&#x2F;etc&#x2F;init. d&#x2F;目录下新建一个服务脚本文件。<br>在终端输入并回车<br><code>pi@raspberry:~ $ sudo nano /etc/init.d/testboot</code><br>在空白文件中输入以下内容：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">/etc/init.d/testboot</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Provides:testboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Required-Start:<span class="variable">$remote_fs</span> <span class="variable">$syslog</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Required-Stop:<span class="variable">$remote_fs</span> <span class="variable">$syslog</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Default-Start:2 3 4 5</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Default-Stop:0 1 6</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Short-Description: testboot</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Description: This service is used to start my applaction</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">     start)</span><br><span class="line">     echo &quot;start your app here.&quot;</span><br><span class="line">     su pi -c &quot;exec ~/testboot.sh&quot;</span><br><span class="line">     ;;</span><br><span class="line">     stop)</span><br><span class="line">     echo &quot;stop your app here.&quot;</span><br><span class="line">     ;;</span><br><span class="line">     *)</span><br><span class="line">     echo &quot;Usage: service testboot start|stop&quot;</span><br><span class="line">     exit 1</span><br><span class="line">     ;;</span><br><span class="line">esac</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
-ctrl+o 保存，ctrl+x 退出。设置脚本可执行权限：<br><code>pi@raspberry:~ $ sudo chmod 777 /etc/init.d/testboot</code><br>最后将该脚本作为服务设置开机自动加载：<br><code>pi@raspberry:~ $ sudo update-rc.d testboot defaultssudo reboot</code><br>重启测试。方法三：通过桌面启动此方法是在加载了桌面后再启动我们自定义的程序，因此需要安装带有桌面的版本，如果不是请跳过。<br>在&#x2F;home&#x2F;pi&#x2F;. config&#x2F;目录下新建一个名为 autostart 的文件夹：<br><code>pi@raspberry:~ $ mkdir .config/autostart</code><br>在 autostart 目录下新建 testboot. desktop （经测试名字任意，但后缀必须是. desktop）：<br><code>pi@raspberry:~ $ nano .config/autostart/testboot.desktop</code><br>文件内容如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Type=Application</span><br><span class="line">Name=testboot</span><br><span class="line">NoDisplay=true</span><br><span class="line">Exec=/home/pi/testboot.sh</span><br></pre></td></tr></table></figure>
-sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如果开启了多个桌面则会导致自定义的程序多次启动。比如系统启动桌面会调用一次 testboot. sh 脚本，如果再用远程桌面登录到树莓派，脚本会再执行一次。</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>方法四：使用 systemctl 设置服务在&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F; 下新建文件 testboot. service:<br><code>pi@raspberry:~ $ sudo nano /usr/lib/systemd/system/testboot.service</code><br>如果目录 system 不存在，请自行创建：<br><code>pi@raspberry:~ $ sudo mkdir /usr/lib/systemd/systemtestboot.service</code><br>文件内容如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=testboot</span><br><span class="line">[Service]</span><br><span class="line">Type=oneshot</span><br><span class="line">ExecStart=/home/pi/testboot.sh</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-这里直接指定启动文件的路径，无法指定到 pi 用户执行，所以只能在 root 用户下执行。设置服务自启动：<br><code>pi@raspberry:~ $ sudo systemctl enable testboot.service</code><br>注意：这个方法与方法二类似都是通过服务启动，所以如果两种方法同时使用要注意不能使用同个服务名。</li>
-</ol>
-</li>
-</ul>
-
+          <p>本文总结了C++编程中的一些核心基础知识点，包括面向对象的三大特性（封装、继承、多态），内存管理中的堆与栈的区别，malloc&#x2F;new的差异，以及程序加载时的内存区域划分。这些是C++开发者必须掌握的基础概念，对于理解C++的内存管理和面向对象编程至关重要。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/C++%20%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -425,7 +348,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9B%B4%E6%8D%A2%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%92%8C%E8%87%AA%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -439,7 +362,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/" class="post-title-link" itemprop="url">右值引用和右值引用与模板结合</a>
+            <a href="/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9B%B4%E6%8D%A2%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%92%8C%E8%87%AA%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">树莓派更换开机界面和自启动程序</a>
         </h2>
 
         <div class="post-meta">
@@ -449,14 +372,99 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 17:27:00" itemprop="dateCreated datePublished" datetime="242024-11-12T17:27:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 19:41:00" itemprop="dateCreated datePublished" datetime="2024-11-12T19:41:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 19:29:20" itemprop="dateModified" datetime="2025-12-09T19:29:20+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-默认开启-ssh"><a href="#1-默认开启-ssh" class="headerlink" title="1. 默认开启 ssh"></a>1. 默认开启 ssh</h1><p>树莓派最新系统是默认关闭 ssh 的。树莓派刷机后我们需要远程操作。要默认开启 ssh。将树莓派系统盘插在电脑上。在 boot 盘目录下新建个名称为 ssh 的空文件就可以</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9B%B4%E6%8D%A2%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%92%8C%E8%87%AA%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/" class="post-title-link" itemprop="url">右值引用和右值引用与模板结合</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-11-12 17:27:00" itemprop="dateCreated datePublished" datetime="2024-11-12T17:27:00+08:00">2024-11-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -503,7 +511,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/Qt%E5%9C%A8%E7%A7%BB%E6%A4%8D%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/Qt%E5%9C%A8%E7%A7%BB%E6%A4%8D%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -517,7 +525,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/Qt%E5%9C%A8%E7%A7%BB%E6%A4%8D%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Qt在移植中遇到的问题</a>
+            <a href="/2024/11/12/Qt%E5%9C%A8%E7%A7%BB%E6%A4%8D%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Qt在移植中遇到的问题</a>
         </h2>
 
         <div class="post-meta">
@@ -527,14 +535,14 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 17:26:00" itemprop="dateCreated datePublished" datetime="242024-11-12T17:26:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 17:26:00" itemprop="dateCreated datePublished" datetime="2024-11-12T17:26:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 17:31:49" itemprop="dateModified" datetime="2025-12-09T17:31:49+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -580,7 +588,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/Linux%E4%B8%8A%E6%90%AD%E5%BB%BABOA%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/Linux%E4%B8%8A%E6%90%AD%E5%BB%BABOA%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -594,7 +602,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/Linux%E4%B8%8A%E6%90%AD%E5%BB%BABOA%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">Linux上搭建BOA服务器</a>
+            <a href="/2024/11/12/Linux%E4%B8%8A%E6%90%AD%E5%BB%BABOA%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">Linux上搭建BOA服务器</a>
         </h2>
 
         <div class="post-meta">
@@ -604,15 +612,32 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 15:42:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:42:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 15:42:00" itemprop="dateCreated datePublished" datetime="2024-11-12T15:42:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">网络编程</span></a>
+                </span>
+            </span>
 
           
 
@@ -629,27 +654,14 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
 <h2 id="BOA-服务器搭建"><a href="#BOA-服务器搭建" class="headerlink" title="BOA 服务器搭建"></a>BOA 服务器搭建</h2><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p>源码链接：<a target="_blank" rel="noopener" href="http://www.boa.org/" title="BOA 源码">BOA 源码</a></p>
 <h3 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h3><p>下载完成后在 linux 下直接解压<br><code>tar -xvf boa-0.94.13.tar.gz </code></p>
 <h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>首先需要安装两个解析工具<br><code>sudo apt-get install bison</code><br><code>sudo apt-get install flex</code></p>
-<h3 id="准备编译"><a href="#准备编译" class="headerlink" title="准备编译"></a>准备编译</h3><p>我下载的 BOA 源码为<strong>boa-0.94.13. tar. gz</strong>, 解压完成后的目录为 boa-0.94.13, 进入目录中的 src 文件中<br><code>cd boa-0.94.13/src</code></p>
-<ul>
-<li><p>修改文件内容<br>修改 src&#x2F;compat. h:<br><code>#define TIMEZONE_OFFSET(foo) foo##-&gt;tm_gmtoff</code><br>修改为<br><code>#define TIMEZONE_OFFSET(foo) (foo)-&gt;tm_gmtoff</code></p>
-</li>
-<li><p>注释文件内容<br>修改 src&#x2F;log. c 中的内容<br>修改<img src="http://isroot.cn/wp-content/uploads/2019/11/boa%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6.png" alt="将图片中的代码进行注释掉" title="将图片中的代码进行注释掉"></p>
-</li>
-</ul>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><ul>
-<li>在 src 目录下执行<br><code>.congfigure</code><br>如果想指定编译完成后的目录请使用 <code>--prefix</code><br>例如: <code>./configure --prefix=/*你的目录*/</code><br>我这里直接配置，并未指定目录</li>
-<li>如果需要编译 arm 版本的 boa 服务器，在配置的时候使用 <code>./configure --prefix=/*你的生成目录*/ --host=/*你的arm交叉编译器*/</code>, 例如我的配置为 <code>./configure --prefix=./install --host=arm-hisiv400-linux-gcc</code></li>
-<li>执行 <code>make</code> 进行编译，如果未指定目录，编译完成后的可执行文件就在当前目录下</li>
-</ul>
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><ul>
-<li>创建运行目录 <code>sudo mkdir /etc/boa</code><br>将 boa-0.94.13 目录下的 boa. conf 拷贝过去<br><code>sudo cp boa.conf  /etc/boa</code></li>
-<li>修改 boa. conf 配置文件<br>修改内容为:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#Group nogroup</span><br><span class="line">Group 0</span><br><span class="line">#AccessLog /var/log/boa/access_log</span><br><span class="line">#ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/</span><br><span class="line">ScriptAlias /cgi-bin/ /var/www/cgi-bin/</span><br></pre></td></tr></table></figure>
-现在可以运行我们的程序了<br>如果 make 时未指定目录则在 boa-0.94.13&#x2F;src 目录下执行 <code>sudo ./boa</code>。如果指定了目录则去指定的目录下执行<br>这时我们的 boa 服务器已经运行</li>
-</ul>
-<h3 id="查看运行的服务器"><a href="#查看运行的服务器" class="headerlink" title="查看运行的服务器"></a>查看运行的服务器</h3><p>我们在&#x2F;var&#x2F; www目录下写个index.html文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot;/&gt;</span><br><span class="line">&lt;title&gt;BOA服务器&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h2&gt;this is my boa server&lt;/h2&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>查看本机 ip 地址，在浏览器输入你的本机 ip 地址，会看到以下内容<img src="http://isroot.cn/wp-content/uploads/2019/11/boa%E6%9C%8D%E5%8A%A1%E5%99%A8.png"></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/Linux%E4%B8%8A%E6%90%AD%E5%BB%BABOA%E6%9C%8D%E5%8A%A1%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -668,7 +680,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/QDilalog%20%E9%87%8D%E6%96%B0%E5%AE%9E%E7%8E%B0exec()/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/QDilalog%20%E9%87%8D%E6%96%B0%E5%AE%9E%E7%8E%B0exec()/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -682,7 +694,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/QDilalog%20%E9%87%8D%E6%96%B0%E5%AE%9E%E7%8E%B0exec()/" class="post-title-link" itemprop="url">QDilalog 重新实现exec()</a>
+            <a href="/2024/11/12/QDilalog%20%E9%87%8D%E6%96%B0%E5%AE%9E%E7%8E%B0exec()/" class="post-title-link" itemprop="url">QDilalog 重新实现exec()</a>
         </h2>
 
         <div class="post-meta">
@@ -692,15 +704,32 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 15:41:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:41:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 15:41:00" itemprop="dateCreated datePublished" datetime="2024-11-12T15:41:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 17:31:49" itemprop="dateModified" datetime="2025-12-09T17:31:49+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
 
           
 
@@ -714,13 +743,14 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
 
       
           <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>今天在重做 QMessageBox 样式的时候，需要给 QMessageBox 样式加个阴影，因为重做的 MessageBox 是用 QDialog 做的，加阴影的方法是在这个 QDialog 后面做又重做了个窗体，让后面的窗体进行偏移，显示出阴影效果，后面的窗体是用 QWidget 做的，QWidget 只有 show 方法，无法做到阻塞和取返回值，所以重写了 QDialog 的 exec () 函数，下面贴出主要代码。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.h</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line"><span class="type">int</span> m_result;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">exec</span><span class="params">()</span></span>;<span class="comment">//重写</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">closeEvent</span><span class="params">(QCloseEvent* event)</span></span>;</span><br><span class="line"><span class="keyword">private</span> slots:</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">on_messageBox_ok_clicked</span><span class="params">()</span></span>;<span class="comment">//pushbutton 槽函数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">on_messageBox_cancel_clicked</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">.cpp</span><br><span class="line"><span class="comment">//下面的shadowsWin是我的背景阴影的一个类，不需要的可以不用在意</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">messageBox::on_message_btn_ok_clicked</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    m_result = QDialogButtonBox::Ok;</span><br><span class="line">    shadowsWin-&gt;<span class="built_in">close</span>();</span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">messageBox::on_message_btn_cancel_clicked</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    m_result = QDialogButtonBox::Cancel;</span><br><span class="line">    shadowsWin-&gt;<span class="built_in">close</span>();</span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">messageBox::exec</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">show</span>();</span><br><span class="line">    shadowsWin-&gt;<span class="built_in">show</span>();</span><br><span class="line">    m_eventLoop = <span class="keyword">new</span> <span class="built_in">QEventLoop</span>(<span class="keyword">this</span>);</span><br><span class="line">    m_eventLoop-&gt;<span class="built_in">exec</span>();</span><br><span class="line">    <span class="keyword">return</span> m_result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">messageBox::closeEvent</span><span class="params">(QCloseEvent *event)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (m_eventLoop != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        m_eventLoop-&gt;<span class="built_in">exit</span>();<span class="comment">//退出事件，还给主事件</span></span><br><span class="line">    &#125;</span><br><span class="line">    event-&gt;<span class="built_in">accept</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>主要代码就上面的几个函数，如果有需要阴影类文件了可以留邮箱，我发给你</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/QDilalog%20%E9%87%8D%E6%96%B0%E5%AE%9E%E7%8E%B0exec()/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -739,7 +769,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/jQuery%20%E8%AE%BE%E7%BD%AE%20radio%20%E8%A2%AB%E9%80%89%E4%B8%AD/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/jQuery%20%E8%AE%BE%E7%BD%AE%20radio%20%E8%A2%AB%E9%80%89%E4%B8%AD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -753,7 +783,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/jQuery%20%E8%AE%BE%E7%BD%AE%20radio%20%E8%A2%AB%E9%80%89%E4%B8%AD/" class="post-title-link" itemprop="url">jQuery 设置 radio 被选中</a>
+            <a href="/2024/11/12/jQuery%20%E8%AE%BE%E7%BD%AE%20radio%20%E8%A2%AB%E9%80%89%E4%B8%AD/" class="post-title-link" itemprop="url">jQuery 设置 radio 被选中</a>
         </h2>
 
         <div class="post-meta">
@@ -763,15 +793,28 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 15:37:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:37:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 15:37:00" itemprop="dateCreated datePublished" datetime="2024-11-12T15:37:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
 
           
 
@@ -785,11 +828,14 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
 
       
           <h4 id="设置值"><a href="#设置值" class="headerlink" title="设置值"></a>设置值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">&quot;radio&quot;</span> name=<span class="string">&quot;drawStatus&quot;</span> value=<span class="string">&quot;0&quot;</span> /&gt;能 </span><br><span class="line">&lt;input type=<span class="string">&quot;radio&quot;</span> name=<span class="string">&quot;drawStatus&quot;</span> value=<span class="string">&quot;1&quot;</span> /&gt;否 </span><br></pre></td></tr></table></figure>
-
-<p>设置 name 相同两个 radio 会互斥，设置某个 value 被选中</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;:radio[name=&#x27;drawStatus&#x27;][value=&#x27;&quot;</span> + val + <span class="string">&quot;&#x27;]&quot;</span>).<span class="title function_">prop</span>(<span class="string">&quot;checked&quot;</span>, <span class="string">&quot;checked&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="获取值"><a href="#获取值" class="headerlink" title="获取值"></a>获取值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> v = $(<span class="string">&quot;:radio[name=&#x27;drawStatus&#x27;]:checked&quot;</span>).<span class="title function_">val</span>();</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/jQuery%20%E8%AE%BE%E7%BD%AE%20radio%20%E8%A2%AB%E9%80%89%E4%B8%AD/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -808,7 +854,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/google%20protobuf%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/javascript%20%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -822,7 +868,7 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/google%20protobuf%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" class="post-title-link" itemprop="url">google protobuf快速上手</a>
+            <a href="/2024/11/12/javascript%20%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">javascript 截取字符串</a>
         </h2>
 
         <div class="post-meta">
@@ -832,113 +878,28 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 15:36:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:36:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 15:36:00" itemprop="dateCreated datePublished" datetime="2024-11-12T15:36:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h6 id="protobuf-的介绍一大堆，这里就不做详细的介绍了。"><a href="#protobuf-的介绍一大堆，这里就不做详细的介绍了。" class="headerlink" title="protobuf 的介绍一大堆，这里就不做详细的介绍了。"></a>protobuf 的介绍一大堆，这里就不做详细的介绍了。</h6><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>-从<a target="_blank" rel="noopener" href="https://developers.google.com/protocol-buffers" title="官网">官网</a> 直接下载 protobuf 安装到本地</p>
-<ul>
-<li>ubuntu 安装方法</li>
-</ul>
-<ol>
-<li><p><code>sudo apt-get install autoconf automake libtool curl make g++ unzip</code> centos 安装方式和 ubuntu 一样，下载安装上面的安装包就行</p>
-</li>
-<li><p>编译安装</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/protocolbuffers/protobuf.git</span><br><span class="line">cd protobuf</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line">./autogen.sh</span><br><span class="line">./configure  --prefix=/usr/local/protobuf   ##prefix 是配置编译目录,不配置会安装在默认的目录</span><br><span class="line"> make</span><br><span class="line"> make check</span><br><span class="line"> sudo make install</span><br><span class="line"> sudo ldconfig # 链接动态库.</span><br></pre></td></tr></table></figure></li>
-<li><p>如果配置了安装目录需要设置 PATH<br>在&#x2F;etc&#x2F;profile 文件中增加下列几项</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ vi /etc/profile</span><br><span class="line">export PATH=$PATH:/usr/local/protobuf/bin/</span><br><span class="line">export LIBRARY_PATH=/usr/local/protobuf/lib/:$LIBRARY_PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/protobuf/lib/:$LD_LIBRARY_PATH</span><br><span class="line">export PKG_CONFIG_PATH=/usr/local/protobuf/lib/pkgconfig/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置完 PATH 使用 source &#x2F;etc&#x2F;profile 更新环境变量。有的 linux 需要重启。如果 source &#x2F;etc&#x2F;profile 没用就重启下。</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ protoc --version</span><br><span class="line">$ libprotoc 3.13.0</span><br></pre></td></tr></table></figure>
-<p>如果能正确显示出版本号就没问题。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>这里使用 vscode 编辑器</p>
-<ul>
-<li>定义自己的字段，文件后缀为. protoc<br><a target="_blank" rel="noopener" href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ciVQeB.png" title=". proto">![.proto] ( https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ciVQeB.png ". proto")</a><br> <strong>具体的文件内容说明请查看</strong><a target="_blank" rel="noopener" href="https://developers.google.com/protocol-buffers/docs/overview">文档说明</a></li>
-<li>使用 protoc 进行编译</li>
-</ul>
-<figure class="highlight plaintext"><figcaption><span>-I</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">编译完成后会在当前目录看见两个后缀为. pb. cc 和. pb. h 的文件，编写一个 main 文件测试下</span><br><span class="line">[![.proto] ( https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/8hyxdn.png &quot;. proto&quot;)]( https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/8hyxdn.png &quot;. proto&quot;)</span><br><span class="line"></span><br><span class="line">- 使用 g++ 编译</span><br><span class="line">``` g++ -g -o main ./mian.cpp ./main.pb.cc  -I/usr/local/protobuf/include -L/usr/local/protobuf/lib -lprotobuf -pthread```</span><br><span class="line"></span><br><span class="line">#### 这里记录下自己的 cmake 文件</span><br></pre></td></tr></table></figure>
-<p>cmake_minimum_required(VERSION 3.6.2)</p>
-<p>add_definitions(-std&#x3D;c++11)</p>
-<h1 id="设置头文件目录"><a href="#设置头文件目录" class="headerlink" title="设置头文件目录"></a>设置头文件目录</h1><p>set(INC_DIR &#x2F;usr&#x2F;local&#x2F;protobuf&#x2F;include&#x2F;)</p>
-<h1 id="设置protobuf目录"><a href="#设置protobuf目录" class="headerlink" title="设置protobuf目录"></a>设置protobuf目录</h1><p>set(LIB_DIR &#x2F;usr&#x2F;local&#x2F;protobuf&#x2F;lib&#x2F;)</p>
-<p>project(main)</p>
-<p>include_directories(${INC_DIR})</p>
-<p>set(SRC_LIST main.cpp main.pb.cc)</p>
-<p>add_executable(main ${SRC_LIST})</p>
-<p>target_link_libraries(main protobuf pthread)</p>
-<pre><code>
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/javascript%20%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/11/12/javascript%20%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">javascript 截取字符串</a>
-        </h2>
-
-        <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
+                <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-11-12 15:36:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:36:00+08:00">242024-11-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
-              </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/javaScript/" itemprop="url" rel="index"><span itemprop="name">javaScript</span></a>
+                </span>
+            </span>
 
           
 
@@ -952,7 +913,101 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
 
       
           <h2 id="javascript-截取字符串"><a href="#javascript-截取字符串" class="headerlink" title="javascript 截取字符串"></a>javascript 截取字符串</h2><p>JavaScript 语法中 string 字符串，同样和 java 一样，有一个截取字符串的方法，如下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">参考代码如下：</span><br><span class="line">获取字符串第二个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>, <span class="number">1</span>));</span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(-<span class="number">1</span>));</span><br><span class="line"><span class="comment">//Hello</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>,<span class="number">4</span>));</span><br><span class="line"> </span><br><span class="line">获取字符串最后一个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(<span class="number">0</span>));</span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(str.<span class="property">length</span> - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">参考代码如下：</span><br><span class="line">获取字符串第二个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(-<span class="number">1</span>));</span><br><span class="line"><span class="comment">//Hello</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>,<span class="number">4</span>));</span><br><span class="line"> </span><br><span class="line">获取字符串最后一个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(<span class="number">0</span>));</span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(str.<span class="property">length</span> - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/%E8%AE%B0%E5%BD%95macOS%E5%9C%A8%E4%BD%BF%E7%94%A8boost%E5%BA%93%E6%97%B6%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/11/12/%E8%AE%B0%E5%BD%95macOS%E5%9C%A8%E4%BD%BF%E7%94%A8boost%E5%BA%93%E6%97%B6%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">记录macOS在使用boost库时编译错误</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-11-12 15:35:00" itemprop="dateCreated datePublished" datetime="2024-11-12T15:35:00+08:00">2024-11-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:28:15" itemprop="dateModified" datetime="2025-12-09T19:28:15+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/boost/" itemprop="url" rel="index"><span itemprop="name">boost</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="相关版本"><a href="#相关版本" class="headerlink" title="相关版本"></a>相关版本</h2><ul>
+<li>macos 10.15.7</li>
+<li>boost 1.76.0</li>
+<li>Homebrew 3.2.9<br>boost 库是使用 brew 安装的最新版本</li>
+</ul>
+<h2 id="编译时问题"><a href="#编译时问题" class="headerlink" title="编译时问题"></a>编译时问题</h2><p>在使用 cmake 编译工程的时候，使用的是静态库链接，然后 <code>regex</code> 库无法进行链接，动态库是可以的。cmake 文件如下</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/%E8%AE%B0%E5%BD%95macOS%E5%9C%A8%E4%BD%BF%E7%94%A8boost%E5%BA%93%E6%97%B6%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1036,16 +1091,16 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1115,6 +1170,10 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 

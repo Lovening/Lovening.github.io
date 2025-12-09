@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="记录一些自己的见闻">
@@ -103,6 +103,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -132,11 +133,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -160,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/%E8%AE%B0%E5%BD%95macOS%E5%9C%A8%E4%BD%BF%E7%94%A8boost%E5%BA%93%E6%97%B6%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97Buff%20%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +202,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/%E8%AE%B0%E5%BD%95macOS%E5%9C%A8%E4%BD%BF%E7%94%A8boost%E5%BA%93%E6%97%B6%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">记录macOS在使用boost库时编译错误</a>
+            <a href="/2024/11/12/%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97Buff%20%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">环形队列Buff 接收数据</a>
         </h2>
 
         <div class="post-meta">
@@ -184,91 +212,28 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 15:35:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:35:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 15:26:00" itemprop="dateCreated datePublished" datetime="2024-11-12T15:26:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 19:28:52" itemprop="dateModified" datetime="2025-12-09T19:28:52+08:00">2025-12-09</time>
               </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="相关版本"><a href="#相关版本" class="headerlink" title="相关版本"></a>相关版本</h2><ul>
-<li>macos 10.15.7</li>
-<li>boost 1.76.0</li>
-<li>Homebrew 3.2.9<br>boost 库是使用 brew 安装的最新版本</li>
-</ul>
-<h2 id="编译时问题"><a href="#编译时问题" class="headerlink" title="编译时问题"></a>编译时问题</h2><p>在使用 cmake 编译工程的时候，使用的是静态库链接，然后 <code>regex</code> 库无法进行链接，动态库是可以的。cmake 文件如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.0)</span><br><span class="line">set(Boost_USE_STATIC_LIBS        ON)  # only find static libs</span><br><span class="line"></span><br><span class="line">project(test )</span><br><span class="line"></span><br><span class="line">set(BOOST_COMPONENTS date_time chrono  filesystem  regex system )</span><br><span class="line">find_package(Boost REQUIRED COMPONENTS $&#123;BOOST_COMPONENTS&#125;)</span><br><span class="line">if(Boost_FOUND )</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_INCLUDE_DIRS = $&#123;Boost_INCLUDE_DIRS&#125;&quot;)</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_LIBRARIES = $&#123;Boost_LIBRARIES&#125;&quot;)</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_LIB_VERSION = $&#123;Boost_LIB_VERSION&#125;&quot;)</span><br><span class="line">    include_directories($&#123;Boost_INCLUDE_DIRS&#125;)</span><br><span class="line">endif()</span><br><span class="line">add_executable(test main.cpp)</span><br><span class="line">target_link_libraries(test $&#123;Boost_LIBRARIES&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>在 <code>make</code> 编译的时候，一直报一个链接错误。<br><a target="_blank" rel="noopener" href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ajScFH.png" title="编译错误">![编译错误] ( https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ajScFH.png "编译错误")</a></p>
-<p>这是在静态链接的时候找不到 icudata 库文件。</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在 cmake 文件中添加 <code>set(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; -L/usr/local/opt/icu4c/lib -I/usr/local/opt/icu4c/include&quot;)</code></p>
-<p>重新编译，可以正常编译过。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97Buff%20%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/11/12/%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97Buff%20%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">环形队列Buff 接收数据</a>
-        </h2>
-
-        <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
+                <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-11-12 15:26:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:26:00+08:00">242024-11-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
                 </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
-              </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
 
           
 
@@ -285,18 +250,14 @@
 <ul>
 <li>常见的两种队列的形式：普通队列和环形队列<br><img src="http://isroot.cn/wp-content/uploads/2019/02/%E9%98%9F%E5%88%97.png" alt="普通队列" title="普通队列"></li>
 </ul>
-<p>在计算机中，每个信息都是存储在存储单元中，上面图形每一个小方格就相当于一个存储队列，可以简单理解为数组，存放我们的数据。<br>当有大量的数据的时候，我们不能存储所有的数据，计算机在处理数据的时候，处理先来的数据，处理完成之后把数据释放掉，再处理下一个，那么已经处理的数据的内存就会被浪费掉。因为后来的数据只能往后排队，如果将剩余的数据都往前移动一次，那么效率就会低下，肯定不现实，所以普通队列进阶版本就是环形队列</p>
-<h1 id="环形队列"><a href="#环形队列" class="headerlink" title="环形队列"></a>环形队列</h1><p><img src="http://isroot.cn/wp-content/uploads/2019/02/hxdl.png" alt="环形队列"><br>它的队列就是一个环，它避免了普通队列的缺点，一样有队列头和队列尾，一样是先进先出。<br>队列头 (Head) : 允许进行删除的一端称为队首。<br>队列尾 (Tail) : 允许进行插入的一端称为队尾。</p>
-<p>环形队列的实现：在计算机中，也是没有环形的内存的，只不过是我们将顺序的内存处理过，让某一段内存形成环形，使他们首尾相连，简单来说，这其实就是一个数组，只不过有两个指针，一个指向列队头，一个指向列队尾。指向列队头的指针 (Head) 是缓冲区可读的数据，指向列队尾的指针 (Tail) 是缓冲区可写的数据，通过移动这两个指针 (Head) &amp;(Tail) 即可对缓冲区的数据进行读写操作了，直到缓冲区已满（头尾相接），将数据处理完，可以释放掉数据，又可以进行存储新的数据了。</p>
-<p> 实现的原理：初始化的时候，列队头与列队尾都指向 0，当有数据存储的时候，数据存储在‘0’的地址空间，列队尾指向下一个可以存储数据的地方‘1’，再有数据来的时候，存储数据到地址‘1’，然后队列尾指向下一个地址‘2’。当数据要进行处理的时候，肯定是先处理‘0’空间的数据，也就是列队头的数据，处理完了数据，‘0’地址空间的数据进行释放掉，列队头指向下一个可以处理数据的地址‘1’。从而实现整个环形缓冲区的数据读写。<br> <img src="http://isroot.cn/wp-content/uploads/2019/02/hxdl1.png" alt="环形队列"><br> 队列头就是指向已经存储的数据，并且这个数据是待处理的。下一个 CPU 处理的数据就是 1；而队列尾则指向可以进行写数据的地址。当 1 处理了，就会把 1 释放掉。并且把队列头指向 2。当写入了一个数据 6，那么队列尾的指针就会指向下一个可以写的地址。</p>
-<h1 id="从队列到串口缓冲区的实现"><a href="#从队列到串口缓冲区的实现" class="headerlink" title="从队列到串口缓冲区的实现"></a>从队列到串口缓冲区的实现</h1> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">ringBuffer</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">ringBuffer</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        head =<span class="number">0</span>;</span><br><span class="line">        tail =<span class="number">0</span>;</span><br><span class="line">        length =<span class="number">0</span>;</span><br><span class="line">        ring_Buffer = <span class="keyword">new</span> <span class="type">unsigned</span> <span class="type">char</span>[RINGMAXLENGTH]();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> head;</span><br><span class="line">    <span class="type">int</span> tail;</span><br><span class="line">    <span class="type">int</span> length;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span>* ring_Buffer;</span><br><span class="line"></span><br><span class="line">&#125;ringBuffer_suct;</span><br></pre></td></tr></table></figure>
-<p>写入数据，在写入数据的时候采用一个一个数据写</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">CringBuffer::writeData</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(buffer.length &gt;= RINGMAXLENGTH)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    buffer.ring_Buffer[buffer.tail] = data;</span><br><span class="line">    buffer.tail = (buffer.tail<span class="number">+1</span>)%RINGMAXLENGTH;</span><br><span class="line">    buffer.length++;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>读取缓冲区数据，也是一个一个去读取</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> <span class="title">CringBuffer::readData</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(buffer.length == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">char</span> data = buffer.ring_Buffer[buffer.head];</span><br><span class="line"></span><br><span class="line">    buffer.head = (buffer.head<span class="number">+1</span>)%RINGMAXLENGTH;</span><br><span class="line">    buffer.length -- ;</span><br><span class="line">    <span class="keyword">return</span> data;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在实际项目使用中，使用了两个信号量，一个控制读取，一个控制写入，在后续的文章介绍<br>完整代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> RINGMAXLENGTH  1024</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CringBuffer</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">CringBuffer</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">writeData</span><span class="params">(<span class="type">unsigned</span> <span class="type">char</span> data)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">char</span> <span class="title">readData</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    ringBuffer_suct buffer;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/%E7%8E%AF%E5%BD%A2%E9%98%9F%E5%88%97Buff%20%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -315,7 +276,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%20%E8%BD%ACchar%20%E5%92%8C%E5%A4%A7%E5%B0%8F%E7%AB%AF%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%20%E8%BD%ACchar%20%E5%92%8C%E5%A4%A7%E5%B0%8F%E7%AB%AF%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -329,7 +290,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%20%E8%BD%ACchar%20%E5%92%8C%E5%A4%A7%E5%B0%8F%E7%AB%AF%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">关于数据传输中int 转char 和大小端问题</a>
+            <a href="/2024/11/12/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%20%E8%BD%ACchar%20%E5%92%8C%E5%A4%A7%E5%B0%8F%E7%AB%AF%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">关于数据传输中int 转char 和大小端问题</a>
         </h2>
 
         <div class="post-meta">
@@ -339,14 +300,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 15:24:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:24:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 15:24:00" itemprop="dateCreated datePublished" datetime="2024-11-12T15:24:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -393,7 +354,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/Ubuntu%20%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96SD%E5%8D%A1/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/Ubuntu%20%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96SD%E5%8D%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -407,7 +368,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/Ubuntu%20%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96SD%E5%8D%A1/" class="post-title-link" itemprop="url">Ubuntu 下格式化SD卡</a>
+            <a href="/2024/11/12/Ubuntu%20%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96SD%E5%8D%A1/" class="post-title-link" itemprop="url">Ubuntu 下格式化SD卡</a>
         </h2>
 
         <div class="post-meta">
@@ -417,14 +378,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 15:23:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:23:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 15:23:00" itemprop="dateCreated datePublished" datetime="2024-11-12T15:23:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 17:31:49" itemprop="dateModified" datetime="2025-12-09T17:31:49+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -477,7 +438,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/%E5%9F%BA%E4%BA%8EAM33X%E6%A0%B8%E5%BF%83%E6%9D%BF%E5%AF%B9EMMC%E7%9A%84%E6%93%8D%E4%BD%9C/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/%E5%9F%BA%E4%BA%8EAM33X%E6%A0%B8%E5%BF%83%E6%9D%BF%E5%AF%B9EMMC%E7%9A%84%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -491,7 +452,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/%E5%9F%BA%E4%BA%8EAM33X%E6%A0%B8%E5%BF%83%E6%9D%BF%E5%AF%B9EMMC%E7%9A%84%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">基于AM33X核心板对EMMC的操作</a>
+            <a href="/2024/11/12/%E5%9F%BA%E4%BA%8EAM33X%E6%A0%B8%E5%BF%83%E6%9D%BF%E5%AF%B9EMMC%E7%9A%84%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">基于AM33X核心板对EMMC的操作</a>
         </h2>
 
         <div class="post-meta">
@@ -501,14 +462,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 15:22:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:22:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 15:22:00" itemprop="dateCreated datePublished" datetime="2024-11-12T15:22:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -555,7 +516,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/MarkDown%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/11/12/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85openCV/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -569,7 +530,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/11/12/MarkDown%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2024/11/12/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85openCV/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -579,90 +540,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-11-12 15:19:00" itemprop="dateCreated datePublished" datetime="242024-11-12T15:19:00+08:00">242024-11-12</time>
+              <time title="创建时间：2024-11-12 14:25:00" itemprop="dateCreated datePublished" datetime="2024-11-12T14:25:00+08:00">2024-11-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一-标题"><a href="#一-标题" class="headerlink" title="一. 标题"></a>一. 标题</h1><p>在想要设置为标题的文字面前加 #来表示<br>一个 #是一级标题 ，二个 #是二级标题 ，三个###是三级标题，依次类推。支持六级标题</p>
-<p>注：标准写法是在 #后面加空格在写文字 。</p>
-<p>示例：</p>
-<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><h1 id="二-字体"><a href="#二-字体" class="headerlink" title="二. 字体"></a>二. 字体</h1><ul>
-<li>加粗<br>要加粗的字体左右分别使用两个*号包起来, 符号与字体之间没有空格<br>示例：<br><strong>这是加粗的字体</strong></li>
-<li>斜体<br>要倾斜的字体左右分别用一个*号包起来，符号与字体之间没有空格<br>示例：<br><em>这是倾斜的字体</em></li>
-<li>斜体加粗<br>要倾斜和加粗的字体左右分别使用三个***号包起来<br>示例:<br><em><strong>这是倾斜和加粗的字体</strong></em></li>
-</ul>
-<h1 id="三-引用"><a href="#三-引用" class="headerlink" title="三. 引用"></a>三. 引用</h1><p>要引用的字体在前面加&gt;即可，引用也可以嵌套引用，如加两个&gt;&gt;或者三个&gt;&gt;&gt;<br>示例：</p>
-<blockquote>
-<p>这是引用的文字的内容</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/11/12/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85openCV/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/11/12/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85openCV/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-11-12 14:25:00" itemprop="dateCreated datePublished" datetime="242024-11-12T14:25:00+08:00">242024-11-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -722,7 +607,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/C++%20%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%84%E5%90%88/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/C++%20%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%84%E5%90%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -736,7 +621,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/C++%20%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%84%E5%90%88/" class="post-title-link" itemprop="url">C++ 右值引用和右值引用与模板组合</a>
+            <a href="/2024/10/14/C++%20%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%84%E5%90%88/" class="post-title-link" itemprop="url">C++ 右值引用和右值引用与模板组合</a>
         </h2>
 
         <div class="post-meta">
@@ -746,15 +631,28 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 18:57:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:57:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 18:57:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:57:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 18:19:18" itemprop="dateModified" datetime="2025-12-09T18:19:18+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
 
           
 
@@ -771,7 +669,7 @@
 <p>本文详细介绍了C++11引入的右值引用概念，以及它在模板中的应用，包括移动语义和完美转发的实现原理。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/242024/10/14/C++%20%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%84%E5%90%88/#more" rel="contents">
+              <a class="btn" href="/2024/10/14/C++%20%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%84%E5%90%88/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -795,7 +693,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/Ubuntu%E4%B8%8BQt+OpenCV%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/Ubuntu%E4%B8%8BQt+OpenCV%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -809,7 +707,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/Ubuntu%E4%B8%8BQt+OpenCV%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">Ubuntu下Qt+OpenCV配置过程</a>
+            <a href="/2024/10/14/Ubuntu%E4%B8%8BQt+OpenCV%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">Ubuntu下Qt+OpenCV配置过程</a>
         </h2>
 
         <div class="post-meta">
@@ -819,14 +717,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 18:53:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:53:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 18:53:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:53:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 17:31:49" itemprop="dateModified" datetime="2025-12-09T17:31:49+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -878,7 +776,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/Poco%20%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%BC%96%E8%AF%91/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/Poco%20%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%BC%96%E8%AF%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -892,7 +790,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/Poco%20%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%BC%96%E8%AF%91/" class="post-title-link" itemprop="url">Poco 各个版本的安装和编译</a>
+            <a href="/2024/10/14/Poco%20%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%BC%96%E8%AF%91/" class="post-title-link" itemprop="url">Poco 各个版本的安装和编译</a>
         </h2>
 
         <div class="post-meta">
@@ -902,15 +800,32 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 18:47:00" itemprop="dateCreated datePublished" datetime="242024-10-14T18:47:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 18:47:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:47:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 17:31:49" itemprop="dateModified" datetime="2025-12-09T17:31:49+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Poco/" itemprop="url" rel="index"><span itemprop="name">Poco</span></a>
+                </span>
+            </span>
 
           
 
@@ -924,26 +839,189 @@
 
       
           <h1 id="Ubuntu-下安装和编译"><a href="#Ubuntu-下安装和编译" class="headerlink" title="Ubuntu 下安装和编译"></a>Ubuntu 下安装和编译</h1><p>完整版的安装需要下载MySql和OpenSSL<br>安装 OpenSSL:<br>1 .<code>sudo apt-get install openssl</code><br>2.<code>sudo apt-get install libssl-dev</code><br>安装完这两个才可以 只安装一个编译的时候会报错误<br>然后执行<br><code>./configure --no-tests --no-samples --prefix=/usr/local/Poco --static --shared</code></p>
-<p>#&#x2F;usr&#x2F;local&#x2F;Poco为编译好后头文件和库的安装位置</p>
-<p><code>make</code><br><code>make install</code><br>到此Poco就安装完成了。</p>
-<p>安装完成后可以去&#x2F;usr&#x2F;local&#x2F;Poco 下查看安装的库<br>利用QT Creator编译程序时，在.pro文件中加入附加库<br><code>LIBS += -L /usr/local/lib/ -lPocoFoundation -lPocoNet -lPocoUtil</code></p>
-<p>这里自己需要哪个模块链接哪个模块</p>
-<p>.&#x2F;configure –omit&#x3D;Data&#x2F;ODBC,Data&#x2F;MySQL,NetSSL_OpenSSL –prefix&#x3D;&#x2F;usr&#x2F;local 不编译OBDC MySQL 和NetSSL_OpenSSL .h文件和<br>库文件放在&#x2F;usr&#x2F;local 目录下。</p>
-<h1 id="ARM版本的编译和安装"><a href="#ARM版本的编译和安装" class="headerlink" title="ARM版本的编译和安装"></a>ARM版本的编译和安装</h1><p>源码下载地址：<a target="_blank" rel="noopener" href="https://pocoproject.org/releases/poco-1.7.8/poco-1.7.8-all.tar.gz">https://pocoproject.org/releases/poco-1.7.8/poco-1.7.8-all.tar.gz</a><br>tar -xzvf poco-1.7.8-all.tar.gz-<br>cd poco-1.7.8-all<br><code>./configure --config=ARM-Linux --no-tests --omit=Data,Crypto,NetSSL_OpenSSL --prefix=/home/ning/lib</code><br><code>make</code><br><code>make install</code><br>到此Poco就交叉编译安装完成了。</p>
-<h1 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h1><p>在编译poco ARM版本时遇到一个链接错误  hidden symbol &#96;__sync_fetch_and_sub_4’，经过上网查询发现是arm-linux-gcc 版本的问题。<br>从arm-linux-gcc 官网上下载 下载4.7版本的进行安装  网址 <a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-14735472-id-5593327.html" title="ARM编译器">ARM编译器</a></p>
-<p>因为需要配合qt 使用，使用的系统为飞凌自带的嵌入式系统。需要重新配置arm-linux-gcc 。修改环境变量 <code>sudo vim /etc/profile</code>;</p>
-<p>飞凌的配置文件为 注释掉的文件，使用中的文件为自己配置的文件，需要注意的是编译器名称的改变，原先为 arm-linux-gcc,<br>需要修改为 arm-linux-gnueabihf, PATH 路径为更新后gcc 4.7的路径。然后重新编译poco。</p>
-<p>如果在检测编译器的时候出现arm-none-linux-gnueabi-gcc -v 出现: No such file or directory<br>有可能是你的编译器是32位的 但你的系统是64位系统，使用 sudo apt-get install ia32-libs命令就可以解决</p>
-<ul>
-<li>环境变量配置<br><img src="http://isroot.cn/wp-content/uploads/2019/02/11111111111-300x104.png"></li>
-</ul>
-<p>在重新编译poco 时提示 找不到arm-linux-g++。 因为和arm-linux-gnueabihf-g++  名称不一样，怀疑是不是编译器找错了，去重新修改 bulid&#x2F;config&#x2F;ARM-Linux文件，将TOOL  ？&#x3D; 修改成为 arm-linux-gnueabihf。<br><img src="http://isroot.cn/wp-content/uploads/2019/02/222222222-300x80.png"></p>
-<p>然后重新编译poco 没问题。</p>
-<p>编译完成后修改qtCreator.</p>
-<p>将  GCCE 修改成为gcc 4.7中的g++,如下图<br><img src="http://isroot.cn/wp-content/uploads/2019/02/3333333-300x142.png"></p>
-<p>然后进行编译提示找不到arm-linux-g++ 。 从网上找资料说去修改qws文件中qmake.conf。但是因为直接使用的飞凌自带的系统，我也不知道qt的qws 具体是在哪里。 但是想到了qmake 最后生成makefile文件，所以去看makefile文件<br><img src="http://isroot.cn/wp-content/uploads/2019/02/4444444444-300x20.png"></p>
-<p>在makefile中找到了linux-arm-g++的文件 ，去修改linxu-arm-g++文件<br><img src="http://isroot.cn/wp-content/uploads/2019/02/55555555-300x69.png"><br>修改后的文件，然后重新编译所有的库文件。没问题，通过</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/14/Poco%20%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E7%BC%96%E8%AF%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/Poco%20C++%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/14/Poco%20C++%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Poco C++使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-10-14 18:45:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:45:00+08:00">2024-10-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:18:49" itemprop="dateModified" datetime="2025-12-09T19:18:49+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Poco/" itemprop="url" rel="index"><span itemprop="name">Poco</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>POCO c++ 使用例子</p>
+<p>本文档介绍了 Poco C++ 库的一些基本使用示例，包括定时器、管道等常用功能。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/14/Poco%20C++%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/linux%20%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%8A%A8%E4%BD%9C%E4%BB%A5%E5%8F%8A%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E8%84%9A%E6%9C%AC%E5%92%8C%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/10/14/linux%20%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%8A%A8%E4%BD%9C%E4%BB%A5%E5%8F%8A%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E8%84%9A%E6%9C%AC%E5%92%8C%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">linux 系统启动时执行的动作以及启动时执行自己的脚本和设置环境变量</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-10-14 18:43:00" itemprop="dateCreated datePublished" datetime="2024-10-14T18:43:00+08:00">2024-10-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:15:37" itemprop="dateModified" datetime="2025-12-09T19:15:37+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-系统启动"><a href="#1-系统启动" class="headerlink" title="1.系统启动"></a>1.系统启动</h2><p>在linux 系统文件中，&#x2F;etc&#x2F;init.d 里面放的是&#x2F;etc&#x2F;rc.d&#x2F;init.d的软链接的脚本。都是放的服务脚本，当linux启动时，系统会寻找这些目录的脚本服务，并且根据脚本不同的run level确定不同的启动级别</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/10/14/linux%20%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E7%9A%84%E5%8A%A8%E4%BD%9C%E4%BB%A5%E5%8F%8A%E5%90%AF%E5%8A%A8%E6%97%B6%E6%89%A7%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84%E8%84%9A%E6%9C%AC%E5%92%8C%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1027,16 +1105,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1106,6 +1184,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 

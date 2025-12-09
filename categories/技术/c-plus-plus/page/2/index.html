@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="记录一些自己的见闻">
@@ -103,6 +103,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -132,11 +133,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -178,15 +206,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-07-22T00:00:00+08:00"
-              content="2024-07-22">
-          07-22
+              datetime="2024-10-14T18:08:00+08:00"
+              content="2024-10-14">
+          10-14
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/C++%20%E7%BA%BF%E7%A8%8B%E7%AE%A1%E7%90%86/" itemprop="url">
-            <span itemprop="name">C++多线程创建</span>
+          <a class="post-title-link" href="/2024/10/14/Observer%20%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" itemprop="url">
+            <span itemprop="name">Observer 观察者模式</span>
           </a>
       </div>
 
@@ -198,15 +226,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-07-22T00:00:00+08:00"
-              content="2024-07-22">
-          07-22
+              datetime="2024-10-14T13:38:00+08:00"
+              content="2024-10-14">
+          10-14
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/C++%20%E8%A1%A8%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B/" itemprop="url">
-            <span itemprop="name">C++ 表驱动设计模式</span>
+          <a class="post-title-link" href="/2024/10/14/Decorator%20%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/" itemprop="url">
+            <span itemprop="name">Decorator 装饰模式</span>
           </a>
       </div>
 
@@ -218,15 +246,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-07-22T00:00:00+08:00"
-              content="2024-07-22">
-          07-22
+              datetime="2024-10-14T13:38:00+08:00"
+              content="2024-10-14">
+          10-14
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/C++%E5%AE%8F%E5%AE%9A%E4%B9%89%E8%AF%A6%E8%A7%A3/" itemprop="url">
-            <span itemprop="name">C++ 宏定义</span>
+          <a class="post-title-link" href="/2024/10/14/bridge%20%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/" itemprop="url">
+            <span itemprop="name">bridge 桥接模式</span>
           </a>
       </div>
 
@@ -238,15 +266,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-07-22T00:00:00+08:00"
-              content="2024-07-22">
-          07-22
+              datetime="2024-10-14T13:31:00+08:00"
+              content="2024-10-14">
+          10-14
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BABOA%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-            <span itemprop="name">C++ Boa服务器使用</span>
+          <a class="post-title-link" href="/2024/10/14/C++%20%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" itemprop="url">
+            <span itemprop="name">C++ 回调函数</span>
           </a>
       </div>
 
@@ -258,15 +286,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-07-22T00:00:00+08:00"
-              content="2024-07-22">
-          07-22
+              datetime="2024-09-03T20:00:00+08:00"
+              content="2024-09-03">
+          09-03
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/Posix%E7%BA%BF%E7%A8%8B/" itemprop="url">
-            <span itemprop="name">Posix线程</span>
+          <a class="post-title-link" href="/2024/09/03/%E6%A0%B9%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E8%8E%B7%E5%8F%96%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88/" itemprop="url">
+            <span itemprop="name">根据结构体成员获取结构体指针</span>
           </a>
       </div>
 
@@ -278,15 +306,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-07-22T00:00:00+08:00"
-              content="2024-07-22">
-          07-22
+              datetime="2024-09-03T17:17:00+08:00"
+              content="2024-09-03">
+          09-03
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/QtBase%20%E5%BA%93%E5%AE%89%E8%A3%85/" itemprop="url">
-            <span itemprop="name">QtBase库安装和使用</span>
+          <a class="post-title-link" href="/2024/09/03/C++%20%E7%BB%A7%E6%89%BF%E6%8E%A2%E7%B4%A2/" itemprop="url">
+            <span itemprop="name">C++ 继承探索</span>
           </a>
       </div>
 
@@ -298,15 +326,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-07-22T00:00:00+08:00"
-              content="2024-07-22">
-          07-22
+              datetime="2024-09-03T17:14:00+08:00"
+              content="2024-09-03">
+          09-03
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/Qt%E8%8E%B7%E5%8F%96windows%20%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90%E7%9A%84%E6%96%B9%E6%B3%95/" itemprop="url">
-            <span itemprop="name">Qt常见问题总结</span>
+          <a class="post-title-link" href="/2024/09/03/%E8%AE%B0%E4%B8%80Qt%E6%AC%A1%E7%BC%96%E8%AF%91Bug%EF%BC%9AERROR%20LINK2019%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7/" itemprop="url">
+            <span itemprop="name">记一Qt次编译Bug：ERROR LINK2019无法解析的外部符号</span>
           </a>
       </div>
 
@@ -318,15 +346,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-07-22T00:00:00+08:00"
-              content="2024-07-22">
-          07-22
+              datetime="2024-09-03T16:18:00+08:00"
+              content="2024-09-03">
+          09-03
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/linux%E7%BD%91%E7%BB%9CIO%E6%A8%A1%E5%9E%8B/" itemprop="url">
-            <span itemprop="name">Linux I/O模型</span>
+          <a class="post-title-link" href="/2024/09/03/QFile%20%E4%B8%8D%E8%83%BD%E4%BB%A5%20WriteOlny,ReadWrite%20%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/" itemprop="url">
+            <span itemprop="name">QFile 不能以 WriteOlny,ReadWrite 方式打开资源文件</span>
           </a>
       </div>
 
@@ -338,15 +366,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-07-22T00:00:00+08:00"
-              content="2024-07-22">
-          07-22
+              datetime="2024-09-03T16:13:00+08:00"
+              content="2024-09-03">
+          09-03
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/log4qt%20for%20Qt5%E4%BD%BF%E7%94%A8/" itemprop="url">
-            <span itemprop="name">Log4Qt for Qt5使用</span>
+          <a class="post-title-link" href="/2024/09/03/QDomNode%20setNodeValue%20%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" itemprop="url">
+            <span itemprop="name">QDomNode setNodeValue 无效问题记录</span>
           </a>
       </div>
 
@@ -358,15 +386,15 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2024-07-22T00:00:00+08:00"
-              content="2024-07-22">
-          07-22
+              datetime="2024-09-02T19:43:00+08:00"
+              content="2024-09-02">
+          09-02
         </time>
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2024/07/22/macos%20%E7%BC%96%E8%AF%91Boost%20%E9%94%99%E8%AF%AF/" itemprop="url">
-            <span itemprop="name">macos编译Boost库错误</span>
+          <a class="post-title-link" href="/2024/09/02/C++%20%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/" itemprop="url">
+            <span itemprop="name">C++ 位操作总结</span>
           </a>
       </div>
 
@@ -381,7 +409,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/page/3/">3</a><a class="extend next" rel="next" href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/page/5/">5</a><a class="extend next" rel="next" href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -447,16 +475,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -526,6 +554,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 

@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="记录一些自己的见闻">
@@ -103,6 +103,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -132,11 +133,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -160,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/%E5%9C%A8github%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E5%92%8C%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/Qt%20%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +202,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/03/%E5%9C%A8github%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E5%92%8C%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94/" class="post-title-link" itemprop="url">在github 搭建免费私有仓库和本地仓库关联</a>
+            <a href="/2024/09/03/Qt%20%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Qt 信号和槽问题总结</a>
         </h2>
 
         <div class="post-meta">
@@ -184,14 +212,99 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-03 16:28:00" itemprop="dateCreated datePublished" datetime="242024-09-03T16:28:00+08:00">242024-09-03</time>
+              <time title="创建时间：2024-09-03 16:53:00" itemprop="dateCreated datePublished" datetime="2024-09-03T16:53:00+08:00">2024-09-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-03 16:29:28" itemprop="dateModified" datetime="2024-09-03T16:29:28+08:00">2024-09-03</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>应注意的问题信号与槽机制是比较灵活的，但有些局限性我们必须了解，这样在实际的使用过程中做到有的放矢，避免产生一些错误。下面就介绍一下这方面的情况</p>
+<hr>
+<h3 id="1-信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台-i586-133-的机器上测试是-10-微秒（运行-Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。"><a href="#1-信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台-i586-133-的机器上测试是-10-微秒（运行-Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。" class="headerlink" title="1 .信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台 i586-133 的机器上测试是 10 微秒（运行 Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。"></a>1 .信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台 i586-133 的机器上测试是 10 微秒（运行 Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。</h3><h3 id="2-信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如-在前面给出的例子中如果在-mySlot-槽函数中加上语句-emit-mySignal-即可形成死循环。"><a href="#2-信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如-在前面给出的例子中如果在-mySlot-槽函数中加上语句-emit-mySignal-即可形成死循环。" class="headerlink" title="2 .信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如 , 在前面给出的例子中如果在 mySlot() 槽函数中加上语句 emit mySignal() 即可形成死循环。"></a>2 .信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如 , 在前面给出的例子中如果在 mySlot() 槽函数中加上语句 emit mySignal() 即可形成死循环。</h3><h3 id="3-如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。"><a href="#3-如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。" class="headerlink" title="3 .如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。"></a>3 .如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。</h3><h3 id="4-宏定义不能用在-signal-和-slot-的参数中。既然-moc-工具不扩展-define，因此，在-signals-和-slots-中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏-SIGNEDNESS-a-作为信号的参数是不合语法的："><a href="#4-宏定义不能用在-signal-和-slot-的参数中。既然-moc-工具不扩展-define，因此，在-signals-和-slots-中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏-SIGNEDNESS-a-作为信号的参数是不合语法的：" class="headerlink" title="4 .宏定义不能用在 signal 和 slot 的参数中。既然 moc 工具不扩展 #define，因此，在 signals 和 slots 中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏 SIGNEDNESS(a) 作为信号的参数是不合语法的："></a>4 .宏定义不能用在 signal 和 slot 的参数中。既然 moc 工具不扩展 <code>#define</code>，因此，在 signals 和 slots 中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏 SIGNEDNESS(a) 作为信号的参数是不合语法的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> ultrix</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIGNEDNESS(a) unsigned a</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIGNEDNESS(a) a</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Whatever</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">[...]</span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">someSignal</span><span class="params">( SIGNEDNESS(a) )</span></span>;</span><br><span class="line">[...]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-构造函数不能用在-signals-或者-slots-声明区域内。的确，将一个构造函数放在-signals-或者-slots-区内有点不可理解，无论如何，不能将它们放在-private-slots、protected-slots-或者-public-slots-区内。下面的用法是不合语法要求的："><a href="#5-构造函数不能用在-signals-或者-slots-声明区域内。的确，将一个构造函数放在-signals-或者-slots-区内有点不可理解，无论如何，不能将它们放在-private-slots、protected-slots-或者-public-slots-区内。下面的用法是不合语法要求的：" class="headerlink" title="5 .构造函数不能用在 signals 或者 slots 声明区域内。的确，将一个构造函数放在 signals 或者 slots 区内有点不可理解，无论如何，不能将它们放在 private slots、protected slots 或者 public slots 区内。下面的用法是不合语法要求的："></a>5 .构造函数不能用在 signals 或者 slots 声明区域内。的确，将一个构造函数放在 signals 或者 slots 区内有点不可理解，无论如何，不能将它们放在 private slots、protected slots 或者 public slots 区内。下面的用法是不合语法要求的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">class</span> <span class="title class_">SomeClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="built_in">SomeClass</span>( QObject *parent, <span class="type">const</span> <span class="type">char</span> *name )</span><br><span class="line">        : <span class="built_in">QObject</span>( parent, name ) &#123;&#125;  <span class="comment">// 在槽声明区内声明构造函数不合语法</span></span><br><span class="line">[...]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-函数指针不能作为信号或槽的参数。例如，下面的例子中将-void-applyFunction-QList-void-作为参数是不合语法的："><a href="#6-函数指针不能作为信号或槽的参数。例如，下面的例子中将-void-applyFunction-QList-void-作为参数是不合语法的：" class="headerlink" title="6 .函数指针不能作为信号或槽的参数。例如，下面的例子中将 void (applyFunction)(QList, void*) 作为参数是不合语法的："></a>6 .函数指针不能作为信号或槽的参数。例如，下面的例子中将 void (<em>applyFunction)(QList</em>, void*) 作为参数是不合语法的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">apply</span><span class="params">(<span class="type">void</span> (*applyFunction)(QList*, <span class="type">void</span>*), <span class="type">char</span>*)</span></span>; <span class="comment">// 不合语法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>你可以采用下面的方法绕过这个限制：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*ApplyFunctionType)</span><span class="params">(QList*, <span class="type">void</span>*)</span></span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">apply</span><span class="params">( ApplyFunctionType, <span class="type">char</span> *)</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-信号与槽不能有缺省参数。既然-signal-slot-绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的："><a href="#7-信号与槽不能有缺省参数。既然-signal-slot-绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的：" class="headerlink" title="7 .信号与槽不能有缺省参数。既然 signal-&gt;slot 绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的："></a>7 .信号与槽不能有缺省参数。既然 signal-&gt;slot 绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SomeClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">someSlot</span><span class="params">(<span class="type">int</span> x=<span class="number">100</span>)</span></span>; <span class="comment">// 将 x 的缺省值定义成 100，在槽函数声明中使用是错误的</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使-moc-工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用："><a href="#8-信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使-moc-工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用：" class="headerlink" title="8 .信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使 moc 工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用："></a>8 .信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使 moc 工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyWidget::setLocation</span> <span class="params">(pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; location)</span></span>;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyObject::moved</span> <span class="params">(pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; location)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>但是，你可以使用 typedef 语句来绕过这个限制。如下所示：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; IntPair;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyWidget::setLocation</span> <span class="params">(IntPair location)</span></span>;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyObject::moved</span> <span class="params">(IntPair location)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样使用的话，你就可以得到正确的结果。  </p>
+<h3 id="9-嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在-class-B-中声明槽-b-是不合语法的，在信号区内声明槽-b-也是不合语法的。"><a href="#9-嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在-class-B-中声明槽-b-是不合语法的，在信号区内声明槽-b-也是不合语法的。" class="headerlink" title="9 .嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在 class B 中声明槽 b() 是不合语法的，在信号区内声明槽 b() 也是不合语法的。"></a>9 .嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在 class B 中声明槽 b() 是不合语法的，在信号区内声明槽 b() 也是不合语法的。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> slots:   <span class="comment">// 在嵌套类中声明槽不合语法</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">b</span><span class="params">()</span></span>;</span><br><span class="line">    [....]</span><br><span class="line">  &#125;;</span><br><span class="line">signals:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 在信号区内声明嵌套类不合语法</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">b</span><span class="params">()</span></span>;</span><br><span class="line">    [....]</span><br><span class="line">    &#125;:</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-友元声明不能位于信号或者槽声明区内。相反，它们应该在普通-C-的-private、protected-或者-public-区内进行声明。下面的例子是不合语法规范的："><a href="#10-友元声明不能位于信号或者槽声明区内。相反，它们应该在普通-C-的-private、protected-或者-public-区内进行声明。下面的例子是不合语法规范的：" class="headerlink" title="10 .友元声明不能位于信号或者槽声明区内。相反，它们应该在普通 C++ 的 private、protected 或者 public 区内进行声明。下面的例子是不合语法规范的："></a>10 .友元声明不能位于信号或者槽声明区内。相反，它们应该在普通 C++ 的 private、protected 或者 public 区内进行声明。下面的例子是不合语法规范的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line">signals: <span class="comment">// 信号定义区</span></span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">ClassTemplate</span>; <span class="comment">// 此处定义不合语法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/%E5%9C%A8github%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E5%92%8C%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/03/%E5%9C%A8github%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E5%92%8C%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94/" class="post-title-link" itemprop="url">在github 搭建免费私有仓库和本地仓库关联</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-03 16:28:00" itemprop="dateCreated datePublished" datetime="2024-09-03T16:28:00+08:00">2024-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -237,7 +350,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/QFile%20%E4%B8%8D%E8%83%BD%E4%BB%A5%20WriteOlny,ReadWrite%20%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/QFile%20%E4%B8%8D%E8%83%BD%E4%BB%A5%20WriteOlny,ReadWrite%20%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -251,7 +364,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/03/QFile%20%E4%B8%8D%E8%83%BD%E4%BB%A5%20WriteOlny,ReadWrite%20%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">QFile 不能以 WriteOlny,ReadWrite 方式打开资源文件</a>
+            <a href="/2024/09/03/QFile%20%E4%B8%8D%E8%83%BD%E4%BB%A5%20WriteOlny,ReadWrite%20%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">QFile 不能以 WriteOlny,ReadWrite 方式打开资源文件</a>
         </h2>
 
         <div class="post-meta">
@@ -261,15 +374,32 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-03 16:18:00" itemprop="dateCreated datePublished" datetime="242024-09-03T16:18:00+08:00">242024-09-03</time>
+              <time title="创建时间：2024-09-03 16:18:00" itemprop="dateCreated datePublished" datetime="2024-09-03T16:18:00+08:00">2024-09-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-03 16:18:47" itemprop="dateModified" datetime="2024-09-03T16:18:47+08:00">2024-09-03</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
 
           
 
@@ -308,7 +438,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/QDomNode%20setNodeValue%20%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/QDomNode%20setNodeValue%20%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -322,7 +452,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/03/QDomNode%20setNodeValue%20%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">QDomNode setNodeValue 无效问题记录</a>
+            <a href="/2024/09/03/QDomNode%20setNodeValue%20%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">QDomNode setNodeValue 无效问题记录</a>
         </h2>
 
         <div class="post-meta">
@@ -332,15 +462,32 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-03 16:13:00" itemprop="dateCreated datePublished" datetime="242024-09-03T16:13:00+08:00">242024-09-03</time>
+              <time title="创建时间：2024-09-03 16:13:00" itemprop="dateCreated datePublished" datetime="2024-09-03T16:13:00+08:00">2024-09-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-03 16:15:38" itemprop="dateModified" datetime="2024-09-03T16:15:38+08:00">2024-09-03</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
 
           
 
@@ -413,7 +560,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/02/%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%E8%BD%ACchar%20%E5%A4%A7%E5%B0%8F%E7%AB%AF%E7%9A%84%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/02/%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%E8%BD%ACchar%20%E5%A4%A7%E5%B0%8F%E7%AB%AF%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -427,7 +574,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/02/%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%E8%BD%ACchar%20%E5%A4%A7%E5%B0%8F%E7%AB%AF%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">数据传输中int转char 大小端的问题</a>
+            <a href="/2024/09/02/%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%E8%BD%ACchar%20%E5%A4%A7%E5%B0%8F%E7%AB%AF%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">数据传输中int转char 大小端的问题</a>
         </h2>
 
         <div class="post-meta">
@@ -437,15 +584,28 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-02 20:06:00" itemprop="dateCreated datePublished" datetime="242024-09-02T20:06:00+08:00">242024-09-02</time>
+              <time title="创建时间：2024-09-02 20:06:00" itemprop="dateCreated datePublished" datetime="2024-09-02T20:06:00+08:00">2024-09-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-02 20:06:59" itemprop="dateModified" datetime="2024-09-02T20:06:59+08:00">2024-09-02</time>
+                <time title="修改时间：2025-12-09 19:30:06" itemprop="dateModified" datetime="2025-12-09T19:30:06+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
 
           
 
@@ -496,7 +656,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/02/C++%20%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/02/C++%20%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -510,7 +670,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/02/C++%20%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">C++ 位操作总结</a>
+            <a href="/2024/09/02/C++%20%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">C++ 位操作总结</a>
         </h2>
 
         <div class="post-meta">
@@ -520,15 +680,28 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-02 19:43:00" itemprop="dateCreated datePublished" datetime="242024-09-02T19:43:00+08:00">242024-09-02</time>
+              <time title="创建时间：2024-09-02 19:43:00" itemprop="dateCreated datePublished" datetime="2024-09-02T19:43:00+08:00">2024-09-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-02 19:44:15" itemprop="dateModified" datetime="2024-09-02T19:44:15+08:00">2024-09-02</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
 
           
 
@@ -542,120 +715,14 @@
 
       
           <p>C++：位操作基础篇之位操作全面总结位操作篇共分为基础篇和提高篇。<br>在计算机中所有数据都是以二进制的形式储存的。位运算其实就是直接对在内存中的二进制数据进行操作，因此处理数据的速度非常快。在实际编程中，如果能巧妙运用位操作，完全可以达到四两拨千斤的效果，正因为位操作的这些优点，所以位操作在各大IT公司的笔试面试中一直是个热点问题。因此本文将对位操作进行如下方面总结：<br>– 一． 位操作基础，用一张表描述位操作符的应用规则并详细解释。<br>– 二． 常用位操作小技巧，有判断奇偶、交换两数、变换符号、求绝对值。<br>– 三． 位操作与空间压缩，针对筛素数进行空间压缩。<br>– 四． 位操作的趣味应用，列举了位操作在高低位交换、二进制逆序、二进制中1的个数以及缺失的数字这4种趣味应用。</p>
-<h2 id="一-位操作基础"><a href="#一-位操作基础" class="headerlink" title="一 位操作基础"></a>一 位操作基础</h2><p>基本的位操作符有与、或、异或、取反、左移、右移这6种，它们的运算规则如下所示：</p>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>描述</th>
-<th>运算规则</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&amp;</td>
-<td>与</td>
-<td>两个位都位1，结果才为1</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>或 | 两个位都为0，结果才为0</td>
-</tr>
-<tr>
-<td>^</td>
-<td>异或</td>
-<td>两个位相同为0，相异为1</td>
-</tr>
-<tr>
-<td>~</td>
-<td>取反</td>
-<td>0变1,1变0</td>
-</tr>
-<tr>
-<td>&lt;&lt;</td>
-<td>左移</td>
-<td>各二进位全部左移若干位，高位丢弃，低位补0</td>
-</tr>
-<tr>
-<td>&gt;&gt;</td>
-<td>右移</td>
-<td>各二进位全部右移若干位，对无符号数，高位补0，有符号数，各编译器处理方法不一样，有的补符号位（算术右移），有的补0（逻辑右移）</td>
-</tr>
-</tbody></table>
-<p>注意以下几点：<br>– 1. 在这6种操作符，只有~取反是单目操作符，其它5种都是双目操作符。<br>– 2. 位操作只能用于整形数据，对float和double类型进行位操作会被编译器报错。<br>– 3. 对于移位操作，在微软的VC6.0和VS2008编译器都是采取算术称位即算术移位操作，算术移位是相对于逻辑移位，它们在右移操作中都一样，低位补0即可，但在左移中逻辑移位的高位补0而算术移位的高位是补符号位。如下面代码会输出-4和3。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a= <span class="number">-15</span>,b=<span class="number">15</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>,a&gt;&gt;<span class="number">2</span>,b&gt;&gt;<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-
-<p>因为15&#x3D;0000 1111(二进制)，右移二位，最高位由符号位填充将得到0000 0011即3。-15 &#x3D; 1111 0001(二进制)，右移二位，最高位由符号位填充将得到1111 1100即-4（见注1）。</p>
-<ul>
-<li><ol start="4">
-<li>位操作符的运算优先级比较低，因为尽量使用括号来确保运算顺序，否则很可能会得到莫明其妙的结果。比如要得到像1，3，5，9这些2^i+1的数字。写成 int a &#x3D; 1 &lt;&lt; i + 1;是不对的，程序会先执行i + 1，再执行左移操作。应该写成int a &#x3D; (1 &lt;&lt; i) + 1;</li>
-</ol>
-</li>
-<li><ol start="5">
-<li>另外位操作还有一些复合操作符，如&amp;&#x3D;、|&#x3D;、 ^&#x3D;、&lt;&lt;&#x3D;、&gt;&gt;&#x3D;。</li>
-</ol>
-</li>
-</ul>
-<h2 id="二-常用位操作小技巧"><a href="#二-常用位操作小技巧" class="headerlink" title="二 常用位操作小技巧"></a>二 常用位操作小技巧</h2><ul>
-<li>1.判断奇偶<br>  只要根据最未位是0还是1来决定，为0就是偶数，为1就是奇数。因此可以用if (a &amp; 1 &#x3D;&#x3D; 0)代替if (a % 2 &#x3D;&#x3D; 0)来判断a是不是偶数。</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(int i = 0;i&lt;100;++i)</span><br><span class="line">    if(i&amp;1)</span><br><span class="line">        printf(&quot;%d&quot;,i);</span><br><span class="line">putchar(&#x27;\n&#x27;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>2.交换两个数<br>  一般的写法为:</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void swap(int &amp;a,int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    if(a!=b)</span><br><span class="line">    &#123;</span><br><span class="line">    int c=a;</span><br><span class="line">    a=b;</span><br><span class="line">    b=c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以使用位操作来实现两个数交换而不使用第三个数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void swap(int &amp;a,int &amp;b)</span><br><span class="line">&#123;</span><br><span class="line">    if(a != b)</span><br><span class="line">    &#123;</span><br><span class="line">    a ^= b;</span><br><span class="line">    b ^= a;</span><br><span class="line">    a ^= b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第一步 a^&#x3D;b 即a&#x3D;(a^b);<br>第二步 b^&#x3D;a 即b&#x3D;b^(a^b)，由于^运算满足交换律，b^(a^b)&#x3D;b^b^a。由于一个数和自己异或的结果为0并且任何数与0异或都会不变的，所以此时b被赋上了a的值。<br>第三步 a^&#x3D;b 就是a&#x3D;a^b，由于前面二步可知a&#x3D;(a^b)，b&#x3D;a，所以a&#x3D;a^b即a&#x3D;(a^b)^a。故a会被赋上b的值。<br>再来个实例说明下以加深印象。int a &#x3D; 13, b &#x3D; 6;<br>a的二进制为 13&#x3D;8+4+1&#x3D;1101(二进制)<br>b的二进制为 6&#x3D;4+2&#x3D;110(二进制)<br>第一步 a^&#x3D;b a &#x3D; 1101 ^ 110 &#x3D; 1011;<br>第二步 b^&#x3D;a b &#x3D; 110 ^ 1011 &#x3D; 1101;即b&#x3D;13<br>第三步 a^&#x3D;b a &#x3D; 1011 ^ 1101 &#x3D; 110;即a&#x3D;5<br>– 3.变换符号<br>变换符号就是正数变成负数，负数变成正数。<br>如对于-11和11，可以通过下面的变换方法将-11变成11<br>1111 0101(二进制) –取反-&gt; 0000 1010(二进制) –加1-&gt; 0000 1011(二进制)<br>同样可以这样的将11变成-11<br>0000 1011(二进制) –取反-&gt; 0000 1010(二进制) –加1-&gt; 1111 0101(二进制)<br>因此变换符号只需要取反后加1即可。完整代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int SignReversal(int a)</span><br><span class="line">&#123;</span><br><span class="line">   return ~a + 1;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;对整数变换符号 \n\n&quot;);</span><br><span class="line">    int a = 7, b = -12345;</span><br><span class="line">    printf(&quot;%d  %d\n&quot;, SignReversal(a), SignReversal(b));</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>4.求绝对值<br>  位操作也可以用来求绝对值，对于负数可以通过对其取反后加1来得到正数。对-6可以这样：<br>  1111 1010(二进制) –取反-&gt;0000 0101(二进制) -加1-&gt; 0000 0110(二进制)<br>  来得到6。<br>  因此先移位来取符号位，int i &#x3D; a &gt;&gt; 31;要注意如果a为正数，i等于0，为负数，i等于-1。然后对i进行判断——如果i等于0，直接返回。否之，返回~a+1。完整代码如下：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int abs(int a)</span><br><span class="line">&#123;</span><br><span class="line">    int i = a&gt;&gt;31;</span><br><span class="line">    return i == 0 ? a:(~a+1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>现在再分析下。对于任何数，与0异或都会保持不变，与-1即0xFFFFFFFF异或就相当于取反。因此，a与i异或后再减i（因为i为0或-1，所以减i即是要么加0要么加1）也可以得到绝对值。所以可以对上面代码优化下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int my_abs(int a)</span><br><span class="line">&#123;</span><br><span class="line">    int i = a &gt;&gt; 31;</span><br><span class="line">    return ((a ^ i) - i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="三-位操作与空间压缩"><a href="#三-位操作与空间压缩" class="headerlink" title="三.位操作与空间压缩"></a>三.位操作与空间压缩</h2><p>素数法在这里不就详细介绍了，本文着重对筛素数法所使用的素数表进行优化来减小其空间占用。要压缩素数表的空间占用，可以使用位操作。下面是用筛素数法计算100以内的素数示例代码（注2）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> #include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;memory.h&gt;</span><br><span class="line">const int MAXN = 100;</span><br><span class="line">bool flag[MAXN];</span><br><span class="line">int primes[MAXN / 3], pi;</span><br><span class="line">//对每个素数，它的倍数必定不是素数。</span><br><span class="line">//有很多重复如flag[10]会在访问flag[2]和flag[5]时各访问一次</span><br><span class="line">void GetPrime_1()</span><br><span class="line">&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    pi = 0;</span><br><span class="line">    memset(flag, false, sizeof(flag));</span><br><span class="line">    for (i = 2; i &lt; MAXN; i++)</span><br><span class="line">        if (!flag[i])</span><br><span class="line">        &#123;</span><br><span class="line">            primes[pi++] = i;</span><br><span class="line">            for (j = i; j &lt; MAXN; j += i)</span><br><span class="line">                flag[j] = true;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">void PrintfArray()</span><br><span class="line">&#123;</span><br><span class="line">    for (int i = 0; i &lt; pi; i++)</span><br><span class="line">        printf(&quot;%d &quot;, primes[i]);</span><br><span class="line">    putchar(&#x27;\n&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;用筛素数法求100以内的素数\n&quot;);</span><br><span class="line">    GetPrime_1();</span><br><span class="line">    PrintfArray();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在上面程序是用bool数组来作标记的，bool型数据占1个字节（8位），因此用位操作来压缩下空间占用将会使空间的占用减少八分之一。<br>下面考虑下如何在数组中对指定位置置1，先考虑如何对一个整数在指定位置上置1。对于一个整数可以通过将1向左移位后与其相或来达到在指定位上置1的效果，代码如下所示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//在一个数指定位上置1</span><br><span class="line">int j = 0;</span><br><span class="line">j |=  1 &lt;&lt; 10;</span><br><span class="line">printf(&quot;%d\n&quot;, j);</span><br></pre></td></tr></table></figure>
-
-<p>同样，可以1向左移位后与原数相与来判断指定位上是0还是1（也可以将原数右移若干位再与1相与）。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//判断指定位上是0还是1</span><br><span class="line">int j = 1 &lt;&lt; 10;</span><br><span class="line">if ((j &amp; (1 &lt;&lt; 10)) != 0)</span><br><span class="line">    printf(&quot;指定位上为1&quot;);</span><br><span class="line">else</span><br><span class="line">    printf(&quot;指定位上为0&quot;);</span><br></pre></td></tr></table></figure>
-
-<p>扩展到数组上，我们可以采用这种方法，因为数组在内存上也是连续分配的一段空间，完全可以“认为”是一个很长的整数。先写一份测试代码，看看如何在数组中使用位操作：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> #include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;     对数组中指定位置上置位和判断该位\n&quot;);</span><br><span class="line">    //在数组中在指定的位置上写1</span><br><span class="line">    int b[5] = &#123;0&#125;;</span><br><span class="line">    int i;</span><br><span class="line">    //在第i个位置上写1</span><br><span class="line">    for (i = 0; i &lt; 40; i += 3)</span><br><span class="line">        b[i / 32] |= (1 &lt;&lt; (i % 32));</span><br><span class="line">    //输出整个bitset</span><br><span class="line">    for (i = 0; i &lt; 40; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if ((b[i / 32] &gt;&gt; (i % 32)) &amp; 1)</span><br><span class="line">            putchar(&#x27;1&#x27;);</span><br><span class="line">        else</span><br><span class="line">            putchar(&#x27;0&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">    putchar(&#x27;\n&#x27;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以将上面筛素数方法改成使用位操作压缩后的筛素数方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;memory.h&gt;</span><br><span class="line">const int MAXN = 100;</span><br><span class="line">int flag[MAXN / 32];</span><br><span class="line">int primes[MAXN / 3], pi;</span><br><span class="line">void GetPrime_1()</span><br><span class="line">&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    pi = 0;</span><br><span class="line">    memset(flag, 0, sizeof(flag));</span><br><span class="line">    for (i = 2; i &lt; MAXN; i++)</span><br><span class="line">        if (!((flag[i / 32] &gt;&gt; (i % 32)) &amp; 1))</span><br><span class="line">        &#123;</span><br><span class="line">            primes[pi++] = i;</span><br><span class="line">            for (j = i; j &lt; MAXN; j += i)</span><br><span class="line">                flag[j / 32] |= (1 &lt;&lt; (j % 32));</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">void PrintfArray()</span><br><span class="line">&#123;</span><br><span class="line">    for (int i = 0; i &lt; pi; i++)</span><br><span class="line">        printf(&quot;%d &quot;, primes[i]);</span><br><span class="line">    putchar(&#x27;\n&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;用位操作压缩后筛素数法求100以内的素数\n&quot;);</span><br><span class="line">    GetPrime_1();</span><br><span class="line">    PrintfArray();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="四-位操作趣味应用"><a href="#四-位操作趣味应用" class="headerlink" title="四 位操作趣味应用"></a>四 位操作趣味应用</h2><ul>
-<li>1． 高低位交换<br>  给出一个16位的无符号整数。称这个二进制数的前8位为“高位”，后8位为“低位”。现在写一程序将它的高低位交换。例如，数34520用二进制表示为：<br>  10000110 11011000<br>  将它的高低位进行交换，我们得到了一个新的二进制数：<br>  11011000 10000110<br>  它即是十进制的55430。<br>  这个问题用位操作解决起来非常方便，设x&#x3D;34520&#x3D;10000110 11011000(二进制) 由于x为无符号数，右移时会执行逻辑右移即高位补0，因此x右移8位将得到0000000010000110。而x左移8位将得到11011000 00000000。可以发现只要将x&gt;&gt;8与x&lt;&lt;8这两个数相与就可以得到11011000 10000110。用代码实现非常简洁：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">void PrintfBinary(T a)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    for (i = sizeof(a) * 8 - 1; i &gt;= 0; --i)</span><br><span class="line">    &#123;</span><br><span class="line">        if ((a &gt;&gt; i) &amp; 1)</span><br><span class="line">            putchar(&#x27;1&#x27;);</span><br><span class="line">        else</span><br><span class="line">            putchar(&#x27;0&#x27;);</span><br><span class="line">        if (i == 8)</span><br><span class="line">            putchar(&#x27; &#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">    putchar(&#x27;\n&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;高低位交换 \n&quot;);</span><br><span class="line">    printf(&quot;交换前:    &quot;);</span><br><span class="line">    unsigned short a = 3344520;</span><br><span class="line">    PrintfBinary(a);</span><br><span class="line">    printf(&quot;交换后:    &quot;);</span><br><span class="line">    a = (a &gt;&gt; 8) | (a &lt;&lt; 8);</span><br><span class="line">    PrintfBinary(a);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>2.二进制逆序<br>  我们知道如何对字符串求逆序，现在要求计算二进制的逆序，如数34520用二进制表示为：<br>  10000110 11011000<br>  将它逆序，我们得到了一个新的二进制数：<br>  00011011 01100001<br>  它即是十进制的7009。<br>  回顾下字符串的逆序，可以从字符串的首尾开始，依次交换两端的数据。在二进制逆序我们也可以用这种方法，但运用位操作的高低位交换来处理二进制逆序将会得到更简洁的方法。类似于归并排序的分组处理，可以通过下面4步得到16位数据的二进制逆序：<br>  第一步：每2位为一组，组内高低位交换<br>  10 00 01 10 11 01 10 00<br>  –&gt;01 00 10 01 11 10 01 00<br>  第二步：每4位为一组，组内高低位交换<br>  0100 1001 1110 0100<br>  –&gt;0001 0110 1011 0001<br>  第三步：每8位为一组，组内高低位交换<br>  00010110 10110001<br>  –&gt;01100001 00011011<br>  第四步：每16位为一组，组内高低位交换<br>  01100001 00011011<br>  –&gt;00011011 01100001<br>  对第一步，可以依次取出每2位作一组，再组内高低位交换，这样有点麻烦，下面介绍一种非常有技巧的方法。先分别取10000110 11011000的奇数位和偶数位，空位以下划线表示。<br>  原 数 10000110 11011000<br>  奇数位 1_0_0_1_ 1_0_1_0_<br>  偶数位 _0_0_1_0 _1_1_0_0<br>  将下划线用0填充，可得<br>  原 数 10000110 11011000<br>  奇数位 10000010 10001000<br>  偶数位 00000100 01010000<br>  再将奇数位右移一位，偶数位左移一位，此时将这两个数据相与即可以达到奇偶位上数据交换的效果了。<br>  原 数 10000110 11011000<br>  奇数位右移 01000011 01101100<br>  偶数位左移 0000100 010100000<br>  相与得到 01001000 11100100<br>  可以看出，结果完全达到了奇偶位的数据交换，再来考虑代码的实现——<br>  取x的奇数位并将偶数位用0填充用代码实现就是x &amp; 0xAAAA<br>  取x的偶数位并将奇数位用0填充用代码实现就是x &amp; 0x5555<br>  因此，第一步就用代码实现就是：<br>  x &#x3D; ((x &amp; 0xAAAA) &gt;&gt; 1) | ((x &amp; 0x5555) &lt;&lt; 1);</li>
-</ul>
-<p>完整代码如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">void PrintfBinary(T a)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    for (i = sizeof(a) * 8 - 1; i &gt;= 0; --i)</span><br><span class="line">    &#123;</span><br><span class="line">        if ((a &gt;&gt; i) &amp; 1)</span><br><span class="line">            putchar(&#x27;1&#x27;);</span><br><span class="line">        else</span><br><span class="line">            putchar(&#x27;0&#x27;);</span><br><span class="line">        if (i == 8)</span><br><span class="line">            putchar(&#x27; &#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">    putchar(&#x27;\n&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;二进制逆序 \n&quot;);</span><br><span class="line">    printf(&quot;逆序前:    &quot;);</span><br><span class="line">    unsigned short a = 34520;</span><br><span class="line">    PrintfBinary(a);</span><br><span class="line">    printf(&quot;逆序后:    &quot;);</span><br><span class="line">    a = ((a &amp; 0xAAAA) &gt;&gt; 1) | ((a &amp; 0x5555) &lt;&lt; 1);</span><br><span class="line">    a = ((a &amp; 0xCCCC) &gt;&gt; 2) | ((a &amp; 0x3333) &lt;&lt; 2);</span><br><span class="line">    a = ((a &amp; 0xF0F0) &gt;&gt; 4) | ((a &amp; 0x0F0F) &lt;&lt; 4);</span><br><span class="line">    a = ((a &amp; 0xFF00) &gt;&gt; 8) | ((a &amp; 0x00FF) &lt;&lt; 8);</span><br><span class="line">    PrintfBinary(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>3.二进制中的个数<br>  统计二进制中1的个数可以直接移位再判断，当然像《编程之美》书中用循环移位计数或先打一个表再计算都可以。本文详细讲解一种高效的方法。以34520为例，可以通过下面四步来计算其二进制中1的个数二进制中1的个数。<br>  第一步：每2位为一组，组内高低位相加<br>  10 00 01 10 11 01 10 00<br>  –&gt;01 00 01 01 10 01 01 00<br>  第二步：每4位为一组，组内高低位相加<br>  0100 0101 1001 0100<br>  –&gt;0001 0010 0011 0001<br>  第三步：每8位为一组，组内高低位相加<br>  00010010 00110001<br>  –&gt;00000011 00000100<br>  第四步：每16位为一组，组内高低位相加<br>  00000011 00000100<br>  –&gt;00000000 00000111<br>  这样最后得到的00000000 00000111即7即34520二进制中1的个数。类似上文中对二进制逆序的做法不难实现第一步的代码：<br>  x &#x3D; ((x &amp; 0xAAAA) &gt;&gt; 1) + (x &amp; 0x5555);</li>
-</ul>
-<p>完整代码:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">void PrintfBinary(T a)</span><br><span class="line">&#123;</span><br><span class="line">    int i;</span><br><span class="line">    for (i = sizeof(a) * 8 - 1; i &gt;= 0; --i)</span><br><span class="line">    &#123;</span><br><span class="line">        if ((a &gt;&gt; i) &amp; 1)</span><br><span class="line">            putchar(&#x27;1&#x27;);</span><br><span class="line">        else</span><br><span class="line">            putchar(&#x27;0&#x27;);</span><br><span class="line">        if (i == 8)</span><br><span class="line">            putchar(&#x27; &#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">    putchar(&#x27;\n&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;二进制中1的个数\n&quot;);</span><br><span class="line">    unsigned short a = 34520;</span><br><span class="line">    printf(&quot;原数    %6d的二进制为:  &quot;, a);</span><br><span class="line">    PrintfBinary(a);</span><br><span class="line">    a = ((a &amp; 0xAAAA) &gt;&gt; 1) + (a &amp; 0x5555);</span><br><span class="line">    a = ((a &amp; 0xCCCC) &gt;&gt; 2) + (a &amp; 0x3333);</span><br><span class="line">    a = ((a &amp; 0xF0F0) &gt;&gt; 4) + (a &amp; 0x0F0F);</span><br><span class="line">    a = ((a &amp; 0xFF00) &gt;&gt; 8) + (a &amp; 0x00FF);</span><br><span class="line">    printf(&quot;计算结果%6d的二进制为:  &quot;, a);</span><br><span class="line">    PrintfBinary(a);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>4.将数据位某位置1 或者置 0</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#define setbit(x,y) x|=(1&lt;&lt;y)         //将X的第Y位置1</span><br><span class="line">#define clrbit(x,y) x&amp;=~(1&lt;&lt;y)            //将X的第Y位清0</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">       unsigned short Nun = 0;</span><br><span class="line">       setbit(Nun,15);</span><br><span class="line">       setbit(Nun,14);</span><br><span class="line">       //clrbit(Nun,15);</span><br><span class="line">       if (Nun&gt;&gt;14&amp;1)   //判断第十四位是否为一</span><br><span class="line">       &#123;</span><br><span class="line">              cout&lt;&lt;&quot;14位为1&quot;&lt;&lt;endl;</span><br><span class="line">       &#125;</span><br><span class="line">       if (Nun&gt;&gt;15&amp;1)  //判断第十五位是否为一</span><br><span class="line">       &#123;</span><br><span class="line">              cout&lt;&lt;&quot;15位为1&quot;&lt;&lt;endl;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/02/C++%20%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -674,7 +741,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/02/Qt%E4%B8%AD%E7%9A%84%20pro%20%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/02/Qt%E4%B8%AD%E7%9A%84%20pro%20%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -688,7 +755,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/02/Qt%E4%B8%AD%E7%9A%84%20pro%20%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">Qt中的 pro 文件介绍</a>
+            <a href="/2024/09/02/Qt%E4%B8%AD%E7%9A%84%20pro%20%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">Qt中的 pro 文件介绍</a>
         </h2>
 
         <div class="post-meta">
@@ -698,14 +765,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-02 18:54:00" itemprop="dateCreated datePublished" datetime="242024-09-02T18:54:00+08:00">242024-09-02</time>
+              <time title="创建时间：2024-09-02 18:54:00" itemprop="dateCreated datePublished" datetime="2024-09-02T18:54:00+08:00">2024-09-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-02 19:38:33" itemprop="dateModified" datetime="2024-09-02T19:38:33+08:00">2024-09-02</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -811,7 +878,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -825,7 +892,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" class="post-title-link" itemprop="url">树莓派远程桌面</a>
+            <a href="/2024/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" class="post-title-link" itemprop="url">树莓派远程桌面</a>
         </h2>
 
         <div class="post-meta">
@@ -835,15 +902,28 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-02 18:51:00" itemprop="dateCreated datePublished" datetime="242024-09-02T18:51:00+08:00">242024-09-02</time>
+              <time title="创建时间：2024-09-02 18:51:00" itemprop="dateCreated datePublished" datetime="2024-09-02T18:51:00+08:00">2024-09-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-02 18:53:04" itemprop="dateModified" datetime="2024-09-02T18:53:04+08:00">2024-09-02</time>
+                <time title="修改时间：2025-12-09 19:29:18" itemprop="dateModified" datetime="2025-12-09T19:29:18+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
+                </span>
+            </span>
 
           
 
@@ -857,21 +937,14 @@
 
       
           <p>最近项目中要使用树莓派，以前自己玩过树莓派，但没做记录，此次趁着项目把使用过程中的问题做个详细的记录<br>– 远程桌面<br>只需要在raspbian下面安装一个服务xdrp即可。输入如下命令安装：<br><code>sudo apt-get install xrdp</code><br>然后就Ok了</p>
-<p>安装完成后使用windows 远程桌面连接会出现报错 error – problem connecting，问题根源在于tightvnc，出现问题的版本跟X字体有冲突，导致连接Xserver出错。<br><code>sudo apt-get purge tightvnc xrdp</code><br><code>sudo apt-get install tightvncserver xrdp</code></p>
-<p>最后启动 xrdp 服务，sudo &#x2F;etc&#x2F;init.d&#x2F;xrdp restart，此时会启用相应端口，配置方面默认即可。<br>通过命令：netstat -tnl<br>查看 3350 3389 5910 这三个端口处于LISTEN，一般就没问题了。<br>dpkg -L + 软件包的名字，可以知道这个软件包包含了哪些文件。</p>
-<h1 id="翻转屏幕"><a href="#翻转屏幕" class="headerlink" title="翻转屏幕"></a>翻转屏幕</h1><p>1、切换为root</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
-
-<p>2、编辑&#x2F;boot&#x2F;config.txt，根据想旋转的角度<br>对于触摸屏添加如下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lcd_rotate = 0 //不旋转</span><br><span class="line">lcd_rotate = 1 //旋转90度</span><br><span class="line">lcd_rotate = 2 //旋转180</span><br><span class="line">lcd_rotate = 3 //旋转270</span><br></pre></td></tr></table></figure>
-
-<p>对于HDMI显示输出，添加：</p>
-<p>如果是只是想旋转HDMI输出显示的角度（不用触摸屏）<br>则可以添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">display_rotate = 0</span><br><span class="line">display_rotate = 1</span><br><span class="line">display_rotate = 2</span><br><span class="line">display_rotate = 3</span><br></pre></td></tr></table></figure>
-
-<p>3、reboot</p>
-<p>重启后，触摸屏驱动和显示都会旋转。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -890,7 +963,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/08/21/linux%20%E9%85%8D%E7%BD%AE%E5%8A%A8%E6%80%81%E5%BA%93/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/08/21/linux%20%E9%85%8D%E7%BD%AE%E5%8A%A8%E6%80%81%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -904,7 +977,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/08/21/linux%20%E9%85%8D%E7%BD%AE%E5%8A%A8%E6%80%81%E5%BA%93/" class="post-title-link" itemprop="url">linux 配置动态库</a>
+            <a href="/2024/08/21/linux%20%E9%85%8D%E7%BD%AE%E5%8A%A8%E6%80%81%E5%BA%93/" class="post-title-link" itemprop="url">linux 配置动态库</a>
         </h2>
 
         <div class="post-meta">
@@ -914,15 +987,28 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-08-21 13:43:00" itemprop="dateCreated datePublished" datetime="242024-08-21T13:43:00+08:00">242024-08-21</time>
+              <time title="创建时间：2024-08-21 13:43:00" itemprop="dateCreated datePublished" datetime="2024-08-21T13:43:00+08:00">2024-08-21</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-21 13:47:46" itemprop="dateModified" datetime="2024-08-21T13:47:46+08:00">2024-08-21</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">开发</span></a>
+                </span>
+            </span>
 
           
 
@@ -937,41 +1023,14 @@
       
           <p>在 Linux 系统中，程序运行时链接的库文件是通过动态链接器（dynamic linker）来处理的。我们可以使用一些方法来指定程序在运行时链接到特定的库文件。</p>
 <p>以下是几种方法来实现这一目标：</p>
-<h3 id="1-使用-LD-LIBRARY-PATH-环境变量"><a href="#1-使用-LD-LIBRARY-PATH-环境变量" class="headerlink" title="1. 使用 LD_LIBRARY_PATH 环境变量"></a>1. 使用 <code>LD_LIBRARY_PATH</code> 环境变量</h3><p><code>LD_LIBRARY_PATH</code> 是一个环境变量，它可以告诉动态链接器在指定的路径中查找库文件。当程序运行时，动态链接器会优先搜索这个路径中的库文件，而不是系统默认的路径。</p>
-<h4 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h4><p>假设你有一个自定义的库文件放在 <code>/custom/lib</code> 目录下，你可以这样做：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/custom/lib:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line">./your_program</span><br></pre></td></tr></table></figure>
-
-<p>这样，程序会首先从 <code>/custom/lib</code> 目录中查找库文件。</p>
-<h3 id="2-使用-ldd-命令查看链接的库文件"><a href="#2-使用-ldd-命令查看链接的库文件" class="headerlink" title="2. 使用 ldd 命令查看链接的库文件"></a>2. 使用 <code>ldd</code> 命令查看链接的库文件</h3><p>在执行程序之前，您可以使用 <code>ldd</code> 命令来查看该程序将会链接的库文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldd ./your_program</span><br></pre></td></tr></table></figure>
-
-<p>该命令会列出该程序运行时需要的所有动态链接库及其路径。</p>
-<h3 id="3-使用-LD-PRELOAD-强制加载库文件"><a href="#3-使用-LD-PRELOAD-强制加载库文件" class="headerlink" title="3. 使用 LD_PRELOAD 强制加载库文件"></a>3. 使用 <code>LD_PRELOAD</code> 强制加载库文件</h3><p><code>LD_PRELOAD</code> 是一个环境变量，它允许你在程序运行时强制加载指定的共享库。这可以用于覆盖某些库函数的实现。</p>
-<h4 id="示例：-1"><a href="#示例：-1" class="headerlink" title="示例："></a>示例：</h4><p>假设你想让程序使用一个特定版本的库，你可以这样做：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_PRELOAD=/path/to/your/library.so</span><br><span class="line">./your_program</span><br></pre></td></tr></table></figure>
-
-<p>这样，动态链接器会优先加载 <code>/path/to/your/library.so</code> 中的符号，即使程序默认链接了其他库。</p>
-<h3 id="4-在编译时指定链接路径（如果可以重新编译）"><a href="#4-在编译时指定链接路径（如果可以重新编译）" class="headerlink" title="4. 在编译时指定链接路径（如果可以重新编译）"></a>4. 在编译时指定链接路径（如果可以重新编译）</h3><p>在编译程序时，你可以使用编译器选项指定库文件的搜索路径，这样在运行时可以自动找到正确的库文件。</p>
-<h4 id="示例：-2"><a href="#示例：-2" class="headerlink" title="示例："></a>示例：</h4><p>假设你正在编译一个 C 程序，可以使用 <code>-L</code> 选项指定库文件的路径，使用 <code>-l</code> 选项指定库的名称。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o your_program your_program.c -L/custom/lib -lyourlib</span><br></pre></td></tr></table></figure>
-
-<p>这个命令会告诉编译器在 <code>/custom/lib</code> 目录下寻找 <code>libyourlib.so</code>。</p>
-<h3 id="5-修改程序的-rpath-或-runpath"><a href="#5-修改程序的-rpath-或-runpath" class="headerlink" title="5. 修改程序的 rpath 或 runpath"></a>5. 修改程序的 <code>rpath</code> 或 <code>runpath</code></h3><p>如果你可以重新编译程序，或者有权修改其可执行文件，你可以指定 <code>rpath</code> 或 <code>runpath</code>，这会将库文件路径嵌入到可执行文件中，从而在运行时自动找到库文件。</p>
-<h4 id="示例：-3"><a href="#示例：-3" class="headerlink" title="示例："></a>示例：</h4><p>在编译时使用 <code>-Wl,-rpath</code> 选项可以指定库文件的路径。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -o your_program your_program.c -Wl,-rpath,/custom/lib -lyourlib</span><br></pre></td></tr></table></figure>
-
-<p>这样程序会在运行时自动从 <code>/custom/lib</code> 中查找库文件。</p>
-<h3 id="6-创建或修改配置文件-etc-ld-so-conf-或-etc-ld-so-conf-d"><a href="#6-创建或修改配置文件-etc-ld-so-conf-或-etc-ld-so-conf-d" class="headerlink" title="6. 创建或修改配置文件 /etc/ld.so.conf 或 /etc/ld.so.conf.d/"></a>6. 创建或修改配置文件 <code>/etc/ld.so.conf</code> 或 <code>/etc/ld.so.conf.d/</code></h3><p>你可以将自定义的库路径添加到系统的动态链接器配置中：</p>
-<ol>
-<li>编辑 <code>/etc/ld.so.conf</code> 或创建一个文件放入 <code>/etc/ld.so.conf.d/</code>，并添加自定义库的路径。</li>
-<li>运行 <code>ldconfig</code> 命令更新链接器的缓存。</li>
-</ol>
-<h4 id="示例：-4"><a href="#示例：-4" class="headerlink" title="示例："></a>示例：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/custom/lib&quot;</span> &gt;&gt; /etc/ld.so.conf</span><br><span class="line">ldconfig</span><br></pre></td></tr></table></figure>
-
-<p>这样系统会自动从 <code>/custom/lib</code> 路径中查找库文件。</p>
-<hr>
-<p>通过这些方法，可以在 Linux 系统中灵活地指定程序运行时所链接的库文件。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/08/21/linux%20%E9%85%8D%E7%BD%AE%E5%8A%A8%E6%80%81%E5%BA%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -990,7 +1049,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/07/23/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BD%BF%E7%94%A8Cloudflare%E5%81%9A%E7%BD%91%E7%AB%99/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/07/23/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BD%BF%E7%94%A8Cloudflare%E5%81%9A%E7%BD%91%E7%AB%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1004,7 +1063,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/07/23/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BD%BF%E7%94%A8Cloudflare%E5%81%9A%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">树莓派使用Cloudflare做网站</a>
+            <a href="/2024/07/23/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BD%BF%E7%94%A8Cloudflare%E5%81%9A%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">树莓派使用Cloudflare做网站</a>
         </h2>
 
         <div class="post-meta">
@@ -1014,15 +1073,32 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-07-23 15:08:00" itemprop="dateCreated datePublished" datetime="242024-07-23T15:08:00+08:00">242024-07-23</time>
+              <time title="创建时间：2024-07-23 15:08:00" itemprop="dateCreated datePublished" datetime="2024-07-23T15:08:00+08:00">2024-07-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-07-23 15:09:12" itemprop="dateModified" datetime="2024-07-23T15:09:12+08:00">2024-07-23</time>
+                <time title="修改时间：2025-12-09 19:29:48" itemprop="dateModified" datetime="2025-12-09T19:29:48+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
+                </span>
+            </span>
 
           
 
@@ -1038,144 +1114,9 @@
           <p>如果想用树莓派之类的设备去做网站，方法一是需要想办法弄到一个公网 IP，无论是直接从运营商要，还是在阿里云、腾讯云上做 frps 之类的内网穿透，都挺麻烦的；方法二是如果有 IPv6，那么就去做 v6only 的解析，并且这个 IPv6 的地址还可能会经常变，这样就会使得网站可用性变得非常差，并且 v4 用户就惨了。</p>
 <p>现今，Cloudflare Argo Tunnel 已经免费开放啦。这个东西有什么用呢？简单的来说就是在任何可以访问 cloudflare 的机器和 cloudflare 中搭建一个安全的加密隧道，然后这个隧道可以用来承载很多不同种类型的流量，比如说 http（会被自动换成 https），tcp，ssh，smb，rdp，甚至是 unix 套接字都可以哦。</p>
 <p>也就是说，只要你在家里的机器上一顿操作，那么你家里的机器就可以通过 cloudflare 的网络来达到全球可以访问的目的了。听起来是不是很棒！</p>
-<p>总结下来这样做大概有这几步：</p>
-<ol>
-<li>注册 cloudflare 账号</li>
-<li>（可选）把域名的 ns 改成 cloudflare</li>
-<li>安装 cloudflared 并登录</li>
-<li>创建 argo tunnel</li>
-<li>创建 dns 记录</li>
-<li>配置 tunnel</li>
-<li>运行</li>
-</ol>
-<p>本文以 Raspberry Pi 3 + Ubuntu 20.04 为例</p>
-<h2 id="注册-cloudflare-账号"><a href="#注册-cloudflare-账号" class="headerlink" title="注册 cloudflare 账号"></a>注册 cloudflare 账号</h2><h2 id="把域名的-ns-改成-cloudflare"><a href="#把域名的-ns-改成-cloudflare" class="headerlink" title="把域名的 ns 改成 cloudflare"></a>把域名的 ns 改成 cloudflare</h2><p>这一步是可选的，Argo Tunnel 会提供一个默认的域名，当然如果能用自己的域名就更好啦。</p>
-<h2 id="安装-cloudflared-并登录"><a href="#安装-cloudflared-并登录" class="headerlink" title="安装 cloudflared 并登录"></a>安装 cloudflared 并登录</h2><p>具体的话，可以参考<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup">这篇官方文档</a>。我的树莓派是 aarch64 的架构，也就是 arm64.</p>
-<ol>
-<li>wget -O cloudflared <a target="_blank" rel="noopener" href="https://github.com/cloudflare/cloudflared/releases/download/2021.4.0/cloudflared-linux-arm64">https://github.com/cloudflare/cloudflared/releases/download/2021.4.0/cloudflared-linux-arm64</a></li>
-<li>chmod +x cloudflared</li>
-<li>sudo cp cloudflared &#x2F;usr&#x2F;loca&#x2F;bin&#x2F;</li>
-</ol>
-<p>然后就可以开始登录啦！</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel login</span><br></pre></td></tr></table></figure>
-
-<p>然后再打开的页面中选择你的域名～Pi 那边大概会有如下输出：</p>
-<blockquote>
-<p>You have successfully logged in.</p>
-<p>If you wish to copy your credentials to a server, they have been saved to:</p>
-<p>&#x2F;home&#x2F;benny&#x2F;.cloudflared&#x2F;cert.pem</p>
-</blockquote>
-<h2 id="创建-argo-tunnel"><a href="#创建-argo-tunnel" class="headerlink" title="创建 argo tunnel"></a>创建 argo tunnel</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel create &lt;NAME&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这条命令会输出一个 tunnle UUID</p>
-<p>name 可以自己随便取一个，比如说 Pi 啦～Yui 啦～随便的啦</p>
-<p>想要查看 tunnel 列表，可以使用 <code>cloudflared tunnel list</code></p>
-<p>很明显，想要删除，那就 delete 啦 <code>cloudflared tunnel delete pi</code></p>
-<h2 id="创建-DNS-记录"><a href="#创建-DNS-记录" class="headerlink" title="创建 DNS 记录"></a>创建 DNS 记录</h2><p>有两种办法，一种是去 cloudflare dashboard 中创建一条道<code>id. cfargotunnel.com</code>的 CNAME 解析，另外一种是使用 cli 命令～</p>
-<p>那比如说我要创建一个 abcd.dmesg.app，那么就可以这样做</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel route dns &lt;UUID or NAME&gt; abcd.dmesg.com</span><br></pre></td></tr></table></figure>
-
-<p>或者在网页上这样添加，结果是一样滴<br><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/202310271435262.png" alt="image.png"></p>
-<p>此时如果你访问 abcd.dmesg.app，会看到 1033 错误的哦，因为我们的 tunnel 还没有运行。</p>
-<h2 id="配置-tunnel"><a href="#配置-tunnel" class="headerlink" title="配置 tunnel"></a>配置 tunnel</h2><p>那么接下来就需要在树莓派上配置如何 tunnel 了，一个最简单的例子是这样的：</p>
-<ol>
-<li>tunnel: pi</li>
-<li>credentials-file: &#x2F;home&#x2F;benny&#x2F;.cloudflared&#x2F;af4d19d0-7fb1-40ea-88b7-97036c026ca4.json</li>
-<li>ingress:</li>
-<li>- hostname: pi.dmesg.app</li>
-<li><pre><code> service: http://localhost:8000
-</code></pre>
-</li>
-<li>- service: http_status:404</li>
-</ol>
-<p>其中 hostname 就是上面的那个域名，service 表示我们要承载什么流量，如果想要承载 ssh，那么就<code>service: ssh://localhost:22</code>就好了。</p>
-<p>最开始的 uuid 同样可以替换成 tunnel name</p>
-<p>然后我们……</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel --config ~/tunnel.yml run</span><br></pre></td></tr></table></figure>
-
-<p>如果不想写这种配置文件，那么可以一条 cli 解决</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel run --url localhost:8000 &lt;NAME or UUID&gt;</span><br></pre></td></tr></table></figure>
-
-<p>看到一大串输出，没有报错，那我们的 tunnel 就成功了。当然树莓派上 8000 还没有程序在监听，那我们再赶紧开一个吧</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 127.0.0.1:8000:80 nginx:alpine</span><br></pre></td></tr></table></figure>
-
-<p>这个时候打开浏览器刷新一下，你的页面就已经出来啦！<br><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/202310271436117.png" alt="image.png"></p>
-<h3 id="以服务模式运行"><a href="#以服务模式运行" class="headerlink" title="以服务模式运行"></a>以服务模式运行</h3><p>当然了，咱不能开个 screen 去运行 argo tunnel 啊……</p>
-<p>那么执行这条命令来安装服务</p>
-<ol>
-<li># 需要有～&#x2F;.cloudflared&#x2F;config.yaml</li>
-<li>sudo cloudflared service install</li>
-<li># 指定配置文件位置</li>
-<li>cloudflared --config CONFIG-FILE service install</li>
-</ol>
-<p>这个时候哪怕重启都不怕啦😨</p>
-<p>原网址: <a target="_blank" rel="noopener" href="https://dmesg.app/argo-tunnel.html">访问</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2025/12/09/Decorator%20%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/12/09/Decorator%20%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-12-09 18:19:07" itemprop="dateCreated datePublished" datetime="2025-12-09T18:19:07+08:00">2025-12-09</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h1><ul>
-<li>在某些情况下我们可能会”过度的使用继承来扩展对象功能”，由于继承为类型引入的<strong>静态</strong>特质，使得这种拓展方式缺乏<strong>灵活性</strong>，并且随着<strong>子类</strong>的增多（扩展功能的增多），各种子类的组合（扩展功能的组合）会导致更多子类的膨胀.</li>
-<li>如何使”对象功能的扩展”能够根据需求动态的来实现？同时避免”扩展功能的增多”带来子类膨胀问题？从而使得任何”功能扩展变化”所导致的影响将为最低？</li>
-</ul>
-<h1 id="模式定义"><a href="#模式定义" class="headerlink" title="模式定义"></a>模式定义</h1><p>动态（组合）地给一个对象增加一些额外的职责。就增加功能而言，Decorator模式比生成子类（继承）更为灵活（消除重复代码 &amp; 减少子类个数）。 ——《设计模式》GoF</p>
-<p>Decorator属于”单一职责”模式：在软件组织的设计中，如果责任划分得不清晰，使用继承得到的结果往往是随着需求变化的，子类急剧膨胀，同时充斥着重复代码，这时候的关键是划清责任。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2025/12/09/Decorator%20%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F/#more" rel="contents">
+              <a class="btn" href="/2024/07/23/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BD%BF%E7%94%A8Cloudflare%E5%81%9A%E7%BD%91%E7%AB%99/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1264,16 +1205,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1343,6 +1284,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Qt在嵌入式开发中，一般是在PC端环境中编写程序，然后调试，最后移植到开发中调试，如果使用第三方库的时候这就涉及到在PC端和ARM两个不同的环境中要使用不同的库，为了方便编译在.pro文件中设置了一个变量。具体使用如下: 1234567891011121314#定义一个变量PLATFORM&#x3D;Arm#PLATFORM&#x3D;Linux&#x2F;&#x2F;在这里判断变量isEqual(PLATFORM,Arm)&#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt中的 pro 文件介绍">
+<meta property="og:url" content="https://blog.isroots.com/2024/09/02/Qt%E4%B8%AD%E7%9A%84%20pro%20%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="吴晓宁blog">
+<meta property="og:description" content="Qt在嵌入式开发中，一般是在PC端环境中编写程序，然后调试，最后移植到开发中调试，如果使用第三方库的时候这就涉及到在PC端和ARM两个不同的环境中要使用不同的库，为了方便编译在.pro文件中设置了一个变量。具体使用如下: 1234567891011121314#定义一个变量PLATFORM&#x3D;Arm#PLATFORM&#x3D;Linux&#x2F;&#x2F;在这里判断变量isEqual(PLATFORM,Arm)&#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-09-02T10:54:00.000Z">
+<meta property="article:modified_time" content="2025-12-09T11:20:54.959Z">
+<meta property="article:author" content="吴晓宁">
+<meta property="article:tag" content="blog,编程">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://blog.isroots.com/2024/09/02/Qt%E4%B8%AD%E7%9A%84%20pro%20%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Qt中的 pro 文件介绍 | 吴晓宁blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">吴晓宁blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">吴晓宁blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/02/Qt%E4%B8%AD%E7%9A%84%20pro%20%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Qt中的 pro 文件介绍
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-02 18:54:00" itemprop="dateCreated datePublished" datetime="2024-09-02T18:54:00+08:00">2024-09-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Qt在嵌入式开发中，一般是在PC端环境中编写程序，然后调试，最后移植到开发中调试，如果使用第三方库的时候这就涉及到在PC端和ARM两个不同的环境中要使用不同的库，为了方便编译在.pro文件中设置了一个变量。具体使用如下:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#定义一个变量</span><br><span class="line">PLATFORM=Arm</span><br><span class="line">#PLATFORM=Linux</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//在这里判断变量</span></span><br><span class="line"><span class="built_in">isEqual</span>(PLATFORM,Arm)&#123;<span class="comment">//在pro左大括号必须在根据括号后面，否则函数不起作用</span></span><br><span class="line">    <span class="meta">#dosomething</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">isEqual</span>(PLATFORM,Linxu)&#123;</span><br><span class="line">    <span class="meta">#dosomething</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>当我们选择不通的编译器的时候，只需要把不同的值放开就可以了。</p>
+<h1 id="pro文件整理"><a href="#pro文件整理" class="headerlink" title=".pro文件整理"></a>.pro文件整理</h1><ul>
+<li><h1 id="注释，从”-”开始，到这一行结束"><a href="#注释，从”-”开始，到这一行结束" class="headerlink" title="注释，从”#”开始，到这一行结束"></a>注释，从”#”开始，到这一行结束</h1></li>
+<li>SOURCE</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#指定源文件</span><br><span class="line">SOURCE =.*cpp</span><br><span class="line">#对于多个源文件，可以用空格分开</span><br><span class="line">SOURCE =1.cpp 2.cpp 3.cpp</span><br><span class="line">#或者每个文件可以单独占一行，用 \ 换行</span><br><span class="line">SOURCE = 1.cpp \</span><br><span class="line">           2.cpp</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>HEADERS 指定头文件 <code>HEADERS+=1.h</code></li>
+<li>CONFIG 指定配置信息 <code>CONFIG+=qt warn_on release</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">编译器标志：</span><br><span class="line">release  应用程序将以release模式编译，如果“debug”被指定，它将被忽略</span><br><span class="line">debug    应用程序以debug模式编译</span><br><span class="line">warn_on  编译器会输出尽可能多的警告信息，如果&quot;warn_off&quot;被指定，它将被忽略</span><br><span class="line">qt       应用程式是一个qt应用程序，并且qt库将被链接</span><br><span class="line">thread   应用程序是一个多线程应用程序</span><br><span class="line">x11      应用程序是一个x11应用程序或者库</span><br><span class="line">windows  只用于app模板：应用程序是一个windows下的窗口应用程序</span><br><span class="line">console  只用于app模板：应用程序是一个windows下控制台应用程序</span><br><span class="line">dll      只用于lib 模板：库是一个共享库</span><br><span class="line">staticlib 只用于lib模板：库是一个静态库</span><br><span class="line">plugin   只用于lib模板，库是一个插件，这将会使dll选项生效</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>TARGET 指定目标文件名，如果不设置该项目，目标名会设置成和项目名称一样的名字<code>TARGET=filename</code></li>
+<li>INTERFACES 添加界面ui文件 <code>INTERFACES= filename.ui</code></li>
+<li>TEMPLATE 模块设置 <code>TEMPLATE=app</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app(生成应用程序，默认)</span><br><span class="line">subdirs(生成makefile文件编译subdirs指定的子文件夹)</span><br><span class="line">lib(生成库文件)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>DESTDIR 指定生成的应用程序的放置目录 <code>DESTDIR+= ../bin</code></li>
+<li>UI_DIR 指定uic命令将.ui文件转化成ui_*.h文件的存放目录 <code>UI_DIR+=froms</code></li>
+<li>RCC_DIR 指定rcc命令将.qrc文件转化成qrc_*.h 文件存放目录 <code>RCC_DIR+=../temp</code></li>
+<li>MOC_DIR 指定moc命令将Q_OBJECT的头文件转化成标准.h文件存放目录 <code>MOC_DIR+=../temp</code></li>
+<li>OBJECTS_DIR 指定目标文件的存放目录 <code>OBJECTS_DIR+=../temp</code></li>
+<li>DEPENDPATH 程序编译时依赖的相关路径 <code>DEPENDPATH+=.forms include qrc sources</code></li>
+<li>INCLUDEPATH 头文件的目录 <code>INCLUDEPATH+=./</code></li>
+<li>CODECFORSRC 源文件编译方式 <code>CODECFORSRC = GBK</code></li>
+<li>FORMS 工程中ui文件存放目录 <code>FORMS+=.</code></li>
+<li>RESOURCES 工程中包含的资源文件 <code>RESOURCES +=qrc/painter.qrc</code></li>
+<li>win32{…} unix{…} 平台相关性处理 <code>win32 &#123;SOURCES += hello_win.cpp&#125;</code></li>
+<li>LANGUAGE 语言 <code>LANGUAGE = C++</code></li>
+<li>QT 加入库模块 <code>QT += xml</code></li>
+<li>exists !exists 如果一个文件不存在，停止 qmake <code>!exists( main.cpp ) &#123;error( &quot;No main.cpp file found&quot;)&#125;</code></li>
+<li>LIBS 加入第三方库 <code>LIBS += -L folderPath</code> 是引入lib文件的目录 <code>LIBS += -lLibName 是引入库</code></li>
+</ul>
+<h1 id="更多其他变量："><a href="#更多其他变量：" class="headerlink" title="更多其他变量："></a>更多其他变量：</h1><ul>
+<li>app ‐ 建立一个应用程序的 makefile。这是默认值，所以如果模板没有被指定，这个将被使<br>  用。</li>
+<li>lib ‐ 建立一个库的 makefile。</li>
+<li>vcapp ‐ 建立一个应用程序的 Visual Studio 项目文件。</li>
+<li>vclib ‐ 建立一个库的 Visual Studio 项目文件。</li>
+<li>subdirs ‐ 这是一个特殊的模板，它可以创建一个能够进入特定目录并且为一个项目文件生成<br>  makefile 并且为它调用 make 的 makefile。</li>
+<li>“app”模板<br>  “app”模板告诉 qmake 为建立一个应用程序生成一个 makefile。当使用这个模板时，下面<br>  这些 qmake 系统变量是被承认的。你应该在你的.pro 文件中使用它们来为你的应用程序指<br>  定特定信息。</li>
+<li>HEADERS ‐ 应用程序中的所有头文件的列表。</li>
+<li>SOURCES ‐ 应用程序中的所有源文件的列表。</li>
+<li>FORMS ‐ 应用程序中的所有.ui 文件（由 Qt 设计器生成）的列表。</li>
+<li>LEXSOURCES ‐ 应用程序中的所有 lex 源文件的列表。</li>
+<li>YACCSOURCES ‐ 应用程序中的所有 yacc 源文件的列表。</li>
+<li>TARGET ‐ 可执行应用程序的名称。默认值为项目文件的名称。（如果需要扩展名，会被自动<br>  加上。）</li>
+<li>DESTDIR ‐ 放置可执行程序目标的目录。</li>
+<li>DEFINES ‐ 应用程序所需的额外的预处理程序定义的列表。</li>
+<li>INCLUDEPATH ‐ 应用程序所需的额外的包含路径的列表。</li>
+<li>DEPENDPATH ‐ 应用程序所依赖的搜索路径。</li>
+<li>VPATH ‐ 寻找补充文件的搜索路径。</li>
+<li>DEF_FILE ‐ 只有 Windows 需要：应用程序所要连接的.def 文件。</li>
+<li>RC_FILE ‐ 只有 Windows 需要：应用程序的资源文件。</li>
+<li>RES_FILE ‐ 只有 Windows 需要：应用程序所要连接的资源文件。</li>
+<li>CONFIG 变量<br>  配置变量指定了编译器所要使用的选项和所需要被连接的库。配置变量中可以添加任何东<br>  西，但只有下面这些选项可以被 qmake 识别。<br>  下面这些选项控制着使用哪些编译器标志：<br>  release ‐ 应用程序将以 release 模式连编。如果“debug”被指定，它将被忽略。<br>  debug ‐ 应用程序将以 debug 模式连编。<br>  warn_on ‐ 编译器会输出尽可能多的警告信息。如果“warn_off”被指定，它将被忽略。<br>  warn_off ‐ 编译器会输出尽可能少的警告信息。<br>  下面这些选项定义了所要连编的库&#x2F;应用程序的类型：<br>  qt ‐ 应用程序是一个 Qt 应用程序，并且 Qt 库将会被连接。<br>  thread ‐ 应用程序是一个多线程应用程序。<br>  x11 ‐ 应用程序是一个 X11 应用程序或库。<br>  windows ‐ 只用于“app”模板：应用程序是一个 Windows 下的窗口应用程序。<br>  console ‐ 只用于“app”模板：应用程序是一个 Windows 下的控制台应用程序。<br>  dll ‐ 只用于“lib”模板：库是一个共享库（dll）。<br>  staticlib ‐ 只用于“lib”模板：库是一个静态库。<br>  plugin ‐ 只用于“lib”模板：库是一个插件，这将会使 dll 选项生效。<br>  例如，如果你的应用程序使用 Qt 库，并且你想把它连编为一个可调试的多线程的应用程序，<br>  你的项目文件应该会有下面这行：<br>  CONFIG +&#x3D; qt thread debug 注意，你必须使用“+&#x3D;”，不要使用“&#x3D;”，否则 qmake 就不<br>  能正确使用连编 Qt 的设置了，比如没法获得所编译的 Qt 库的类型了。</li>
+<li>qmake 高级概念<br>  操作符<br>  “&#x3D;”操作符 分配一个值给一个变量<br>  “+&#x3D;”操作符 向一个变量的值的列表中添加一个值<br>  “‐&#x3D;”操作符 从一个变量的值的列表中移去一个值<br>  “*&#x3D;”操作符 仅仅在一个值不存在于一个变量的值的列表中的时候，把它添加进去<br>  “~&#x3D;”操作符 替换任何与指定的值的正则表达式匹配的任何值 DEFINES ~&#x3D;<br>  s&#x2F;QT_[DT].+&#x2F;QT</li>
+<li>作用域    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">win32:thread &#123;  </span><br><span class="line">DEFINES += QT_THREAD_SUPPORT &#125; else:debug &#123; DEFINES +=  </span><br><span class="line">QT_NOTHREAD_DEBUG &#125; else &#123; warning(“Unknown configuration”) &#125; &#125;</span><br></pre></td></tr></table></figure></li>
+<li>变量<ul>
+<li>到目前为止我们遇到的变量都是系统变量，比如 DEFINES、 SOURCES 和 HEADERS。你也可以<br>  为你自己创建自己的变量，这样你就可以在作用域中使用它们了。创建自己的变量很容易，<br>  只要命名它并且分配一些东西给它。比如：<br>  MY_VARIABLE &#x3D; value 你也可以通过在其它任何一个变量的变量名前加 <code>$$</code>  来把这个变量<br>  的值分配给当前的变量。例如: <code>MY_DEFINES = $$DEFINESMY_DEFINES = $$&#123;DEFINES&#125;</code><br>  第二种方法允许你把一个变量和其它变量连接起来，而不用使用空格。 qmake 将允许一个变<br>  量包含任何东西（包括$(VALUE)，可以直接在 makefile 中直接放置，并且允许它适当地扩张，<br>  通常是一个环境变量）。无论如何，如果你需要立即设置一个环境变量，然后你就可以使用<br>  $$()方法。比如：<br>  MY_DEFINES &#x3D; $$(ENV_DEFINES)这将会设置 MY_DEFINES 为环境变量 ENV_DEFINES 传递<br>  给.pro 文件地值。另外你可以在替换的变量里调用内置函数。这些函数（不会和下一节中列<br>  举的测试函数混淆）列出如下：<br>  join( variablename, glue, before, after )<br>  这将会在 variablename 的各个值中间加入 glue。如果这个变量的值为非空，那么就会在值的<br>  前面加一个前缀 before 和一个后缀 after。只有 variablename 是必须的字段，其它默认情况<br>  下为空串。如果你需要在 glue、 before 或者 after 中使用空格的话，你必须提供它们。<br>  member( variablename, position )<br>  这将会放置 variablename 的列表中的 position 位置的值。如果 variablename 不够长，这将会<br>  返回一个空串。 variablename 是唯一必须的字段，如果没有指定位置，则默认为列表中的第<br>  一个值。<br>  find( variablename, substr )<br>  这将会放置 variablename 中所有匹配 substr 的值。 substr 也可以是正则表达式，而因此将被匹配。<br>  MY_VAR &#x3D; one two three four MY_VAR2 &#x3D; $$join(MY_VAR, ” ‐L”, ‐L) ‐Lfive MY_VAR3&#x3D; $$member(MY_VAR, 2) $$find(MY_VAR, t.*)<br>  MY_VAR2 将会包含“‐Lone ‐Ltwo ‐Lthree ‐Lfour<br>  ‐Lfive”，并且 MYVAR3 将会包含“three two three”。<br>  system( program_and_args )<br>  这将会返回程序执行在标准输出&#x2F;标准错误输出的内容，并且正像平时所期待地分析它。比<br>  如你可以使用这个来询问有关平台的信息。<br>  UNAME &#x3D; $$system(uname ‐s) contains( UNAME, [lL]inux ):message( This looks like Linux ($$UNAME) to me )测试函数<br>  qmake 提供了可以简单执行，但强大测试的内置函数。这些测试也可以用在作用域中（就像<br>  上面一样），在一些情况下，忽略它的测试值，它自己使用测试函数是很有用的。<br>  contains( variablename, value )<br>  如果 value 存在于一个被叫做 variablename 的变量的值的列表中，那么这个作用域中的设置<br>  将会被处理。例如：<br>  contains( CONFIG, thread ) { DEFINES +&#x3D; QT_THREAD_SUPPORT }如果 thread<br>  存在于 CONFIG 变量的值的列表中时，那么 QT_THREAD_SUPPORT 将会被加入到 DEFINES 变<br>  量的值的列表中。<br>  count( variablename, number )<br>  如果 number 与一个被叫做 variablename 的变量的值的数量一致，那么这个作用域中的设置<br>  将会被处理。例如：<br>  count( DEFINES, 5 ) { CONFIG +&#x3D; debug }error( string )<br>  这个函数输出所给定的字符串，然后会使 qmake 退出。例如：<br>  error( “An error has occured” )文本“An error has occured”将会被显示在控制台上并且<br>  qmake 将会退出。<br>  exists( filename )<br>  如果指定文件存在，那么这个作用域中的设置将会被处理。例如：<br>  exists( &#x2F;local&#x2F;qt&#x2F;qmake&#x2F;main.cpp ) { SOURCES +&#x3D; main.cpp } 如 果<br>  &#x2F;local&#x2F;qt&#x2F;qmake&#x2F;main.cpp 存在，那么 main.cpp 将会被添加到源文件列表中。<br>  注意可以不用考虑平台使用“&#x2F;”作为目录的分隔符。<br>  include( filename )<br>  项目文件在这一点时包含这个文件名的内容，所以指定文件中的任何设置都将会被处理。例<br>  如：<br>  include( myotherapp.pro )myotherapp.pro 项目文件中的任何设置现在都会被处理。<br>  isEmpty( variablename )<br>  这和使用 count( variablename, 0 )是一样的。如果叫做 variablename 的变量没有任何元素，<br>  那么这个作用域中的设置将会被处理。例如：<br>  isEmpty( CONFIG ) { CONFIG +&#x3D; qt warn_on debug }message( string )<br>  这个函数只是简单地在控制台上输出消息。<br>  message( “This is a message” )文本“This is a message”被输出到控制台上并且对于项目<br>  67<br>  文件的处理将会继续进行。<br>  system( command )<br>  特定指令被执行并且如果它返回一个 1 的退出值，那么这个作用域中的设置将会被处理。例<br>  如：<br>  system( ls &#x2F;bin ) { SOURCES +&#x3D; bin&#x2F;main.cpp HEADERS +&#x3D; bin&#x2F;main.h }<br>  所以如果命令 ls &#x2F;bin 返回 1，那么 bin&#x2F;main.cpp 将被添加到源文件列表中并且 bin&#x2F;main.h 将<br>  被添加到头文件列表中。<br>  infile( filename, var, val )<br>  如果 filename 文件（当它被 qmake 自己解析时）包含一个值为 val 的变量 var，那么这个函<br>  数将会返回成功。你也可以不传递第三个参数（val），这时函数将只测试文件中是否分配有<br>  这样一个变量 var。</li>
+</ul>
+</li>
+</ul>
+<h1 id="以下为我的一个项目举例"><a href="#以下为我的一个项目举例" class="headerlink" title="以下为我的一个项目举例"></a>以下为我的一个项目举例</h1><p>项目目标：为一个库文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATE = lib # 编译项目文件所需头文件的路径</span><br><span class="line">INCLUDEPATH += ../common # 目标文件路径</span><br><span class="line">DESTDIR=../lib # 条件依赖： Unix 平台上 定义本想目的 UI 目录， MOC 目录， 目的目</span><br><span class="line">录</span><br><span class="line">unix &#123; UI_DIR = ../.ui MOC_DIR = ../.moc OBJECTS_DIR = ../.obj&#125; # 本 项 目 配 置 ：</span><br><span class="line">CONFIG += qt warn_on release thread </span><br><span class="line"># Input 头文件，源文件 </span><br><span class="line">HEADERS +=</span><br><span class="line">COMControllerThread.h \ </span><br><span class="line">DecodeSMS.h \ </span><br><span class="line">monitor_common.h \</span><br><span class="line">monitor_interface.h \ </span><br><span class="line">MonitorThread.h \ </span><br><span class="line">UserEvent.h \</span><br><span class="line">MyCOM.h \ </span><br><span class="line">MySMS.h \ </span><br><span class="line">MyTagHandle.h \</span><br><span class="line">SMSParseThread.h \ </span><br><span class="line">tag_dict.h</span><br><span class="line">SOURCES += COMControllerThread.cpp \</span><br><span class="line">DecodeSMS.cpp \ </span><br><span class="line">monitor_common.cpp \</span><br><span class="line">monitor_interface.cpp \</span><br><span class="line">MonitorThread.cpp \</span><br><span class="line">MyCOM.cpp \</span><br><span class="line">MySMS.cpp \</span><br><span class="line">MyTagHandle.cpp \</span><br><span class="line">SMSParseThread.cpp \</span><br><span class="line">tag_dict.cpp </span><br></pre></td></tr></table></figure>
+
+<p>注： qmake<br>‐project 可以生成 pro 文件（可以根据项目需要，编辑改文件）<br>qmake 可以生成 Makefile 文件<br>make 编译<br>使用 qmake ‐project 时，会把本目录及其子目录内所有.cpp .h 文件加入到项目输入文件中，<br>使用是注意移去其他无用的文件。<br>qmake 生成的 Makefile 文件，可以根据需要做相应修改</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" rel="prev" title="树莓派远程桌面">
+      <i class="fa fa-chevron-left"></i> 树莓派远程桌面
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/09/02/C++%20%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/" rel="next" title="C++ 位操作总结">
+      C++ 位操作总结 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pro%E6%96%87%E4%BB%B6%E6%95%B4%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">.pro文件整理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A%EF%BC%8C%E4%BB%8E%E2%80%9D-%E2%80%9D%E5%BC%80%E5%A7%8B%EF%BC%8C%E5%88%B0%E8%BF%99%E4%B8%80%E8%A1%8C%E7%BB%93%E6%9D%9F"><span class="nav-number">2.</span> <span class="nav-text">注释，从”#”开始，到这一行结束</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E5%85%B6%E4%BB%96%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">更多其他变量：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A5%E4%B8%8B%E4%B8%BA%E6%88%91%E7%9A%84%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">以下为我的一个项目举例</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">吴晓宁</p>
+  <div class="site-description" itemprop="description">记录一些自己的见闻</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴晓宁</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.isroots.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="记录一些自己的见闻">
@@ -103,6 +103,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -132,11 +133,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -160,7 +188,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/C++%20%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/Qt%20%E9%94%AE%E7%9B%98%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +202,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/10/14/C++%20%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">C++ 回调函数</a>
+            <a href="/2024/10/14/Qt%20%E9%94%AE%E7%9B%98%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Qt 键盘的设计和使用</a>
         </h2>
 
         <div class="post-meta">
@@ -184,82 +212,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-10-14 13:31:00" itemprop="dateCreated datePublished" datetime="242024-10-14T13:31:00+08:00">242024-10-14</time>
+              <time title="创建时间：2024-10-14 13:20:00" itemprop="dateCreated datePublished" datetime="2024-10-14T13:20:00+08:00">2024-10-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-14 13:31:54" itemprop="dateModified" datetime="2024-10-14T13:31:54+08:00">2024-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1-回调函数的理解"><a href="#1-回调函数的理解" class="headerlink" title="1.回调函数的理解"></a>1.回调函数的理解</h1><p>回调函数是通过函数指针的方式调用函数（<a target="_blank" rel="noopener" href="http://isroot.cn/c/hanshuzhizhenhezhizhenhanshu/" title="关于函数指针的理解">关于函数指针的理解</a>）:把函数的指针(地址)作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数的时，这个函数就被称为是回调函数。回调函数不是由函数的实现方直接调用，而是在特定的时间或者条件发生是由另外一方调用的，用于对该事件或条件进行相应。<br>我们可以简单理解为当一个函数的参数是另一个函数的**<em>指针</em>**时，这个函数我们成为回调函数</p>
-<h1 id="2-使用"><a href="#2-使用" class="headerlink" title="2.使用"></a>2.使用</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QtCore/QCoreApplication&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;QDebug&gt;</span><br><span class="line"></span><br><span class="line">typedef void(*fun)(int); //定义一个函数指针</span><br><span class="line"></span><br><span class="line">fun p = NULL;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void caller(fun pCallBack)</span><br><span class="line">&#123;</span><br><span class="line">    p = pCallBack;</span><br><span class="line">    int result = 1;</span><br><span class="line">    return (*p)(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void callBack(int a)//回调函数</span><br><span class="line">&#123;</span><br><span class="line">    qDebug ()&lt;&lt;&quot;a value is &quot;&lt;&lt;a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    QCoreApplication a(argc, argv);</span><br><span class="line"></span><br><span class="line">    caller (callBack);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return a.exec();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>注意： <strong>如果试图直接使用C++的成员函数作为回调函数将发生错误，甚至编译就不能通过。其错误是普通的C++成员函数都隐含了一个传递函数作为参数，亦即“this”指针，C++通过传递this指针给其成员函数从而实现程序函数可以访问C++的数据成员。这也可以理解为什么C++类的多个实例可以共享成员函数却-有不同的数据成员</strong>。<br>如果在类中我们可以将回调函数声明成static 静态成员函数 或者将回调函数声明成全局的函数。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/10/14/Qt%20%E9%94%AE%E7%9B%98%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/10/14/Qt%20%E9%94%AE%E7%9B%98%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Qt 键盘的设计和使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-10-14 13:20:00" itemprop="dateCreated datePublished" datetime="242024-10-14T13:20:00+08:00">242024-10-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 17:31:49" itemprop="dateModified" datetime="2025-12-09T17:31:49+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -307,7 +267,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/Makefile%20%E4%BC%AA%E7%9B%AE%E6%A0%87/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/Makefile%20%E4%BC%AA%E7%9B%AE%E6%A0%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -321,7 +281,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/03/Makefile%20%E4%BC%AA%E7%9B%AE%E6%A0%87/" class="post-title-link" itemprop="url">Makefile 伪目标</a>
+            <a href="/2024/09/03/Makefile%20%E4%BC%AA%E7%9B%AE%E6%A0%87/" class="post-title-link" itemprop="url">Makefile 伪目标</a>
         </h2>
 
         <div class="post-meta">
@@ -331,14 +291,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-03 20:06:00" itemprop="dateCreated datePublished" datetime="242024-09-03T20:06:00+08:00">242024-09-03</time>
+              <time title="创建时间：2024-09-03 20:06:00" itemprop="dateCreated datePublished" datetime="2024-09-03T20:06:00+08:00">2024-09-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-03 20:06:37" itemprop="dateModified" datetime="2024-09-03T20:06:37+08:00">2024-09-03</time>
+                <time title="修改时间：2025-12-09 19:07:58" itemprop="dateModified" datetime="2025-12-09T19:07:58+08:00">2025-12-09</time>
               </span>
 
           
@@ -358,182 +318,9 @@
 <li>不管伪目标的依赖是否更新，命令总是执行</li>
 <li>伪目标的语法：先声明，后使用</li>
 </ul>
-<p><strong>伪目标是这样一个目标</strong>：它不代表一个真正的文件名，在执行make时可以指定这个目标来执行其所在规则定义的命令，有时我们也可以将一个伪目标称为标签。使用伪目标有两点原因：</p>
-<ol>
-<li><p>避免在我们的Makefile中定义的只执行命令的的目标（此目标的目的为了执行执行一系列命令，而不需要创建这个目标）和工作目录下的实际文件出现名字冲突。</p>
-</li>
-<li><p>提高执行make时的效率，特别是对于一个大型的工程来说，编译的效率也许你同样关心。以下就这两个问题我们进行分析讨论：</p>
-</li>
-</ol>
-<p>如果我们需要书写这样一个规则：规则所定义的命令不是去创建目标文件，而是使用make指定具体的目标来执一些特定的命令。像下边那样：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clean: </span><br><span class="line">rm *.o temp </span><br></pre></td></tr></table></figure>
-
-<p>规则中rm不是创建文件clean的命令，只是删除当前目录下的所有.o文件和temp文件。在工作目录下不存在clean这个文件时，我们输入make clean后，rm *.o temp总会被执行。这是我们的初衷。</p>
-<p>但当前工作目录下存在文件clean时情况就不一样了，在我们输入make clean时。规则没有依赖文件，所以目标被认为是最新的而不去执行规则作定义的命令，命令rm将不会被执行。这并不是我们的初衷。为了避免这个问题，我们可以将目标clean明确的声明为伪目标。将一个目标声明为伪目标需要将它作为特殊目标.PHONY的依赖。如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.PHONY : clean </span><br></pre></td></tr></table></figure>
-
-<p>这样目标clean就是一个伪目标，无论当前目录下是否存在clean这个文件。我们输入make clean之后。rm命令都会被执行。而且，当一个目标被声明为伪目标后，make在执行此规则时不会试图去查找隐含规则来创建这个目标。这样也提高了make的执行效率，同时我们也不用担心由于目标和文件名重名而使我们的期望失败。在书写伪目标规则时，首先需要声明目标是一个伪目标，之后才是伪目标的规则定义。目标clean书写格式应该如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.PHONY: clean </span><br><span class="line">clean: </span><br><span class="line">rm *.o temp </span><br></pre></td></tr></table></figure>
-
-<p>伪目标的另外一使用场合在make的并行和递归执行过程中。此情况下一般存在一个变量，其定义为所有需要make的子目录。对多个目录进行make的实现方式可以在一个规则中可以使用shell的循环来完成。如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SUBDIRS = foo bar baz </span><br><span class="line">subdirs: </span><br><span class="line">for dir in $(SUBDIRS); do \ </span><br><span class="line">$(MAKE) -C $$dir; \ </span><br><span class="line">done </span><br></pre></td></tr></table></figure>
-
-<p>但这种实现方法存在以下几个问题。</p>
-<p>当子目录执行make出现错误时，make不会退出。就是说，在对某一个目录执行make失败以后，会继续对其他的目录进行make。在最终执行失败的情况下，我们很难根据错误的提示定位出具体是是那个目录下的Makefile出现错误。这给问题定位造成了很大的困难。为了避免这样的问题，我们可以在命令行部分加入错误的监测，在命令执行错误后make退出。不幸的是，如果在执行make时使用了-k选项，此方式将失效。</p>
-<p>另外一个问题就是使用这种shell的循环方式时，没有用到make对目录的并行处理功能，因为规则的命令是一条完整的shell命令，不能被并行的执行。</p>
-<p>我们可以通过伪目标方式来克服以上实现方式所存在的两个问题。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SUBDIRS = foo bar baz </span><br><span class="line">.PHONY: subdirs $(SUBDIRS) </span><br><span class="line">subdirs: $(SUBDIRS) </span><br><span class="line">$(SUBDIRS): </span><br><span class="line">$(MAKE) -C $@ </span><br><span class="line">foo: baz </span><br></pre></td></tr></table></figure>
-
-<p>上边的实现中使用了一个没有命令行的规则foo: baz，用来限制子目录的make顺序。此规则的含义时在处理foo目录之前，需要等待baz目录处理完成。在书写一个并行执行make的Makefile时，目录的处理顺序是需要特别注意的。</p>
-<p>一般情况下，一个伪目标不作为一个另外一个目标文件的依赖。这是因为当一个目标文件的依赖包含伪目标时，每一次在执行这个规则时伪目标所定义的命令都会被执行（因为它是规则的依赖，重建规则目标文件时需要首先重建它的依赖）。当伪目标没有作为任何目标（此目标是一个可被创建或者已存在的文件）的依赖时，我们只能通过make的命令行选项明确指定这个伪目标，来执行它所定义的命令。例如我们的make clean。</p>
-<p>Makefile中，伪目标可以有自己的依赖。在一个目录下如果需要创建多个可执行程序，我们可以将所有程序的重建规则在一个Makefile中描述。因为Makefile中第一个目标是终极目标，约定的做法是使用一个称为all的伪目标来作为终极目标，它的依赖文件就是那些需要创建的程序。下边就是一个例子：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#sample Makefile </span><br><span class="line">all : prog1 prog2 prog3 </span><br><span class="line">.PHONY : all </span><br><span class="line">prog1 : prog1.o utils.o </span><br><span class="line">cc -o prog1 prog1.o utils.o </span><br><span class="line">prog2 : prog2.o </span><br><span class="line">cc -o prog2 prog2.o </span><br><span class="line">prog3 : prog3.o sort.o utils.o </span><br><span class="line">cc -o prog3 prog3.o sort.o utils.o </span><br></pre></td></tr></table></figure>
-
-<p>执行make时，目标all被作为终极目标。为了完成对它的更新，make会创建（不存在）或者重建（已存在）目标all的所有依赖文件（prog1、prog2和prog3）。当需要单独更新某一个程序时，我们可以通过make的命令行选项来明确指定需要重建的程序。（例如： make prog1）。 当一个伪目标作为另外一个伪目标依赖时，make将其作为另外一个伪目标的子例程来处理（可以这样理解：其作为另外一个伪目标的必须执行的部分，就行C语言中的函数调用一样）。下边的例子就是这种用法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.PHONY: cleanall cleanobj cleandiff </span><br><span class="line">cleanall : cleanobj cleandiff </span><br><span class="line">rm program </span><br><span class="line">cleanobj : </span><br><span class="line">rm *.o </span><br><span class="line">cleandiff : </span><br><span class="line">rm *.diff</span><br></pre></td></tr></table></figure>
-
-<p>cleanobj和cleandiff这两个伪目标有点像子程序的意思（执行目标clearall时会触发它们所定义的命令被执行）。我们可以输入make cleanall和make cleanobj和make cleandiff命令来达到清除不同种类文件的目的。例子首先通过特殊目标.PHONY声明了多个伪目标，它们之间使用空各分割，之后才是各个伪目标的规则定义。</p>
-<p>说明：<br>通常在清除文件的伪目标所定义的命令中rm使用选项–f（–force）来防止在缺少删除文件时出错并退出，使make clean过程失败。也可以在rm之前加上-来防止rm错误退出，这种方式时make会提示错误信息但不会退出。为了不看到这些讨厌的信息，需要使用上述的第一种方式。<br>另外make存在一个内嵌隐含变量RM，它被定义为：RM &#x3D; rm –f。因此在书写clean规则的命令行时可以使用变量$(RM)来代替rm，这样可以免出现一些不必要的麻烦！这是我们推荐的用法。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/%E6%A0%B9%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E8%8E%B7%E5%8F%96%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/09/03/%E6%A0%B9%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E8%8E%B7%E5%8F%96%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">根据结构体成员获取结构体指针</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-09-03 20:00:00" itemprop="dateCreated datePublished" datetime="242024-09-03T20:00:00+08:00">242024-09-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-03 19:32:38" itemprop="dateModified" datetime="2024-09-03T19:32:38+08:00">2024-09-03</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="list-entry（ptr-type-member）"><a href="#list-entry（ptr-type-member）" class="headerlink" title="list_entry（ptr, type, member）"></a>list_entry（ptr, type, member）</h1><p>linux内核链表中有个非常巧妙的设计，根据结构体成员地址求出结构体的首地址。原型是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define list_entry(ptr, type, member) /</span><br><span class="line">      ((type *)((char *)(ptr)-(unsigned long)(&amp;((type *)0)-&gt;member)))</span><br></pre></td></tr></table></figure>
-
-<p>其中比较关键的是 <code>(&amp;((type *)0)-&gt;member)</code>,它的作用是让GCC以0地址为基准地址计算member在结构体中的地址，也可以说是偏移量。然后把这个数据强制转化成无符号long型，然后再用实际的地址(ptr)减去偏移量就得到了结构体的首地址。<br>简单的理解为 – 后面为偏移量，-后前面为实际的地址，用实际地址减去偏移量就是实际地址。<br>看图理解：<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"></p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#define container_of(ptr,type,member) (((type*)(ptr)-(unsigned long)(&amp;((type*)0)-&gt;member)))</span><br><span class="line"></span><br><span class="line">typedef struct _test&#123;</span><br><span class="line">  char c;</span><br><span class="line">  int a;</span><br><span class="line">&#125;T;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    T* t1;</span><br><span class="line">    t1 = (T*)malloc(sizeof(T));</span><br><span class="line"></span><br><span class="line">    t1=container_of(t1,T,a);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    printf(&quot;t1:%x\n&quot;,t1);</span><br><span class="line">    printf(&quot;a_addr:%x\n&quot;,&amp;(t1-&gt;a));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第一个参数 ptr_a 这是个关键性参数，因为有ptr_a所以才能和成员a所在的结构体变量联系起来。记住这是个结构体成员的地址，而不能认为是个指针，因为如果结构体成员是个指针，那么这个参数就是指针的地址（二级指针）。再如果这个成员是个结构体变量，那么这个参数也是结构体变量的地址。<br> <br>第三个参数：a，很多人会栽在这个参数手上。很多人会这么写：T-&gt;a或者T.a等等。其实这只要填个与第一个参数对应的成员变量名就可以，绝对不需要用结构体变量来指向(T-&gt;  )。所谓与第一个变量对应就是说：如果第一个参数是 &amp;(t-&gt;c)  那么相对于的第三个参数就直接写  c就可以了。</p>
-<p>使用GCC 编译 打印输出</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">t1:219f014</span><br><span class="line">a_addr:219f018</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/C++%20%E7%BB%A7%E6%89%BF%E6%8E%A2%E7%B4%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/09/03/C++%20%E7%BB%A7%E6%89%BF%E6%8E%A2%E7%B4%A2/" class="post-title-link" itemprop="url">C++ 继承探索</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-09-03 17:17:00" itemprop="dateCreated datePublished" datetime="242024-09-03T17:17:00+08:00">242024-09-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 18:20:26" itemprop="dateModified" datetime="2025-12-09T18:20:26+08:00">2025-12-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本文通过一个有趣的C++继承测试题，深入探索了C++继承机制中的细节和易错点。文章展示了成员函数调用规则、虚函数的多态行为、作用域解析符的使用等重要概念。通过具体的代码示例和详细的输出分析，帮助读者理解C++继承中的函数调用顺序和数据隐藏机制。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/242024/09/03/C++%20%E7%BB%A7%E6%89%BF%E6%8E%A2%E7%B4%A2/#more" rel="contents">
+              <a class="btn" href="/2024/09/03/Makefile%20%E4%BC%AA%E7%9B%AE%E6%A0%87/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -557,7 +344,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/%E6%A0%B9%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E8%8E%B7%E5%8F%96%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -571,7 +358,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">双链表实现</a>
+            <a href="/2024/09/03/%E6%A0%B9%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E8%8E%B7%E5%8F%96%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">根据结构体成员获取结构体指针</a>
         </h2>
 
         <div class="post-meta">
@@ -581,14 +368,185 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-03 17:15:00" itemprop="dateCreated datePublished" datetime="242024-09-03T17:15:00+08:00">242024-09-03</time>
+              <time title="创建时间：2024-09-03 20:00:00" itemprop="dateCreated datePublished" datetime="2024-09-03T20:00:00+08:00">2024-09-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-03 17:16:10" itemprop="dateModified" datetime="2024-09-03T17:16:10+08:00">2024-09-03</time>
+                <time title="修改时间：2025-12-09 19:29:05" itemprop="dateModified" datetime="2025-12-09T19:29:05+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="list-entry（ptr-type-member）"><a href="#list-entry（ptr-type-member）" class="headerlink" title="list_entry（ptr, type, member）"></a>list_entry（ptr, type, member）</h1><p>linux内核链表中有个非常巧妙的设计，根据结构体成员地址求出结构体的首地址。原型是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define list_entry(ptr, type, member) /</span><br><span class="line">      ((type *)((char *)(ptr)-(unsigned long)(&amp;((type *)0)-&gt;member)))</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/03/%E6%A0%B9%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BD%93%E6%88%90%E5%91%98%E8%8E%B7%E5%8F%96%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/C++%20%E7%BB%A7%E6%89%BF%E6%8E%A2%E7%B4%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/03/C++%20%E7%BB%A7%E6%89%BF%E6%8E%A2%E7%B4%A2/" class="post-title-link" itemprop="url">C++ 继承探索</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-03 17:17:00" itemprop="dateCreated datePublished" datetime="2024-09-03T17:17:00+08:00">2024-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:12:46" itemprop="dateModified" datetime="2025-12-09T19:12:46+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本文通过一个有趣的C++继承测试题，深入探索了C++继承机制中的细节和易错点。文章展示了成员函数调用规则、虚函数的多态行为、作用域解析符的使用等重要概念。通过具体的代码示例和详细的输出分析，帮助读者理解C++继承中的函数调用顺序和数据隐藏机制。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/03/C++%20%E7%BB%A7%E6%89%BF%E6%8E%A2%E7%B4%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">双链表实现</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-03 17:15:00" itemprop="dateCreated datePublished" datetime="2024-09-03T17:15:00+08:00">2024-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -624,7 +582,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/%E8%AE%B0%E4%B8%80Qt%E6%AC%A1%E7%BC%96%E8%AF%91Bug%EF%BC%9AERROR%20LINK2019%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -638,7 +596,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/03/%E8%AE%B0%E4%B8%80Qt%E6%AC%A1%E7%BC%96%E8%AF%91Bug%EF%BC%9AERROR%20LINK2019%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7/" class="post-title-link" itemprop="url">记一Qt次编译Bug：ERROR LINK2019无法解析的外部符号</a>
+            <a href="/2024/09/03/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">终端代理设置</a>
         </h2>
 
         <div class="post-meta">
@@ -648,15 +606,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-03 17:14:00" itemprop="dateCreated datePublished" datetime="242024-09-03T17:14:00+08:00">242024-09-03</time>
+              <time title="创建时间：2024-09-03 17:14:00" itemprop="dateCreated datePublished" datetime="2024-09-03T17:14:00+08:00">2024-09-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-03 17:14:24" itemprop="dateModified" datetime="2024-09-03T17:14:24+08:00">2024-09-03</time>
+                <time title="修改时间：2025-12-09 19:28:46" itemprop="dateModified" datetime="2025-12-09T19:28:46+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
 
           
 
@@ -669,10 +636,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>项目是从别人手里接手的，做的一个调试音频的软件，原先的项目是用VS+QT 插件在vs中编译的，因为我习惯使用qtCreator,所以想把城西移植到qtCreator上面来做，程序我在VS下编译过 ，是没问题可以运行的，所以我就重新根据项目的内容重写了pro文件，准备往qtCreator上面移植。</p>
-<h2 id="产生的问题"><a href="#产生的问题" class="headerlink" title="产生的问题"></a>产生的问题</h2><p>编写完pro文件后，在qtCreator上面编译，一开始是各种链接错误，然后根据那些链接错误在pro文件里面把项目里面用到的Qt模块都加载上了<br><code>QT += xml core gui serialport network</code><br>再次重新编译的时候还是有三个链接错误。这次的链接错误不是某个模块没加载，因为我查了下代码，用到的模块我都加载上了，然后根据错误上网查找，基本上网上说的都试了，删除编译后的文件，重新qmake，是不是Q_OBJECT没写，某个槽函数只有声明没有实现，是不是某个库链接错误，基本能查的能试的全部试了一遍</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>最后实在没办法了，我电脑上装了个虚拟机，虚拟机里有个Qt的环境，我就想着换个环境编译下，把程序在虚拟机里面那个环境编译的时候，除了找不到windows头文件以后，居然编译成功了，没有任何链接错误。我就想是不是我windows上的qt环境有问题，当时用的是qt5.2.x的版本来着，然后重新下载了一个Qt5.3.2的版本。<br>安装好环境重新编译，编译成功。。。。。。。。。。。。。。。。</p>
-<p>这里给大家一个参考，如果你在移植后有个怎么也解决 不了得链接错误，不妨换个编译环境试试。</p>
+          <span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 使用方法 source proxy.sh</span><br><span class="line"># http https</span><br><span class="line">export http_proxy=&quot;http://192.168.0.252:7890&quot;</span><br><span class="line">export https_proxy=$http_proxy</span><br><span class="line">export all_proxy=socks5://192.168.0.252:7890</span><br><span class="line"></span><br><span class="line"># git </span><br><span class="line">git config --global http.proxy $http_proxy</span><br><span class="line">git config --global https.proxy $https_proxy</span><br><span class="line"></span><br><span class="line">npm config set proxy http://server:port</span><br><span class="line">npm config set https-proxy http://server:port</span><br><span class="line"></span><br><span class="line">echo -e &quot;\033[32m已开启代理\033[0m&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 关闭代理</span><br><span class="line">unset http_proxy https_proxy all_proxy</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br><span class="line"></span><br><span class="line">npm config delete proxy</span><br><span class="line">npm config delete https-proxy</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -692,7 +658,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/QToolButton%20%E4%BD%BF%E7%94%A8%E6%A0%B7%E5%BC%8F%E8%A1%A8%E5%8E%BB%E6%8E%89%E5%8F%B3%E8%BE%B9%E4%B8%8B%E8%A7%92%E7%AE%AD%E5%A4%B4/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/%E7%BC%96%E8%AF%91%E6%A0%91%E8%8E%93%E6%B4%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%86%85%E6%A0%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -706,7 +672,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/03/QToolButton%20%E4%BD%BF%E7%94%A8%E6%A0%B7%E5%BC%8F%E8%A1%A8%E5%8E%BB%E6%8E%89%E5%8F%B3%E8%BE%B9%E4%B8%8B%E8%A7%92%E7%AE%AD%E5%A4%B4/" class="post-title-link" itemprop="url">QToolButton 使用样式表去掉右边下角箭头</a>
+            <a href="/2024/09/03/%E7%BC%96%E8%AF%91%E6%A0%91%E8%8E%93%E6%B4%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%86%85%E6%A0%B8/" class="post-title-link" itemprop="url">编译树莓派自定义内核</a>
         </h2>
 
         <div class="post-meta">
@@ -716,14 +682,191 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-03 17:10:00" itemprop="dateCreated datePublished" datetime="242024-09-03T17:10:00+08:00">242024-09-03</time>
+              <time title="创建时间：2024-09-03 17:14:00" itemprop="dateCreated datePublished" datetime="2024-09-03T17:14:00+08:00">2024-09-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-03 17:11:05" itemprop="dateModified" datetime="2024-09-03T17:11:05+08:00">2024-09-03</time>
+                <time title="修改时间：2025-12-09 19:28:25" itemprop="dateModified" datetime="2025-12-09T19:28:25+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>新的项目属于国外引进项目。运行在树莓派上面。需要更换开机界面放上自己的 logo 什么的。在开机的时候屏幕上会有一个光标一直在闪。想把那个光标给去掉，查阅资料发现需要重新编译树莓派的内核。在此做下记录。</li>
+</ul>
+<p>本文介绍如何在树莓派上编译自定义内核，包括工具下载、内核配置和编译过程。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/03/%E7%BC%96%E8%AF%91%E6%A0%91%E8%8E%93%E6%B4%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%86%85%E6%A0%B8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/%E8%AE%B0%E4%B8%80Qt%E6%AC%A1%E7%BC%96%E8%AF%91Bug%EF%BC%9AERROR%20LINK2019%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/03/%E8%AE%B0%E4%B8%80Qt%E6%AC%A1%E7%BC%96%E8%AF%91Bug%EF%BC%9AERROR%20LINK2019%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7/" class="post-title-link" itemprop="url">记一Qt次编译Bug：ERROR LINK2019无法解析的外部符号</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-03 17:14:00" itemprop="dateCreated datePublished" datetime="2024-09-03T17:14:00+08:00">2024-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:28:22" itemprop="dateModified" datetime="2025-12-09T19:28:22+08:00">2025-12-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>项目是从别人手里接手的，做的一个调试音频的软件，原先的项目是用VS+QT 插件在vs中编译的，因为我习惯使用qtCreator,所以想把城西移植到qtCreator上面来做，程序我在VS下编译过 ，是没问题可以运行的，所以我就重新根据项目的内容重写了pro文件，准备往qtCreator上面移植。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/03/%E8%AE%B0%E4%B8%80Qt%E6%AC%A1%E7%BC%96%E8%AF%91Bug%EF%BC%9AERROR%20LINK2019%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%90%E7%9A%84%E5%A4%96%E9%83%A8%E7%AC%A6%E5%8F%B7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/QToolButton%20%E4%BD%BF%E7%94%A8%E6%A0%B7%E5%BC%8F%E8%A1%A8%E5%8E%BB%E6%8E%89%E5%8F%B3%E8%BE%B9%E4%B8%8B%E8%A7%92%E7%AE%AD%E5%A4%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/03/QToolButton%20%E4%BD%BF%E7%94%A8%E6%A0%B7%E5%BC%8F%E8%A1%A8%E5%8E%BB%E6%8E%89%E5%8F%B3%E8%BE%B9%E4%B8%8B%E8%A7%92%E7%AE%AD%E5%A4%B4/" class="post-title-link" itemprop="url">QToolButton 使用样式表去掉右边下角箭头</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-03 17:10:00" itemprop="dateCreated datePublished" datetime="2024-09-03T17:10:00+08:00">2024-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -757,7 +900,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/Qt%20%E4%BA%8B%E4%BB%B6%E4%B8%AD%E7%9A%84%20installEventFilter/">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/Qt%20%E4%BA%8B%E4%BB%B6%E4%B8%AD%E7%9A%84%20installEventFilter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -771,7 +914,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/242024/09/03/Qt%20%E4%BA%8B%E4%BB%B6%E4%B8%AD%E7%9A%84%20installEventFilter/" class="post-title-link" itemprop="url">Qt 事件中的 installEventFilter</a>
+            <a href="/2024/09/03/Qt%20%E4%BA%8B%E4%BB%B6%E4%B8%AD%E7%9A%84%20installEventFilter/" class="post-title-link" itemprop="url">Qt 事件中的 installEventFilter</a>
         </h2>
 
         <div class="post-meta">
@@ -781,14 +924,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：242024-09-03 17:06:00" itemprop="dateCreated datePublished" datetime="242024-09-03T17:06:00+08:00">242024-09-03</time>
+              <time title="创建时间：2024-09-03 17:06:00" itemprop="dateCreated datePublished" datetime="2024-09-03T17:06:00+08:00">2024-09-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-03 17:07:19" itemprop="dateModified" datetime="2024-09-03T17:07:19+08:00">2024-09-03</time>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
               </span>
 
           
@@ -806,91 +949,6 @@
 <h2 id="具体做法"><a href="#具体做法" class="headerlink" title="具体做法"></a>具体做法</h2><p>1 .调用installEventFilter()注册需要管理的对象<br>2 .在eventFilter()里处理需要管理的对象事件</p>
 <p>我的例子是当鼠标离开tableWidget的去复原原先的样式：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//matrixTableWidgt 为具体的控件，这里可以是button label之类的</span></span><br><span class="line">matrixTableWidgt-&gt;<span class="built_in">installEventFilter</span>(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//实现 bool eventFilter(QObject *, QEvent *);函数</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">matrixWidget::eventFilter</span><span class="params">(QObject *target, QEvent * event)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(target  == matrixTableWidgt)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(event-&gt;<span class="built_in">type</span>() == QEvent::Leave)</span><br><span class="line">        &#123;</span><br><span class="line">            ....dosomething</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> QWidget::<span class="built_in">eventFilter</span>(target,event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/242024/09/03/Qt%20%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/242024/09/03/Qt%20%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Qt 信号和槽问题总结</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：242024-09-03 16:53:00" itemprop="dateCreated datePublished" datetime="242024-09-03T16:53:00+08:00">242024-09-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-09-03 16:58:58" itemprop="dateModified" datetime="2024-09-03T16:58:58+08:00">2024-09-03</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>应注意的问题信号与槽机制是比较灵活的，但有些局限性我们必须了解，这样在实际的使用过程中做到有的放矢，避免产生一些错误。下面就介绍一下这方面的情况</p>
-<hr>
-<h3 id="1-信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台-i586-133-的机器上测试是-10-微秒（运行-Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。"><a href="#1-信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台-i586-133-的机器上测试是-10-微秒（运行-Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。" class="headerlink" title="1 .信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台 i586-133 的机器上测试是 10 微秒（运行 Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。"></a>1 .信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台 i586-133 的机器上测试是 10 微秒（运行 Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。</h3><h3 id="2-信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如-在前面给出的例子中如果在-mySlot-槽函数中加上语句-emit-mySignal-即可形成死循环。"><a href="#2-信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如-在前面给出的例子中如果在-mySlot-槽函数中加上语句-emit-mySignal-即可形成死循环。" class="headerlink" title="2 .信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如 , 在前面给出的例子中如果在 mySlot() 槽函数中加上语句 emit mySignal() 即可形成死循环。"></a>2 .信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如 , 在前面给出的例子中如果在 mySlot() 槽函数中加上语句 emit mySignal() 即可形成死循环。</h3><h3 id="3-如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。"><a href="#3-如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。" class="headerlink" title="3 .如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。"></a>3 .如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。</h3><h3 id="4-宏定义不能用在-signal-和-slot-的参数中。既然-moc-工具不扩展-define，因此，在-signals-和-slots-中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏-SIGNEDNESS-a-作为信号的参数是不合语法的："><a href="#4-宏定义不能用在-signal-和-slot-的参数中。既然-moc-工具不扩展-define，因此，在-signals-和-slots-中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏-SIGNEDNESS-a-作为信号的参数是不合语法的：" class="headerlink" title="4 .宏定义不能用在 signal 和 slot 的参数中。既然 moc 工具不扩展 #define，因此，在 signals 和 slots 中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏 SIGNEDNESS(a) 作为信号的参数是不合语法的："></a>4 .宏定义不能用在 signal 和 slot 的参数中。既然 moc 工具不扩展 <code>#define</code>，因此，在 signals 和 slots 中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏 SIGNEDNESS(a) 作为信号的参数是不合语法的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> ultrix</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIGNEDNESS(a) unsigned a</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIGNEDNESS(a) a</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Whatever</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">[...]</span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">someSignal</span><span class="params">( SIGNEDNESS(a) )</span></span>;</span><br><span class="line">[...]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-构造函数不能用在-signals-或者-slots-声明区域内。的确，将一个构造函数放在-signals-或者-slots-区内有点不可理解，无论如何，不能将它们放在-private-slots、protected-slots-或者-public-slots-区内。下面的用法是不合语法要求的："><a href="#5-构造函数不能用在-signals-或者-slots-声明区域内。的确，将一个构造函数放在-signals-或者-slots-区内有点不可理解，无论如何，不能将它们放在-private-slots、protected-slots-或者-public-slots-区内。下面的用法是不合语法要求的：" class="headerlink" title="5 .构造函数不能用在 signals 或者 slots 声明区域内。的确，将一个构造函数放在 signals 或者 slots 区内有点不可理解，无论如何，不能将它们放在 private slots、protected slots 或者 public slots 区内。下面的用法是不合语法要求的："></a>5 .构造函数不能用在 signals 或者 slots 声明区域内。的确，将一个构造函数放在 signals 或者 slots 区内有点不可理解，无论如何，不能将它们放在 private slots、protected slots 或者 public slots 区内。下面的用法是不合语法要求的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">class</span> <span class="title class_">SomeClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="built_in">SomeClass</span>( QObject *parent, <span class="type">const</span> <span class="type">char</span> *name )</span><br><span class="line">        : <span class="built_in">QObject</span>( parent, name ) &#123;&#125;  <span class="comment">// 在槽声明区内声明构造函数不合语法</span></span><br><span class="line">[...]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-函数指针不能作为信号或槽的参数。例如，下面的例子中将-void-applyFunction-QList-void-作为参数是不合语法的："><a href="#6-函数指针不能作为信号或槽的参数。例如，下面的例子中将-void-applyFunction-QList-void-作为参数是不合语法的：" class="headerlink" title="6 .函数指针不能作为信号或槽的参数。例如，下面的例子中将 void (applyFunction)(QList, void*) 作为参数是不合语法的："></a>6 .函数指针不能作为信号或槽的参数。例如，下面的例子中将 void (<em>applyFunction)(QList</em>, void*) 作为参数是不合语法的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">apply</span><span class="params">(<span class="type">void</span> (*applyFunction)(QList*, <span class="type">void</span>*), <span class="type">char</span>*)</span></span>; <span class="comment">// 不合语法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>你可以采用下面的方法绕过这个限制：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*ApplyFunctionType)</span><span class="params">(QList*, <span class="type">void</span>*)</span></span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">apply</span><span class="params">( ApplyFunctionType, <span class="type">char</span> *)</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-信号与槽不能有缺省参数。既然-signal-slot-绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的："><a href="#7-信号与槽不能有缺省参数。既然-signal-slot-绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的：" class="headerlink" title="7 .信号与槽不能有缺省参数。既然 signal-&gt;slot 绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的："></a>7 .信号与槽不能有缺省参数。既然 signal-&gt;slot 绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SomeClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">someSlot</span><span class="params">(<span class="type">int</span> x=<span class="number">100</span>)</span></span>; <span class="comment">// 将 x 的缺省值定义成 100，在槽函数声明中使用是错误的</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="8-信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使-moc-工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用："><a href="#8-信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使-moc-工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用：" class="headerlink" title="8 .信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使 moc 工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用："></a>8 .信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使 moc 工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyWidget::setLocation</span> <span class="params">(pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; location)</span></span>;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyObject::moved</span> <span class="params">(pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; location)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>但是，你可以使用 typedef 语句来绕过这个限制。如下所示：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; IntPair;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyWidget::setLocation</span> <span class="params">(IntPair location)</span></span>;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyObject::moved</span> <span class="params">(IntPair location)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>这样使用的话，你就可以得到正确的结果。  </p>
-<h3 id="9-嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在-class-B-中声明槽-b-是不合语法的，在信号区内声明槽-b-也是不合语法的。"><a href="#9-嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在-class-B-中声明槽-b-是不合语法的，在信号区内声明槽-b-也是不合语法的。" class="headerlink" title="9 .嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在 class B 中声明槽 b() 是不合语法的，在信号区内声明槽 b() 也是不合语法的。"></a>9 .嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在 class B 中声明槽 b() 是不合语法的，在信号区内声明槽 b() 也是不合语法的。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> slots:   <span class="comment">// 在嵌套类中声明槽不合语法</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">b</span><span class="params">()</span></span>;</span><br><span class="line">    [....]</span><br><span class="line">  &#125;;</span><br><span class="line">signals:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 在信号区内声明嵌套类不合语法</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">b</span><span class="params">()</span></span>;</span><br><span class="line">    [....]</span><br><span class="line">    &#125;:</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="10-友元声明不能位于信号或者槽声明区内。相反，它们应该在普通-C-的-private、protected-或者-public-区内进行声明。下面的例子是不合语法规范的："><a href="#10-友元声明不能位于信号或者槽声明区内。相反，它们应该在普通-C-的-private、protected-或者-public-区内进行声明。下面的例子是不合语法规范的：" class="headerlink" title="10 .友元声明不能位于信号或者槽声明区内。相反，它们应该在普通 C++ 的 private、protected 或者 public 区内进行声明。下面的例子是不合语法规范的："></a>10 .友元声明不能位于信号或者槽声明区内。相反，它们应该在普通 C++ 的 private、protected 或者 public 区内进行声明。下面的例子是不合语法规范的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line">signals: <span class="comment">// 信号定义区</span></span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">ClassTemplate</span>; <span class="comment">// 此处定义不合语法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -974,16 +1032,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1053,6 +1111,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
