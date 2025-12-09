@@ -3054,6 +3054,30 @@ t.join();
       </categories>
   </entry>
   <entry>
+    <title>macos编译Boost库错误</title>
+    <url>/2024/07/22/macos%20%E7%BC%96%E8%AF%91Boost%20%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<h2 id="相关版本"><a href="#相关版本" class="headerlink" title="相关版本"></a>相关版本</h2><ul>
+<li>macos 10.15.7</li>
+<li>boost 1.76.0</li>
+<li>Homebrew 3.2.9<br>  boost 库是使用brew 安装的最新版本</li>
+</ul>
+<h2 id="编译时问题"><a href="#编译时问题" class="headerlink" title="编译时问题"></a>编译时问题</h2><p>在使用cmake 编译工程的时候，使用的是静态库链接，然后<code>regex</code>库无法进行链接，动态库是可以的。cmake文件如下</p>
+<span id="more"></span>  
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.0)</span><br><span class="line">set(Boost_USE_STATIC_LIBS        ON)  # only find static libs</span><br><span class="line"></span><br><span class="line">project(test )</span><br><span class="line"></span><br><span class="line">set(BOOST_COMPONENTS date_time chrono  filesystem  regex system )</span><br><span class="line">find_package(Boost REQUIRED COMPONENTS $&#123;BOOST_COMPONENTS&#125;)</span><br><span class="line">if(Boost_FOUND )</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_INCLUDE_DIRS = $&#123;Boost_INCLUDE_DIRS&#125;&quot;)</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_LIBRARIES = $&#123;Boost_LIBRARIES&#125;&quot;)</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_LIB_VERSION = $&#123;Boost_LIB_VERSION&#125;&quot;)</span><br><span class="line">    include_directories($&#123;Boost_INCLUDE_DIRS&#125;)</span><br><span class="line">endif()</span><br><span class="line">add_executable(test main.cpp)</span><br><span class="line">target_link_libraries(test $&#123;Boost_LIBRARIES&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在<code>make</code>编译的时候，一直报一个链接错误。<br><a href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ajScFH.png" title="编译错误"><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ajScFH.png" alt="编译错误" title="编译错误"></a></p>
+<p>这是在静态链接的时候找不到icudata库文件。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在cmake 文件中添加<code>set(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; -L/usr/local/opt/icu4c/lib -I/usr/local/opt/icu4c/include&quot;)</code></p>
+<p>重新编译，可以正常编译过。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Boost</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Log4Qt for Qt5使用</title>
     <url>/2024/07/22/log4qt%20for%20Qt5%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="下载-log4qt"><a href="#下载-log4qt" class="headerlink" title="下载 log4qt"></a>下载 log4qt</h2><p>从github 上下载log4qt的最新源码，在下载的时候需要注意自己使用的Qt版本，如果Qt是低于5.3版本的，请下载这个 <a href="https://github.com/MEONMedical/Log4Qt/tree/master" title="qt低于5.3版本">qt低于5.3版本</a>如果高于5.3版本的请直接下载<a href="https://github.com/MEONMedical/Log4Qt/tree/1.4" title="地址">地址</a></p>
@@ -3086,30 +3110,6 @@ t.join();
         <category>技术</category>
         <category>c++</category>
         <category>Qt</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>macos编译Boost库错误</title>
-    <url>/2024/07/22/macos%20%E7%BC%96%E8%AF%91Boost%20%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<h2 id="相关版本"><a href="#相关版本" class="headerlink" title="相关版本"></a>相关版本</h2><ul>
-<li>macos 10.15.7</li>
-<li>boost 1.76.0</li>
-<li>Homebrew 3.2.9<br>  boost 库是使用brew 安装的最新版本</li>
-</ul>
-<h2 id="编译时问题"><a href="#编译时问题" class="headerlink" title="编译时问题"></a>编译时问题</h2><p>在使用cmake 编译工程的时候，使用的是静态库链接，然后<code>regex</code>库无法进行链接，动态库是可以的。cmake文件如下</p>
-<span id="more"></span>  
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.0)</span><br><span class="line">set(Boost_USE_STATIC_LIBS        ON)  # only find static libs</span><br><span class="line"></span><br><span class="line">project(test )</span><br><span class="line"></span><br><span class="line">set(BOOST_COMPONENTS date_time chrono  filesystem  regex system )</span><br><span class="line">find_package(Boost REQUIRED COMPONENTS $&#123;BOOST_COMPONENTS&#125;)</span><br><span class="line">if(Boost_FOUND )</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_INCLUDE_DIRS = $&#123;Boost_INCLUDE_DIRS&#125;&quot;)</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_LIBRARIES = $&#123;Boost_LIBRARIES&#125;&quot;)</span><br><span class="line">    MESSAGE(STATUS &quot;Boost_LIB_VERSION = $&#123;Boost_LIB_VERSION&#125;&quot;)</span><br><span class="line">    include_directories($&#123;Boost_INCLUDE_DIRS&#125;)</span><br><span class="line">endif()</span><br><span class="line">add_executable(test main.cpp)</span><br><span class="line">target_link_libraries(test $&#123;Boost_LIBRARIES&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>在<code>make</code>编译的时候，一直报一个链接错误。<br><a href="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ajScFH.png" title="编译错误"><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/ajScFH.png" alt="编译错误" title="编译错误"></a></p>
-<p>这是在静态链接的时候找不到icudata库文件。</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在cmake 文件中添加<code>set(CMAKE_CXX_FLAGS &quot;$&#123;CMAKE_CXX_FLAGS&#125; -L/usr/local/opt/icu4c/lib -I/usr/local/opt/icu4c/include&quot;)</code></p>
-<p>重新编译，可以正常编译过。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>c++</category>
-        <category>Boost</category>
       </categories>
   </entry>
   <entry>
@@ -3322,6 +3322,8 @@ t.join();
     <title>双链表实现</title>
     <url>/2024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h3 id="双链表的实现"><a href="#双链表的实现" class="headerlink" title="双链表的实现"></a>双链表的实现</h3><p>需要注意的地方：<br>– 前插：在前插入的时候需要判断此时链表是否为空链表<br>– 后插：在后插的时候，需要判断传进来的的节点是不是尾节点<br>– 删除：删除的时候分情况处理，删除的如果是头部节点是一种情况，删除的如果是尾节点是一种情况，删除的是中间节点<br>– 更新链表指针的需要理清关系，一般是需要重新链接四个指针。</p>
+<span id="more"></span>  
+
 <h3 id="具体代码"><a href="#具体代码" class="headerlink" title="具体代码"></a>具体代码</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dlist.h</span><br><span class="line"></span><br><span class="line">#ifndef DLIST_H</span><br><span class="line">#define DLIST_H</span><br><span class="line"></span><br><span class="line">typedef struct DListElmt_</span><br><span class="line">&#123;</span><br><span class="line">    void* data;</span><br><span class="line">    struct DListElmt_ *prev;</span><br><span class="line">    struct DListElmt_ *next;</span><br><span class="line"></span><br><span class="line">&#125;DListElmt;</span><br><span class="line"></span><br><span class="line">typedef struct DList_</span><br><span class="line">&#123;</span><br><span class="line">    int size;</span><br><span class="line">    int (*match)(const void*key1,const void*key2);</span><br><span class="line">    void (*destory)(void *data);</span><br><span class="line">    DListElmt* head;</span><br><span class="line">    DListElmt* tail;</span><br><span class="line">&#125;DList;</span><br><span class="line"></span><br><span class="line">#define dlist_size(list)((list)-&gt;size)</span><br><span class="line">#define dlist_head(list)((list)-&gt;head)</span><br><span class="line">#define dlist_tail(list)((list)-&gt;tail)</span><br><span class="line">#define dlist_is_head(element)((element)-&gt;prev == NULL?1:0)</span><br><span class="line">#define dlist_is_tail(element)((element)-&gt;next == NULL?1:0)</span><br><span class="line">#define dlist_data(element)((element)-&gt;data)</span><br><span class="line">#define dlist_next(element)((element)-&gt;next)</span><br><span class="line">#define dlist_prev(element)((element)-&gt;prev)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class dlist</span><br><span class="line">&#123;</span><br><span class="line">public:</span><br><span class="line">    dlist();</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    void dlist_init(DList*list,void(*destory)(void *data));</span><br><span class="line">    void destory(DList* list);</span><br><span class="line">    int dlist_ins_next(DList* list,DListElmt*element,const void*data);</span><br><span class="line">    int dlist_ins_prev(DList* list,DListElmt*element,const void*data);</span><br><span class="line">    int dlist_remove(DList* list,DListElmt*element,void **data);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">#endif // DLIST_H</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dlist.cpp</span><br><span class="line"></span><br><span class="line">#include &quot;dlist.h&quot;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;memory.h&gt;</span><br><span class="line">dlist::dlist()</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void dlist::dlist_init(DList *list, void (*destory)(void *))</span><br><span class="line">&#123;</span><br><span class="line">    list-&gt;head = NULL;</span><br><span class="line">    list-&gt;size = 0;</span><br><span class="line">    list-&gt;tail = NULL;</span><br><span class="line">    list-&gt;destory=destory;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void dlist::destory(DList *list)</span><br><span class="line">&#123;</span><br><span class="line">    void *data;</span><br><span class="line"></span><br><span class="line">    while(dlist_size(list) &gt; 0)</span><br><span class="line">        &#123;</span><br><span class="line">        if(dlist_remove (list,dlist_tail(list),(void**)data) == 0 &amp;&amp; list-&gt;destory!=NULL)</span><br><span class="line">            &#123;</span><br><span class="line">            list-&gt;destory(data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    memset (list,0,sizeof(DList));</span><br><span class="line">    return ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int dlist::dlist_ins_next(DList *list, DListElmt *element, const void *data)</span><br><span class="line">&#123;</span><br><span class="line">    DListElmt *newElmt = new DListElmt;</span><br><span class="line">    if(element == NULL &amp;&amp; dlist_size(list) != 0)</span><br><span class="line">        return -1;</span><br><span class="line">    newElmt-&gt;data = const_cast&lt;void*&gt;(data);</span><br><span class="line"></span><br><span class="line">    if(dlist_size(list) == 0)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        list-&gt;head = newElmt;</span><br><span class="line">        list-&gt;tail = newElmt;</span><br><span class="line">        newElmt-&gt;prev = NULL;</span><br><span class="line">        newElmt-&gt;next = NULL;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        newElmt-&gt;next = element-&gt;next;</span><br><span class="line">        //需要判断element 是不是尾</span><br><span class="line">        if(element-&gt;next = NULL)</span><br><span class="line">            list-&gt;tail= newElmt;</span><br><span class="line">        else</span><br><span class="line">            element-&gt;next-&gt;prev = newElmt;</span><br><span class="line">        newElmt-&gt;prev = element;</span><br><span class="line">        element-&gt;next = newElmt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    list-&gt;size++;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int dlist::dlist_ins_prev(DList *list, DListElmt *element, const void *data)</span><br><span class="line">&#123;</span><br><span class="line">    DListElmt *newElmt = new DListElmt;</span><br><span class="line">    if(element == NULL &amp;&amp; dlist_size(list) == 0)</span><br><span class="line">        return -1;</span><br><span class="line"></span><br><span class="line">    newElmt-&gt;data = (void*)data;</span><br><span class="line">    //如果插入的是一个空链表</span><br><span class="line">    if(dlist_size(list) == 0)</span><br><span class="line">    &#123;</span><br><span class="line">        list-&gt;head = newElmt;</span><br><span class="line">        list-&gt;head-&gt;prev = NULL;</span><br><span class="line">        list-&gt;head-&gt;next = NULL;</span><br><span class="line">        list-&gt;tail = newElmt;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        newElmt-&gt;next = element;</span><br><span class="line">        newElmt-&gt;prev = element-&gt;prev;</span><br><span class="line"></span><br><span class="line">        if(element-&gt;prev == NULL)</span><br><span class="line">        &#123;</span><br><span class="line">            list-&gt;head = newElmt;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            element-&gt;prev-&gt;next=newElmt;</span><br><span class="line">        &#125;</span><br><span class="line">        element-&gt;prev = newElmt;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    list-&gt;size++;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int dlist::dlist_remove(DList *list, DListElmt *element, void **data)</span><br><span class="line">&#123;</span><br><span class="line">    if(element == NULL || dlist_size(list)==0)</span><br><span class="line">        return -1;</span><br><span class="line"></span><br><span class="line">    *data = element-&gt;data;</span><br><span class="line">    if(element == list-&gt;head)</span><br><span class="line">    &#123;</span><br><span class="line">        list-&gt;head = element-&gt;next;</span><br><span class="line">        //删除的头节点</span><br><span class="line">        if(list-&gt;head == NULL)</span><br><span class="line">            list-&gt;tail=NULL;</span><br><span class="line">        else</span><br><span class="line">            element-&gt;next-&gt;prev= NULL;//将下一个节点设为头节点</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        //如果删除的节点是尾节点</span><br><span class="line">        if(element-&gt;next == NULL)</span><br><span class="line">            list-&gt;tail = element-&gt;prev;//更新尾节点</span><br><span class="line">        else</span><br><span class="line">            element-&gt;next-&gt;prev = element-&gt;prev;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    delete element;</span><br><span class="line">    list-&gt;size--;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
@@ -3334,6 +3336,8 @@ t.join();
     <title>右值引用和右值引用与模板结合</title>
     <url>/2024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/</url>
     <content><![CDATA[<h1 id="1-左值与右值的区别"><a href="#1-左值与右值的区别" class="headerlink" title="1. 左值与右值的区别"></a>1. 左值与右值的区别</h1><p>左值指的是在表达式 &#x3D;左边的值，右值指的是在 （右值）&#x3D;  右边的值，右值即所谓的数据，判断一个值是左值还是右值，即看能不能对这个值进行取地址，如果能取地址，即为左值，不能取地址，为右值。</p>
+<span id="more"></span>  
+
 <p>以下通过汇编代码来理解：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int a = 10;//正确</span><br><span class="line">    int b = 20;//正确</span><br><span class="line">    int c = a+b;//正确</span><br><span class="line">    int a+b = 20;//错误  因为这个a+b涉及到了计算机空间，仅仅能够在这个表达式运行过程存在</span><br><span class="line">    _asm&#123;</span><br><span class="line">    mov eax,a</span><br><span class="line">    mov ebx,b</span><br><span class="line">    add eax,ebx</span><br><span class="line">    mov c,eax</span><br><span class="line">    &#125;</span><br><span class="line">    //在这个过程中，右值是一个与运算过程相匹配的临时对象，这个临时对象在其所对应的语句执行完毕就销毁了。</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在 C++11 新的标准中，通过&amp;&amp;形成了新的语法，称为右值引用，</p>
@@ -3997,6 +4001,17 @@ display_rotate = 3
       </categories>
   </entry>
   <entry>
+    <title>终端代理设置</title>
+    <url>/2024/09/03/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 使用方法 source proxy.sh</span><br><span class="line"># http https</span><br><span class="line">export http_proxy=&quot;http://192.168.0.252:7890&quot;</span><br><span class="line">export https_proxy=$http_proxy</span><br><span class="line">export all_proxy=socks5://192.168.0.252:7890</span><br><span class="line"></span><br><span class="line"># git </span><br><span class="line">git config --global http.proxy $http_proxy</span><br><span class="line">git config --global https.proxy $https_proxy</span><br><span class="line"></span><br><span class="line">npm config set proxy http://server:port</span><br><span class="line">npm config set https-proxy http://server:port</span><br><span class="line"></span><br><span class="line">echo -e &quot;\033[32m已开启代理\033[0m&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 关闭代理</span><br><span class="line">unset http_proxy https_proxy all_proxy</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br><span class="line"></span><br><span class="line">npm config delete proxy</span><br><span class="line">npm config delete https-proxy</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+  </entry>
+  <entry>
     <title>生成器模式</title>
     <url>/2024/07/22/%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="生成器模式-Builder"><a href="#生成器模式-Builder" class="headerlink" title="生成器模式(Builder)"></a>生成器模式(Builder)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><strong>目录</strong></h2><ul>
@@ -4083,17 +4098,6 @@ display_rotate = 3
         <category>技术</category>
         <category>c++</category>
         <category>设计模式</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>终端代理设置</title>
-    <url>/2024/09/03/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 使用方法 source proxy.sh</span><br><span class="line"># http https</span><br><span class="line">export http_proxy=&quot;http://192.168.0.252:7890&quot;</span><br><span class="line">export https_proxy=$http_proxy</span><br><span class="line">export all_proxy=socks5://192.168.0.252:7890</span><br><span class="line"></span><br><span class="line"># git </span><br><span class="line">git config --global http.proxy $http_proxy</span><br><span class="line">git config --global https.proxy $https_proxy</span><br><span class="line"></span><br><span class="line">npm config set proxy http://server:port</span><br><span class="line">npm config set https-proxy http://server:port</span><br><span class="line"></span><br><span class="line">echo -e &quot;\033[32m已开启代理\033[0m&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 关闭代理</span><br><span class="line">unset http_proxy https_proxy all_proxy</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br><span class="line"></span><br><span class="line">npm config delete proxy</span><br><span class="line">npm config delete https-proxy</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术</category>
       </categories>
   </entry>
   <entry>

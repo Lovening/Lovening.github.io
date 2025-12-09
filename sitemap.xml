@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.isroots.com/2024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/</loc>
+    
+    <lastmod>2025-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/2024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/</loc>
+    
+    <lastmod>2025-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.isroots.com/2024/07/22/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2025-12-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.isroots.com/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/</loc>
     
     <lastmod>2025-12-09</lastmod>
@@ -227,15 +254,6 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/2024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/</loc>
-    
-    <lastmod>2025-12-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.isroots.com/2024/09/02/C++%20%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2025-12-09</lastmod>
@@ -425,15 +443,6 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/2024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/</loc>
-    
-    <lastmod>2025-12-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.isroots.com/2024/11/12/%E5%9F%BA%E4%BA%8EAM33X%E6%A0%B8%E5%BF%83%E6%9D%BF%E5%AF%B9EMMC%E7%9A%84%E6%93%8D%E4%BD%9C/</loc>
     
     <lastmod>2025-12-09</lastmod>
@@ -597,15 +606,6 @@
   
   <url>
     <loc>https://blog.isroots.com/2024/07/22/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2024-07-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.isroots.com/2024/07/22/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2024-07-22</lastmod>
     
@@ -971,14 +971,14 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/linux/shell/</loc>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Boost/</loc>
     <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Boost/</loc>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/linux/shell/</loc>
     <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

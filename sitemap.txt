@@ -1,3 +1,6 @@
+https://blog.isroots.com/2024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/
+https://blog.isroots.com/2024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/
+https://blog.isroots.com/2024/07/22/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/
 https://blog.isroots.com/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/
 https://blog.isroots.com/2024/09/02/%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%E8%BD%ACchar%20%E5%A4%A7%E5%B0%8F%E7%AB%AF%E7%9A%84%E9%97%AE%E9%A2%98/
 https://blog.isroots.com/2024/07/23/%E6%A0%91%E8%8E%93%E6%B4%BE%E4%BD%BF%E7%94%A8Cloudflare%E5%81%9A%E7%BD%91%E7%AB%99/
@@ -23,7 +26,6 @@ https://blog.isroots.com/2024/10/14/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E5%92%8
 https://blog.isroots.com/2024/09/03/%E5%9C%A8github%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E5%92%8C%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94/
 https://blog.isroots.com/2024/11/12/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85openCV/
 https://blog.isroots.com/2024/09/03/Qt%20%E4%BA%8B%E4%BB%B6%E4%B8%AD%E7%9A%84%20installEventFilter/
-https://blog.isroots.com/2024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/
 https://blog.isroots.com/2024/09/02/C++%20%E4%BD%8D%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93/
 https://blog.isroots.com/2024/10/14/C++%20%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%84%E5%90%88/
 https://blog.isroots.com/2024/10/14/C++%20%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0/
@@ -45,7 +47,6 @@ https://blog.isroots.com/2024/10/14/Ubuntu%E4%B8%8BQt+OpenCV%E9%85%8D%E7%BD%AE%E
 https://blog.isroots.com/2024/11/12/jQuery%20%E8%AE%BE%E7%BD%AE%20radio%20%E8%A2%AB%E9%80%89%E4%B8%AD/
 https://blog.isroots.com/2024/11/12/javascript%20%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/
 https://blog.isroots.com/2024/08/21/linux%20%E9%85%8D%E7%BD%AE%E5%8A%A8%E6%80%81%E5%BA%93/
-https://blog.isroots.com/2024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/
 https://blog.isroots.com/2024/11/12/%E5%9F%BA%E4%BA%8EAM33X%E6%A0%B8%E5%BF%83%E6%9D%BF%E5%AF%B9EMMC%E7%9A%84%E6%93%8D%E4%BD%9C/
 https://blog.isroots.com/2024/10/14/Poco%20Sharelibrary/
 https://blog.isroots.com/2024/10/14/Poco%20C++%E4%BD%BF%E7%94%A8/
@@ -65,7 +66,6 @@ https://blog.isroots.com/2024/07/22/%E5%B8%B8%E7%94%A8%E7%BB%88%E7%AB%AF%E4%BB%A
 https://blog.isroots.com/2024/07/22/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/
 https://blog.isroots.com/2024/07/22/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95/
 https://blog.isroots.com/2024/07/22/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/
-https://blog.isroots.com/2024/07/22/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/
 https://blog.isroots.com/2024/07/22/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/
 https://blog.isroots.com/2024/07/22/%E4%BD%BF%E7%94%A8boost%E5%BA%93%E6%93%8D%E4%BD%9CC++%E5%AD%97%E7%AC%A6%E4%B8%B2/
 https://blog.isroots.com/2024/07/22/VCPKG%20%E4%BD%BF%E7%94%A8/
@@ -111,8 +111,8 @@ https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Qt/
 https://blog.isroots.com/categories/%E5%89%8D%E7%AB%AF/
 https://blog.isroots.com/categories/%E9%9A%8F%E7%AC%94/
 https://blog.isroots.com/categories/%E7%BC%96%E7%A8%8B/
-https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/linux/shell/
 https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Boost/
+https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/linux/shell/
 https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/linux/%E6%A0%91%E8%8E%93%E6%B4%BE/
 https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/%E6%A0%91%E8%8E%93%E6%B4%BE/
 https://blog.isroots.com/categories/%E5%89%8D%E7%AB%AF/javaScript/
