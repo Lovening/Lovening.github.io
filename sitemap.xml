@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/2024/11/12/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E5%92%8C%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8%E4%B8%8E%E6%A8%A1%E6%9D%BF%E7%BB%93%E5%90%88/</loc>
-    
-    <lastmod>2025-12-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.isroots.com/2024/09/03/%E5%8F%8C%E9%93%BE%E8%A1%A8%E5%AE%9E%E7%8E%B0/</loc>
     
     <lastmod>2025-12-09</lastmod>
@@ -48,15 +39,6 @@
   
   <url>
     <loc>https://blog.isroots.com/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/</loc>
-    
-    <lastmod>2025-12-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.isroots.com/2024/09/02/%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E4%B8%ADint%E8%BD%ACchar%20%E5%A4%A7%E5%B0%8F%E7%AB%AF%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2025-12-09</lastmod>
     
@@ -120,15 +102,6 @@
   
   <url>
     <loc>https://blog.isroots.com/2024/07/22/%E7%94%9F%E6%88%90%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2025-12-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.isroots.com/2024/09/03/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</loc>
     
     <lastmod>2025-12-09</lastmod>
     
@@ -335,7 +308,7 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/2024/09/03/QFile%20%E4%B8%8D%E8%83%BD%E4%BB%A5%20WriteOlny,ReadWrite%20%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/</loc>
+    <loc>https://blog.isroots.com/2024/09/03/QDomNode%20setNodeValue%20%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2025-12-09</lastmod>
     
@@ -344,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/2024/09/03/QDomNode%20setNodeValue%20%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
+    <loc>https://blog.isroots.com/2024/09/03/QFile%20%E4%B8%8D%E8%83%BD%E4%BB%A5%20WriteOlny,ReadWrite%20%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/</loc>
     
     <lastmod>2025-12-09</lastmod>
     
@@ -416,7 +389,7 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/2024/11/12/javascript%20%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    <loc>https://blog.isroots.com/2024/11/12/jQuery%20%E8%AE%BE%E7%BD%AE%20radio%20%E8%A2%AB%E9%80%89%E4%B8%AD/</loc>
     
     <lastmod>2025-12-09</lastmod>
     
@@ -425,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/2024/11/12/jQuery%20%E8%AE%BE%E7%BD%AE%20radio%20%E8%A2%AB%E9%80%89%E4%B8%AD/</loc>
+    <loc>https://blog.isroots.com/2024/11/12/javascript%20%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     
     <lastmod>2025-12-09</lastmod>
     
@@ -866,6 +839,13 @@
   </url>
   
   <url>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/boost/</loc>
     <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -887,13 +867,6 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2025-12-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/protobuf/</loc>
     <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -901,14 +874,14 @@
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/STL/</loc>
     <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/STL/</loc>
+    <loc>https://blog.isroots.com/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

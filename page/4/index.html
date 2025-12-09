@@ -160,85 +160,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/10/14/Qt%20%E9%94%AE%E7%9B%98%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/10/14/Qt%20%E9%94%AE%E7%9B%98%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%92%8C%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Qt 键盘的设计和使用</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-10-14 13:20:00" itemprop="dateCreated datePublished" datetime="2024-10-14T13:20:00+08:00">2024-10-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Qt-键盘的设计和使用"><a href="#Qt-键盘的设计和使用" class="headerlink" title="Qt 键盘的设计和使用"></a>Qt 键盘的设计和使用</h1><h2 id="使用界面"><a href="#使用界面" class="headerlink" title="使用界面"></a>使用界面</h2><ul>
-<li>1.数字键盘<br>  <img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif" alt="数字键盘" title="数字键盘"></li>
-<li>2.拼音键盘<br>  <img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif" alt="拼音键盘" title="拼音键盘"></li>
-</ul>
-<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>在arm平台有时候需要用户需要数据，因为arm平台没有外接键盘设计，需要设计虚拟键盘来实现功能，当用户点击界面输入控件（比如QLineEdit，QtextEdit 等）的时候自动弹出虚拟键盘，实现用户输入功能。</p>
-<h2 id="实现机制"><a href="#实现机制" class="headerlink" title="实现机制"></a>实现机制</h2><p>使用Qt的事件机制来实现，当发生鼠标点击事件的时候，判断当前光标所在的object的属性值，如果是已经注册属性值，将会调出输入键盘，同时获取当前object的内容，并且将当前光标焦点保存下来，当关闭键盘的时候，将键盘中输入的内容拷贝到object的输入框中。<br>整个代码使用简单，与应用程序的耦合度小，可交叉编译使用在嵌入式平台。如果使用放有自己的定制键盘放到键盘管理工厂类中来时间调用。</p>
-<h2 id="主要代码讲解"><a href="#主要代码讲解" class="headerlink" title="主要代码讲解"></a>主要代码讲解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">//键盘工厂类，负责调用键盘和增加键盘</span><br><span class="line">keyBoardFactory.cpp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//这里可以增加使用方自定义的键盘</span><br><span class="line">void KeyboardFactory::init()</span><br><span class="line">&#123;</span><br><span class="line">    //添加两种使用键盘</span><br><span class="line">    DigitalBoard *board = new DigitalBoard;</span><br><span class="line">    hzKB* hzkeyBoard  = new hzKB;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    addKeyboard(&quot;DigitalBoard&quot;, board);</span><br><span class="line">    addKeyboard(&quot;pingyin&quot;,hzkeyBoard);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void KeyboardFactory::addKeyboard(const QString &amp;name, IKeyboard *kb)</span><br><span class="line">&#123;</span><br><span class="line">    auto it = m_keyboards.find(name);</span><br><span class="line">    if (it != m_keyboards.end())</span><br><span class="line">    &#123;</span><br><span class="line">        if (it.value() != NULL)</span><br><span class="line">        &#123;</span><br><span class="line">            delete it.value();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    m_keyboards[name] = kb;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//鼠标单击事件</span><br><span class="line">bool KeyboardFactory::eventFilter(QObject *obj, QEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    if (event-&gt;type() == QEvent::MouseButtonPress)</span><br><span class="line">    &#123;</span><br><span class="line">        if(qApp-&gt;focusWidget() != NULL)</span><br><span class="line">        &#123;</span><br><span class="line">            //获取焦点的属性值</span><br><span class="line">            QString kbType = qApp-&gt;focusWidget()-&gt;property (&quot;Keyboard&quot;).toByteArray();</span><br><span class="line">            QString regExp = qApp-&gt;focusWidget()-&gt;property(&quot;setRegExp&quot;).toByteArray();</span><br><span class="line">            if (!kbType.isEmpty())</span><br><span class="line">            &#123;</span><br><span class="line">                //根据焦点属性值去查找键盘</span><br><span class="line">                auto it = m_keyboards.find(kbType);</span><br><span class="line"></span><br><span class="line">                if (it != m_keyboards.end())</span><br><span class="line">                &#123;</span><br><span class="line">                    it.value()-&gt;setRegExp(regExp);</span><br><span class="line">                    it.value()-&gt;setCurrentFocus(qApp-&gt;focusWidget());</span><br><span class="line">                    it.value()-&gt;focusChanged();</span><br><span class="line">                    it.value()-&gt;showBoard();</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return QObject::eventFilter(obj, event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class IKeyboard</span><br><span class="line">//工厂类</span><br><span class="line"></span><br><span class="line">    class IKeyboard</span><br><span class="line">            :public QWidget</span><br><span class="line">    &#123;</span><br><span class="line">        Q_OBJECT</span><br><span class="line"></span><br><span class="line">    public:</span><br><span class="line">        IKeyboard(QWidget* parent=0, Qt::WindowFlags f=Qt::WindowFlags());</span><br><span class="line"></span><br><span class="line">    public:</span><br><span class="line">        //具体的键盘去实现数据更新</span><br><span class="line">        virtual void focusChanged() = 0;</span><br><span class="line">        virtual void showBoard();</span><br><span class="line">        virtual void hideBoard();</span><br><span class="line"></span><br><span class="line">    public:</span><br><span class="line">        void setOldFocus(QWidget *focus);</span><br><span class="line">        //当前鼠标的焦点</span><br><span class="line">        void setCurrentFocus(QWidget *focus);</span><br><span class="line">        //设置正则表达式</span><br><span class="line">        void setRegExp(const QString &amp;arg);</span><br><span class="line"></span><br><span class="line">    protected:</span><br><span class="line">        void mousePressEvent(QMouseEvent *e);</span><br><span class="line">        void mouseMoveEvent(QMouseEvent *e);</span><br><span class="line"></span><br><span class="line">    private:</span><br><span class="line">        void moveToScreenCenter();</span><br><span class="line"></span><br><span class="line">    protected:</span><br><span class="line">        QWidget *m_oldFocus;</span><br><span class="line">        QWidget *m_currentFocus;</span><br><span class="line">        QString regExp;</span><br><span class="line">        QPoint m_currentPosition;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
-
-<p>以下代码是具体的使用，在使用的时候我们需要对每个输入的控件进行属性设置，包括正则表达式的设置，这样，我们在使用的时候，才能正确的加载我们需要的键盘。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">mainwindow.cpp</span><br><span class="line">void MainWindow::init()</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;Text_numEdit-&gt;setProperty(keyboardKye,numKeyboardValue);</span><br><span class="line"></span><br><span class="line">    ui-&gt;line_numEdit-&gt;setProperty (keyboardKye,numKeyboardValue);</span><br><span class="line">    //设置正则表达式，控制具体使用</span><br><span class="line">    ui-&gt;line_numEdit-&gt;setProperty (setRegExp,&quot;(\d)(\.\d&#123;1,4&#125;)?&quot;);</span><br><span class="line">    //调用中文输入键盘</span><br><span class="line">    ui-&gt;Text_pinyinEdit-&gt;setProperty (keyboardKye,PINYIN);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main.cpp</span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    QApplication a(argc, argv);</span><br><span class="line"></span><br><span class="line">    QTextCodec::setCodecForTr(QTextCodec::codecForName(&quot;GB2312&quot;));</span><br><span class="line">    Nut::KeyboardFactory key;</span><br><span class="line"></span><br><span class="line">    MainWindow w;</span><br><span class="line">    w.show();</span><br><span class="line"></span><br><span class="line">    Nut::KeyboardFactory key;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    return a.exec();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h2><p><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif" alt="UML类图" title="UML类图"></p>
-<h2 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/Lovening/virtualKeyBoard/tree/master" title="源码地址">源码地址</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/Makefile%20%E4%BC%AA%E7%9B%AE%E6%A0%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -541,82 +462,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吴晓宁">
-      <meta itemprop="description" content="记录一些自己的见闻">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴晓宁blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/09/03/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">终端代理设置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-09-03 17:14:00" itemprop="dateCreated datePublished" datetime="2024-09-03T17:14:00+08:00">2024-09-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:28:46" itemprop="dateModified" datetime="2025-12-09T19:28:46+08:00">2025-12-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 使用方法 source proxy.sh</span><br><span class="line"># http https</span><br><span class="line">export http_proxy=&quot;http://192.168.0.252:7890&quot;</span><br><span class="line">export https_proxy=$http_proxy</span><br><span class="line">export all_proxy=socks5://192.168.0.252:7890</span><br><span class="line"></span><br><span class="line"># git </span><br><span class="line">git config --global http.proxy $http_proxy</span><br><span class="line">git config --global https.proxy $https_proxy</span><br><span class="line"></span><br><span class="line">npm config set proxy http://server:port</span><br><span class="line">npm config set https-proxy http://server:port</span><br><span class="line"></span><br><span class="line">echo -e &quot;\033[32m已开启代理\033[0m&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 关闭代理</span><br><span class="line">unset http_proxy https_proxy all_proxy</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br><span class="line"></span><br><span class="line">npm config delete proxy</span><br><span class="line">npm config delete https-proxy</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -940,6 +785,168 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/Qt%20%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/03/Qt%20%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Qt 信号和槽问题总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-03 16:53:00" itemprop="dateCreated datePublished" datetime="2024-09-03T16:53:00+08:00">2024-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>应注意的问题信号与槽机制是比较灵活的，但有些局限性我们必须了解，这样在实际的使用过程中做到有的放矢，避免产生一些错误。下面就介绍一下这方面的情况</p>
+<hr>
+<h3 id="1-信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台-i586-133-的机器上测试是-10-微秒（运行-Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。"><a href="#1-信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台-i586-133-的机器上测试是-10-微秒（运行-Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。" class="headerlink" title="1 .信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台 i586-133 的机器上测试是 10 微秒（运行 Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。"></a>1 .信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台 i586-133 的机器上测试是 10 微秒（运行 Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。</h3><h3 id="2-信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如-在前面给出的例子中如果在-mySlot-槽函数中加上语句-emit-mySignal-即可形成死循环。"><a href="#2-信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如-在前面给出的例子中如果在-mySlot-槽函数中加上语句-emit-mySignal-即可形成死循环。" class="headerlink" title="2 .信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如 , 在前面给出的例子中如果在 mySlot() 槽函数中加上语句 emit mySignal() 即可形成死循环。"></a>2 .信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如 , 在前面给出的例子中如果在 mySlot() 槽函数中加上语句 emit mySignal() 即可形成死循环。</h3><h3 id="3-如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。"><a href="#3-如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。" class="headerlink" title="3 .如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。"></a>3 .如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。</h3><h3 id="4-宏定义不能用在-signal-和-slot-的参数中。既然-moc-工具不扩展-define，因此，在-signals-和-slots-中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏-SIGNEDNESS-a-作为信号的参数是不合语法的："><a href="#4-宏定义不能用在-signal-和-slot-的参数中。既然-moc-工具不扩展-define，因此，在-signals-和-slots-中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏-SIGNEDNESS-a-作为信号的参数是不合语法的：" class="headerlink" title="4 .宏定义不能用在 signal 和 slot 的参数中。既然 moc 工具不扩展 #define，因此，在 signals 和 slots 中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏 SIGNEDNESS(a) 作为信号的参数是不合语法的："></a>4 .宏定义不能用在 signal 和 slot 的参数中。既然 moc 工具不扩展 <code>#define</code>，因此，在 signals 和 slots 中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏 SIGNEDNESS(a) 作为信号的参数是不合语法的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> ultrix</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIGNEDNESS(a) unsigned a</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIGNEDNESS(a) a</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Whatever</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">[...]</span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">someSignal</span><span class="params">( SIGNEDNESS(a) )</span></span>;</span><br><span class="line">[...]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-构造函数不能用在-signals-或者-slots-声明区域内。的确，将一个构造函数放在-signals-或者-slots-区内有点不可理解，无论如何，不能将它们放在-private-slots、protected-slots-或者-public-slots-区内。下面的用法是不合语法要求的："><a href="#5-构造函数不能用在-signals-或者-slots-声明区域内。的确，将一个构造函数放在-signals-或者-slots-区内有点不可理解，无论如何，不能将它们放在-private-slots、protected-slots-或者-public-slots-区内。下面的用法是不合语法要求的：" class="headerlink" title="5 .构造函数不能用在 signals 或者 slots 声明区域内。的确，将一个构造函数放在 signals 或者 slots 区内有点不可理解，无论如何，不能将它们放在 private slots、protected slots 或者 public slots 区内。下面的用法是不合语法要求的："></a>5 .构造函数不能用在 signals 或者 slots 声明区域内。的确，将一个构造函数放在 signals 或者 slots 区内有点不可理解，无论如何，不能将它们放在 private slots、protected slots 或者 public slots 区内。下面的用法是不合语法要求的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">class</span> <span class="title class_">SomeClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="built_in">SomeClass</span>( QObject *parent, <span class="type">const</span> <span class="type">char</span> *name )</span><br><span class="line">        : <span class="built_in">QObject</span>( parent, name ) &#123;&#125;  <span class="comment">// 在槽声明区内声明构造函数不合语法</span></span><br><span class="line">[...]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-函数指针不能作为信号或槽的参数。例如，下面的例子中将-void-applyFunction-QList-void-作为参数是不合语法的："><a href="#6-函数指针不能作为信号或槽的参数。例如，下面的例子中将-void-applyFunction-QList-void-作为参数是不合语法的：" class="headerlink" title="6 .函数指针不能作为信号或槽的参数。例如，下面的例子中将 void (applyFunction)(QList, void*) 作为参数是不合语法的："></a>6 .函数指针不能作为信号或槽的参数。例如，下面的例子中将 void (<em>applyFunction)(QList</em>, void*) 作为参数是不合语法的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">apply</span><span class="params">(<span class="type">void</span> (*applyFunction)(QList*, <span class="type">void</span>*), <span class="type">char</span>*)</span></span>; <span class="comment">// 不合语法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>你可以采用下面的方法绕过这个限制：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*ApplyFunctionType)</span><span class="params">(QList*, <span class="type">void</span>*)</span></span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">apply</span><span class="params">( ApplyFunctionType, <span class="type">char</span> *)</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-信号与槽不能有缺省参数。既然-signal-slot-绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的："><a href="#7-信号与槽不能有缺省参数。既然-signal-slot-绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的：" class="headerlink" title="7 .信号与槽不能有缺省参数。既然 signal-&gt;slot 绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的："></a>7 .信号与槽不能有缺省参数。既然 signal-&gt;slot 绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SomeClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">someSlot</span><span class="params">(<span class="type">int</span> x=<span class="number">100</span>)</span></span>; <span class="comment">// 将 x 的缺省值定义成 100，在槽函数声明中使用是错误的</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使-moc-工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用："><a href="#8-信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使-moc-工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用：" class="headerlink" title="8 .信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使 moc 工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用："></a>8 .信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使 moc 工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyWidget::setLocation</span> <span class="params">(pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; location)</span></span>;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyObject::moved</span> <span class="params">(pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; location)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>但是，你可以使用 typedef 语句来绕过这个限制。如下所示：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; IntPair;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyWidget::setLocation</span> <span class="params">(IntPair location)</span></span>;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyObject::moved</span> <span class="params">(IntPair location)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样使用的话，你就可以得到正确的结果。  </p>
+<h3 id="9-嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在-class-B-中声明槽-b-是不合语法的，在信号区内声明槽-b-也是不合语法的。"><a href="#9-嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在-class-B-中声明槽-b-是不合语法的，在信号区内声明槽-b-也是不合语法的。" class="headerlink" title="9 .嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在 class B 中声明槽 b() 是不合语法的，在信号区内声明槽 b() 也是不合语法的。"></a>9 .嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在 class B 中声明槽 b() 是不合语法的，在信号区内声明槽 b() 也是不合语法的。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> slots:   <span class="comment">// 在嵌套类中声明槽不合语法</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">b</span><span class="params">()</span></span>;</span><br><span class="line">    [....]</span><br><span class="line">  &#125;;</span><br><span class="line">signals:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 在信号区内声明嵌套类不合语法</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">b</span><span class="params">()</span></span>;</span><br><span class="line">    [....]</span><br><span class="line">    &#125;:</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-友元声明不能位于信号或者槽声明区内。相反，它们应该在普通-C-的-private、protected-或者-public-区内进行声明。下面的例子是不合语法规范的："><a href="#10-友元声明不能位于信号或者槽声明区内。相反，它们应该在普通-C-的-private、protected-或者-public-区内进行声明。下面的例子是不合语法规范的：" class="headerlink" title="10 .友元声明不能位于信号或者槽声明区内。相反，它们应该在普通 C++ 的 private、protected 或者 public 区内进行声明。下面的例子是不合语法规范的："></a>10 .友元声明不能位于信号或者槽声明区内。相反，它们应该在普通 C++ 的 private、protected 或者 public 区内进行声明。下面的例子是不合语法规范的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line">signals: <span class="comment">// 信号定义区</span></span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">ClassTemplate</span>; <span class="comment">// 此处定义不合语法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.isroots.com/2024/09/03/%E5%9C%A8github%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E5%92%8C%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="吴晓宁">
+      <meta itemprop="description" content="记录一些自己的见闻">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴晓宁blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/03/%E5%9C%A8github%20%E6%90%AD%E5%BB%BA%E5%85%8D%E8%B4%B9%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E5%92%8C%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94/" class="post-title-link" itemprop="url">在github 搭建免费私有仓库和本地仓库关联</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-09-03 16:28:00" itemprop="dateCreated datePublished" datetime="2024-09-03T16:28:00+08:00">2024-09-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Github被微软收购后，今年重大的更新就是个人开发者可以免费的创建私人仓库并且无限制。但是个人仓库最多可以邀请三个人协和开发。这个对于小型项目来说应该足够了。我准备将自己学习时使用的代码上传到GITHUB。方便自己在任何地方都可以随时查阅。</p>
+<h2 id="1-创建远程仓库"><a href="#1-创建远程仓库" class="headerlink" title="1.创建远程仓库"></a>1.创建远程仓库</h2><p>首先在github 上创建个人的私人仓库,登陆github，点击右上方“+”号，选择“New repository”，输入仓库名，在Repository name 中输入你想创建的仓库名称就行，然后选择私有仓库，点击创建即可。<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"></p>
+<p>下图是我创建好的仓库<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"><br>可以看到在我的仓库名称那可以看到private</p>
+<h2 id="2-创建本地仓库"><a href="#2-创建本地仓库" class="headerlink" title="2 .创建本地仓库"></a>2 .创建本地仓库</h2><p>因为我是在windows上操作的。这里只记录在windows上的操作。linux和mac系统的都是类似的步骤。<br>– 2.1 下载github的客户端，然后安装。我都是默认安装的<br>– 2.2 安装完成后，在开始菜单-&gt;所有程序，就会找到git Bash<br>打开git Bash,蹦出一个类似cmd窗口的东西，就说明git安装成功<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"><br>安装完成后，要告诉git你的用户名和邮箱，输入以下命令<br><code>git config --global user.name &quot;your name&quot;</code><br><code>git config --global user.email &quot;your@email.com&quot;</code><br>这里的 “”里面的要换成你自己的名字和email<br>– 2.3 安装 Git 之后，就可以在我们自己的电脑上来创建本地仓库了。仓库（Repository）可以简单理解为一个目录，每个目录包含着一个仓库。首先，我们可以在自己电脑的任意位置新建一个文件夹（例如 E: Git&#x2F; 目录），该目录作为 Git 的管理目录，所有的仓库都将建立在此目录下。在此目录下，我们要建立一个仓库，名为 learngit。打开 Git Bash，cd 到 Git&#x2F; 目录下，新建一个目录 learngit，再 cd 到 learngit 目录，命令如下：<br><code>mkdir learngit</code><br><code>cd learngit</code><br>然后，使用下面的命令将 learngit 目录变成 Git 可以管理的仓库：<br><code>git init</code><br>运行该命令之后，就可以在 learngit 目录下生成一个 .git 隐藏文件夹，表示初始化成功，该目录已经可以被 Git 管理了。现在 learngit 就称为我们的git仓库了。<br>现在，我们已经创建了一个空的仓库 learngit，下一步往仓库里加点内容。例如在该仓库目录下新建一个 readme.md 文件。将该文件添加到仓库中需要两个步骤：<br>– 2.3.1.用命令 git add 告诉git。把文件添加到仓库:<br><code>git add readme.md</code><br>– 2.3.2.用命令 git commit 告诉git，把文件提交到仓库<br><code>git commit -m &quot;create readme file&quot;</code><br>其中 -m 后面是本次提交的说明，最好说明是有意义的，这样你就能从历史记录里面方便找到你更改的历史。</p>
+<h1 id="3-将本地仓库关联到远程仓库"><a href="#3-将本地仓库关联到远程仓库" class="headerlink" title="3.将本地仓库关联到远程仓库"></a>3.将本地仓库关联到远程仓库</h1><p>这时候，你的本地 Git 仓库与 GitHub 远程仓库还没有办法传输的，由于使用的是 SSH 加密，需要进行以下设置。<br>– 3.1 创建SSH Key,在用户主目录下面，看看有没有.ssh。如果有，再看看这个目录下有没有 id_rsa 和 id_rsa.pub 这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开终端（Windows 下打开 Git Bash），创建 SSH Key<br><code>ssh-keygen -t rsa -C &quot;youremail@mail.com&quot;</code> 一直回车就OK<br>这里记录下，这个会在你主用户目录下创建一个.ssh 的隐藏目录。比如我的电脑用户名是DIY-PC，那么这个隐藏目录就在C:\Users\DIY\ 下面，记得看你上面的目录是在哪个目录执行的。记得打开显示隐藏目录。然后就找到了。<br>– 3.2 登录自己的 GitHub，点击页面右上角 Settings 选项。<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"><br>点击SSH and GPG keys:<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"><br>点击 New SSH key 后，输入 Title 和 Key。重点来了，Key 就是你电脑的 id_rsa.pub 里的内容，直接复制过来就好<br><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"><br>点击 Add SSH key，就完成了 SSH 的配置。之所以要设置 SSH key，是为了识别出你推送的确实是你推送的，而不是别人冒充的，而 Git 支持 SSH 协议，所以，GitHub 只要知道了你的公钥，就可以确认只有你自己才能推送。如果你有两个电脑，比如公司一个，家里一个。那么可以把两台电脑的公钥都添加到你的 GitHub，这样就都可以实现推送了。</p>
+<h1 id="4-将本地上传的GitHub"><a href="#4-将本地上传的GitHub" class="headerlink" title="4.将本地上传的GitHub"></a>4.将本地上传的GitHub</h1><ul>
+<li><p>4.1 其实，本地 Git 仓库与 GitHub 的互连有两种形式，我们首先介绍第一种方式：从本地上传到 GitHub。<br>  刚才我们已经在github创建了一个私人仓库，点开我们的仓库，点击Clone or Download 复制下git的地址，如下图：<br>  <img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"></p>
+<ul>
+<li>4.2 回到我们的 Git Bash 界面，把本地 Git 库与刚刚建的远程仓库关联，输入下列命令<br>  <code>git remote add origin https://github.com/yourname/learngit.git</code><br>  origin 是你刚才复制的地址，这条命令是添加一个远程仓库</li>
+<li>4.3下一步就是把本地仓库的所有文件（刚刚新建的 readme.md）上传到 GitHub 上。运行以下命令：<br>  <code>git push -u origin master</code><br>  运行命令之后，出现如下提示:<br>  <img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif"><br>  这里要输入yes 不能直接回车的<br>  然后在push 你可能会遇到push 不上去的错误，这是因为我们远程仓库和本地仓库不一致的原因，解决办法这里贴个博客，自己看<a target="_blank" rel="noopener" href="https://gitbook.tw/chapters/github/fail-to-push.html">https://gitbook.tw/chapters/github/fail-to-push.html</a>。<br>  先将远程仓库和本地合并，如果你在合并的时候出现“fatal: refusing to merge unrelated histories”。这里的解决办法是<a target="_blank" rel="noopener" href="http://isroot.cn/work/jiejuegitzhongfatalrefusingtomergeunrelatedhistories/">http://isroot.cn/work/jiejuegitzhongfatalrefusingtomergeunrelatedhistories/</a><br>  然后就可以push 了，执行 <code>git push -u origin master</code><br>  将我们本地的文件就可以推到自己的仓库里面了。推完后我的github仓库已经出现了本地的代码。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1009,7 +1016,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
