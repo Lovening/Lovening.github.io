@@ -688,8 +688,25 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:58:09" itemprop="dateModified" datetime="2025-12-09T19:58:09+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
 
           
 
@@ -702,7 +719,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在使用QToolButton的时候，button的右下角会有一个三角形的小箭头，使用Qt样式表可以将这个小箭头给隐藏掉。样式表的设置如下:<br><code>QToolButton::menu-indicator &#123; image: None; &#125;</code><br>这样设置样式表，右下角的三角形箭头就会隐藏掉</p>
+          <span id="more"></span>
+
+<p>在使用QToolButton的时候，button的右下角会有一个三角形的小箭头，使用Qt样式表可以将这个小箭头给隐藏掉。样式表的设置如下:<br><code>QToolButton::menu-indicator &#123; image: None; &#125;</code><br>这样设置样式表，右下角的三角形箭头就会隐藏掉</p>
 
       
     </div>
@@ -753,8 +772,25 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:59:19" itemprop="dateModified" datetime="2025-12-09T19:59:19+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
 
           
 
@@ -768,9 +804,14 @@
 
       
           <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>有时候Qt某个控件的事件并不能满足我们的需求，那么就需要重写这个控件。我在项目中有个需求，当鼠标停留在QtableWidget上某个item的时候，要将这个item变化一种颜色。当鼠标离开的时候，将item复原。当鼠标指针在tableWidget的范围之内的时候，用 itemEntered(QTableWidgetItem *)信号就可以，但当鼠标离开tableWidget的时候，就需要自己用事件去处理了。可以重写tableWidget。但我只要判断一个事件，重写太麻烦了。这时候就需要Qt 事件过滤器了</p>
-<h2 id="具体做法"><a href="#具体做法" class="headerlink" title="具体做法"></a>具体做法</h2><p>1 .调用installEventFilter()注册需要管理的对象<br>2 .在eventFilter()里处理需要管理的对象事件</p>
-<p>我的例子是当鼠标离开tableWidget的去复原原先的样式：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//matrixTableWidgt 为具体的控件，这里可以是button label之类的</span></span><br><span class="line">matrixTableWidgt-&gt;<span class="built_in">installEventFilter</span>(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//实现 bool eventFilter(QObject *, QEvent *);函数</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">matrixWidget::eventFilter</span><span class="params">(QObject *target, QEvent * event)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(target  == matrixTableWidgt)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(event-&gt;<span class="built_in">type</span>() == QEvent::Leave)</span><br><span class="line">        &#123;</span><br><span class="line">            ....dosomething</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> QWidget::<span class="built_in">eventFilter</span>(target,event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/03/Qt%20%E4%BA%8B%E4%BB%B6%E4%B8%AD%E7%9A%84%20installEventFilter/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -820,8 +861,25 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:59:02" itemprop="dateModified" datetime="2025-12-09T19:59:02+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
 
           
 
@@ -835,27 +893,14 @@
 
       
           <p>应注意的问题信号与槽机制是比较灵活的，但有些局限性我们必须了解，这样在实际的使用过程中做到有的放矢，避免产生一些错误。下面就介绍一下这方面的情况</p>
-<hr>
-<h3 id="1-信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台-i586-133-的机器上测试是-10-微秒（运行-Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。"><a href="#1-信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台-i586-133-的机器上测试是-10-微秒（运行-Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。" class="headerlink" title="1 .信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台 i586-133 的机器上测试是 10 微秒（运行 Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。"></a>1 .信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台 i586-133 的机器上测试是 10 微秒（运行 Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。</h3><h3 id="2-信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如-在前面给出的例子中如果在-mySlot-槽函数中加上语句-emit-mySignal-即可形成死循环。"><a href="#2-信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如-在前面给出的例子中如果在-mySlot-槽函数中加上语句-emit-mySignal-即可形成死循环。" class="headerlink" title="2 .信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如 , 在前面给出的例子中如果在 mySlot() 槽函数中加上语句 emit mySignal() 即可形成死循环。"></a>2 .信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如 , 在前面给出的例子中如果在 mySlot() 槽函数中加上语句 emit mySignal() 即可形成死循环。</h3><h3 id="3-如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。"><a href="#3-如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。" class="headerlink" title="3 .如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。"></a>3 .如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。</h3><h3 id="4-宏定义不能用在-signal-和-slot-的参数中。既然-moc-工具不扩展-define，因此，在-signals-和-slots-中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏-SIGNEDNESS-a-作为信号的参数是不合语法的："><a href="#4-宏定义不能用在-signal-和-slot-的参数中。既然-moc-工具不扩展-define，因此，在-signals-和-slots-中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏-SIGNEDNESS-a-作为信号的参数是不合语法的：" class="headerlink" title="4 .宏定义不能用在 signal 和 slot 的参数中。既然 moc 工具不扩展 #define，因此，在 signals 和 slots 中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏 SIGNEDNESS(a) 作为信号的参数是不合语法的："></a>4 .宏定义不能用在 signal 和 slot 的参数中。既然 moc 工具不扩展 <code>#define</code>，因此，在 signals 和 slots 中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏 SIGNEDNESS(a) 作为信号的参数是不合语法的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> ultrix</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIGNEDNESS(a) unsigned a</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIGNEDNESS(a) a</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Whatever</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">[...]</span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">someSignal</span><span class="params">( SIGNEDNESS(a) )</span></span>;</span><br><span class="line">[...]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-构造函数不能用在-signals-或者-slots-声明区域内。的确，将一个构造函数放在-signals-或者-slots-区内有点不可理解，无论如何，不能将它们放在-private-slots、protected-slots-或者-public-slots-区内。下面的用法是不合语法要求的："><a href="#5-构造函数不能用在-signals-或者-slots-声明区域内。的确，将一个构造函数放在-signals-或者-slots-区内有点不可理解，无论如何，不能将它们放在-private-slots、protected-slots-或者-public-slots-区内。下面的用法是不合语法要求的：" class="headerlink" title="5 .构造函数不能用在 signals 或者 slots 声明区域内。的确，将一个构造函数放在 signals 或者 slots 区内有点不可理解，无论如何，不能将它们放在 private slots、protected slots 或者 public slots 区内。下面的用法是不合语法要求的："></a>5 .构造函数不能用在 signals 或者 slots 声明区域内。的确，将一个构造函数放在 signals 或者 slots 区内有点不可理解，无论如何，不能将它们放在 private slots、protected slots 或者 public slots 区内。下面的用法是不合语法要求的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">class</span> <span class="title class_">SomeClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="built_in">SomeClass</span>( QObject *parent, <span class="type">const</span> <span class="type">char</span> *name )</span><br><span class="line">        : <span class="built_in">QObject</span>( parent, name ) &#123;&#125;  <span class="comment">// 在槽声明区内声明构造函数不合语法</span></span><br><span class="line">[...]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-函数指针不能作为信号或槽的参数。例如，下面的例子中将-void-applyFunction-QList-void-作为参数是不合语法的："><a href="#6-函数指针不能作为信号或槽的参数。例如，下面的例子中将-void-applyFunction-QList-void-作为参数是不合语法的：" class="headerlink" title="6 .函数指针不能作为信号或槽的参数。例如，下面的例子中将 void (applyFunction)(QList, void*) 作为参数是不合语法的："></a>6 .函数指针不能作为信号或槽的参数。例如，下面的例子中将 void (<em>applyFunction)(QList</em>, void*) 作为参数是不合语法的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">apply</span><span class="params">(<span class="type">void</span> (*applyFunction)(QList*, <span class="type">void</span>*), <span class="type">char</span>*)</span></span>; <span class="comment">// 不合语法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>你可以采用下面的方法绕过这个限制：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*ApplyFunctionType)</span><span class="params">(QList*, <span class="type">void</span>*)</span></span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">apply</span><span class="params">( ApplyFunctionType, <span class="type">char</span> *)</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-信号与槽不能有缺省参数。既然-signal-slot-绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的："><a href="#7-信号与槽不能有缺省参数。既然-signal-slot-绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的：" class="headerlink" title="7 .信号与槽不能有缺省参数。既然 signal-&gt;slot 绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的："></a>7 .信号与槽不能有缺省参数。既然 signal-&gt;slot 绑定是发生在运行时刻，那么，从概念上讲使用缺省参数是困难的。下面的用法是不合理的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SomeClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">someSlot</span><span class="params">(<span class="type">int</span> x=<span class="number">100</span>)</span></span>; <span class="comment">// 将 x 的缺省值定义成 100，在槽函数声明中使用是错误的</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="8-信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使-moc-工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用："><a href="#8-信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使-moc-工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用：" class="headerlink" title="8 .信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使 moc 工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用："></a>8 .信号与槽也不能携带模板类参数。如果将信号、槽声明为模板类参数的话，即使 moc 工具不报告错误，也不可能得到预期的结果。例如，下面的例子中当信号发射时，槽函数不会被正确调用：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyWidget::setLocation</span> <span class="params">(pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; location)</span></span>;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyObject::moved</span> <span class="params">(pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; location)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>但是，你可以使用 typedef 语句来绕过这个限制。如下所示：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; IntPair;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> slots:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyWidget::setLocation</span> <span class="params">(IntPair location)</span></span>;</span><br><span class="line">[...]</span><br><span class="line"><span class="keyword">public</span> signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MyObject::moved</span> <span class="params">(IntPair location)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>这样使用的话，你就可以得到正确的结果。  </p>
-<h3 id="9-嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在-class-B-中声明槽-b-是不合语法的，在信号区内声明槽-b-也是不合语法的。"><a href="#9-嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在-class-B-中声明槽-b-是不合语法的，在信号区内声明槽-b-也是不合语法的。" class="headerlink" title="9 .嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在 class B 中声明槽 b() 是不合语法的，在信号区内声明槽 b() 也是不合语法的。"></a>9 .嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在 class B 中声明槽 b() 是不合语法的，在信号区内声明槽 b() 也是不合语法的。</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> slots:   <span class="comment">// 在嵌套类中声明槽不合语法</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">b</span><span class="params">()</span></span>;</span><br><span class="line">    [....]</span><br><span class="line">  &#125;;</span><br><span class="line">signals:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 在信号区内声明嵌套类不合语法</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">b</span><span class="params">()</span></span>;</span><br><span class="line">    [....]</span><br><span class="line">    &#125;:</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="10-友元声明不能位于信号或者槽声明区内。相反，它们应该在普通-C-的-private、protected-或者-public-区内进行声明。下面的例子是不合语法规范的："><a href="#10-友元声明不能位于信号或者槽声明区内。相反，它们应该在普通-C-的-private、protected-或者-public-区内进行声明。下面的例子是不合语法规范的：" class="headerlink" title="10 .友元声明不能位于信号或者槽声明区内。相反，它们应该在普通 C++ 的 private、protected 或者 public 区内进行声明。下面的例子是不合语法规范的："></a>10 .友元声明不能位于信号或者槽声明区内。相反，它们应该在普通 C++ 的 private、protected 或者 public 区内进行声明。下面的例子是不合语法规范的：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line">signals: <span class="comment">// 信号定义区</span></span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">ClassTemplate</span>; <span class="comment">// 此处定义不合语法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/03/Qt%20%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1021,7 +1066,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">

@@ -263,8 +263,21 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:56:36" itemprop="dateModified" datetime="2025-12-09T19:56:36+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
 
           
 
@@ -279,25 +292,14 @@
       
           <p>基本功，格式化命令，以格式化 &#x2F;dev&#x2F;sda 1 分区为例：</p>
 <p>$ sudo umount &#x2F;dev&#x2F;sda 1    # 必须先卸载该分区</p>
-<h1 id="格式化为-FAT-分区"><a href="#格式化为-FAT-分区" class="headerlink" title="格式化为 FAT 分区"></a>格式化为 FAT 分区</h1><p>$ sudo mkfs. vfat -F 32 &#x2F;dev&#x2F;sda 1       # -F 参数必须大写，参数有 12，16 和 32，分别对应 FAT 12，FAT 16，FAT 32。</p>
-<h1 id="格式化为-NTFS-分区，先要安装-ntfsprogs，以-Ubuntu-Debian-为例："><a href="#格式化为-NTFS-分区，先要安装-ntfsprogs，以-Ubuntu-Debian-为例：" class="headerlink" title="格式化为 NTFS 分区，先要安装 ntfsprogs，以 Ubuntu &#x2F; Debian 为例："></a>格式化为 NTFS 分区，先要安装 ntfsprogs，以 Ubuntu &#x2F; Debian 为例：</h1><p>$ sudo apt-get install ntfsprogs</p>
-<p>#然后执行格式化命令 ，以格式化 &#x2F;dev&#x2F;sda 1 分区为例：</p>
-<p>$ sudo umount &#x2F;dev&#x2F;sda 1       # 必须先卸载该分区</p>
-<p>$ sudo mkfs. ntfs &#x2F;dev&#x2F;sda 1        # 格式化为 ntfs 速度有点慢。</p>
-<h1 id="格式化为-ext-4-3-2-，以格式化-dev-sda-1-分区为例："><a href="#格式化为-ext-4-3-2-，以格式化-dev-sda-1-分区为例：" class="headerlink" title="格式化为 ext 4&#x2F;3&#x2F;2 ，以格式化 &#x2F;dev&#x2F;sda 1 分区为例："></a>格式化为 ext 4&#x2F;3&#x2F;2 ，以格式化 &#x2F;dev&#x2F;sda 1 分区为例：</h1><p>$ sudo umount &#x2F;dev&#x2F;sda 1       # 必须先卸载该分区</p>
-<p>$ sudo mkfs. ext 4 &#x2F;dev&#x2F;sda 1    # 格式化为 ext 4 分区</p>
-<p>$ sudo mkfs. ext 3 &#x2F;dev&#x2F;sda 1    # 格式化为 ext 3 分区</p>
-<p>$ sudo mkfs. ext 2 &#x2F;dev&#x2F;sda 1    # 格式化为 ext 2 分区</p>
-<p>由于 ext 系列的分区都有一个给 super user 的保留空间，必须占用一定的百分比，默认 5%，这么一来格式化容量小的分区还不觉得，5%也没多少，但是如果是几百 G，1 T 的分区就会有问题，in this case，5%可是不小的数目啊！</p>
-<p>『解决方法』</p>
-<p>一、针对将要格式化的分区，以 ext 3 为例：</p>
-<p>$ sudo umount &#x2F;dev&#x2F;sda 1     # 必须先卸载该分区，这里要格式化的是 &#x2F;dev&#x2F;sda 1 分区。</p>
-<p>$ sudo mkfs. ext 3 -m 0.05 &#x2F;dev&#x2F;sda 1     # 注意-m 后的参数，设定的已经是百分位，这里设定为 0.05，是 0.05%，也就是万分之 5！</p>
-<p>好了，这样以 1 T 的分区为例，1 T&#x3D;1024 GB&#x3D;1048576 MB（都是乘以 1024 的关系），1048576 MB*0.0005&#x3D;524.288 MB。</p>
-<p>也就是说设定-m 参数之后，保留区大概是 524 MB。当然你可以根据自己喜好设定。</p>
-<p>二、对已经格式化完毕的分区，并且不想擦出分区中的数据，可以使用 tune 2 fs -m 的方法：</p>
-<h1 id="这条命令无须先卸载分区。"><a href="#这条命令无须先卸载分区。" class="headerlink" title="这条命令无须先卸载分区。"></a>这条命令无须先卸载分区。</h1><p>$ sudo tune 2 fs -m 0.05 &#x2F;dev&#x2F;sda 2       # 这个例子是转换 &#x2F;dev&#x2F;sda 2 分区的 super user 保留区，同样设定为 0.05，在提醒一次，是 0.05%，也就是万分之 5。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/Ubuntu%20%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96SD%E5%8D%A1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -347,7 +349,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:54:07" itemprop="dateModified" datetime="2025-12-09T19:54:07+08:00">2025-12-09</time>
               </span>
 
           
@@ -361,7 +363,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <ul>
+          <span id="more"></span>
+
+<ul>
 <li><ol>
 <li>格式化 EMMC 创建分区和启动启动分区<br><code>fdisk -l </code> 显示硬盘（存储器等等）<br><code>fdisk /dev/mmcblk1</code><br><code>n-&gt;p-&gt;n-&gt;回车-&gt;回车-&gt;64M</code><br><code>-&gt;p-&gt;n-&gt;回车-&gt;回车-&gt;a-&gt;1</code></li>
 </ol>
@@ -408,7 +412,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/11/12/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85openCV/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2024/11/12/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85openCV/" class="post-title-link" itemprop="url">在树莓派上安装openCV</a>
         </h2>
 
         <div class="post-meta">
@@ -425,8 +429,25 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:55:03" itemprop="dateModified" datetime="2025-12-09T19:55:03+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/%E6%A0%91%E8%8E%93%E6%B4%BE/" itemprop="url" rel="index"><span itemprop="name">树莓派</span></a>
+                </span>
+            </span>
 
           
 
@@ -602,8 +623,25 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:56:01" itemprop="dateModified" datetime="2025-12-09T19:56:01+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/linux/openCV/" itemprop="url" rel="index"><span itemprop="name">openCV</span></a>
+                </span>
+            </span>
 
           
 
@@ -1073,7 +1111,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">

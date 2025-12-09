@@ -191,7 +191,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:32:23" itemprop="dateModified" datetime="2025-12-09T19:32:23+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:42:01" itemprop="dateModified" datetime="2025-12-09T19:42:01+08:00">2025-12-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,33 +218,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <span id="more"></span>
-
-<h1 id="树莓派远程桌面"><a href="#树莓派远程桌面" class="headerlink" title="树莓派远程桌面"></a>树莓派远程桌面</h1><p>最近项目中要使用树莓派，以前自己玩过树莓派，但没做记录，此次趁着项目把使用过程中的问题做个详细的记录</p>
+          <h1 id="树莓派远程桌面"><a href="#树莓派远程桌面" class="headerlink" title="树莓派远程桌面"></a>树莓派远程桌面</h1><p>最近项目中要使用树莓派，以前自己玩过树莓派，但没做记录，此次趁着项目把使用过程中的问题做个详细的记录</p>
 <ul>
 <li>远程桌面<br>只需要在 raspbian 下面安装一个服务 xdrp 即可。输入如下命令安装：<br><code>sudo apt-get install xrdp</code><br>然后就 Ok 了</li>
 </ul>
-<p>安装完成后使用 windows 远程桌面连接会出现报错 error – problem connecting，问题根源在于 tightvnc，出现问题的版本跟 X 字体有冲突，导致连接 Xserver 出错。<br><code>sudo apt-get purge tightvnc xrdp</code><br><code>sudo apt-get install tightvncserver xrdp</code></p>
-<p>最后启动 xrdp 服务，sudo &#x2F;etc&#x2F;init. d&#x2F;xrdp restart，此时会启用相应端口，配置方面默认即可。<br>通过命令：netstat -tnl<br>查看 3350 3389 5910 这三个端口处于 LISTEN，一般就没问题了。<br>dpkg -L + 软件包的名字，可以知道这个软件包包含了哪些文件。</p>
-<h1 id="翻转屏幕"><a href="#翻转屏幕" class="headerlink" title="翻转屏幕"></a>翻转屏幕</h1><p>1、切换为 root</p>
-<pre><code>su root
-</code></pre>
-<p>2、编辑&#x2F;boot&#x2F;config. txt，根据想旋转的角度<br>对于触摸屏添加如下内容：</p>
-<pre><code>lcd_rotate = 0 //不旋转
-lcd_rotate = 1 //旋转90度
-lcd_rotate = 2 //旋转180
-lcd_rotate = 3 //旋转270
-</code></pre>
-<p>对于 HDMI 显示输出，添加：</p>
-<p>如果是只是想旋转 HDMI 输出显示的角度（不用触摸屏）<br>则可以添加：</p>
-<pre><code>display_rotate = 0
-display_rotate = 1
-display_rotate = 2
-display_rotate = 3
-</code></pre>
-<p>3、reboot</p>
-<p>重启后，触摸屏驱动和显示都会旋转。。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -464,8 +449,25 @@ display_rotate = 3
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:57:25" itemprop="dateModified" datetime="2025-12-09T19:57:25+08:00">2025-12-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/c-plus-plus/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
 
           
 
@@ -479,19 +481,14 @@ display_rotate = 3
 
       
           <h1 id="1-编译器移植"><a href="#1-编译器移植" class="headerlink" title="1. 编译器移植"></a>1. 编译器移植</h1><p>公司使用的是飞凌的开发板做的项目. 在使用飞凌开发移植过程中，升级了飞凌自带的 gcc 编译器，飞凌自带的 gcc 版本是 4.5 的。因为使用了 poco 开源库，poco  在使用低版本 gcc 编译的时候，xml 编译不过，只能升级 gcc 的版本，但升级成高版本 gcc 后，程序移植到开发板无法运行，提示找不到文件或者目录。<br>    通过在网上查询和向别人请教，知道了飞凌早期的开发板是软浮点模式，通过查询 gcc 软浮点和硬浮点了解到交叉编译器 arm-linux-gnueabi 和 arm-linux-gnueabihf 的区别。<br>    自己的理解为软浮点和硬浮点都是支持浮点运算的，编译后面带 hf 是支持硬件浮点运算，不带 hf 是支持软件浮点运算，这里贴上一篇博文方便自己查找，[[编译器区别]][1]<br>    最后将编译成支持软浮点版本的 gcc 4.8 版本后，重新编译，移植到板子上成功运行。</p>
-<h1 id="2-在-arm-上运行问题"><a href="#2-在-arm-上运行问题" class="headerlink" title="2. 在 arm 上运行问题"></a>2. 在 arm 上运行问题</h1><ul>
-<li><ol>
-<li>将自己的项目移植到开发板上，配置好环境变量，提示 <code>/usr/lib64/libstdc++.so.6: version </code> GLIBCXX_3.4.21’ not found &#96;</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>问题解决<br>原因是 gcc 版本升级后，开发板上的 gcc 库并没有升级，解决的办法是去升级 gcc 库我的开发板的库目录是 &#x2F;us&#x2F;lib<br>ubuntu 的库目录是&#x2F;usr&#x2F;local&#x2F;arm&#x2F;arm-2014.05&#x2F;寻找 libstdc++. so.*<br>命令是 <code>find / -name &quot;libstdc++.so*&quot;</code><br><img src="http://isroot.cn/wp-content/uploads/2019/03/Image-3.png"><br>因为我的 ubuntu 上配置了很多 gcc  所以会出现这么多的目录只需要将 armv 4 t&#x2F;  下的 libstdc++. so. 6.0.19 复制到开发板&#x2F;usr&#x2F;lib&#x2F;目录下同时替换成 libstdc++. so. 6<br>重新链接下 ln -s libstdc++. so. 6.0.19  libstdc++. so. 6  在链接前需要删除原先存在的 libstdc++. so. 6<br>运行程序，运行成功</li>
-</ol>
-</li>
-</ul>
-<p>参考博客 <a target="_blank" rel="noopener" href="https://blog.csdn.net/luoww1/article/details/51509298">https://blog.csdn.net/luoww1/article/details/51509298</a><br>gcc  下载地址 <a target="_blank" rel="noopener" href="http://www.veryarm.com/arm-none-linux-gnueabi-gcc">http://www.veryarm.com/arm-none-linux-gnueabi-gcc</a></p>
-<h1 id="3-环境变量问题"><a href="#3-环境变量问题" class="headerlink" title="3. 环境变量问题"></a>3. 环境变量问题</h1><p>当第一次设置 LD_LIBRARY_PATH 时，再次重新设置 LD_LIBRARY_PATH 时，要先引用上 LD_LIBRARY_PATH 变量<br><code>export LD_LIBRARY_PATH = $LD_LIBRARY_PATH:/home/SDL/MultiGasProject/lib</code><br>[1]: <a target="_blank" rel="noopener" href="http://www.cnblogs.com/xiaotlili/p/3306100.html">http://www.cnblogs.com/xiaotlili/p/3306100.html</a> “编译器的区别”</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/12/Qt%E5%9C%A8%E7%A7%BB%E6%A4%8D%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -722,7 +719,7 @@ display_rotate = 3
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:50:43" itemprop="dateModified" datetime="2025-12-09T19:50:43+08:00">2025-12-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -807,7 +804,7 @@ display_rotate = 3
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-12-09 19:20:54" itemprop="dateModified" datetime="2025-12-09T19:20:54+08:00">2025-12-09</time>
+                <time title="修改时间：2025-12-09 19:50:36" itemprop="dateModified" datetime="2025-12-09T19:50:36+08:00">2025-12-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -834,8 +831,10 @@ display_rotate = 3
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="javascript-截取字符串"><a href="#javascript-截取字符串" class="headerlink" title="javascript 截取字符串"></a>javascript 截取字符串</h2><p>JavaScript 语法中 string 字符串，同样和 java 一样，有一个截取字符串的方法，如下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">参考代码如下：</span><br><span class="line">获取字符串第二个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(-<span class="number">1</span>));</span><br><span class="line"><span class="comment">//Hello</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>,<span class="number">4</span>));</span><br><span class="line"> </span><br><span class="line">获取字符串最后一个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(<span class="number">0</span>));</span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(str.<span class="property">length</span> - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+          <span id="more"></span>
+
+<h2 id="javascript-截取字符串"><a href="#javascript-截取字符串" class="headerlink" title="javascript 截取字符串"></a>javascript 截取字符串</h2><p>JavaScript 语法中 string 字符串，同样和 java 一样，有一个截取字符串的方法，如下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">参考代码如下：</span><br><span class="line">获取字符串第二个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(-<span class="number">1</span>));</span><br><span class="line"><span class="comment">//Hello</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>,<span class="number">4</span>));</span><br><span class="line"> </span><br><span class="line">获取字符串最后一个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(<span class="number">0</span>));</span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(str.<span class="property">length</span> - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1106,7 +1105,7 @@ display_rotate = 3
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">

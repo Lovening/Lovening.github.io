@@ -1459,7 +1459,9 @@ t.join();
     <url>/2024/07/22/MarkDown%20%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<h1 id="一-标题"><a href="#一-标题" class="headerlink" title="一. 标题"></a>一. 标题</h1><p>在想要设置为标题的文字面前加 #来表示<br>一个 #是一级标题 ，二个 #是二级标题 ，三个###是三级标题，依次类推。支持六级标题</p>
 <p>注：标准写法是在 #后面加空格在写文字 。</p>
-<span id="more"></span> 
+<span id="more"></span>
+
+
 <p>示例：</p>
 <h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><h1 id="二-字体"><a href="#二-字体" class="headerlink" title="二. 字体"></a>二. 字体</h1><ul>
 <li>加粗<br>要加粗的字体左右分别使用两个*号包起来, 符号与字体之间没有空格<br>示例：<br><strong>这是加粗的字体</strong></li>
@@ -1484,10 +1486,8 @@ t.join();
 <h2 id="使用nfs拷贝"><a href="#使用nfs拷贝" class="headerlink" title="使用nfs拷贝"></a><strong>使用nfs拷贝</strong></h2><p>要使用nfs服务，需要配置好nfs和ssh 使用这个命令安装nfs： <code>sudo apt-get install nfs-kernel-server rpcbind</code> nfs安装完成后创建一个nfs文件夹，后续需要通过nfs传输的文件都放在这个文件夹里。 接下来配置nfs，打开 &#x2F;etc&#x2F;exports 以后在后面添加如下所示内容：</p>
 <span id="more"></span>  
 
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt; nfs文件夹绝对地址 *(rw,sync,no_root_squash)</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>nfs文件夹绝对地址 *(rw,sync,no_root_squash)</p>
-</blockquote>
 <p>例如：</p>
 <blockquote>
 <p>&#x2F;home&#x2F;xxx&#x2F;nfs *(rw,sync,no_root_squash)</p>
@@ -1947,7 +1947,8 @@ t.join();
   <entry>
     <title>QDomNode setNodeValue 无效问题记录</title>
     <url>/2024/09/03/QDomNode%20setNodeValue%20%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>在使用QDOM 类操作xml 的时候，更新一个QDomNode 的值，查看Qt的帮助文档<br><code>void QDomNode::setNodeValue(const QString &amp; v)</code><br><code>Sets the node&#39;s value to v.</code><br>看翻译这个函数应该是可以设置QDomNode的value。但在具体使用的发现xml文档的值并没有发生改变，使用方法为下:</p>
+    <content><![CDATA[<span id="more"></span>
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>在使用QDOM 类操作xml 的时候，更新一个QDomNode 的值，查看Qt的帮助文档<br><code>void QDomNode::setNodeValue(const QString &amp; v)</code><br><code>Sets the node&#39;s value to v.</code><br>看翻译这个函数应该是可以设置QDomNode的value。但在具体使用的发现xml文档的值并没有发生改变，使用方法为下:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//这里简写代码  xml的打开和保存不在这里写了</span><br><span class="line">QDomNode node.firstChild().setNodeValue(&quot;value&quot;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>代码运行完后发现xml的值并没有发生改变，去重新查看文档，查看相关函数 nodeValue()时发现：</p>
@@ -1998,7 +1999,8 @@ t.join();
   <entry>
     <title>QFile 不能以 WriteOlny,ReadWrite 方式打开资源文件</title>
     <url>/2024/09/03/QFile%20%E4%B8%8D%E8%83%BD%E4%BB%A5%20WriteOlny,ReadWrite%20%E6%96%B9%E5%BC%8F%E6%89%93%E5%BC%80%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h2 id="问题的产生"><a href="#问题的产生" class="headerlink" title="问题的产生"></a>问题的产生</h2><ul>
+    <content><![CDATA[<span id="more"></span>
+<h2 id="问题的产生"><a href="#问题的产生" class="headerlink" title="问题的产生"></a>问题的产生</h2><ul>
 <li>在写软件配置信息文件的时候一般采用.xml文件，以前做的时候都是采用的相对路径或者添加环境变量的方式来确定文件的路径。这次在做新的项目的时候，想着是否可以将xml配置文件添加到资源文件，这样文件的路径就固定了，在后期打包安装的时候也方便一些。然后将配置文件就添加到资源文件中。在使用的时候因为配置文件都是提前写好的，在读取的时候没有任何问题。但在修改配置文件的时候发现文件无法使用WriteOlny,ReadWrite方式打开。但使用路径的方式就可以打开。</li>
 </ul>
 <h2 id="产生的原因"><a href="#产生的原因" class="headerlink" title="产生的原因"></a>产生的原因</h2><ul>
@@ -2015,7 +2017,9 @@ t.join();
   <entry>
     <title>Qt 样式表文件“Could not parse stylesheet of widget 0x9d92218”</title>
     <url>/2024/10/14/QT%20%E4%B8%8D%E5%90%8C%E6%96%B9%E5%BC%8F%E5%8A%A0%E8%BD%BD%E6%A0%B7%E5%BC%8F%E8%A1%A8%E6%96%87%E4%BB%B6%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="QT-不同方式加载样式表文件总结"><a href="#QT-不同方式加载样式表文件总结" class="headerlink" title="QT 不同方式加载样式表文件总结"></a>QT 不同方式加载样式表文件总结</h1><ul>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="QT-不同方式加载样式表文件总结"><a href="#QT-不同方式加载样式表文件总结" class="headerlink" title="QT 不同方式加载样式表文件总结"></a>QT 不同方式加载样式表文件总结</h1><ul>
 <li>1 如果应对我们自己的应用程序，我们可以使用qss文件的方式去加载样式表。如下</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">QString currentPath = QString(&quot;%1/qss&quot;).arg (QDir::currentPath ());</span><br><span class="line">QString  sStyleSheet;</span><br><span class="line">if(styleFile.open (QFile::ReadOnly))</span><br><span class="line">&#123;</span><br><span class="line">    qDebug ()&lt;&lt;&quot;open successful&quot;;</span><br><span class="line">    sStyleSheet = styleFile.readAll ();</span><br><span class="line">    styleFile.close ();</span><br><span class="line">    this-&gt;setStyleSheet(sStyleSheet);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -2024,12 +2028,24 @@ t.join();
 <li>2 如果我们设置的是一些公用的控件样式表文件，就是说控件存放的文件不确定，可以使用QtDesigner去直接设置样式表</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Qt</category>
+      </categories>
   </entry>
   <entry>
     <title>QToolButton 使用样式表去掉右边下角箭头</title>
     <url>/2024/09/03/QToolButton%20%E4%BD%BF%E7%94%A8%E6%A0%B7%E5%BC%8F%E8%A1%A8%E5%8E%BB%E6%8E%89%E5%8F%B3%E8%BE%B9%E4%B8%8B%E8%A7%92%E7%AE%AD%E5%A4%B4/</url>
-    <content><![CDATA[<p>在使用QToolButton的时候，button的右下角会有一个三角形的小箭头，使用Qt样式表可以将这个小箭头给隐藏掉。样式表的设置如下:<br><code>QToolButton::menu-indicator &#123; image: None; &#125;</code><br>这样设置样式表，右下角的三角形箭头就会隐藏掉</p>
+    <content><![CDATA[<span id="more"></span>
+
+<p>在使用QToolButton的时候，button的右下角会有一个三角形的小箭头，使用Qt样式表可以将这个小箭头给隐藏掉。样式表的设置如下:<br><code>QToolButton::menu-indicator &#123; image: None; &#125;</code><br>这样设置样式表，右下角的三角形箭头就会隐藏掉</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Qt</category>
+      </categories>
       <tags>
         <tag>编程</tag>
         <tag>QT</tag>
@@ -2039,9 +2055,16 @@ t.join();
     <title>Qt 事件中的 installEventFilter</title>
     <url>/2024/09/03/Qt%20%E4%BA%8B%E4%BB%B6%E4%B8%AD%E7%9A%84%20installEventFilter/</url>
     <content><![CDATA[<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>有时候Qt某个控件的事件并不能满足我们的需求，那么就需要重写这个控件。我在项目中有个需求，当鼠标停留在QtableWidget上某个item的时候，要将这个item变化一种颜色。当鼠标离开的时候，将item复原。当鼠标指针在tableWidget的范围之内的时候，用 itemEntered(QTableWidgetItem *)信号就可以，但当鼠标离开tableWidget的时候，就需要自己用事件去处理了。可以重写tableWidget。但我只要判断一个事件，重写太麻烦了。这时候就需要Qt 事件过滤器了</p>
+<span id="more"></span>
+
 <h2 id="具体做法"><a href="#具体做法" class="headerlink" title="具体做法"></a>具体做法</h2><p>1 .调用installEventFilter()注册需要管理的对象<br>2 .在eventFilter()里处理需要管理的对象事件</p>
 <p>我的例子是当鼠标离开tableWidget的去复原原先的样式：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//matrixTableWidgt 为具体的控件，这里可以是button label之类的</span></span><br><span class="line">matrixTableWidgt-&gt;<span class="built_in">installEventFilter</span>(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//实现 bool eventFilter(QObject *, QEvent *);函数</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">matrixWidget::eventFilter</span><span class="params">(QObject *target, QEvent * event)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(target  == matrixTableWidgt)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(event-&gt;<span class="built_in">type</span>() == QEvent::Leave)</span><br><span class="line">        &#123;</span><br><span class="line">            ....dosomething</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> QWidget::<span class="built_in">eventFilter</span>(target,event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Qt</category>
+      </categories>
       <tags>
         <tag>编程</tag>
         <tag>QT</tag>
@@ -2051,6 +2074,7 @@ t.join();
     <title>Qt 信号和槽问题总结</title>
     <url>/2024/09/03/Qt%20%E4%BF%A1%E5%8F%B7%E5%92%8C%E6%A7%BD%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>应注意的问题信号与槽机制是比较灵活的，但有些局限性我们必须了解，这样在实际的使用过程中做到有的放矢，避免产生一些错误。下面就介绍一下这方面的情况</p>
+<span id="more"></span>
 <hr>
 <h3 id="1-信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台-i586-133-的机器上测试是-10-微秒（运行-Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。"><a href="#1-信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台-i586-133-的机器上测试是-10-微秒（运行-Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。" class="headerlink" title="1 .信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台 i586-133 的机器上测试是 10 微秒（运行 Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。"></a>1 .信号与槽的效率是非常高的，但是同真正的回调函数比较起来，由于增加了灵活性，因此在速度上还是有所损失，当然这种损失相对来说是比较小的，通过在一台 i586-133 的机器上测试是 10 微秒（运行 Linux），可见这种机制所提供的简洁性、灵活性还是值得的。但如果我们要追求高效率的话，比如在实时系统中就要尽可能的少用这种机制。</h3><h3 id="2-信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如-在前面给出的例子中如果在-mySlot-槽函数中加上语句-emit-mySignal-即可形成死循环。"><a href="#2-信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如-在前面给出的例子中如果在-mySlot-槽函数中加上语句-emit-mySignal-即可形成死循环。" class="headerlink" title="2 .信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如 , 在前面给出的例子中如果在 mySlot() 槽函数中加上语句 emit mySignal() 即可形成死循环。"></a>2 .信号与槽机制与普通函数的调用一样，如果使用不当的话，在程序执行时也有可能产生死循环。因此，在定义槽函数时一定要注意避免间接形成无限循环，即在槽中再次发射所接收到的同样信号。例如 , 在前面给出的例子中如果在 mySlot() 槽函数中加上语句 emit mySignal() 即可形成死循环。</h3><h3 id="3-如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。"><a href="#3-如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。" class="headerlink" title="3 .如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。"></a>3 .如果一个信号与多个槽相联系的话，那么，当这个信号被发射时，与之相关的槽被激活的顺序将是随机的。</h3><h3 id="4-宏定义不能用在-signal-和-slot-的参数中。既然-moc-工具不扩展-define，因此，在-signals-和-slots-中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏-SIGNEDNESS-a-作为信号的参数是不合语法的："><a href="#4-宏定义不能用在-signal-和-slot-的参数中。既然-moc-工具不扩展-define，因此，在-signals-和-slots-中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏-SIGNEDNESS-a-作为信号的参数是不合语法的：" class="headerlink" title="4 .宏定义不能用在 signal 和 slot 的参数中。既然 moc 工具不扩展 #define，因此，在 signals 和 slots 中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏 SIGNEDNESS(a) 作为信号的参数是不合语法的："></a>4 .宏定义不能用在 signal 和 slot 的参数中。既然 moc 工具不扩展 <code>#define</code>，因此，在 signals 和 slots 中携带参数的宏就不能正确地工作，如果不带参数是可以的。例如，下面的例子中将带有参数的宏 SIGNEDNESS(a) 作为信号的参数是不合语法的：</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> ultrix</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIGNEDNESS(a) unsigned a</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SIGNEDNESS(a) a</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Whatever</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">[...]</span><br><span class="line">signals:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">someSignal</span><span class="params">( SIGNEDNESS(a) )</span></span>;</span><br><span class="line">[...]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -2072,6 +2096,11 @@ t.join();
 <h3 id="9-嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在-class-B-中声明槽-b-是不合语法的，在信号区内声明槽-b-也是不合语法的。"><a href="#9-嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在-class-B-中声明槽-b-是不合语法的，在信号区内声明槽-b-也是不合语法的。" class="headerlink" title="9 .嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在 class B 中声明槽 b() 是不合语法的，在信号区内声明槽 b() 也是不合语法的。"></a>9 .嵌套的类不能位于信号或槽区域内，也不能有信号或者槽。例如，下面的例子中，在 class B 中声明槽 b() 是不合语法的，在信号区内声明槽 b() 也是不合语法的。</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> slots:   <span class="comment">// 在嵌套类中声明槽不合语法</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">b</span><span class="params">()</span></span>;</span><br><span class="line">    [....]</span><br><span class="line">  &#125;;</span><br><span class="line">signals:</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">B</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 在信号区内声明嵌套类不合语法</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">b</span><span class="params">()</span></span>;</span><br><span class="line">    [....]</span><br><span class="line">    &#125;:</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h3 id="10-友元声明不能位于信号或者槽声明区内。相反，它们应该在普通-C-的-private、protected-或者-public-区内进行声明。下面的例子是不合语法规范的："><a href="#10-友元声明不能位于信号或者槽声明区内。相反，它们应该在普通-C-的-private、protected-或者-public-区内进行声明。下面的例子是不合语法规范的：" class="headerlink" title="10 .友元声明不能位于信号或者槽声明区内。相反，它们应该在普通 C++ 的 private、protected 或者 public 区内进行声明。下面的例子是不合语法规范的："></a>10 .友元声明不能位于信号或者槽声明区内。相反，它们应该在普通 C++ 的 private、protected 或者 public 区内进行声明。下面的例子是不合语法规范的：</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">someClass</span> : <span class="keyword">public</span> QObject</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">[...]</span><br><span class="line">signals: <span class="comment">// 信号定义区</span></span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">ClassTemplate</span>; <span class="comment">// 此处定义不合语法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Qt</category>
+      </categories>
       <tags>
         <tag>编程</tag>
         <tag>QT</tag>
@@ -2084,6 +2113,8 @@ t.join();
 <li>1.数字键盘<br>  <img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif" alt="数字键盘" title="数字键盘"></li>
 <li>2.拼音键盘<br>  <img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif" alt="拼音键盘" title="拼音键盘"></li>
 </ul>
+<span id="more"></span>
+
 <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>在arm平台有时候需要用户需要数据，因为arm平台没有外接键盘设计，需要设计虚拟键盘来实现功能，当用户点击界面输入控件（比如QLineEdit，QtextEdit 等）的时候自动弹出虚拟键盘，实现用户输入功能。</p>
 <h2 id="实现机制"><a href="#实现机制" class="headerlink" title="实现机制"></a>实现机制</h2><p>使用Qt的事件机制来实现，当发生鼠标点击事件的时候，判断当前光标所在的object的属性值，如果是已经注册属性值，将会调出输入键盘，同时获取当前object的内容，并且将当前光标焦点保存下来，当关闭键盘的时候，将键盘中输入的内容拷贝到object的输入框中。<br>整个代码使用简单，与应用程序的耦合度小，可交叉编译使用在嵌入式平台。如果使用放有自己的定制键盘放到键盘管理工厂类中来时间调用。</p>
 <h2 id="主要代码讲解"><a href="#主要代码讲解" class="headerlink" title="主要代码讲解"></a>主要代码讲解</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//键盘工厂类，负责调用键盘和增加键盘</span><br><span class="line">keyBoardFactory.cpp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//这里可以增加使用方自定义的键盘</span><br><span class="line">void KeyboardFactory::init()</span><br><span class="line">&#123;</span><br><span class="line">    //添加两种使用键盘</span><br><span class="line">    DigitalBoard *board = new DigitalBoard;</span><br><span class="line">    hzKB* hzkeyBoard  = new hzKB;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    addKeyboard(&quot;DigitalBoard&quot;, board);</span><br><span class="line">    addKeyboard(&quot;pingyin&quot;,hzkeyBoard);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void KeyboardFactory::addKeyboard(const QString &amp;name, IKeyboard *kb)</span><br><span class="line">&#123;</span><br><span class="line">    auto it = m_keyboards.find(name);</span><br><span class="line">    if (it != m_keyboards.end())</span><br><span class="line">    &#123;</span><br><span class="line">        if (it.value() != NULL)</span><br><span class="line">        &#123;</span><br><span class="line">            delete it.value();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    m_keyboards[name] = kb;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//鼠标单击事件</span><br><span class="line">bool KeyboardFactory::eventFilter(QObject *obj, QEvent *event)</span><br><span class="line">&#123;</span><br><span class="line">    if (event-&gt;type() == QEvent::MouseButtonPress)</span><br><span class="line">    &#123;</span><br><span class="line">        if(qApp-&gt;focusWidget() != NULL)</span><br><span class="line">        &#123;</span><br><span class="line">            //获取焦点的属性值</span><br><span class="line">            QString kbType = qApp-&gt;focusWidget()-&gt;property (&quot;Keyboard&quot;).toByteArray();</span><br><span class="line">            QString regExp = qApp-&gt;focusWidget()-&gt;property(&quot;setRegExp&quot;).toByteArray();</span><br><span class="line">            if (!kbType.isEmpty())</span><br><span class="line">            &#123;</span><br><span class="line">                //根据焦点属性值去查找键盘</span><br><span class="line">                auto it = m_keyboards.find(kbType);</span><br><span class="line"></span><br><span class="line">                if (it != m_keyboards.end())</span><br><span class="line">                &#123;</span><br><span class="line">                    it.value()-&gt;setRegExp(regExp);</span><br><span class="line">                    it.value()-&gt;setCurrentFocus(qApp-&gt;focusWidget());</span><br><span class="line">                    it.value()-&gt;focusChanged();</span><br><span class="line">                    it.value()-&gt;showBoard();</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return QObject::eventFilter(obj, event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -2096,6 +2127,11 @@ t.join();
 <h2 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h2><p><img src="http://isroot.cn/wp-content/plugins/a3-lazy-load/assets/images/lazy_placeholder.gif" alt="UML类图" title="UML类图"></p>
 <h2 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h2><p><a href="https://github.com/Lovening/virtualKeyBoard/tree/master" title="源码地址">源码地址</a></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Qt</category>
+      </categories>
       <tags>
         <tag>QT</tag>
       </tags>
@@ -2135,6 +2171,8 @@ t.join();
     <title>Qt中的 pro 文件介绍</title>
     <url>/2024/09/02/Qt%E4%B8%AD%E7%9A%84%20pro%20%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<p>Qt在嵌入式开发中，一般是在PC端环境中编写程序，然后调试，最后移植到开发中调试，如果使用第三方库的时候这就涉及到在PC端和ARM两个不同的环境中要使用不同的库，为了方便编译在.pro文件中设置了一个变量。具体使用如下:</p>
+<span id="more"></span>
+
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">#定义一个变量</span><br><span class="line">PLATFORM=Arm</span><br><span class="line">#PLATFORM=Linux</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//在这里判断变量</span></span><br><span class="line"><span class="built_in">isEqual</span>(PLATFORM,Arm)&#123;<span class="comment">//在pro左大括号必须在根据括号后面，否则函数不起作用</span></span><br><span class="line">    <span class="meta">#dosomething</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">isEqual</span>(PLATFORM,Linxu)&#123;</span><br><span class="line">    <span class="meta">#dosomething</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>当我们选择不通的编译器的时候，只需要把不同的值放开就可以了。</p>
@@ -2208,11 +2246,17 @@ t.join();
 
 <p>注： qmake<br>‐project 可以生成 pro 文件（可以根据项目需要，编辑改文件）<br>qmake 可以生成 Makefile 文件<br>make 编译<br>使用 qmake ‐project 时，会把本目录及其子目录内所有.cpp .h 文件加入到项目输入文件中，<br>使用是注意移去其他无用的文件。<br>qmake 生成的 Makefile 文件，可以根据需要做相应修改</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Qt</category>
+      </categories>
   </entry>
   <entry>
     <title>Qt在移植中遇到的问题</title>
     <url>/2024/11/12/Qt%E5%9C%A8%E7%A7%BB%E6%A4%8D%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="1-编译器移植"><a href="#1-编译器移植" class="headerlink" title="1. 编译器移植"></a>1. 编译器移植</h1><p>公司使用的是飞凌的开发板做的项目. 在使用飞凌开发移植过程中，升级了飞凌自带的 gcc 编译器，飞凌自带的 gcc 版本是 4.5 的。因为使用了 poco 开源库，poco  在使用低版本 gcc 编译的时候，xml 编译不过，只能升级 gcc 的版本，但升级成高版本 gcc 后，程序移植到开发板无法运行，提示找不到文件或者目录。<br>    通过在网上查询和向别人请教，知道了飞凌早期的开发板是软浮点模式，通过查询 gcc 软浮点和硬浮点了解到交叉编译器 arm-linux-gnueabi 和 arm-linux-gnueabihf 的区别。<br>    自己的理解为软浮点和硬浮点都是支持浮点运算的，编译后面带 hf 是支持硬件浮点运算，不带 hf 是支持软件浮点运算，这里贴上一篇博文方便自己查找，[[编译器区别]][1]<br>    最后将编译成支持软浮点版本的 gcc 4.8 版本后，重新编译，移植到板子上成功运行。</p>
+<span id="more"></span>
 <h1 id="2-在-arm-上运行问题"><a href="#2-在-arm-上运行问题" class="headerlink" title="2. 在 arm 上运行问题"></a>2. 在 arm 上运行问题</h1><ul>
 <li><ol>
 <li>将自己的项目移植到开发板上，配置好环境变量，提示 <code>/usr/lib64/libstdc++.so.6: version </code> GLIBCXX_3.4.21’ not found &#96;</li>
@@ -2226,6 +2270,11 @@ t.join();
 <p>参考博客 <a href="https://blog.csdn.net/luoww1/article/details/51509298">https://blog.csdn.net/luoww1/article/details/51509298</a><br>gcc  下载地址 <a href="http://www.veryarm.com/arm-none-linux-gnueabi-gcc">http://www.veryarm.com/arm-none-linux-gnueabi-gcc</a></p>
 <h1 id="3-环境变量问题"><a href="#3-环境变量问题" class="headerlink" title="3. 环境变量问题"></a>3. 环境变量问题</h1><p>当第一次设置 LD_LIBRARY_PATH 时，再次重新设置 LD_LIBRARY_PATH 时，要先引用上 LD_LIBRARY_PATH 变量<br><code>export LD_LIBRARY_PATH = $LD_LIBRARY_PATH:/home/SDL/MultiGasProject/lib</code><br>[1]: <a href="http://www.cnblogs.com/xiaotlili/p/3306100.html">http://www.cnblogs.com/xiaotlili/p/3306100.html</a> “编译器的区别”</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>Qt</category>
+      </categories>
   </entry>
   <entry>
     <title>Qt常见问题总结</title>
@@ -2469,6 +2518,11 @@ t.join();
 <h1 id="要点总结"><a href="#要点总结" class="headerlink" title="要点总结"></a>要点总结</h1><p>Strategy及其子类为组件提供了一系列可重用的算法，从而可以使得类型在运行时方便地根据需要在各个算法之间进行切换。<br>Strategy模式提供了用条件判断语句以外的另一种选择，消除条件判断语句，就是在解耦合。含有许多条件判断语句的代码通常都需要Strategy模式。<br>如果Strategy对象没有实例变量，那么各个上下文可以共享同一个Strategy对象，从而节省对象开销。</p>
 <p>当你代码中出现大量if else 或者switch的时候，你需要考虑以后会不会添加新的if else或者case，如果需要添加新的 那就要考虑是不是需要考虑用strategy模式了</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
   <entry>
     <title>Template Method 模板模式</title>
@@ -2499,12 +2553,19 @@ t.join();
 <li>在具体实现方面，被Template Method调用的虚方法可以具有实现，也可以没有任何实现（抽象方法、纯虚方法），但一般推荐将它们设置为protected方法。</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>c++</category>
+        <category>设计模式</category>
+      </categories>
   </entry>
   <entry>
     <title>Ubuntu 下格式化SD卡</title>
     <url>/2024/11/12/Ubuntu%20%E4%B8%8B%E6%A0%BC%E5%BC%8F%E5%8C%96SD%E5%8D%A1/</url>
     <content><![CDATA[<p>基本功，格式化命令，以格式化 &#x2F;dev&#x2F;sda 1 分区为例：</p>
 <p>$ sudo umount &#x2F;dev&#x2F;sda 1    # 必须先卸载该分区</p>
+<span id="more"></span>
+
 <h1 id="格式化为-FAT-分区"><a href="#格式化为-FAT-分区" class="headerlink" title="格式化为 FAT 分区"></a>格式化为 FAT 分区</h1><p>$ sudo mkfs. vfat -F 32 &#x2F;dev&#x2F;sda 1       # -F 参数必须大写，参数有 12，16 和 32，分别对应 FAT 12，FAT 16，FAT 32。</p>
 <h1 id="格式化为-NTFS-分区，先要安装-ntfsprogs，以-Ubuntu-Debian-为例："><a href="#格式化为-NTFS-分区，先要安装-ntfsprogs，以-Ubuntu-Debian-为例：" class="headerlink" title="格式化为 NTFS 分区，先要安装 ntfsprogs，以 Ubuntu &#x2F; Debian 为例："></a>格式化为 NTFS 分区，先要安装 ntfsprogs，以 Ubuntu &#x2F; Debian 为例：</h1><p>$ sudo apt-get install ntfsprogs</p>
 <p>#然后执行格式化命令 ，以格式化 &#x2F;dev&#x2F;sda 1 分区为例：</p>
@@ -2524,6 +2585,10 @@ t.join();
 <p>二、对已经格式化完毕的分区，并且不想擦出分区中的数据，可以使用 tune 2 fs -m 的方法：</p>
 <h1 id="这条命令无须先卸载分区。"><a href="#这条命令无须先卸载分区。" class="headerlink" title="这条命令无须先卸载分区。"></a>这条命令无须先卸载分区。</h1><p>$ sudo tune 2 fs -m 0.05 &#x2F;dev&#x2F;sda 2       # 这个例子是转换 &#x2F;dev&#x2F;sda 2 分区的 super user 保留区，同样设定为 0.05，在提醒一次，是 0.05%，也就是万分之 5。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>linux</category>
+      </categories>
   </entry>
   <entry>
     <title>Ubuntu下Qt+OpenCV配置过程</title>
@@ -2548,9 +2613,14 @@ t.join();
 <p>3:使用qt-creator 新建qt工程<br>在kits–&gt;Qt Versions中,add &#x2F;usr&#x2F;bin&#x2F;qmake-qt4 就可以了<br>OpenCV官方教程中文版（For Python） PDF<a href="http://www.linuxidc.com/Linux/2015-08/121400.htm" title="链接">链接</a><br>Ubuntu Linux下安装OpenCV2.4.1所需包 <a href="http://www.linuxidc.com/Linux/2012-08/68184.htm" title="链接">链接</a><br>Ubuntu 12.04 安装 OpenCV2.4.2 <a href="http://www.linuxidc.com/Linux/2012-09/70158.htm" title="链接">链接</a><br>CentOS下OpenCV无法读取视频文件 <a href="http://www.linuxidc.com/Linux/2011-07/39295.htm" title="链接">链接</a><br>Ubuntu 12.04下安装OpenCV 2.4.5总结 <a href="http://www.linuxidc.com/Linux/2013-06/86704.htm" title="链接">链接</a><br>Ubuntu 10.04中安装OpenCv2.1九步曲 <a href="http://www.linuxidc.com/Linux/2010-09/28678.htm" title="链接">链接</a><br>基于QT和OpenCV的人脸识别系统 <a href="http://www.linuxidc.com/Linux/2011-11/47806.htm" title="链接">链接</a><br>[翻译]Ubuntu 14.04, 13.10 下安装 OpenCV 2.4.9 <a href="http://www.linuxidc.com/Linux/2014-12/110045.htm" title="链接">链接</a></p>
 <p>OpenCV的详细介绍：<a href="https://www.linuxidc.com/Linux/2014-09/106253.htm" title="请点击这里">请点击这里</a></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>linux</category>
+        <category>openCV</category>
+      </categories>
   </entry>
   <entry>
-    <title>Scoop 使用</title>
+    <title>Vcpkg 使用</title>
     <url>/2024/07/22/VCPKG%20%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="vcpkg使用"><a href="#vcpkg使用" class="headerlink" title="vcpkg使用"></a>vcpkg使用</h1><p>C++开源库 - 包管理工具Vcpkg安装使用教程</p>
 <span id="more"></span>  
@@ -2874,6 +2944,7 @@ t.join();
     <title>jQuery 设置 radio 被选中</title>
     <url>/2024/11/12/jQuery%20%E8%AE%BE%E7%BD%AE%20radio%20%E8%A2%AB%E9%80%89%E4%B8%AD/</url>
     <content><![CDATA[<h4 id="设置值"><a href="#设置值" class="headerlink" title="设置值"></a>设置值</h4><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;input type=<span class="string">&quot;radio&quot;</span> name=<span class="string">&quot;drawStatus&quot;</span> value=<span class="string">&quot;0&quot;</span> /&gt;能 </span><br><span class="line">&lt;input type=<span class="string">&quot;radio&quot;</span> name=<span class="string">&quot;drawStatus&quot;</span> value=<span class="string">&quot;1&quot;</span> /&gt;否 </span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
 
 <p>设置 name 相同两个 radio 会互斥，设置某个 value 被选中</p>
@@ -2888,8 +2959,10 @@ t.join();
   <entry>
     <title>javascript 截取字符串</title>
     <url>/2024/11/12/javascript%20%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[<h2 id="javascript-截取字符串"><a href="#javascript-截取字符串" class="headerlink" title="javascript 截取字符串"></a>javascript 截取字符串</h2><p>JavaScript 语法中 string 字符串，同样和 java 一样，有一个截取字符串的方法，如下代码：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">参考代码如下：</span><br><span class="line">获取字符串第二个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(-<span class="number">1</span>));</span><br><span class="line"><span class="comment">//Hello</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>,<span class="number">4</span>));</span><br><span class="line"> </span><br><span class="line">获取字符串最后一个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(<span class="number">0</span>));</span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(str.<span class="property">length</span> - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>]]></content>
+    <content><![CDATA[<span id="more"></span>
+
+<h2 id="javascript-截取字符串"><a href="#javascript-截取字符串" class="headerlink" title="javascript 截取字符串"></a>javascript 截取字符串</h2><p>JavaScript 语法中 string 字符串，同样和 java 一样，有一个截取字符串的方法，如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">参考代码如下：</span><br><span class="line">获取字符串第二个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>, <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(-<span class="number">1</span>));</span><br><span class="line"><span class="comment">//Hello</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">substr</span>(<span class="number">0</span>,<span class="number">4</span>));</span><br><span class="line"> </span><br><span class="line">获取字符串最后一个字符：</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line"><span class="comment">// H</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(<span class="number">0</span>));</span><br><span class="line"><span class="comment">// d</span></span><br><span class="line"><span class="title function_">alert</span>(str.<span class="title function_">charAt</span>(str.<span class="property">length</span> - <span class="number">1</span>));</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>前端</category>
         <category>javaScript</category>
@@ -3353,7 +3426,7 @@ t.join();
 ]]></content>
   </entry>
   <entry>
-    <title>未命名</title>
+    <title>在树莓派上安装openCV</title>
     <url>/2024/11/12/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85openCV/</url>
     <content><![CDATA[<h3 id="在树莓派上安装openCV"><a href="#在树莓派上安装openCV" class="headerlink" title="在树莓派上安装openCV"></a>在树莓派上安装openCV</h3><p>网上有现成的方法，按照步骤一步一步走下来基本没什么问题，就是在树莓派中编译的时间比较长，我这里使用的树莓派3b+,<a href="https://blog.csdn.net/weixin_43308627/article/details/97814927" title="在树莓派安装openCv">在树莓派安装openCv</a></p>
 <h3 id="进行编程"><a href="#进行编程" class="headerlink" title="进行编程"></a>进行编程</h3><ul>
@@ -3383,11 +3456,18 @@ t.join();
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>linux</category>
+        <category>树莓派</category>
+      </categories>
   </entry>
   <entry>
     <title>基于AM33X核心板对EMMC的操作</title>
     <url>/2024/11/12/%E5%9F%BA%E4%BA%8EAM33X%E6%A0%B8%E5%BF%83%E6%9D%BF%E5%AF%B9EMMC%E7%9A%84%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<ul>
+    <content><![CDATA[<span id="more"></span>
+
+<ul>
 <li><ol>
 <li>格式化 EMMC 创建分区和启动启动分区<br><code>fdisk -l </code> 显示硬盘（存储器等等）<br><code>fdisk /dev/mmcblk1</code><br><code>n-&gt;p-&gt;n-&gt;回车-&gt;回车-&gt;64M</code><br><code>-&gt;p-&gt;n-&gt;回车-&gt;回车-&gt;a-&gt;1</code></li>
 </ol>
@@ -3539,7 +3619,9 @@ t.join();
   <entry>
     <title>常用终端代理设置</title>
     <url>/2024/07/22/%E5%B8%B8%E7%94%A8%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 使用方法 source proxy.sh</span><br><span class="line"># http https</span><br><span class="line">export http_proxy=&quot;http://192.168.0.252:7890&quot;</span><br><span class="line">export https_proxy=$http_proxy</span><br><span class="line">export all_proxy=socks5://192.168.0.252:7890</span><br><span class="line"></span><br><span class="line"># git </span><br><span class="line">git config --global http.proxy $http_proxy</span><br><span class="line">git config --global https.proxy $https_proxy</span><br><span class="line"></span><br><span class="line">npm config set proxy http://server:port</span><br><span class="line">npm config set https-proxy http://server:port</span><br><span class="line"></span><br><span class="line">echo -e &quot;\033[32m已开启代理\033[0m&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 关闭代理</span><br><span class="line">unset http_proxy https_proxy all_proxy</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br><span class="line"></span><br><span class="line">npm config delete proxy</span><br><span class="line">npm config delete https-proxy</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># 使用方法 source proxy.sh</span><br><span class="line"># http https</span><br><span class="line">export http_proxy=&quot;http://192.168.0.252:7890&quot;</span><br><span class="line">export https_proxy=$http_proxy</span><br><span class="line">export all_proxy=socks5://192.168.0.252:7890</span><br><span class="line"></span><br><span class="line"># git </span><br><span class="line">git config --global http.proxy $http_proxy</span><br><span class="line">git config --global https.proxy $https_proxy</span><br><span class="line"></span><br><span class="line">npm config set proxy http://server:port</span><br><span class="line">npm config set https-proxy http://server:port</span><br><span class="line"></span><br><span class="line">echo -e &quot;\033[32m已开启代理\033[0m&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 关闭代理</span><br><span class="line">unset http_proxy https_proxy all_proxy</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br><span class="line"></span><br><span class="line">npm config delete proxy</span><br><span class="line">npm config delete https-proxy</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -3569,7 +3651,8 @@ t.join();
 <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h3><p>提供一个创建一系列相关或相互依赖对象的接口，而无需指定他们具体的类</p>
 <p>本质</p>
 <p>抽象工厂的本质：选择产品簇的实现</p>
-<span id="more"></span>  
+<span id="more"></span> 
+
 <h3 id="抽象工厂方法调用顺序"><a href="#抽象工厂方法调用顺序" class="headerlink" title="抽象工厂方法调用顺序"></a><strong>抽象工厂方法调用顺序</strong></h3><p><img src="https://isrootblog-1251140236.cos.ap-beijing.myqcloud.com/uPic/image_b424Se6z9T.png"></p>
 <h3 id="解构抽象工厂方法模式"><a href="#解构抽象工厂方法模式" class="headerlink" title="解构抽象工厂方法模式"></a><strong>解构抽象工厂方法模式</strong></h3><p>工厂方法模式的本质定义一系列产品族的接口，工厂方法选择单个产品的实现，虽然一个类里面可以有多个工厂方法，但是这些方法之间一般是没有联系的。</p>
 <p>但是抽象工厂着重的就是为一个产品族选择实现，定义在抽象工厂里面的方法通常是有联系的。</p>
@@ -3871,12 +3954,12 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
   <entry>
     <title>树莓派远程桌面和触摸屏翻转</title>
     <url>/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h1 id="树莓派远程桌面"><a href="#树莓派远程桌面" class="headerlink" title="树莓派远程桌面"></a>树莓派远程桌面</h1><p>最近项目中要使用树莓派，以前自己玩过树莓派，但没做记录，此次趁着项目把使用过程中的问题做个详细的记录</p>
+    <content><![CDATA[<h1 id="树莓派远程桌面"><a href="#树莓派远程桌面" class="headerlink" title="树莓派远程桌面"></a>树莓派远程桌面</h1><p>最近项目中要使用树莓派，以前自己玩过树莓派，但没做记录，此次趁着项目把使用过程中的问题做个详细的记录</p>
 <ul>
 <li>远程桌面<br>只需要在 raspbian 下面安装一个服务 xdrp 即可。输入如下命令安装：<br><code>sudo apt-get install xrdp</code><br>然后就 Ok 了</li>
 </ul>
+<span id="more"></span>
+
 <p>安装完成后使用 windows 远程桌面连接会出现报错 error – problem connecting，问题根源在于 tightvnc，出现问题的版本跟 X 字体有冲突，导致连接 Xserver 出错。<br><code>sudo apt-get purge tightvnc xrdp</code><br><code>sudo apt-get install tightvncserver xrdp</code></p>
 <p>最后启动 xrdp 服务，sudo &#x2F;etc&#x2F;init. d&#x2F;xrdp restart，此时会启用相应端口，配置方面默认即可。<br>通过命令：netstat -tnl<br>查看 3350 3389 5910 这三个端口处于 LISTEN，一般就没问题了。<br>dpkg -L + 软件包的名字，可以知道这个软件包包含了哪些文件。</p>
 <h1 id="翻转屏幕"><a href="#翻转屏幕" class="headerlink" title="翻转屏幕"></a>翻转屏幕</h1><p>1、切换为 root</p>
@@ -3951,6 +4034,67 @@ display_rotate = 3
       <categories>
         <category>技术</category>
         <category>c++</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>编译树莓派自定义内核</title>
+    <url>/2024/09/03/%E7%BC%96%E8%AF%91%E6%A0%91%E8%8E%93%E6%B4%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%86%85%E6%A0%B8/</url>
+    <content><![CDATA[<ul>
+<li>新的项目属于国外引进项目。运行在树莓派上面。需要更换开机界面放上自己的 logo 什么的。在开机的时候屏幕上会有一个光标一直在闪。想把那个光标给去掉，查阅资料发现需要重新编译树莓派的内核。在此做下记录。</li>
+</ul>
+<p>本文介绍如何在树莓派上编译自定义内核，包括工具下载、内核配置和编译过程。</p>
+<span id="more"></span>
+
+<h1 id="1-工具下载"><a href="#1-工具下载" class="headerlink" title="1. 工具下载"></a>1. 工具下载</h1><p><code>sudo apt-get install -y bc build-essential libncurses5-dev libssl-dev</code><br>从 github 上下载 raspberry Linux 内核源码<br><code>git clone --depth=1 -b rpi-4.8.y https://github.com/raspberrypi/linux.git</code></p>
+<h1 id="2-配置内核"><a href="#2-配置内核" class="headerlink" title="2. 配置内核"></a>2. 配置内核</h1><p>因为我们是在树莓派上编译，直接使用当前树莓派自带的编译器就可以，可以使用<br><code>arm-linux-</code> 加 Tab 键进行查看，我的树莓派上的交叉编译器为 <code>arm-linux-gnueabihf-</code></p>
+<ul>
+<li><ol>
+<li>切换到你下载的内核目录下 <code>cd ./linux-rpi-4.19.y</code><br>在配置内核的时候，需要先配置 config。这里多说一句网上需要博客里面记载的配置 config 的命令是<br><code>make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcmrpi3_defconfig</code> 这个是配置 64 位的并且指定编译器。我们在树莓派上编译的，查看当前系统 <code>getconf LONG_BIT</code>, 如果返回结果是 32 则系统是 32 位的，如果返回的是 64 则系统是 64 位的。系统里面自带的就是交叉编译器。所以只要找到配置文件就可以，使用 <code>find ./ -name &quot;*bcm*defconfig*&quot; 查找下对应的默认配置，只保留arm下的结果</code> pi 1 使用的事 bcmrpi_defconfig pi 2 3 使用的是 bcm 2709_defconfig，<code>make bcm2709_defcongfig</code>。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>因为我需要配置树莓派开机界面进行配置，所以 <code>make menuconfig</code>。会出现内核配置界面<br><img src="http://isroot.cn/wp-content/uploads/2019/03/1111111.png"><br>我把终端输出给去掉了。具体修改为 <code>Device Drivers-&gt;Character Devices-&gt;[]support for console on virtual terminal</code></li>
+</ol>
+</li>
+</ul>
+<h1 id="3-创建新的内核"><a href="#3-创建新的内核" class="headerlink" title="3 创建新的内核"></a>3 创建新的内核</h1><p>在目录下直接 <code>make -j4</code> 开始编译内核，晚上下班后我开始编译的，然后树莓派一直开着就没关，具体多长时间没统计。<br>编译完成后去.&#x2F;linux-rpi-4.14. y&#x2F;arch&#x2F;arm&#x2F;boot 下找到自己编译完成的内核<br><img src="http://isroots.cn/wp-content/uploads/2019/03/22222.png"><br>内核编译完成后在往内存卡上拷贝上发现内存卡上内存不足。无法进行拷贝。后移植到 ubuntu 下进行编译</p>
+<h1 id="4-在-ubuntu-下编译"><a href="#4-在-ubuntu-下编译" class="headerlink" title="4 在 ubuntu 下编译"></a>4 在 ubuntu 下编译</h1><p>在 ubuntu 下编译需要需要下载树莓派官方工具。<a href="https://github.com/raspberrypi/tools" title="树莓派官方工具">树莓派官方工具</a><br>下载官方工具因为我们要使用官方提供的 arm-linux-gcc 工具</p>
+<ul>
+<li><ol>
+<li>将下载好的树莓派内核拷贝到 ubuntu 下，个人建议新建一个文件夹。我创建的是 raspberryKernel。我们后续操作都是在这个目录下。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>修改工具链。网上大部分的办法都是配置环境变量。因为我 ubuntu 有一个交叉编译工具。不想重新配置了。所以直接去修改 Makefile 文件 <code>vim Makefile</code>, 找到 ARCH 第一次出现的地方。添加交叉工具链<br><img src="http://isroot.cn/wp-content/uploads/2019/03/333333333333.png"><br>这种方式以后我们在 make 的时候不需要每次都去指定编译器。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>剩下的步骤和在树莓派上一样。这里不在具体说明。</li>
+</ol>
+</li>
+</ul>
+<h1 id="5-移植自己的内核"><a href="#5-移植自己的内核" class="headerlink" title="5 移植自己的内核"></a>5 移植自己的内核</h1><ul>
+<li><ol>
+<li>在树莓派官网下载. img 镜像。拷贝到 ubuntu 上面。然后将这个镜像挂载到自己的 ubuntu 上。具体方法如下<br> <code>fdisk -l xxxxxx.img</code> xxx 是你自己下载的镜像。<br> <img src="http://isroot.cn/wp-content/uploads/2019/03/444444.png"><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">挂载系统到/mnt：sudo mount -o loop,offset=50331648 2018-10-09-raspbian-stretch-lite.img /mnt</span><br><span class="line">计算方式：offset = 50331648 = 98304 * 512</span><br><span class="line">挂载启动分区到/mnt/boot：sudo mount -o loop,offset=4194304,sizelimit=45920768 2018-10-09-raspbian-stretch-lite.img /mnt/boot</span><br><span class="line">offset = 4194304 = 512 * 8192</span><br><span class="line">sizelimit = 45920768 =512 * 89689</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="2">
+<li>配置内核模块<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo make  INSTALL_MOD_PATH=/mnt modules_install</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="3">
+<li>替换自己的内核<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo cp arch/arm/boot/dts/*.dtb /boot/</span><br><span class="line">sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/</span><br><span class="line">sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/</span><br><span class="line">sudo cp arch/arm/boot/zImage /boot/$KERNEL.img</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="4">
+<li>卸载挂载的内核<br><code>umount /mnt/boot </code><br><code>umount /mnt</code><br>将自己编译的内核替换原先的内核。然后将 xxxxxxxx. img 你自己下载的镜像重新烧写到内存卡中就可以了。</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>树莓派</category>
       </categories>
   </entry>
   <entry>
@@ -4040,67 +4184,6 @@ display_rotate = 3
         <category>技术</category>
         <category>c++</category>
         <category>设计模式</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>编译树莓派自定义内核</title>
-    <url>/2024/09/03/%E7%BC%96%E8%AF%91%E6%A0%91%E8%8E%93%E6%B4%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E5%86%85%E6%A0%B8/</url>
-    <content><![CDATA[<ul>
-<li>新的项目属于国外引进项目。运行在树莓派上面。需要更换开机界面放上自己的 logo 什么的。在开机的时候屏幕上会有一个光标一直在闪。想把那个光标给去掉，查阅资料发现需要重新编译树莓派的内核。在此做下记录。</li>
-</ul>
-<p>本文介绍如何在树莓派上编译自定义内核，包括工具下载、内核配置和编译过程。</p>
-<span id="more"></span>
-
-<h1 id="1-工具下载"><a href="#1-工具下载" class="headerlink" title="1. 工具下载"></a>1. 工具下载</h1><p><code>sudo apt-get install -y bc build-essential libncurses5-dev libssl-dev</code><br>从 github 上下载 raspberry Linux 内核源码<br><code>git clone --depth=1 -b rpi-4.8.y https://github.com/raspberrypi/linux.git</code></p>
-<h1 id="2-配置内核"><a href="#2-配置内核" class="headerlink" title="2. 配置内核"></a>2. 配置内核</h1><p>因为我们是在树莓派上编译，直接使用当前树莓派自带的编译器就可以，可以使用<br><code>arm-linux-</code> 加 Tab 键进行查看，我的树莓派上的交叉编译器为 <code>arm-linux-gnueabihf-</code></p>
-<ul>
-<li><ol>
-<li>切换到你下载的内核目录下 <code>cd ./linux-rpi-4.19.y</code><br>在配置内核的时候，需要先配置 config。这里多说一句网上需要博客里面记载的配置 config 的命令是<br><code>make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcmrpi3_defconfig</code> 这个是配置 64 位的并且指定编译器。我们在树莓派上编译的，查看当前系统 <code>getconf LONG_BIT</code>, 如果返回结果是 32 则系统是 32 位的，如果返回的是 64 则系统是 64 位的。系统里面自带的就是交叉编译器。所以只要找到配置文件就可以，使用 <code>find ./ -name &quot;*bcm*defconfig*&quot; 查找下对应的默认配置，只保留arm下的结果</code> pi 1 使用的事 bcmrpi_defconfig pi 2 3 使用的是 bcm 2709_defconfig，<code>make bcm2709_defcongfig</code>。</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>因为我需要配置树莓派开机界面进行配置，所以 <code>make menuconfig</code>。会出现内核配置界面<br><img src="http://isroot.cn/wp-content/uploads/2019/03/1111111.png"><br>我把终端输出给去掉了。具体修改为 <code>Device Drivers-&gt;Character Devices-&gt;[]support for console on virtual terminal</code></li>
-</ol>
-</li>
-</ul>
-<h1 id="3-创建新的内核"><a href="#3-创建新的内核" class="headerlink" title="3 创建新的内核"></a>3 创建新的内核</h1><p>在目录下直接 <code>make -j4</code> 开始编译内核，晚上下班后我开始编译的，然后树莓派一直开着就没关，具体多长时间没统计。<br>编译完成后去.&#x2F;linux-rpi-4.14. y&#x2F;arch&#x2F;arm&#x2F;boot 下找到自己编译完成的内核<br><img src="http://isroots.cn/wp-content/uploads/2019/03/22222.png"><br>内核编译完成后在往内存卡上拷贝上发现内存卡上内存不足。无法进行拷贝。后移植到 ubuntu 下进行编译</p>
-<h1 id="4-在-ubuntu-下编译"><a href="#4-在-ubuntu-下编译" class="headerlink" title="4 在 ubuntu 下编译"></a>4 在 ubuntu 下编译</h1><p>在 ubuntu 下编译需要需要下载树莓派官方工具。<a href="https://github.com/raspberrypi/tools" title="树莓派官方工具">树莓派官方工具</a><br>下载官方工具因为我们要使用官方提供的 arm-linux-gcc 工具</p>
-<ul>
-<li><ol>
-<li>将下载好的树莓派内核拷贝到 ubuntu 下，个人建议新建一个文件夹。我创建的是 raspberryKernel。我们后续操作都是在这个目录下。</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>修改工具链。网上大部分的办法都是配置环境变量。因为我 ubuntu 有一个交叉编译工具。不想重新配置了。所以直接去修改 Makefile 文件 <code>vim Makefile</code>, 找到 ARCH 第一次出现的地方。添加交叉工具链<br><img src="http://isroot.cn/wp-content/uploads/2019/03/333333333333.png"><br>这种方式以后我们在 make 的时候不需要每次都去指定编译器。</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>剩下的步骤和在树莓派上一样。这里不在具体说明。</li>
-</ol>
-</li>
-</ul>
-<h1 id="5-移植自己的内核"><a href="#5-移植自己的内核" class="headerlink" title="5 移植自己的内核"></a>5 移植自己的内核</h1><ul>
-<li><ol>
-<li>在树莓派官网下载. img 镜像。拷贝到 ubuntu 上面。然后将这个镜像挂载到自己的 ubuntu 上。具体方法如下<br> <code>fdisk -l xxxxxx.img</code> xxx 是你自己下载的镜像。<br> <img src="http://isroot.cn/wp-content/uploads/2019/03/444444.png"><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">挂载系统到/mnt：sudo mount -o loop,offset=50331648 2018-10-09-raspbian-stretch-lite.img /mnt</span><br><span class="line">计算方式：offset = 50331648 = 98304 * 512</span><br><span class="line">挂载启动分区到/mnt/boot：sudo mount -o loop,offset=4194304,sizelimit=45920768 2018-10-09-raspbian-stretch-lite.img /mnt/boot</span><br><span class="line">offset = 4194304 = 512 * 8192</span><br><span class="line">sizelimit = 45920768 =512 * 89689</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><ol start="2">
-<li>配置内核模块<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo make  INSTALL_MOD_PATH=/mnt modules_install</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><ol start="3">
-<li>替换自己的内核<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo cp arch/arm/boot/dts/*.dtb /boot/</span><br><span class="line">sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/</span><br><span class="line">sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/</span><br><span class="line">sudo cp arch/arm/boot/zImage /boot/$KERNEL.img</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><ol start="4">
-<li>卸载挂载的内核<br><code>umount /mnt/boot </code><br><code>umount /mnt</code><br>将自己编译的内核替换原先的内核。然后将 xxxxxxxx. img 你自己下载的镜像重新烧写到内存卡中就可以了。</li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>树莓派</category>
       </categories>
   </entry>
   <entry>
