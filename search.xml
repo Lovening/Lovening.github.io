@@ -155,6 +155,85 @@
       </categories>
   </entry>
   <entry>
+    <title></title>
+    <url>/2025/12/09/Bash%20Scripting%20Basics/</url>
+    <content><![CDATA[<h1 id="Bash-Scripting-Basics"><a href="#Bash-Scripting-Basics" class="headerlink" title="Bash Scripting Basics"></a>Bash Scripting Basics</h1><pre><code class="bash">#!/bin/bash             # Shebang Line
+
+username=&quot;Jay&quot;          # Variables
+filename=$3
+
+read -p &quot;Enter your username: &quot; user   # User Input
+echo &quot;Username: $user&quot;
+
+if [ &quot;$EUID&quot; -ne 0 ]; then             # Conditional if Statement
+    echo &quot;You are not running this script as the root user.&quot;
+else
+    echo &quot;You are running this script as the root user.&quot;
+fi
+
+echo &quot;Counting to 5:&quot;                  # For Loop
+for i in &#123;1..5&#125;; do
+    echo &quot;$i&quot;
+done
+
+function greet() &#123;                     # Functions
+    echo &quot;Hello, $1!&quot;
+&#125;
+greet &quot;Alice&quot;
+
+echo &quot;Enter a number between 1 and 2: &quot; # Conditional Case Statement
+read num
+case $num in
+    1) echo &quot;You chose one.&quot; ;;
+    2) echo &quot;You chose two.&quot; ;;
+    *) echo &quot;Invalid choice.&quot; ;;
+esac
+
+if [ -e &quot;$filename&quot; ] &amp;&amp; [ -d &quot;$filename&quot; ]; then  # File Operations
+    echo &quot;File exists and is a directory.&quot;
+else
+    echo &quot;File does not exist or is not a directory.&quot;
+fi
+
+echo &quot;First argument: $1&quot;             # Command Line Arguments
+echo &quot;Second argument: $2&quot;
+
+cat nonexistent-file.txt 2&gt; /dev/null # Exit Status Codes
+echo &quot;Exit status: $?&quot;
+
+fruits=(&quot;Apple&quot; &quot;Orange&quot; &quot;Banana&quot;)    # Indexed Arrays
+echo &quot;Fruits: $&#123;fruits[0]&#125;&quot;
+
+declare -A capitals                   # Associative Arrays
+capitals[USA]=&quot;Washington D.C.&quot;
+capitals[France]=&quot;Paris&quot;
+echo &quot;Capital of France: $&#123;capitals[France]&#125;&quot;
+
+current_date=$(date)                  # Command Substitution
+echo &quot;Today&#39;s date is: $current_date&quot;
+
+echo &quot;This is a sample text.&quot; &gt; example.txt  # Command Line Redirections
+find ./ -name hello.txt &amp;&gt; /dev/null
+
+result=$(( 5 * 2 ))                   # Arithmetic Operations
+echo $result
+
+SRC=&quot;/path/to/foo.cpp&quot;                # Parameter Expansion
+BASEPATH=$&#123;SRC##*/&#125;
+echo $BASEPATH
+
+trap &#39;echo &quot;Received SIGTERM signal. Cleaning up...&quot;; exit&#39; SIGTERM  # Process Signal Handling
+
+# This is a single line comment       # Comments
+
+: &#39;
+This is a
+multiline comment
+&#39;
+</code></pre>
+]]></content>
+  </entry>
+  <entry>
     <title>Boost 库编译指南</title>
     <url>/2024/07/22/Boost%E5%BA%93%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>Boost 库是为 C++语言标准库提供扩展的一些 C++程序库的总称，由 Boost 社区组织开发、维护。Boost 库可以与 C++标准库完美共同工作，并且为其提供扩展功能。</p>
@@ -279,85 +358,6 @@
         <category>c++</category>
         <category>boost</category>
       </categories>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2025/12/09/Bash%20Scripting%20Basics/</url>
-    <content><![CDATA[<h1 id="Bash-Scripting-Basics"><a href="#Bash-Scripting-Basics" class="headerlink" title="Bash Scripting Basics"></a>Bash Scripting Basics</h1><pre><code class="bash">#!/bin/bash             # Shebang Line
-
-username=&quot;Jay&quot;          # Variables
-filename=$3
-
-read -p &quot;Enter your username: &quot; user   # User Input
-echo &quot;Username: $user&quot;
-
-if [ &quot;$EUID&quot; -ne 0 ]; then             # Conditional if Statement
-    echo &quot;You are not running this script as the root user.&quot;
-else
-    echo &quot;You are running this script as the root user.&quot;
-fi
-
-echo &quot;Counting to 5:&quot;                  # For Loop
-for i in &#123;1..5&#125;; do
-    echo &quot;$i&quot;
-done
-
-function greet() &#123;                     # Functions
-    echo &quot;Hello, $1!&quot;
-&#125;
-greet &quot;Alice&quot;
-
-echo &quot;Enter a number between 1 and 2: &quot; # Conditional Case Statement
-read num
-case $num in
-    1) echo &quot;You chose one.&quot; ;;
-    2) echo &quot;You chose two.&quot; ;;
-    *) echo &quot;Invalid choice.&quot; ;;
-esac
-
-if [ -e &quot;$filename&quot; ] &amp;&amp; [ -d &quot;$filename&quot; ]; then  # File Operations
-    echo &quot;File exists and is a directory.&quot;
-else
-    echo &quot;File does not exist or is not a directory.&quot;
-fi
-
-echo &quot;First argument: $1&quot;             # Command Line Arguments
-echo &quot;Second argument: $2&quot;
-
-cat nonexistent-file.txt 2&gt; /dev/null # Exit Status Codes
-echo &quot;Exit status: $?&quot;
-
-fruits=(&quot;Apple&quot; &quot;Orange&quot; &quot;Banana&quot;)    # Indexed Arrays
-echo &quot;Fruits: $&#123;fruits[0]&#125;&quot;
-
-declare -A capitals                   # Associative Arrays
-capitals[USA]=&quot;Washington D.C.&quot;
-capitals[France]=&quot;Paris&quot;
-echo &quot;Capital of France: $&#123;capitals[France]&#125;&quot;
-
-current_date=$(date)                  # Command Substitution
-echo &quot;Today&#39;s date is: $current_date&quot;
-
-echo &quot;This is a sample text.&quot; &gt; example.txt  # Command Line Redirections
-find ./ -name hello.txt &amp;&gt; /dev/null
-
-result=$(( 5 * 2 ))                   # Arithmetic Operations
-echo $result
-
-SRC=&quot;/path/to/foo.cpp&quot;                # Parameter Expansion
-BASEPATH=$&#123;SRC##*/&#125;
-echo $BASEPATH
-
-trap &#39;echo &quot;Received SIGTERM signal. Cleaning up...&quot;; exit&#39; SIGTERM  # Process Signal Handling
-
-# This is a single line comment       # Comments
-
-: &#39;
-This is a
-multiline comment
-&#39;
-</code></pre>
-]]></content>
   </entry>
   <entry>
     <title>C++ CRTP</title>
@@ -1625,6 +1625,9 @@ t.join();
     <title>Poco C++使用</title>
     <url>/242024/10/14/Poco%20C++%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>POCO c++ 使用例子</p>
+<p>本文档介绍了 Poco C++ 库的一些基本使用示例，包括定时器、管道等常用功能。</p>
+<span id="more"></span>
+
 <p>1.定时器</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Poco/Timer.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Poco/Thread.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> Poco::Timer;</span><br><span class="line"><span class="keyword">using</span> Poco::TimerCallback;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">timerExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">onTimer</span><span class="params">(Poco::Timer&amp;timer)</span> </span>&#123;</span><br><span class="line">        std::count&lt;&lt;<span class="string">&quot;onTimer called&quot;</span>&lt;&lt;std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">timerExample te;</span><br><span class="line"><span class="function">Timer <span class="title">timer</span><span class="params">(<span class="number">250</span>, <span class="number">500</span>)</span></span>; <span class="comment">// fire after 250ms, repeat every 500ms</span></span><br><span class="line">timer.<span class="built_in">start</span>(<span class="built_in">TimerCallback</span>&lt;TimerExample&gt;(te, &amp;TimerExample::onTimer));</span><br><span class="line">Thread::<span class="built_in">sleep</span>(<span class="number">5000</span>);</span><br><span class="line">timer.<span class="built_in">stop</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -3837,29 +3840,6 @@ t.join();
       </categories>
   </entry>
   <entry>
-    <title>树莓派远程桌面</title>
-    <url>/242024/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/</url>
-    <content><![CDATA[<p>最近项目中要使用树莓派，以前自己玩过树莓派，但没做记录，此次趁着项目把使用过程中的问题做个详细的记录<br>– 远程桌面<br>只需要在raspbian下面安装一个服务xdrp即可。输入如下命令安装：<br><code>sudo apt-get install xrdp</code><br>然后就Ok了</p>
-<p>安装完成后使用windows 远程桌面连接会出现报错 error – problem connecting，问题根源在于tightvnc，出现问题的版本跟X字体有冲突，导致连接Xserver出错。<br><code>sudo apt-get purge tightvnc xrdp</code><br><code>sudo apt-get install tightvncserver xrdp</code></p>
-<p>最后启动 xrdp 服务，sudo &#x2F;etc&#x2F;init.d&#x2F;xrdp restart，此时会启用相应端口，配置方面默认即可。<br>通过命令：netstat -tnl<br>查看 3350 3389 5910 这三个端口处于LISTEN，一般就没问题了。<br>dpkg -L + 软件包的名字，可以知道这个软件包包含了哪些文件。</p>
-<h1 id="翻转屏幕"><a href="#翻转屏幕" class="headerlink" title="翻转屏幕"></a>翻转屏幕</h1><p>1、切换为root</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
-
-<p>2、编辑&#x2F;boot&#x2F;config.txt，根据想旋转的角度<br>对于触摸屏添加如下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lcd_rotate = 0 //不旋转</span><br><span class="line">lcd_rotate = 1 //旋转90度</span><br><span class="line">lcd_rotate = 2 //旋转180</span><br><span class="line">lcd_rotate = 3 //旋转270</span><br></pre></td></tr></table></figure>
-
-<p>对于HDMI显示输出，添加：</p>
-<p>如果是只是想旋转HDMI输出显示的角度（不用触摸屏）<br>则可以添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">display_rotate = 0</span><br><span class="line">display_rotate = 1</span><br><span class="line">display_rotate = 2</span><br><span class="line">display_rotate = 3</span><br></pre></td></tr></table></figure>
-
-<p>3、reboot</p>
-<p>重启后，触摸屏驱动和显示都会旋转。</p>
-]]></content>
-      <tags>
-        <tag>程序员</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>树莓派更换开机界面和自启动程序</title>
     <url>/242024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%9B%B4%E6%8D%A2%E5%BC%80%E6%9C%BA%E7%95%8C%E9%9D%A2%E5%92%8C%E8%87%AA%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F/</url>
     <content><![CDATA[<h1 id="1-默认开启-ssh"><a href="#1-默认开启-ssh" class="headerlink" title="1. 默认开启 ssh"></a>1. 默认开启 ssh</h1><p>树莓派最新系统是默认关闭 ssh 的。树莓派刷机后我们需要远程操作。要默认开启 ssh。将树莓派系统盘插在电脑上。在 boot 盘目录下新建个名称为 ssh 的空文件就可以</p>
@@ -3904,6 +3884,29 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
 </li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>树莓派远程桌面</title>
+    <url>/242024/09/02/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/</url>
+    <content><![CDATA[<p>最近项目中要使用树莓派，以前自己玩过树莓派，但没做记录，此次趁着项目把使用过程中的问题做个详细的记录<br>– 远程桌面<br>只需要在raspbian下面安装一个服务xdrp即可。输入如下命令安装：<br><code>sudo apt-get install xrdp</code><br>然后就Ok了</p>
+<p>安装完成后使用windows 远程桌面连接会出现报错 error – problem connecting，问题根源在于tightvnc，出现问题的版本跟X字体有冲突，导致连接Xserver出错。<br><code>sudo apt-get purge tightvnc xrdp</code><br><code>sudo apt-get install tightvncserver xrdp</code></p>
+<p>最后启动 xrdp 服务，sudo &#x2F;etc&#x2F;init.d&#x2F;xrdp restart，此时会启用相应端口，配置方面默认即可。<br>通过命令：netstat -tnl<br>查看 3350 3389 5910 这三个端口处于LISTEN，一般就没问题了。<br>dpkg -L + 软件包的名字，可以知道这个软件包包含了哪些文件。</p>
+<h1 id="翻转屏幕"><a href="#翻转屏幕" class="headerlink" title="翻转屏幕"></a>翻转屏幕</h1><p>1、切换为root</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+
+<p>2、编辑&#x2F;boot&#x2F;config.txt，根据想旋转的角度<br>对于触摸屏添加如下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lcd_rotate = 0 //不旋转</span><br><span class="line">lcd_rotate = 1 //旋转90度</span><br><span class="line">lcd_rotate = 2 //旋转180</span><br><span class="line">lcd_rotate = 3 //旋转270</span><br></pre></td></tr></table></figure>
+
+<p>对于HDMI显示输出，添加：</p>
+<p>如果是只是想旋转HDMI输出显示的角度（不用触摸屏）<br>则可以添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">display_rotate = 0</span><br><span class="line">display_rotate = 1</span><br><span class="line">display_rotate = 2</span><br><span class="line">display_rotate = 3</span><br></pre></td></tr></table></figure>
+
+<p>3、reboot</p>
+<p>重启后，触摸屏驱动和显示都会旋转。</p>
+]]></content>
+      <tags>
+        <tag>程序员</tag>
+      </tags>
   </entry>
   <entry>
     <title>树莓派远程桌面和触摸屏翻转</title>
