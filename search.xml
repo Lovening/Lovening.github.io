@@ -3914,13 +3914,12 @@ sudo reboot 重启测试。注意：这个方法除了依赖桌面之外，如�
   <entry>
     <title>树莓派远程桌面和触摸屏翻转</title>
     <url>/2024/11/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8C%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%BF%BB%E8%BD%AC/</url>
-    <content><![CDATA[<h1 id="树莓派远程桌面"><a href="#树莓派远程桌面" class="headerlink" title="树莓派远程桌面"></a>树莓派远程桌面</h1><p>最近项目中要使用树莓派，以前自己玩过树莓派，但没做记录，此次趁着项目把使用过程中的问题做个详细的记录</p>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="树莓派远程桌面"><a href="#树莓派远程桌面" class="headerlink" title="树莓派远程桌面"></a>树莓派远程桌面</h1><p>最近项目中要使用树莓派，以前自己玩过树莓派，但没做记录，此次趁着项目把使用过程中的问题做个详细的记录</p>
 <ul>
 <li>远程桌面<br>只需要在 raspbian 下面安装一个服务 xdrp 即可。输入如下命令安装：<br><code>sudo apt-get install xrdp</code><br>然后就 Ok 了</li>
 </ul>
-<span id="more"></span>
-
-
 <p>安装完成后使用 windows 远程桌面连接会出现报错 error – problem connecting，问题根源在于 tightvnc，出现问题的版本跟 X 字体有冲突，导致连接 Xserver 出错。<br><code>sudo apt-get purge tightvnc xrdp</code><br><code>sudo apt-get install tightvncserver xrdp</code></p>
 <p>最后启动 xrdp 服务，sudo &#x2F;etc&#x2F;init. d&#x2F;xrdp restart，此时会启用相应端口，配置方面默认即可。<br>通过命令：netstat -tnl<br>查看 3350 3389 5910 这三个端口处于 LISTEN，一般就没问题了。<br>dpkg -L + 软件包的名字，可以知道这个软件包包含了哪些文件。</p>
 <h1 id="翻转屏幕"><a href="#翻转屏幕" class="headerlink" title="翻转屏幕"></a>翻转屏幕</h1><p>1、切换为 root</p>
@@ -3942,6 +3941,10 @@ display_rotate = 3
 <p>3、reboot</p>
 <p>重启后，触摸屏驱动和显示都会旋转。。</p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>树莓派</category>
+      </categories>
   </entry>
   <entry>
     <title>根据结构体成员获取结构体指针</title>
