@@ -424,7 +424,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-22 15:45:33" itemprop="dateModified" datetime="2024-11-22T15:45:33+08:00">2024-11-22</time>
+                <time title="修改时间：2025-12-09 17:31:49" itemprop="dateModified" datetime="2025-12-09T17:31:49+08:00">2025-12-09</time>
               </span>
 
           
@@ -832,7 +832,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-14 18:54:01" itemprop="dateModified" datetime="2024-10-14T18:54:01+08:00">2024-10-14</time>
+                <time title="修改时间：2025-12-09 17:31:49" itemprop="dateModified" datetime="2025-12-09T17:31:49+08:00">2025-12-09</time>
               </span>
 
           
@@ -915,7 +915,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-01-03 21:11:51" itemprop="dateModified" datetime="2025-01-03T21:11:51+08:00">2025-01-03</time>
+                <time title="修改时间：2025-12-09 17:31:49" itemprop="dateModified" datetime="2025-12-09T17:31:49+08:00">2025-12-09</time>
               </span>
 
           
@@ -936,6 +936,19 @@
 <p>这里自己需要哪个模块链接哪个模块</p>
 <p>.&#x2F;configure –omit&#x3D;Data&#x2F;ODBC,Data&#x2F;MySQL,NetSSL_OpenSSL –prefix&#x3D;&#x2F;usr&#x2F;local 不编译OBDC MySQL 和NetSSL_OpenSSL .h文件和<br>库文件放在&#x2F;usr&#x2F;local 目录下。</p>
 <h1 id="ARM版本的编译和安装"><a href="#ARM版本的编译和安装" class="headerlink" title="ARM版本的编译和安装"></a>ARM版本的编译和安装</h1><p>源码下载地址：<a target="_blank" rel="noopener" href="https://pocoproject.org/releases/poco-1.7.8/poco-1.7.8-all.tar.gz">https://pocoproject.org/releases/poco-1.7.8/poco-1.7.8-all.tar.gz</a><br>tar -xzvf poco-1.7.8-all.tar.gz-<br>cd poco-1.7.8-all<br><code>./configure --config=ARM-Linux --no-tests --omit=Data,Crypto,NetSSL_OpenSSL --prefix=/home/ning/lib</code><br><code>make</code><br><code>make install</code><br>到此Poco就交叉编译安装完成了。</p>
+<h1 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h1><p>在编译poco ARM版本时遇到一个链接错误  hidden symbol &#96;__sync_fetch_and_sub_4’，经过上网查询发现是arm-linux-gcc 版本的问题。<br>从arm-linux-gcc 官网上下载 下载4.7版本的进行安装  网址 <a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-14735472-id-5593327.html" title="ARM编译器">ARM编译器</a></p>
+<p>因为需要配合qt 使用，使用的系统为飞凌自带的嵌入式系统。需要重新配置arm-linux-gcc 。修改环境变量 <code>sudo vim /etc/profile</code>;</p>
+<p>飞凌的配置文件为 注释掉的文件，使用中的文件为自己配置的文件，需要注意的是编译器名称的改变，原先为 arm-linux-gcc,<br>需要修改为 arm-linux-gnueabihf, PATH 路径为更新后gcc 4.7的路径。然后重新编译poco。</p>
+<p>如果在检测编译器的时候出现arm-none-linux-gnueabi-gcc -v 出现: No such file or directory<br>有可能是你的编译器是32位的 但你的系统是64位系统，使用 sudo apt-get install ia32-libs命令就可以解决</p>
+<ul>
+<li>环境变量配置<br><img src="http://isroot.cn/wp-content/uploads/2019/02/11111111111-300x104.png"></li>
+</ul>
+<p>在重新编译poco 时提示 找不到arm-linux-g++。 因为和arm-linux-gnueabihf-g++  名称不一样，怀疑是不是编译器找错了，去重新修改 bulid&#x2F;config&#x2F;ARM-Linux文件，将TOOL  ？&#x3D; 修改成为 arm-linux-gnueabihf。<br><img src="http://isroot.cn/wp-content/uploads/2019/02/222222222-300x80.png"></p>
+<p>然后重新编译poco 没问题。</p>
+<p>编译完成后修改qtCreator.</p>
+<p>将  GCCE 修改成为gcc 4.7中的g++,如下图<br><img src="http://isroot.cn/wp-content/uploads/2019/02/3333333-300x142.png"></p>
+<p>然后进行编译提示找不到arm-linux-g++ 。 从网上找资料说去修改qws文件中qmake.conf。但是因为直接使用的飞凌自带的系统，我也不知道qt的qws 具体是在哪里。 但是想到了qmake 最后生成makefile文件，所以去看makefile文件<br><img src="http://isroot.cn/wp-content/uploads/2019/02/4444444444-300x20.png"></p>
+<p>在makefile中找到了linux-arm-g++的文件 ，去修改linxu-arm-g++文件<br><img src="http://isroot.cn/wp-content/uploads/2019/02/55555555-300x69.png"><br>修改后的文件，然后重新编译所有的库文件。没问题，通过</p>
 
       
     </div>
@@ -1029,7 +1042,7 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
